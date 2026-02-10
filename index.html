@@ -99,14 +99,36 @@
                         </div>
                     </div>
 
-                    <article class="bg-white rounded-2xl p-8 border border-slate-100 prose prose-slate max-w-none">
-                        <h3 class="text-xl font-bold text-slate-800 mb-4">如何精確計算鋼鐵重量？</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                            鋼鐵重量計算的基本公式為：重量 = 體積 × 密度。在工程實務中，常用密度如下：
-                            <br>• <strong>碳鋼 (黑鐵)：</strong> 7.85 g/cm³
-                            <br>• <strong>不鏽鋼 (SUS304)：</strong> 7.93 g/cm³
-                        </p>
-                    </article>
+                   <article class="bg-white rounded-2xl p-8 border border-slate-100 prose prose-slate max-w-none">
+    <h3 class="text-xl font-bold text-slate-800 mb-6 border-b pb-2">鋼鐵重量計算實務與成本控制指南</h3>
+    
+    <div class="grid md:grid-cols-2 gap-8 mb-8">
+        <div>
+            <h4 class="font-bold text-blue-600 mb-2">● 密度標準與材質差異</h4>
+            <p class="text-slate-600 text-sm leading-relaxed">
+                在工程估價中，最常用的密度數據為<b>碳鋼 (7.85 g/cm³)</b> 與<b>不鏽鋼 (7.93 g/cm³)</b>。雖然兩者看似差距微小，但在大宗板材採購（如一公頓以上）時，這 1% 的差異就會產生 10 公斤以上的誤差，直接影響採購報價。
+            </p>
+        </div>
+        <div>
+            <h4 class="font-bold text-emerald-600 mb-2">● 為何需要設定「損耗率」？</h4>
+            <p class="text-slate-600 text-sm leading-relaxed">
+                工地現場裁切必然會產生「裁切縫 (Kerf)」與「餘料」。通常矩形板材建議設定 <b>3-5%</b>，而型鋼（如 H 型鋼或角鐵）因長度限制，建議設定 <b>5-10%</b> 的損耗率，以確保採購量足夠支應現場需求。
+            </p>
+        </div>
+    </div>
+
+    <h4 class="font-bold text-slate-800 mb-4">工程採購常見問答 (FAQ)</h4>
+    <div class="space-y-4 text-sm">
+        <details class="bg-slate-50 p-4 rounded-xl cursor-pointer">
+            <summary class="font-bold">Q：計算結果是否包含 CNS 標準公差？</summary>
+            <p class="mt-2 text-slate-500">本工具數據參考 CNS 標準規格，但實際鋼材出廠時可能會有厚度公差（+/- 10%），建議大宗採購仍應以地磅實秤為準。</p>
+        </details>
+        <details class="bg-slate-50 p-4 rounded-xl cursor-pointer">
+            <summary class="font-bold">Q：不鏽鋼板的重量怎麼算最準？</summary>
+            <p class="mt-2 text-slate-500">不鏽鋼種類繁多，SUS304 密度為 7.93，而 SUS430 則約為 7.70。本站預設提供最常見的 304 規格試算。</p>
+        </details>
+    </div>
+</article>
                 </div>
 
                 <div class="space-y-6">
