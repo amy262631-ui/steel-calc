@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鋼鐵重量計算器 | 專業工程規格手冊試算</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+        .data-card { background: white; border-radius: 1.5rem; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05); }
+        body { display: flex; flex-direction: column; min-height: screen; }
+        main { flex: 1; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <main class="py-10 px-4">
+        <div class="max-w-6xl mx-auto">
+            <header class="text-center mb-10">
+                <h1 class="text-3xl font-black text-slate-800 tracking-tight">鋼鐵工程手冊試算</h1>
+            </header>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="data-card p-8 border border-slate-100">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-black text-slate-400 uppercase mb-2 tracking-widest">鋼材類別</label>
+                                <select id="mainCat" class="w-full border-2 border-slate-100 rounded-xl p-4 outline-none focus:border-blue-500 transition-all font-bold text-slate-700" onchange="initSpec()">
+                                    <optgroup label="板材類">
+                                        <option value="IRON_PLATE">黑鐵板 (岳茂規格 0.4-50mm)</option>
+                                        <option value="SS_PLATE">不鏽鋼板 (君利規格 0.3-10mm)</option>
+                                    </optgroup>
+                                    <optgroup label="不鏽鋼專區">
+                                        <option value="SS_CHANNEL">不鏽鋼槽鐵 (暘陞規格)</option>
+                                        <option value="SS_ANGLE_E">不鏽鋼等邊角鐵</option>
+                                        <option value="SS_ROUND_BAR">不鏽鋼實心圓條</option>
+                                    </optgroup>
+                                    <optgroup label="型鋼類 (黑鐵)">
+                                        <option value="RH">熱軋H型鋼 (RH 全規格)</option>
+                                        <option value="CHANNEL">黑鐵槽鋼 (溝鐵全規格)</option>
+                                        <option value="ANGLE_E">等邊角鋼 (含65/75/90)</option>
+                                        <option value="ANGLE_U">不等邊角鋼</option>
+                                    </optgroup>
+                                    <optgroup label="管材類">
+                                        <option value="RECT_TUBE">矩形管 (扁管)</option>
+                                        <option value="SQUARE_TUBE">方管</option>
+                                        <option value="ROUND_TUBE">圓管</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-black text-slate-400 uppercase mb-2 tracking-widest">規格尺寸</label>
+                                <select id="specSelect" class="w-full border-2 border-slate-100 rounded-xl p-4 outline-none focus:border-blue-500 transition-all font-bold text-slate-700" onchange="calculate()">
+                                </select>
+                            </div>
+                        </div>
+                        <div id="dynamicInputs" class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-8 pt-8 border-t border-slate-50"></div>
+                    </div>
+
+                    <div class="bg-slate-800 rounded-2xl p-6 text-white flex justify-around items-center">
+                        <div class="text-center">
+                            <p class="text-slate-400 text-[10px] font-bold uppercase mb-1 tracking-widest">單位質量</p>
+                            <p id="infoUnit" class="text-xl font-mono font-bold text-blue-400">--</p>
+                        </div>
+                        <div class="text-center border-l border-slate-700 pl-8">
+                            <p class="text-slate-400 text-[10px] font-bold uppercase mb-1 tracking-widest">單件預估</p>
+                            <p id="infoSingle" class="text-xl font-mono font-bold text-emerald-400">--</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="bg-blue-600 rounded-[2.5rem] p-10 text-white shadow-xl flex flex-col items-center justify-center">
+                        <p class="text-blue-100 font-bold uppercase tracking-widest text-sm mb-4">Total Weight 總重量</p>
+                        <h2 class="text-7xl font-black tracking-tighter mb-2"><span id="resTotal">0.00</span></h2>
+                        <p class="text-2xl font-bold opacity-60">KG</p>
+                    </div>
+                    <button onclick="copyResult()" class="w-full bg-white border border-slate-200 text-slate-700 font-bold py-4 rounded-2xl shadow-sm hover:bg-slate-50 transition-all flex items-center justify-center gap-2">📋 複製計算結果</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 pt-12 pb-8">
+        <div class="max-w-6xl mx-auto px-4 text-slate-600 text-sm">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="space-y-4">
+                    <h3 class="font-bold text-slate-800 text-lg">關於鋼鐵試算工具</h3>
+                    <p class="leading-relaxed">本站為工程實務專用計算機，數據精確參考 CNS 標準及業界手冊。支援不鏽鋼 304/316 與各式碳鋼材料試算，是工地現場、採購估價的最佳數位助理。</p>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="font-bold text-slate-800 text-lg">法律條款</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-blue-600 hover:underline">隱私權政策 (Privacy Policy)</a></li>
+                        <li><a href="#" class="text-blue-600 hover:underline">使用條款與免責聲明</a></li>
+                        <li class="pt-2 text-[11px] text-slate-400 leading-tight">※ 提醒：計算結果依據理論密度求得，實際重量請以專業磅秤過磅之磅單為準。</li>
+                    </ul>
+                </div>
+               <div class="space-y-4">
+    <h3 class="font-bold text-slate-800 text-lg">聯繫本站</h3>
+    <p>規格錯誤回報或合作提案，歡迎與我聯繫：</p>
+    
+    <div class="pt-2">
+        <a href="mailto:amy262631@gmail.com" 
+           class="inline-flex items-center gap-2 bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white border border-blue-200 px-5 py-2.5 rounded-xl font-bold transition-all duration-300 group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <span>點擊聯繫管理員</span>
+        </a>
+    </div>
+    <p class="text-[11px] text-slate-400">※ 點擊後將自動開啟您的郵件程式</p>
+</div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-slate-100 text-center text-slate-400 text-xs tracking-widest uppercase font-bold">
+                © 2026 鋼鐵工程手冊試算工具 ‧ 計算數據僅供參考
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const DB = {
+            "IRON_PLATE": [
+                {s:"0.4mm",w:3.14},{s:"0.5mm",w:3.93},{s:"0.6mm",w:4.71},{s:"0.8mm",w:6.28},{s:"1.0mm",w:7.85},{s:"1.2mm",w:9.42},
+                {s:"1.5mm",w:11.78},{s:"2.0mm",w:15.70},{s:"2.3mm",w:18.06},{s:"3.0mm",w:23.55},{s:"4.5mm",w:35.33},
+                {s:"6.0mm",w:47.10},{s:"9.0mm",w:70.65},{s:"12mm",w:94.20},{s:"19mm",w:149.2},{s:"25mm",w:196.3},{s:"50mm",w:392.5}
+            ],
+            "SS_PLATE": [
+                {s:"0.3mm",w:2.38},{s:"0.5mm",w:3.97},{s:"1.0mm",w:7.93},{s:"1.5mm",w:11.90},{s:"2.0mm",w:15.86},{s:"3.0mm",w:23.79},{s:"5.0mm",w:39.65},{s:"10mm",w:79.30}
+            ],
+            "SS_CHANNEL": [
+                {s:"50x25x5.0", w:3.66}, {s:"75x40x5.0", w:6.92}, {s:"100x50x5.0", w:9.36}, {s:"125x65x6.0", w:13.40},
+                {s:"150x75x6.5", w:18.60}, {s:"200x80x7.5", w:24.60}, {s:"300x90x9.0", w:38.10}, {s:"380x100x10.5", w:54.50}
+            ],
+            "RH": [
+                {s:"100x50x5x7", w:9.30}, {s:"150x75x5x7", w:14.0}, {s:"200x100x5.5x8", w:21.3}, {s:"300x150x6.5x9", w:36.7}, {s:"400x200x8x13", w:66.0}, {s:"800x300x14x26", w:210.0}
+            ],
+            "CHANNEL": [
+                {s:"75x40x5x7", w:6.92}, {s:"100x50x5x7.5", w:9.36}, {s:"150x75x6.5x10", w:18.6}, {s:"200x80x7.5x11", w:24.6}, {s:"300x90x9x13", w:38.1}
+            ],
+            "ANGLE_E": [
+                {s:"25x25x3",w:1.12}, {s:"50x50x6",w:4.43}, {s:"65x65x6",w:5.91}, {s:"75x75x6",w:6.85}, {s:"90x90x7",w:9.59}, {s:"100x100x10",w:14.9}
+            ],
+            "ANGLE_U": [
+                {s:"75x50x6",w:5.65}, {s:"100x75x7",w:9.32}, {s:"150x90x9",w:16.4}
+            ],
+            "SS_ANGLE_E": [
+                {s:"25x25x3",w:1.12}, {s:"50x50x5",w:3.77}, {s:"65x65x6",w:5.91}
+            ],
+            "SS_ROUND_BAR": [
+                {s:"6mm",w:0.222}, {s:"13mm",w:1.04}, {s:"19mm",w:2.23}, {s:"25mm",w:3.85}, {s:"50mm",w:15.4}
+            ],
+            "RECT_TUBE": [
+                {s:"50x25x2.3",w:2.50}, {s:"100x50x3.2",w:7.01}, {s:"150x50x3.2",w:9.52}
+            ],
+            "SQUARE_TUBE": [
+                {s:"40x40x2.3",w:2.68}, {s:"50x50x3.2",w:4.50}, {s:"100x100x6",w:17.2}
+            ],
+            "ROUND_TUBE": [
+                {s:"34x2.3",w:1.80}, {s:"48.6x2.3",w:2.63}, {s:"114.3x4.5",w:12.2}
+            ]
+        };
+
+        function initSpec() {
+            const cat = document.getElementById('mainCat').value;
+            const select = document.getElementById('specSelect');
+            const inputs = document.getElementById('dynamicInputs');
+            select.innerHTML = "";
+            DB[cat].forEach(item => {
+                let opt = document.createElement('option');
+                opt.value = item.w; opt.text = item.s;
+                select.appendChild(opt);
+            });
+            if (cat.includes("PLATE")) {
+                inputs.innerHTML = `
+                    <div><label class="block text-[10px] font-bold text-slate-400 mb-1 uppercase">寬 W (mm)</label><input type="number" id="valW" value="1219" class="w-full border rounded-xl p-3" oninput="calculate()"></div>
+                    <div><label class="block text-[10px] font-bold text-slate-400 mb-1 uppercase">長 L (mm)</label><input type="number" id="valL" value="2438" class="w-full border rounded-xl p-3" oninput="calculate()"></div>
+                    <div><label class="block text-[10px] font-bold text-slate-400 mb-1 uppercase">數量 Qty</label><input type="number" id="valQty" value="1" class="w-full border rounded-xl p-3" oninput="calculate()"></div>`;
+            } else {
+                inputs.innerHTML = `
+                    <div class="col-span-2"><label class="block text-[10px] font-bold text-slate-400 mb-1 uppercase">長度 Length (mm)</label><input type="number" id="valL" value="6000" class="w-full border rounded-xl p-3" oninput="calculate()"></div>
+                    <div><label class="block text-[10px] font-bold text-slate-400 mb-1 uppercase">數量 Qty</label><input type="number" id="valQty" value="1" class="w-full border rounded-xl p-3" oninput="calculate()"></div>`;
+            }
+            calculate();
+        }
+
+        function calculate() {
+            const cat = document.getElementById('mainCat').value;
+            const unitW = parseFloat(document.getElementById('specSelect').value);
+            const qty = parseFloat(document.getElementById('valQty').value) || 0;
+            const L = parseFloat(document.getElementById('valL').value) || 0;
+            let single = 0;
+            if (cat.includes("PLATE")) {
+                const W = parseFloat(document.getElementById('valW').value) || 0;
+                single = (W/1000) * (L/1000) * unitW;
+                document.getElementById('infoUnit').innerText = unitW.toFixed(2) + " kg/m²";
+            } else {
+                single = (L/1000) * unitW;
+                document.getElementById('infoUnit').innerText = unitW.toFixed(2) + " kg/m";
+            }
+            const total = single * qty;
+            document.getElementById('resTotal').innerText = total.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('infoSingle').innerText = single.toFixed(2) + " kg";
+        }
+
+        function copyResult() {
+            const spec = document.getElementById('specSelect').selectedOptions[0].text;
+            const weight = document.getElementById('resTotal').innerText;
+            navigator.clipboard.writeText(`規格：${spec}, 總重：${weight} KG`).then(() => alert('複製成功'));
+        }
+        initSpec();
+    </script>
+</body>
+</html>
