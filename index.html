@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    
     <title>鋼鐵重量計算器 | 專業工程規格手冊與線上試算工具</title>
     <meta name="description" content="全台最專業鋼鐵重量試算工具，涵蓋 H 型鋼、黑鐵板、不鏽鋼、角鐵、管材等 CNS 標準規格。內建損耗率與單價報價功能，工地採購詢價首選。">
     <meta name="keywords" content="鋼鐵重量計算, H型鋼重量, 不鏽鋼重量表, 鋼板試算, 工程估價工具, 鐵材規格">
@@ -24,7 +26,6 @@
         .input-group label { display: block; text-transform: uppercase; font-weight: 900; color: #94a3b8; font-size: 0.65rem; margin-bottom: 0.25rem; letter-spacing: 0.05em; }
         .input-field { width: 100%; border: 2px solid #f1f5f9; border-radius: 0.75rem; padding: 0.75rem; outline: none; transition: all 0.3s; font-weight: 700; color: #334155; }
         .input-field:focus { border-color: #3b82f6; }
-        /* 優化行動端點擊感 */
         @media (max-width: 768px) { .input-field { font-size: 16px; } }
     </style>
 </head>
@@ -139,9 +140,20 @@
                         <div class="pt-6 border-t border-blue-500 w-full">
                             <p class="text-blue-100 text-sm font-bold mb-1">預估金額 (TWD)</p>
                             <h3 class="text-3xl font-black">$ <span id="resPrice">0</span></h3>
-                        </div>
+                </div>
                     </div>
-                    <button onclick="copyResult()" class="w-full bg-white border border-slate-200 text-slate-700 font-bold py-4 rounded-2xl shadow-sm hover:bg-slate-50 transition-all flex items-center justify-center gap-2">📋 複製詳細計算結果</button>
+                    <div class="space-y-3 mt-4">
+                        <button onclick="copyResult()" class="w-full bg-white border border-slate-200 text-slate-700 font-bold py-4 rounded-2xl shadow-sm hover:bg-slate-50 transition-all flex items-center justify-center gap-2">
+                            📋 複製詳細計算結果
+                        </button>
+                        
+                        <button onclick="shareToLine()" class="w-full bg-[#06C755] text-white font-bold py-4 rounded-2xl shadow-sm hover:opacity-90 transition-all flex items-center justify-center gap-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.608.391.084.922.258 1.057.592.121.303.079.778.039 1.085l-.171 1.047c-.052.311-.252 1.217 1.088.665 1.339-.551 7.221-4.253 9.854-7.279 1.815-2.106 2.097-3.669 2.097-5.723z"/>
+                            </svg>
+                            分享結果到 Line
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -284,6 +296,18 @@
             const price = document.getElementById('resPrice').innerText;
             const text = `【鋼鐵重量計算結果】\n規格：${spec}\n總重量：${weight} KG\n預估金額：$${price} TWD\n(含損耗計算)`;
             navigator.clipboard.writeText(text).then(() => alert('詳細結果已複製至剪貼簿'));
+        }
+        function shareToLine() {
+            const spec = document.getElementById('specSelect').selectedOptions[0].text;
+            const weight = document.getElementById('resTotal').innerText;
+            const price = document.getElementById('resPrice').innerText;
+            // 自動帶入您的正式網域
+            const currentUrl = "https://steel-calc.idv.tw";
+            
+            const text = `【鋼鐵重量計算結果】\n規格：${spec}\n總重量：${weight} KG\n預估金額：$${price} TWD\n\n線上試算工具：\n${currentUrl}`;
+            
+            // 開啟 Line 分享頁面
+            window.open(`https://line.me/R/msg/text/?${encodeURIComponent(text)}`, '_blank');
         }
 
         initSpec();
