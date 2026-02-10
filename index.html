@@ -3,17 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>鋼鐵重量計算器 | 專業工程規格手冊與線上試算工具</title>
-    <meta name="description" content="提供最準確的鋼鐵重量計算工具，包含黑鐵板、不鏽鋼、H型鋼、角鐵、管材等全規格。支援損耗率計算與單價估算，適合工地現場與採購詢價使用。">
+    <meta name="description" content="全台最專業鋼鐵重量試算工具，涵蓋 H 型鋼、黑鐵板、不鏽鋼、角鐵、管材等 CNS 標準規格。內建損耗率與單價報價功能，工地採購詢價首選。">
+    <meta name="keywords" content="鋼鐵重量計算, H型鋼重量, 不鏽鋼重量表, 鋼板試算, 工程估價工具, 鐵材規格">
+
+    <meta property="og:title" content="鋼鐵重量計算器 | 專業工程規格試算">
+    <meta property="og:description" content="一鍵計算各式鋼材重量與造價，工地現場與採購必備。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://steel-calc.idv.tw">
+    
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2163/2163914.png" type="image/x-icon">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
         .data-card { background: white; border-radius: 1.5rem; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05); }
-        body { display: flex; flex-direction: column; min-height: 100vh; }
+        body { display: flex; flex-direction: column; min-height: 100vh; font-family: sans-serif; }
         main { flex: 1; }
         .input-group label { display: block; text-transform: uppercase; font-weight: 900; color: #94a3b8; font-size: 0.65rem; margin-bottom: 0.25rem; letter-spacing: 0.05em; }
         .input-field { width: 100%; border: 2px solid #f1f5f9; border-radius: 0.75rem; padding: 0.75rem; outline: none; transition: all 0.3s; font-weight: 700; color: #334155; }
         .input-field:focus { border-color: #3b82f6; }
+        /* 優化行動端點擊感 */
+        @media (max-width: 768px) { .input-field { font-size: 16px; } }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900">
