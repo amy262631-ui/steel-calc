@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>鋼鐵重量計算器 | 專業工程規格手冊與線上試算工具</title>
     <meta name="description" content="提供最準確的鋼鐵重量計算工具，包含黑鐵板、不鏽鋼、H型鋼、角鐵、管材等全規格。支援損耗率計算與單價估算，適合工地現場與採購詢價使用。">
-    
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
@@ -47,6 +46,7 @@
                                         <option value="CHANNEL">黑鐵槽鋼 (溝鐵)</option>
                                         <option value="ANGLE_E">等邊角鋼</option>
                                         <option value="ANGLE_U">不等邊角鋼</option>
+                                        <option value="FLAT_BAR">扁鐵 </option>
                                     </optgroup>
                                     <optgroup label="管材類">
                                         <option value="RECT_TUBE">矩形管 (扁管)</option>
@@ -57,13 +57,10 @@
                             </div>
                             <div class="input-group">
                                 <label>規格尺寸</label>
-                                <select id="specSelect" class="input-field" onchange="calculate()">
-                                    </select>
+                                <select id="specSelect" class="input-field" onchange="calculate()"></select>
                             </div>
                         </div>
-
                         <div id="dynamicInputs" class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-8 pt-8 border-t border-slate-50"></div>
-
                         <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-6">
                             <div class="input-group">
                                 <label>損耗率 (%)</label>
@@ -97,10 +94,6 @@
                             <br>• <strong>碳鋼 (黑鐵)：</strong> 7.85 g/cm³
                             <br>• <strong>不鏽鋼 (SUS304)：</strong> 7.93 g/cm³
                         </p>
-                        <h4 class="text-md font-bold text-slate-800 mb-2">不鏽鋼 304 與 316 密度的差異</h4>
-                        <p class="text-slate-600 text-sm leading-relaxed">
-                            雖然 304 與 316 不鏽鋼在防鏽性能上有顯著差異，但其密度非常接近（分別約為 7.93 與 7.98）。在本計算器中，我們採用標準理論重量，能滿足 95% 以上的估價需求。
-                        </p>
                     </article>
                 </div>
 
@@ -109,76 +102,61 @@
                         <p class="text-blue-100 font-bold uppercase tracking-widest text-sm mb-4">Total Weight / Cost</p>
                         <h2 class="text-6xl font-black tracking-tighter mb-1"><span id="resTotal">0.00</span></h2>
                         <p class="text-xl font-bold opacity-60 mb-6">KG</p>
-                        
                         <div class="pt-6 border-t border-blue-500 w-full">
                             <p class="text-blue-100 text-sm font-bold mb-1">預估金額 (TWD)</p>
                             <h3 class="text-3xl font-black">$ <span id="resPrice">0</span></h3>
                         </div>
                     </div>
                     <button onclick="copyResult()" class="w-full bg-white border border-slate-200 text-slate-700 font-bold py-4 rounded-2xl shadow-sm hover:bg-slate-50 transition-all flex items-center justify-center gap-2">📋 複製詳細計算結果</button>
-                    
-                    <div class="p-4 bg-amber-50 rounded-xl border border-amber-100">
-                        <p class="text-amber-700 text-xs leading-relaxed"><strong>💡 提示：</strong> 損耗率建議依照加工複雜度抓取 3% - 5%。大型鋼構工程建議額外考慮螺栓與焊條重量。</p>
-                    </div>
                 </div>
             </div>
         </div>
     </main>
 
-   <footer class="bg-white border-t border-slate-200 pt-12 pb-8">
-    <div class="max-w-6xl mx-auto px-4 text-slate-600 text-sm">
-        <div class="grid md:grid-cols-3 gap-12">
-            <div class="space-y-4">
-                <h3 class="font-bold text-slate-800 text-lg">關於鋼鐵試算工具</h3>
-                <p class="leading-relaxed">本站專為工程師、採購與現場工班設計。提供標準化、數位化的重量計算服務，減少翻閱手冊的時間誤差。</p>
-            </div>
-            <div class="space-y-4">
-                <h3 class="font-bold text-slate-800 text-lg">法律條款</h3>
-                <ul class="space-y-3">
-                    <li><a href="privacy.html" class="text-blue-600 hover:underline">隱私權政策 (Privacy Policy)</a></li>
-                    <li><a href="terms.html" class="text-blue-600 hover:underline">使用條款與免責聲明</a></li>
-                    <li class="pt-2 text-[11px] text-slate-400 leading-tight">※ 提醒：計算結果依據理論密度求得，實際重量請以過磅之磅單為準。</li>
-                </ul>
-            </div>
-
-            <div class="space-y-4">
-                <h3 class="font-bold text-slate-800 text-lg">聯繫本站</h3>
-                <p>規格錯誤回報或廣告合作：</p>
-                <div class="pt-2">
-                    <button onclick="toggleContactModal()" class="inline-flex items-center gap-2 bg-blue-600 text-white hover:bg-blue-700 px-6 py-3 rounded-xl font-bold transition-all shadow-lg shadow-blue-100">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-                        </svg>
-                        <span>聯絡管理員</span>
-                    </button>
+    <footer class="bg-white border-t border-slate-200 pt-12 pb-8">
+        <div class="max-w-6xl mx-auto px-4 text-slate-600 text-sm">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="space-y-4">
+                    <h3 class="font-bold text-slate-800 text-lg">關於鋼鐵試算工具</h3>
+                    <p class="leading-relaxed">提供標準化、數位化的重量計算服務，減少翻閱手冊的時間誤差。</p>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="font-bold text-slate-800 text-lg">法律條款</h3>
+                    <ul class="space-y-3">
+                        <li><a href="privacy.html" class="text-blue-600 hover:underline">隱私權政策 (Privacy Policy)</a></li>
+                        <li><a href="terms.html" class="text-blue-600 hover:underline">使用條款與免責聲明</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="font-bold text-slate-800 text-lg">聯繫本站</h3>
+                    <div class="pt-2">
+                        <button onclick="toggleContactModal()" class="inline-flex items-center gap-2 bg-blue-600 text-white hover:bg-blue-700 px-6 py-3 rounded-xl font-bold transition-all shadow-lg">
+                            <span>聯絡管理員</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="mt-12 pt-8 border-t border-slate-100 text-center text-slate-400 text-xs tracking-widest uppercase font-bold">
-            © 2026 鋼鐵工程手冊試算工具 ‧ 計算數據僅供參考
-        </div>
-    </div>
+    </footer>
 
     <div id="contactModal" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl p-8 max-w-sm w-full shadow-2xl transform transition-all">
-            <h3 class="text-xl font-black text-slate-800 mb-4">聯繫資訊</h3>
-            <p class="text-slate-500 mb-6">如有任何問題，請透過電子郵件與我們聯繫：</p>
-            <div class="bg-slate-50 border-2 border-dashed border-slate-200 p-4 rounded-2xl mb-6">
-                <p class="text-center font-mono text-blue-600 font-bold text-lg select-all">amy262631@gmail.com</p>
+        <div class="bg-white rounded-3xl p-8 max-w-sm w-full shadow-2xl">
+            <h3 class="text-xl font-black text-slate-800 mb-4 text-center">聯繫資訊</h3>
+            <div class="bg-slate-50 border-2 border-dashed border-slate-200 p-4 rounded-2xl mb-6 text-center font-mono text-blue-600 font-bold text-lg">
+                amy262631@gmail.com
             </div>
             <button onclick="toggleContactModal()" class="w-full bg-slate-800 text-white font-bold py-3 rounded-xl hover:bg-slate-700 transition-all">關閉視窗</button>
         </div>
     </div>
-</footer>
 
-<script>
-    // 控制彈窗顯示/隱藏
-    function toggleContactModal() {
-        const modal = document.getElementById('contactModal');
-        modal.classList.toggle('hidden');
-    }
-</script>
-        // 資料庫保持不變
+    <script>
+        // 控制彈窗
+        function toggleContactModal() {
+            const modal = document.getElementById('contactModal');
+            modal.classList.toggle('hidden');
+        }
+
+        // 資料庫
         const DB = {
             "IRON_PLATE": [{s:"0.4mm",w:3.14},{s:"0.5mm",w:3.93},{s:"0.6mm",w:4.71},{s:"0.8mm",w:6.28},{s:"1.0mm",w:7.85},{s:"1.2mm",w:9.42},{s:"1.5mm",w:11.78},{s:"2.0mm",w:15.70},{s:"2.3mm",w:18.06},{s:"3.0mm",w:23.55},{s:"4.5mm",w:35.33},{s:"6.0mm",w:47.10},{s:"9.0mm",w:70.65},{s:"12mm",w:94.20},{s:"19mm",w:149.2},{s:"25mm",w:196.3},{s:"50mm",w:392.5}],
             "SS_PLATE": [{s:"0.3mm",w:2.38},{s:"0.5mm",w:3.97},{s:"1.0mm",w:7.93},{s:"1.5mm",w:11.90},{s:"2.0mm",w:15.86},{s:"3.0mm",w:23.79},{s:"5.0mm",w:39.65},{s:"10mm",w:79.30}],
@@ -188,6 +166,25 @@
             "ANGLE_E": [{s:"25x25x3",w:1.12}, {s:"50x50x6",w:4.43}, {s:"75x75x6",w:6.85}, {s:"100x100x10",w:14.9}],
             "ANGLE_U": [{s:"75x50x6",w:5.65}, {s:"100x75x7",w:9.32}, {s:"150x90x9",w:16.4}],
             "SS_ANGLE_E": [{s:"25x25x3",w:1.12}, {s:"50x50x5",w:3.77}, {s:"65x65x6",w:5.91}],
+            "FLAT_BAR": [
+    // 常用薄規格 (3mm - 9mm)
+    {s:"3x19", w:0.45}, {s:"3x25", w:0.59}, {s:"4.5x25", w:0.88}, {s:"4.5x38", w:1.34},
+    {s:"6x25", w:1.18}, {s:"6x38", w:1.79}, {s:"6x50", w:2.36}, {s:"6x65", w:3.06},
+    {s:"6x75", w:3.53}, {s:"6x100", w:4.71}, {s:"9x38", w:2.68}, {s:"9x50", w:3.53},
+    {s:"9x65", w:4.59}, {s:"9x75", w:5.30}, {s:"9x100", w:7.07}, {s:"9x125", w:8.83},
+    
+    // 中厚規格 (12mm - 19mm)
+    {s:"12x25", w:2.36}, {s:"12x38", w:3.58}, {s:"12x50", w:4.71}, {s:"12x65", w:6.12},
+    {s:"12x75", w:7.07}, {s:"12x100", w:9.42}, {s:"12x125", w:11.8}, {s:"12x150", w:14.1},
+    {s:"16x25", w:3.14}, {s:"16x38", w:4.77}, {s:"16x50", w:6.28}, {s:"16x65", w:8.16},
+    {s:"16x75", w:9.42}, {s:"16x100", w:12.6}, {s:"16x125", w:15.7}, {s:"16x150", w:18.8},
+    {s:"19x32", w:4.77}, {s:"19x38", w:5.67}, {s:"19x50", w:7.46}, {s:"19x65", w:9.69},
+    {s:"19x75", w:11.2}, {s:"19x100", w:14.9}, {s:"19x125", w:18.6}, {s:"19x150", w:22.4},
+
+    // 厚規格 (25mm 以上)
+    {s:"25x50", w:9.81}, {s:"25x65", w:12.8}, {s:"25x75", w:14.7}, {s:"25x100", w:19.6},
+    {s:"25x125", w:24.5}, {s:"25x150", w:29.4}
+],
             "SS_ROUND_BAR": [{s:"6mm",w:0.222}, {s:"13mm",w:1.04}, {s:"19mm",w:2.23}, {s:"25mm",w:3.85}],
             "RECT_TUBE": [{s:"50x25x2.3",w:2.50}, {s:"100x50x3.2",w:7.01}, {s:"150x50x3.2",w:9.52}],
             "SQUARE_TUBE": [{s:"40x40x2.3",w:2.68}, {s:"50x50x3.2",w:4.50}, {s:"100x100x6",w:17.2}],
@@ -204,7 +201,6 @@
                 opt.value = item.w; opt.text = item.s;
                 select.appendChild(opt);
             });
-
             if (cat.includes("PLATE")) {
                 inputs.innerHTML = `
                     <div class="input-group"><label>寬 W (mm)</label><input type="number" id="valW" value="1219" class="input-field" oninput="calculate()"></div>
@@ -235,10 +231,8 @@
                 single = (L/1000) * unitW;
                 document.getElementById('infoUnit').innerText = unitW.toFixed(2) + " kg/m";
             }
-
             const total = single * qty * waste;
             const totalPrice = total * pricePerKg;
-
             document.getElementById('resTotal').innerText = total.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
             document.getElementById('infoSingle').innerText = single.toFixed(2) + " kg";
             document.getElementById('resPrice').innerText = Math.round(totalPrice).toLocaleString();
