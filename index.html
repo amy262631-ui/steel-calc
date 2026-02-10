@@ -125,22 +125,19 @@
         </div>
     </main>
 
-    <footer class="bg-white border-t border-slate-200 pt-12 pb-8">
+   <footer class="bg-white border-t border-slate-200 pt-12 pb-8">
     <div class="max-w-6xl mx-auto px-4 text-slate-600 text-sm">
         <div class="grid md:grid-cols-3 gap-12">
             <div class="space-y-4">
                 <h3 class="font-bold text-slate-800 text-lg">關於鋼鐵試算工具</h3>
                 <p class="leading-relaxed">本站專為工程師、採購與現場工班設計。提供標準化、數位化的重量計算服務，減少翻閱手冊的時間誤差。</p>
             </div>
-
             <div class="space-y-4">
                 <h3 class="font-bold text-slate-800 text-lg">法律條款</h3>
                 <ul class="space-y-3">
                     <li><a href="privacy.html" class="text-blue-600 hover:underline">隱私權政策 (Privacy Policy)</a></li>
                     <li><a href="terms.html" class="text-blue-600 hover:underline">使用條款與免責聲明</a></li>
-                    <li class="pt-2 text-[11px] text-slate-400 leading-tight">
-                        ※ 提醒：計算結果依據理論密度求得，實際重量請以過磅之磅單為準。
-                    </li>
+                    <li class="pt-2 text-[11px] text-slate-400 leading-tight">※ 提醒：計算結果依據理論密度求得，實際重量請以過磅之磅單為準。</li>
                 </ul>
             </div>
 
@@ -148,29 +145,39 @@
                 <h3 class="font-bold text-slate-800 text-lg">聯繫本站</h3>
                 <p>規格錯誤回報或廣告合作：</p>
                 <div class="pt-2">
-                    <a href="mailto:amy262631@gmail.com" 
-                       class="inline-flex items-center gap-2 bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white border border-blue-200 px-5 py-2.5 rounded-xl font-bold transition-all duration-300 group">
+                    <button onclick="toggleContactModal()" class="inline-flex items-center gap-2 bg-blue-600 text-white hover:bg-blue-700 px-6 py-3 rounded-xl font-bold transition-all shadow-lg shadow-blue-100">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                         </svg>
-                        <span>點擊發送郵件</span>
-                    </a>
-                </div>
-                <div class="mt-2 text-[12px] text-slate-500 bg-slate-50 p-2 rounded-lg border border-dashed border-slate-200">
-                    <strong>備用聯繫：</strong><br>
-                    <span class="select-all">amy262631@gmail.com</span>
-                    <p class="text-[10px] text-slate-400 mt-1">（若點擊按鈕沒反應，請手動複製上方 Email）</p>
+                        <span>聯絡管理員</span>
+                    </button>
                 </div>
             </div>
         </div>
-
         <div class="mt-12 pt-8 border-t border-slate-100 text-center text-slate-400 text-xs tracking-widest uppercase font-bold">
             © 2026 鋼鐵工程手冊試算工具 ‧ 計算數據僅供參考
         </div>
     </div>
+
+    <div id="contactModal" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-8 max-w-sm w-full shadow-2xl transform transition-all">
+            <h3 class="text-xl font-black text-slate-800 mb-4">聯繫資訊</h3>
+            <p class="text-slate-500 mb-6">如有任何問題，請透過電子郵件與我們聯繫：</p>
+            <div class="bg-slate-50 border-2 border-dashed border-slate-200 p-4 rounded-2xl mb-6">
+                <p class="text-center font-mono text-blue-600 font-bold text-lg select-all">amy262631@gmail.com</p>
+            </div>
+            <button onclick="toggleContactModal()" class="w-full bg-slate-800 text-white font-bold py-3 rounded-xl hover:bg-slate-700 transition-all">關閉視窗</button>
+        </div>
+    </div>
 </footer>
 
-    <script>
+<script>
+    // 控制彈窗顯示/隱藏
+    function toggleContactModal() {
+        const modal = document.getElementById('contactModal');
+        modal.classList.toggle('hidden');
+    }
+</script>
         // 資料庫保持不變
         const DB = {
             "IRON_PLATE": [{s:"0.4mm",w:3.14},{s:"0.5mm",w:3.93},{s:"0.6mm",w:4.71},{s:"0.8mm",w:6.28},{s:"1.0mm",w:7.85},{s:"1.2mm",w:9.42},{s:"1.5mm",w:11.78},{s:"2.0mm",w:15.70},{s:"2.3mm",w:18.06},{s:"3.0mm",w:23.55},{s:"4.5mm",w:35.33},{s:"6.0mm",w:47.10},{s:"9.0mm",w:70.65},{s:"12mm",w:94.20},{s:"19mm",w:149.2},{s:"25mm",w:196.3},{s:"50mm",w:392.5}],
