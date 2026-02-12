@@ -83,20 +83,62 @@
                     
                     <div id="dynamicInputs" class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-8 pt-8 border-t border-slate-50"></div>
                     
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-6">
-                        <div class="input-group">
-                            <label>損耗率 (%)</label>
-                            <input type="number" id="valWaste" value="0" class="input-field" oninput="calculate()">
-                        </div>
-                        <div class="input-group">
-                            <label>單價 (元/kg)</label>
-                            <input type="number" id="valPrice" placeholder="輸入單價" class="input-field" oninput="calculate()">
-                        </div>
-                        <div class="flex items-end">
-                            <button onclick="resetForm()" class="w-full bg-slate-100 text-slate-500 font-bold py-3 rounded-xl hover:bg-slate-200 transition-all">重置清空</button>
-                        </div>
-                    </div>
-                </div>
+                   <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-6">
+    <div class="input-group">
+        <label>損耗率 (%)</label>
+        <input type="number" id="valWaste" value="0" class="input-field" oninput="calculate()">
+    </div>
+    <div class="input-group">
+        <label>單價 (元/kg)</label>
+        <input type="number" id="valPrice" placeholder="輸入單價" class="input-field" oninput="calculate()">
+    </div>
+    <div class="flex flex-col gap-2">
+        <button onclick="toggleFormulaModal()" class="w-full bg-blue-50 text-blue-600 font-bold py-2 rounded-xl hover:bg-blue-100 transition-all border border-blue-100 text-xs">
+            📖 計算公式說明
+        </button>
+        <button onclick="resetForm()" class="w-full bg-slate-100 text-slate-500 font-bold py-2 rounded-xl hover:bg-slate-200 transition-all text-xs">
+            重置清空
+        </button>
+    </div>
+</div>
+
+<div id="formulaModal" class="hidden fixed inset-0 bg-slate-900/80 backdrop-blur-md z-[100] flex items-center justify-center p-4">
+    <div class="bg-white rounded-[2.5rem] p-8 md:p-12 max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative">
+        <button onclick="toggleFormulaModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-600 text-2xl">✕</button>
+        
+        <div class="flex items-center gap-4 mb-8">
+            <div class="h-8 w-2 bg-blue-600 rounded-full"></div>
+            <h3 class="text-2xl font-black text-slate-800">鋼鐵重量理論計算公式</h3>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-slate-50 p-6 rounded-2xl">
+                <h4 class="font-bold text-blue-600 mb-3 text-lg">● 鋼板 / 扁鐵</h4>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    公式：厚度(mm) × 寬度(m) × 長度(m) × 密度<br>
+                    <span class="text-xs text-slate-400">※ 碳鋼密度 7.85 / 不鏽鋼 7.93</span>
+                </p>
+            </div>
+            <div class="bg-slate-50 p-6 rounded-2xl text-slate-600">
+                <h4 class="font-bold text-emerald-600 mb-3 text-lg">● 圓管與方管</h4>
+                <p class="text-sm">圓管：(外徑 - 厚度) × 厚度 × 0.02466 × 長度(m)</p>
+                <p class="text-sm mt-2">方管：(邊長×4 ÷ 3.14 - 厚度) × 厚度 × 0.02466 × 長度(m)</p>
+            </div>
+            <div class="bg-slate-50 p-6 rounded-2xl">
+                <h4 class="font-bold text-orange-600 mb-3 text-lg">● 等邊角鐵</h4>
+                <p class="text-sm text-slate-600">公式：[ 邊長 + (邊長 - 厚度) ] × 厚度 × 0.00785 × 長度(m)</p>
+            </div>
+            <div class="bg-slate-800 p-6 rounded-2xl text-white">
+                <h4 class="font-bold text-blue-300 mb-3 text-lg">● H型鋼 / 槽鐵</h4>
+                <p class="text-xs text-blue-100 opacity-80 mb-2">H型鋼理論重量計算邏輯：</p>
+                <p class="text-sm font-mono">[ t1×B×2 + t2×(H-2×t1) ] × 0.00785</p>
+            </div>
+        </div>
+        <div class="mt-8 text-xs text-slate-400 italic">
+            ※ 本站規格均對齊 CNS 標準，計算結果僅供預估採購使用。
+        </div>
+    </div>
+</div>
 
                 <div class="bg-slate-800 rounded-2xl p-6 text-white flex justify-around items-center">
                     <div class="text-center">
@@ -131,41 +173,60 @@
                 </div>
             </div>
 
-            <div class="lg:col-span-3 mt-4">
-                <article class="bg-white rounded-[2.5rem] p-10 md:p-16 border border-slate-100 shadow-sm max-w-none">
-                    <div class="flex items-center gap-4 mb-10">
-                        <div class="h-10 w-2 bg-blue-600 rounded-full"></div>
-                        <h3 class="text-3xl font-black text-slate-800">鋼鐵重量計算實務與成本控制指南</h3>
-                    </div>
-                    
-                    <div class="grid md:grid-cols-2 gap-16 mb-12">
-                        <section>
-                            <h4 class="text-xl font-bold text-blue-600 mb-4 flex items-center gap-2">● 密度標準與材質差異</h4>
-                            <p class="text-slate-600 text-lg leading-relaxed">
-                                在工程估價中，最常用的密度數據為<b>碳鋼 (7.85 g/cm³)</b> 與<b>不鏽鋼 (7.93 g/cm³)</b>。雖然兩者看似差距微小，但在大宗採購時，這 1% 的差異就會產生顯著的重量誤差，直接影響報價準確度。
-                            </p>
-                        </section>
-                        <section>
-                            <h4 class="text-xl font-bold text-emerald-600 mb-4 flex items-center gap-2">● 為何需要設定「損耗率」？</h4>
-                            <p class="text-slate-600 text-lg leading-relaxed">
-                                現場裁切必然會產生「裁切縫」與「餘料」。通常矩形板材建議設定 <b>3-5%</b>，而型鋼（如 H 型鋼或 C 型鋼）因定尺限制，建議設定 <b>5-10%</b> 的損耗率，以確保採購量足以支應需求。
-                            </p>
-                        </section>
-                    </div>
+<article class="bg-white rounded-[2.5rem] p-10 md:p-16 border border-slate-100 shadow-sm max-w-none">
+    <div class="flex items-center gap-4 mb-10 border-b-2 border-slate-50 pb-6">
+        <div class="h-10 w-2 bg-blue-600 rounded-full"></div>
+        <h3 class="text-3xl font-black text-slate-800">鋼鐵重量計算實務與公式指南</h3>
+    </div>
+    
+    <div class="grid md:grid-cols-2 gap-16 mb-12">
+        <section>
+            <h4 class="text-xl font-bold text-blue-600 mb-4 flex items-center gap-2">● 鋼材密度與材質差異</h4>
+            <p class="text-slate-600 text-lg leading-relaxed">
+                工程估價常用密度：<b>碳鋼 (7.85 g/cm³)</b> 與 <b>不鏽鋼 (7.93 g/cm³)</b>。大宗採購時，這 1% 的微小密度差異會導致顯著的噸數誤差，直接影響成本報價。
+            </p>
+        </section>
+        <section>
+            <h4 class="text-xl font-bold text-emerald-600 mb-4 flex items-center gap-2">● 為何需要設定「損耗率」？</h4>
+            <p class="text-slate-600 text-lg leading-relaxed">
+                現場裁切必產生「裁切縫」與「餘料」。通常矩形板材建議設定 <b>3-5%</b>，而 H 型鋼或 C 型鋼受定尺限制，建議設定 <b>5-10%</b> 損耗率以確保備料充足。
+            </p>
+        </section>
+    </div>
 
-                    <div class="bg-slate-50 rounded-3xl p-8">
-                        <h4 class="font-bold text-slate-800 text-xl mb-6">工程採購常見問答 (FAQ)</h4>
-                        <div class="space-y-6">
-                            <details class="group cursor-pointer">
-                                <summary class="font-bold text-slate-700 text-lg flex justify-between items-center group-open:text-blue-600 transition-colors">
-                                    Q：計算結果是否包含 CNS 標準公差？
-                                    <span class="transition-transform group-open:rotate-180">▼</span>
-                                </summary>
-                                <p class="mt-4 text-slate-500 leading-relaxed pl-4 border-l-2 border-slate-200">本工具數據參考 CNS 標準規格，但出廠鋼材可能會有厚度公差，大宗採購仍應以地磅實秤為準。</p>
-                            </details>
-                        </div>
-                    </div>
-                </article>
+    <div class="bg-slate-50 rounded-3xl p-8 mb-10 border border-slate-100">
+        <h4 class="font-bold text-slate-800 text-xl mb-6">各類型鋼理論重量計算公式</h4>
+        <div class="grid md:grid-cols-3 gap-6 text-sm text-slate-600 font-mono">
+            <div class="p-4 bg-white rounded-xl shadow-sm border border-blue-50">
+                <p class="font-bold text-blue-600 mb-1 font-sans">等邊角鋼 (L-Angle)</p>
+                <p>[邊長+(邊長-厚)]×厚×0.00785</p>
+            </div>
+            <div class="p-4 bg-white rounded-xl shadow-sm border border-emerald-50">
+                <p class="font-bold text-emerald-600 mb-1 font-sans">圓管 (Round Tube)</p>
+                <p>(外徑-厚度)×厚度×0.02466</p>
+            </div>
+            <div class="p-4 bg-white rounded-xl shadow-sm border border-orange-50">
+                <p class="font-bold text-orange-600 mb-1 font-sans">H 型鋼 (H-Beam)</p>
+                <p>[t1×B×2 + t2×(H-2×t1)]×0.00785</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-slate-50 rounded-3xl p-8">
+        <h4 class="font-bold text-slate-800 text-xl mb-6">工程採購常見問答 (FAQ)</h4>
+        <div class="space-y-6">
+            <details class="group cursor-pointer">
+                <summary class="font-bold text-slate-700 text-lg flex justify-between items-center group-open:text-blue-600 transition-colors">
+                    Q：計算結果是否包含 CNS 標準公差？
+                    <span class="transition-transform group-open:rotate-180">▼</span>
+                </summary>
+                <p class="mt-4 text-slate-500 leading-relaxed pl-4 border-l-2 border-slate-200">
+                    本工具參考 CNS 標準規格，但鋼材出廠可能會有 +/- 10% 的厚度公差，大宗採購仍應以地磅實秤為準。
+                </p>
+            </details>
+        </div>
+    </div>
+</article>
             </div>
         </div> </div> </main>
 
@@ -212,6 +273,10 @@
             modal.classList.toggle('hidden');
         }
 
+        function toggleFormulaModal() {
+    const modal = document.getElementById('formulaModal');
+    modal.classList.toggle('hidden');
+}
         // 資料庫
         const DB = {
      "IRON_PLATE": [
