@@ -44,15 +44,68 @@
         <div class="data-card p-8 border border-slate-100">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="input-group">
-                    <label>鋼材類別</label>
-                    <select id="mainCat" class="input-field" onchange="initSpec()">
-                        <optgroup label="板材類">
-                            <option value="IRON_PLATE">黑鐵板 (0.4-50mm)</option>
-                            <option value="SS_PLATE">不鏽鋼板 (0.3-50mm)</option>
-                            <option value="CHECKERED_PLATE">花紋止滑板</option>
-                        </optgroup>
-                        </select>
-                </div>
+                     <label>鋼材類別</label>
+
+                            <select id="mainCat" class="input-field" onchange="initSpec()">
+
+                                <optgroup label="板材類">
+
+                                    <option value="IRON_PLATE">黑鐵板 (0.4-50mm)</option>
+
+                                    <option value="SS_PLATE">不鏽鋼板 (0.3-50mm)</option>
+
+                                    <option value="CHECKERED_PLATE">花紋止滑板</option>
+
+                                </optgroup>
+
+                                <optgroup label="網類 / 擴張網">
+
+                                    <option value="EXPANDED_XG">XG 型金屬擴張網</option>
+
+                                </optgroup>
+
+                                <optgroup label="不鏽鋼專區">
+
+                                    <option value="SS_CHANNEL">不鏽鋼槽鐵</option>
+
+                                    <option value="SS_ANGLE_E">不鏽鋼等邊角鐵</option>
+
+                                    <option value="SS_ROUND_BAR">不鏽鋼實心圓條</option>
+
+                                    <option value="ROUND_TUBE_SS">不鏽鋼圓管 (Pipe)</option>
+
+                                </optgroup>
+
+                                <optgroup label="型鋼類 (黑鐵)">
+
+                                    <option value="RH">熱軋H型鋼 (全規格)</option>
+                                    <option value="I_BEAM">I 型鋼 (標準規格)</option>
+
+                                    <option value="CHANNEL">黑鐵槽鋼 (溝鐵)</option>
+
+                                    <option value="ANGLE_E">等邊角鋼</option>
+
+                                    <option value="ANGLE_U">不等邊角鋼</option>
+
+                                    <option value="FLAT_BAR">扁鐵 </option>
+
+                                    <option value="C_STEEL">C 型輕型鋼</option>
+
+                                </optgroup>
+
+                                <optgroup label="管材類">
+
+                                    <option value="RECT_TUBE">矩形管 (扁管)</option>
+
+                                    <option value="SQUARE_TUBE">方管</option>
+
+                                    <option value="ROUND_TUBE">圓管</option>
+
+                                </optgroup>
+
+                            </select>
+
+                        </div>
                 <div class="input-group">
                     <label>規格尺寸</label>
                     <select id="specSelect" class="input-field" onchange="calculate()"></select>
@@ -143,9 +196,10 @@
                 <p class="text-sm text-slate-600">公式：[ 邊長 + (邊長 - 厚度) ] × 厚度 × 0.00785 × 長度(m)</p>
             </div>
             <div class="bg-slate-800 p-6 rounded-2xl text-white">
-                <h4 class="font-bold text-blue-300 mb-3 text-lg">● H型鋼 / 槽鐵</h4>
-                <p class="text-xs text-blue-100 opacity-80 mb-2">H型鋼理論重量計算邏輯：</p>
-                <p class="text-sm font-mono">[ t1×B×2 + t2×(H-2×t1) ] × 0.00785</p>
+                <h4 class="font-bold text-blue-300 mb-3 text-lg">● H型鋼 / I型鋼 / 槽鐵</h4>
+<p class="text-xs text-blue-100 opacity-80 mb-2">I型鋼理論重量計算邏輯：</p>
+<p class="text-sm font-mono">[ t1×B×2 + t2×(H-2×t1) ] × 0.00785</p>
+<p class="text-xs text-blue-200 mt-2">※ I型鋼翼板具斜度，實務計算多採用 CNS 理論重量表。</p>
             </div>
         </div>
         <div class="mt-8 text-xs text-slate-400 italic">
@@ -328,6 +382,23 @@
     {s:"500x200x10x16", w:89.6}, {s:"582x300x12x17", w:137.0}, {s:"588x300x12x20", w:151.0},
     {s:"596x199x10x15", w:94.6}, {s:"600x200x11x17", w:106.0}, {s:"700x300x13x24", w:185.0},
     {s:"800x300x14x26", w:210.0}, {s:"900x300x16x28", w:243.0}
+],
+            "I_BEAM": [
+    {s:"100 x 75 x 5.0 x 8.0", w:12.9},
+    {s:"125 x 75 x 5.5 x 9.5", w:16.1},
+    {s:"150 x 75 x 5.5 x 9.5", w:17.1},
+    {s:"150 x 125 x 8.5 x 14.0", w:31.5},
+    {s:"180 x 100 x 6.0 x 10.0", w:23.6},
+    {s:"200 x 100 x 7.0 x 10.0", w:26.0},
+    {s:"200 x 150 x 9.0 x 16.0", w:50.4},
+    {s:"250 x 125 x 7.5 x 12.5", w:38.3},
+    {s:"250 x 125 x 10.0 x 19.0", w:55.5},
+    {s:"300 x 150 x 8.0 x 13.0", w:48.3},
+    {s:"300 x 150 x 10.0 x 18.5", w:65.5},
+    {s:"350 x 150 x 9.0 x 15.0", w:58.5},
+    {s:"400 x 150 x 10.0 x 18.0", w:72.0},
+    {s:"450 x 175 x 11.0 x 20.0", w:91.7},
+    {s:"600 x 190 x 13.0 x 25.0", w:133.0}
 ],
             "CHANNEL": [
     // 小型與常用規格
