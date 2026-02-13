@@ -236,7 +236,7 @@
         document.getElementById('p-total-weight').textContent = totalW.toFixed(2);
         renderPlate(grouped);
     }
-   function renderPlate(grouped) {
+function renderPlate(grouped) {
     const out = document.getElementById('p-output'); out.innerHTML = "";
     const [bh, bw] = document.getElementById('p-board-spec').value.split(',').map(Number);
     let totalS = 0, totalA = 0;
@@ -254,30 +254,36 @@
             const sc = Math.min(0.3, 1100/bw); cv.width = bw * sc; cv.height = bh * sc;
             cv.className = "bg-slate-50 rounded-3xl border border-slate-100 canvas-container";
             const ctx = cv.getContext('2d');
+
+            // 🌟 1. 新增：畫出底部「原料鐵板」的完整輪廓線
+            ctx.strokeStyle = "#94a3b8"; // 使用淺灰色 (slate-400) 做為大板邊界
+            ctx.lineWidth = 3;           // 加粗邊框
+            ctx.strokeRect(0, 0, bw * sc, bh * sc);
+
             sheet.forEach(p => {
                 totalA += p.w*p.h;
                 
-                // 1. 填滿零件顏色
+                // 2. 填滿零件顏色
                 ctx.fillStyle = `hsl(218, 85%, ${Math.max(30, 60 - (p.id%12)*3)}%)`;
                 ctx.fillRect(p.x*sc, p.y*sc, p.w*sc, p.h*sc);
                 
-                // 2. 🌟 優化：加上清楚的深色外輪廓線
-                ctx.strokeStyle = "#1e293b"; // 使用深色線條 (slate-800)
+                // 3. 零件本身的深色輪廓線
+                ctx.strokeStyle = "#1e293b"; 
                 ctx.lineWidth = 1.5; 
                 ctx.strokeRect(p.x*sc, p.y*sc, p.w*sc, p.h*sc);
                 
-                // 3. 加上內層細微發光線，增加立體質感
+                // 4. 零件內層微發光線 (增加質感)
                 ctx.strokeStyle = "rgba(255,255,255,0.2)"; 
                 ctx.lineWidth = 0.5;
                 ctx.strokeRect((p.x*sc)+1, (p.y*sc)+1, (p.w*sc)-2, (p.h*sc)-2);
                 
-                // ✅ 放大畫布標註文字
+                // 5. 放大編號文字
                 ctx.fillStyle = "white"; 
-                ctx.font = "black 20px Inter"; // 字體稍微加粗加厚
+                ctx.font = "black 20px Inter"; 
                 ctx.textAlign = "center"; ctx.textBaseline="middle";
                 ctx.shadowColor = "rgba(0,0,0,0.5)"; ctx.shadowBlur = 6;
                 ctx.fillText(p.id, (p.x+p.w/2)*sc, (p.y+p.h/2)*sc);
-                ctx.shadowBlur = 0; // 重置陰影
+                ctx.shadowBlur = 0; 
             });
             wrap.appendChild(cv); document.getElementById(`p-t-${t}`).appendChild(wrap);
         });
