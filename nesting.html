@@ -236,43 +236,55 @@
         document.getElementById('p-total-weight').textContent = totalW.toFixed(2);
         renderPlate(grouped);
     }
-    function renderPlate(grouped) {
-        const out = document.getElementById('p-output'); out.innerHTML = "";
-        const [bh, bw] = document.getElementById('p-board-spec').value.split(',').map(Number);
-        let totalS = 0, totalA = 0;
-        Object.keys(grouped).sort((a,b)=>a-b).forEach(t => {
-            const res = nest2D(grouped[t], bw, bh);
-            totalS += res.length;
-            const sec = document.createElement('div');
-            sec.innerHTML = `<h2 class="text-3xl font-black mb-6 border-l-8 border-blue-600 pl-6 text-slate-800">${t}mm 板材方案</h2><div class="space-y-10" id="p-t-${t}"></div>`;
-            out.appendChild(sec);
-            res.forEach((sheet, si) => {
-                const wrap = document.createElement('div');
-                wrap.className = "bg-white p-10 rounded-[3rem] border border-slate-200 overflow-x-auto text-left mb-8 inline-block min-w-full shadow-sm";
-                wrap.innerHTML = `<div class="flex justify-between items-center mb-6 px-2"><span class="text-slate-400 font-black text-xl italic tracking-tight">圖紙 NO. ${si+1}</span><span class="px-4 py-1.5 bg-blue-50 text-blue-600 rounded-full text-xs font-black uppercase tracking-widest">${t}t x ${bh}x${bw}</span></div>`;
-                const cv = document.createElement('canvas');
-                const sc = Math.min(0.3, 1100/bw); cv.width = bw * sc; cv.height = bh * sc;
-                cv.className = "bg-slate-50 rounded-3xl border border-slate-100 canvas-container";
-                const ctx = cv.getContext('2d');
-                sheet.forEach(p => {
-                    totalA += p.w*p.h;
-                    ctx.fillStyle = `hsl(218, 85%, ${Math.max(30, 60 - (p.id%12)*3)}%)`;
-                    ctx.fillRect(p.x*sc, p.y*sc, p.w*sc, p.h*sc);
-                    ctx.strokeStyle = "rgba(255,255,255,0.4)"; ctx.lineWidth=1; ctx.strokeRect(p.x*sc, p.y*sc, p.w*sc, p.h*sc);
-                    
-                    // ✅ 放大畫布標註文字
-                    ctx.fillStyle = "white"; 
-                    ctx.font = "bold 18px Inter"; ctx.textAlign = "center"; ctx.textBaseline="middle";
-                    ctx.shadowColor = "rgba(0,0,0,0.3)"; ctx.shadowBlur = 4;
-                    ctx.fillText(p.id, (p.x+p.w/2)*sc, (p.y+p.h/2)*sc);
-                    ctx.shadowBlur = 0; // 重置陰影
-                });
-                wrap.appendChild(cv); document.getElementById(`p-t-${t}`).appendChild(wrap);
+   function renderPlate(grouped) {
+    const out = document.getElementById('p-output'); out.innerHTML = "";
+    const [bh, bw] = document.getElementById('p-board-spec').value.split(',').map(Number);
+    let totalS = 0, totalA = 0;
+    Object.keys(grouped).sort((a,b)=>a-b).forEach(t => {
+        const res = nest2D(grouped[t], bw, bh);
+        totalS += res.length;
+        const sec = document.createElement('div');
+        sec.innerHTML = `<h2 class="text-3xl font-black mb-6 border-l-8 border-blue-600 pl-6 text-slate-800">${t}mm 板材方案</h2><div class="space-y-10" id="p-t-${t}"></div>`;
+        out.appendChild(sec);
+        res.forEach((sheet, si) => {
+            const wrap = document.createElement('div');
+            wrap.className = "bg-white p-10 rounded-[3rem] border border-slate-200 overflow-x-auto text-left mb-8 inline-block min-w-full shadow-sm";
+            wrap.innerHTML = `<div class="flex justify-between items-center mb-6 px-2"><span class="text-slate-400 font-black text-xl italic tracking-tight">圖紙 NO. ${si+1}</span><span class="px-4 py-1.5 bg-blue-50 text-blue-600 rounded-full text-xs font-black uppercase tracking-widest">${t}t x ${bh}x${bw}</span></div>`;
+            const cv = document.createElement('canvas');
+            const sc = Math.min(0.3, 1100/bw); cv.width = bw * sc; cv.height = bh * sc;
+            cv.className = "bg-slate-50 rounded-3xl border border-slate-100 canvas-container";
+            const ctx = cv.getContext('2d');
+            sheet.forEach(p => {
+                totalA += p.w*p.h;
+                
+                // 1. 填滿零件顏色
+                ctx.fillStyle = `hsl(218, 85%, ${Math.max(30, 60 - (p.id%12)*3)}%)`;
+                ctx.fillRect(p.x*sc, p.y*sc, p.w*sc, p.h*sc);
+                
+                // 2. 🌟 優化：加上清楚的深色外輪廓線
+                ctx.strokeStyle = "#1e293b"; // 使用深色線條 (slate-800)
+                ctx.lineWidth = 1.5; 
+                ctx.strokeRect(p.x*sc, p.y*sc, p.w*sc, p.h*sc);
+                
+                // 3. 加上內層細微發光線，增加立體質感
+                ctx.strokeStyle = "rgba(255,255,255,0.2)"; 
+                ctx.lineWidth = 0.5;
+                ctx.strokeRect((p.x*sc)+1, (p.y*sc)+1, (p.w*sc)-2, (p.h*sc)-2);
+                
+                // ✅ 放大畫布標註文字
+                ctx.fillStyle = "white"; 
+                ctx.font = "black 20px Inter"; // 字體稍微加粗加厚
+                ctx.textAlign = "center"; ctx.textBaseline="middle";
+                ctx.shadowColor = "rgba(0,0,0,0.5)"; ctx.shadowBlur = 6;
+                ctx.fillText(p.id, (p.x+p.w/2)*sc, (p.y+p.h/2)*sc);
+                ctx.shadowBlur = 0; // 重置陰影
             });
+            wrap.appendChild(cv); document.getElementById(`p-t-${t}`).appendChild(wrap);
         });
-        document.getElementById('p-total-sheets').textContent = totalS;
-        const bA = totalS * bw * bh; document.getElementById('p-avg-util').textContent = bA>0 ? (totalA/bA*100).toFixed(1)+"%" : "0%";
-    }
+    });
+    document.getElementById('p-total-sheets').textContent = totalS;
+    const bA = totalS * bw * bh; document.getElementById('p-avg-util').textContent = bA>0 ? (totalA/bA*100).toFixed(1)+"%" : "0%";
+}
 
     function nest2D(parts, bw, bh) {
         let sorted = [...parts].sort((a,b)=>b.w*b.h - a.w*a.h);
