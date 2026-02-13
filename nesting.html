@@ -248,16 +248,20 @@ function renderPlate(grouped) {
         out.appendChild(sec);
         res.forEach((sheet, si) => {
             const wrap = document.createElement('div');
-            wrap.className = "bg-white p-10 rounded-[3rem] border border-slate-200 overflow-x-auto text-left mb-8 inline-block min-w-full shadow-sm";
+            // ✅ 優化：移除 rounded-3xl，改為完全直角，並加強外框
+            wrap.className = "bg-white p-10 border-2 border-slate-300 overflow-x-auto text-left mb-8 inline-block min-w-full shadow-md";
             wrap.innerHTML = `<div class="flex justify-between items-center mb-6 px-2"><span class="text-slate-400 font-black text-xl italic tracking-tight">圖紙 NO. ${si+1}</span><span class="px-4 py-1.5 bg-blue-50 text-blue-600 rounded-full text-xs font-black uppercase tracking-widest">${t}t x ${bh}x${bw}</span></div>`;
+            
             const cv = document.createElement('canvas');
             const sc = Math.min(0.3, 1100/bw); cv.width = bw * sc; cv.height = bh * sc;
-            cv.className = "bg-slate-50 rounded-3xl border border-slate-100 canvas-container";
+            // ✅ 優化：移除畫布容器的圓角 (rounded-3xl)
+            cv.className = "bg-white border border-slate-400 canvas-container";
             const ctx = cv.getContext('2d');
 
-            // 🌟 1. 新增：畫出底部「原料鐵板」的完整輪廓線
-            ctx.strokeStyle = "#94a3b8"; // 使用淺灰色 (slate-400) 做為大板邊界
-            ctx.lineWidth = 3;           // 加粗邊框
+            // 🌟 1. 強化：畫出底部「原料鐵板」的直角輪廓線
+            ctx.strokeStyle = "#475569"; // 使用較深的 slate-600
+            ctx.lineWidth = 4;           // 加粗邊框，強調母板邊界
+            ctx.lineJoin = "miter";      // 確保角落是尖銳的直角
             ctx.strokeRect(0, 0, bw * sc, bh * sc);
 
             sheet.forEach(p => {
@@ -272,12 +276,7 @@ function renderPlate(grouped) {
                 ctx.lineWidth = 1.5; 
                 ctx.strokeRect(p.x*sc, p.y*sc, p.w*sc, p.h*sc);
                 
-                // 4. 零件內層微發光線 (增加質感)
-                ctx.strokeStyle = "rgba(255,255,255,0.2)"; 
-                ctx.lineWidth = 0.5;
-                ctx.strokeRect((p.x*sc)+1, (p.y*sc)+1, (p.w*sc)-2, (p.h*sc)-2);
-                
-                // 5. 放大編號文字
+                // 4. 零件編號文字
                 ctx.fillStyle = "white"; 
                 ctx.font = "black 20px Inter"; 
                 ctx.textAlign = "center"; ctx.textBaseline="middle";
