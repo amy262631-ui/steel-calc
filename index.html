@@ -592,51 +592,55 @@
         };
 
         function initSpec() {
-            const cat = document.getElementById('mainCat').value;
-            const select = document.getElementById('specSelect');
-            const inputs = document.getElementById('dynamicInputs');
-            select.innerHTML = "";
-            DB[cat].forEach(item => {
-                let opt = document.createElement('option');
-                opt.value = item.w; opt.text = item.s;
-                select.appendChild(opt);
-            });
-            if (cat.includes("PLATE")) {
-                inputs.innerHTML = `
-                    <div class="input-group"><label>寬 W (mm)</label><input type="number" id="valW" value="1219" class="input-field" oninput="calculate()"></div>
-                    <div class="input-group"><label>長 L (mm)</label><input type="number" id="valL" value="2438" class="input-field" oninput="calculate()"></div>
-                    <div class="input-group"><label>數量 (件)</label><input type="number" id="valQty" value="1" class="input-field" oninput="calculate()"></div>`;
-            } else {
-                inputs.innerHTML = `
-                    <div class="col-span-2 input-group"><label>長度 Length (mm)</label><input type="number" id="valL" value="6000" class="input-field" oninput="calculate()"></div>
-                    <div class="input-group"><label>數量 (件)</label><input type="number" id="valQty" value="1" class="input-field" oninput="calculate()"></div>`;
-            }
-            calculate();
-        }
+    const cat = document.getElementById('mainCat').value;
+    const select = document.getElementById('specSelect');
+    const inputs = document.getElementById('dynamicInputs');
+    select.innerHTML = "";
+    
+    DB[cat].forEach(item => {
+        let opt = document.createElement('option');
+        opt.value = item.w; opt.text = item.s;
+        select.appendChild(opt);
+    });
 
-        function calculate() {
-            const cat = document.getElementById('mainCat').value;
-            const unitW = parseFloat(document.getElementById('specSelect').value);
-            const qty = parseFloat(document.getElementById('valQty').value) || 0;
-            const L = parseFloat(document.getElementById('valL').value) || 0;
-            const waste = 1 + (parseFloat(document.getElementById('valWaste').value) / 100);
-            const pricePerKg = parseFloat(document.getElementById('valPrice').value) || 0;
-            
-            let single = 0;
-            if (cat.includes("PLATE")) {
-                const W = parseFloat(document.getElementById('valW').value) || 0;
-                single = (W/1000) * (L/1000) * unitW;
-                document.getElementById('infoUnit').innerText = unitW.toFixed(2) + " kg/m²";
-            } else {
-                single = (L/1000) * unitW;
-                document.getElementById('infoUnit').innerText = unitW.toFixed(2) + " kg/m";
-            }
-            const total = single * qty * waste;
-            const totalPrice = total * pricePerKg;
-            document.getElementById('resTotal').innerText = total.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
-            document.getElementById('infoSingle').innerText = single.toFixed(2) + " kg";
-            document.getElementById('resPrice').innerText = Math.round(totalPrice).toLocaleString();
-        }
+    // 🚀 關鍵修正：若類別包含 PLATE (板材) 或為 EXPANDED_XG (擴張網)，則顯示寬/長/數量
+    if (cat.includes("PLATE") || cat === "EXPANDED_XG") {
+        inputs.innerHTML = `
+            <div class="input-group"><label>寬 W (mm)</label><input type="number" id="valW" value="1219" class="input-field" oninput="calculate()"></div>
+            <div class="input-group"><label>長 L (mm)</label><input type="number" id="valL" value="2438" class="input-field" oninput="calculate()"></div>
+            <div class="input-group"><label>數量 (件)</label><input type="number" id="valQty" value="1" class="input-field" oninput="calculate()"></div>`;
+    } else {
+        inputs.innerHTML = `
+            <div class="col-span-2 input-group"><label>長度 Length (mm)</label><input type="number" id="valL" value="6000" class="input-field" oninput="calculate()"></div>
+            <div class="input-group"><label>數量 (件)</label><input type="number" id="valQty" value="1" class="input-field" oninput="calculate()"></div>`;
+    }
+    calculate();
+}
+
+       function calculate() {
+    const cat = document.getElementById('mainCat').value;
+    const unitW = parseFloat(document.getElementById('specSelect').value);
+    const qty = parseFloat(document.getElementById('valQty').value) || 0;
+    const L = parseFloat(document.getElementById('valL').value) || 0;
+    const waste = 1 + (parseFloat(document.getElementById('valWaste').value) / 100);
+    const pricePerKg = parseFloat(document.getElementById('valPrice').value) || 0;
+    
+    let single = 0;
+    // 🚀 關鍵修正：計算邏輯同步加入 EXPANDED_XG
+    if (cat.includes("PLATE") || cat === "EXPANDED_XG") {
+        const W = parseFloat(document.getElementById('valW').value) || 0;
+        single = (W/1000) * (L/1000) * unitW; // 寬(m) * 長(m) * 單位重(kg/m²)
+        document.getElementById('infoUnit').innerText = unitW.toFixed(2) + " kg/m²";
+    } else {
+        single = (L/1000) * unitW; // 長(m) * 單位重(kg/m)
+        document.getElementById('infoUnit').innerText = unitW.toFixed(2) + " kg/m";
+    }
+    
+    const total = single * qty * waste;
+    document.getElementById('resTotal').innerText = total.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    document.getElementById('infoSingle').innerText = single.toFixed(2) + " kg";
+    document.getElementById('resPrice').innerText = Math.round(total * pricePerKg).toLocaleString();
+}
 
         function resetForm() {
             document.getElementById('valWaste').value = 0;
