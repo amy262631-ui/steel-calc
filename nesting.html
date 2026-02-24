@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>智慧排料與重量計算系統 V16.2 - 旗艦版</title>
-    <link rel="canonical" href="https://steel-calc.idv.tw/nesting.html" />
+    <title>智慧排料與重量計算系統</title
+    <link rel="canonical" href="https://steel-calc.idv.tw/nesting.html" />                                    
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/makerjs@0.18.0/target/js/browser.maker.js"></script>
     <style>
@@ -15,235 +13,229 @@
         .canvas-container { filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.05)); }
         select { cursor: pointer; }
         .stock-bar { height: 50px; border-radius: 12px; overflow: hidden; display: flex; align-items: center; background: #e2e8f0; border: 2px solid #cbd5e1; }
+        /* 放大配料圖文字 */
         .cut-segment { height: 100%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 900; border-right: 1px solid rgba(255,255,255,0.4); color: white; text-shadow: 0 1px 2px rgba(0,0,0,0.3); transition: all 0.2s; }
         .cut-segment:hover { opacity: 0.9; transform: scaleY(1.05); cursor: help; }
+        
+        /* 新增：返回按鈕專用樣式 */
         .back-link { display: inline-flex; align-items: center; gap: 8px; color: #64748b; font-weight: 900; font-size: 14px; transition: all 0.2s; text-decoration: none; }
         .back-link:hover { color: #2563eb; transform: translateX(-4px); }
     </style>
 </head>
 <body class="min-h-screen pb-20">
-
 <div class="max-w-7xl mx-auto px-4 pt-4">
     <a href="index.html" class="back-link">← 返回基礎重量計算機</a>
-</div>
+</div>    
 
 <div class="max-w-7xl mx-auto px-4 pt-6">
+    <!-- 導覽分頁 -->
     <div class="flex gap-4 mb-6 bg-slate-200 p-1.5 rounded-2xl w-fit">
         <button onclick="switchTab('plate')" id="tab-plate" class="px-8 py-3 rounded-xl transition-all tab-active">🧱 鐵板排料</button>
         <button onclick="switchTab('steel')" id="tab-steel" class="px-8 py-3 rounded-xl transition-all text-slate-500 font-bold">🏗️ 型鋼配料</button>
     </div>
 
+    <!-- [1] 鐵板分頁內容 -->
     <div id="section-plate" class="space-y-8 animate-in fade-in">
-        <div class="max-w-7xl mx-auto">
-            <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-[2.5rem] p-8 md:p-12 shadow-2xl border border-slate-700 relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-orange-500/10 rounded-full -mr-16 -mt-16 blur-2xl"></div>
-                <div class="relative z-10 mb-10">
-                    <h2 class="text-white text-3xl font-black mb-4 flex items-center gap-3">
-                        <span class="bg-orange-500 p-2 rounded-xl text-2xl">🧱</span> 為什麼需要智慧排料？
-                    </h2>
-                    <p class="text-slate-300 text-lg leading-relaxed max-w-3xl">
-                        旨在透過 <b>2D 幾何演算</b>，在最短時間內尋找最佳擺放角度，達到<span class="text-orange-400 font-bold">「剩料最小化」</span>的目的，大幅節省高昂的板材成本。
-                    </p>
-                </div>
-                <div class="grid md:grid-cols-3 gap-8 relative z-10 border-t border-slate-700/50 pt-8 text-sm">
-                    <div class="space-y-1"><p class="text-white font-bold">Step 1. 設定母板</p><p class="text-slate-400">輸入現有板材尺寸。</p></div>
-                    <div class="space-y-1"><p class="text-white font-bold">Step 2. 匯入零件</p><p class="text-slate-400">填入各號零件長寬與數量。</p></div>
-                    <div class="space-y-1"><p class="text-white font-bold">Step 3. 自動損耗</p><p class="text-slate-400">系統已自動預留 <span class="text-orange-400 font-bold">15mm 鋸縫</span>。</p></div>
-                </div>
-            </div>
-        </div>
-
         <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200">
-            <h1 class="text-3xl font-black text-slate-900 mb-6">接合板鐵板智慧排料</h1>
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8 text-center">
-                <div class="bg-blue-600 p-5 rounded-3xl text-white"><p class="text-[10px] font-black uppercase mb-1">總重量</p><p class="text-3xl font-black"><span id="p-total-weight">0.00</span> kg</p></div>
-                <div class="bg-white p-5 rounded-3xl border border-slate-200"><p class="text-[10px] font-black uppercase mb-1">總張數</p><p id="p-total-sheets" class="text-3xl font-black">0</p></div>
-                <div class="bg-emerald-500 p-5 rounded-3xl text-white"><p class="text-[10px] font-black uppercase mb-1">利用率</p><p id="p-avg-util" class="text-3xl font-black">0%</p></div>
-                <div class="bg-slate-900 p-5 rounded-3xl text-white"><p class="text-[10px] font-black uppercase mb-1">零件間距</p><p class="text-2xl font-black text-amber-400">15.0 mm</p></div>
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-6 mb-8">
+                <div>
+                    <h1 class="text-3xl font-black text-slate-900 tracking-tight">接合板鐵板智慧排料</h1>
+                    <p class="text-slate-500 mt-1 font-medium italic text-sm">視覺優化：放大標註文字，支援自動旋轉 90°</p>
+                </div>
+                <div class="flex flex-wrap items-center gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-200 shadow-inner">
+                    <div>
+                        <label class="block text-[10px] font-black text-slate-400 uppercase mb-1">材質</label>
+                        <select id="p-material" class="bg-transparent font-bold text-slate-700 outline-none">
+                            <option value="7.85">鐵板 (7.85)</option>
+                            <option value="7.93">不鏽鋼 (7.93)</option>
+                        </select>
+                    </div>
+                    <div class="w-[1px] h-8 bg-slate-200"></div>
+                    <div>
+                        <label class="block text-[10px] font-black text-slate-400 uppercase mb-1">規格</label>
+                        <select id="p-board-spec" class="bg-transparent font-bold text-blue-600 outline-none">
+                            <option value="1219,2438">4尺 x 8尺</option>
+                            <option value="1524,3048" selected>5尺 x 10尺</option>
+                            <option value="1219,6096">4尺 x 20尺</option>
+                            <option value="1524,6096">5尺 x 20尺</option>
+                            <option value="1219,12192">4尺 x 40尺</option>
+                        </select>
+                    </div>
+                </div>
             </div>
+
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8 text-center">
+                <div class="bg-blue-600 p-5 rounded-3xl text-white shadow-lg shadow-blue-100">
+                    <p class="text-blue-100 text-[10px] font-black uppercase tracking-widest mb-1">總重量</p>
+                    <p class="text-3xl font-black"><span id="p-total-weight">0.00</span> <small class="text-sm">kg</small></p>
+                </div>
+                <div class="bg-white p-5 rounded-3xl border border-slate-200">
+                    <p class="text-slate-400 text-[10px] font-black uppercase tracking-widest mb-1">總張數</p>
+                    <p id="p-total-sheets" class="text-3xl font-black text-slate-900">0</p>
+                </div>
+                <div class="bg-emerald-500 p-5 rounded-3xl text-white">
+                    <p class="text-emerald-100 text-[10px] font-black uppercase mb-1">利用率</p>
+                    <p id="p-avg-util" class="text-3xl font-black">0%</p>
+                </div>
+                <div class="bg-slate-900 p-5 rounded-3xl text-white">
+                    <p class="text-slate-400 text-[10px] font-black uppercase mb-1">零件間距</p>
+                    <p class="text-2xl font-black text-amber-400 tracking-tighter">15.0 mm</p>
+                </div>
+            </div>
+
             <div id="p-input-rows" class="space-y-3"></div>
-            <button onclick="addRowPlate()" class="mt-4 text-blue-600 font-black text-sm bg-blue-50 px-6 py-3 rounded-2xl border border-blue-100">+ 新增鐵板清單</button>
+            <button onclick="addRowPlate()" class="mt-4 text-blue-600 font-black text-sm bg-blue-50 px-6 py-3 rounded-2xl border border-blue-100 hover:bg-blue-100 transition-all">+ 新增鐵板清單</button>
         </div>
         <div id="p-output" class="space-y-12"></div>
     </div>
 
+    <!-- [2] 型鋼分頁內容 -->
     <div id="section-steel" class="hidden space-y-8 animate-in slide-in-from-right duration-500">
-        <div class="max-w-7xl mx-auto">
-            <div class="bg-gradient-to-br from-indigo-900 to-slate-900 rounded-[2.5rem] p-8 md:p-12 shadow-2xl border border-indigo-800/30 relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full -mr-16 -mt-16 blur-2xl"></div>
-                <div class="relative z-10 mb-10">
-                    <h2 class="text-white text-3xl font-black mb-4 flex items-center gap-3">
-                        <span class="bg-blue-500 p-2 rounded-xl text-2xl">🏗️</span> 智慧配料：告別手工試算
-                    </h2>
-                    <p class="text-slate-300 text-lg leading-relaxed max-w-3xl">
-                        利用 <b>一維線性優化演算法</b>，自動計算如何用最少的母材組合最多的零件，將昂貴的型鋼殘料降至極短，達到<span class="text-blue-400 font-bold">「取代手工加減法」</span>與<span class="text-blue-400 font-bold">「減少備料失誤」</span>的目的。
-                    </p>
-                </div>
-                <div class="grid md:grid-cols-3 gap-8 relative z-10 border-t border-slate-700/50 pt-8 text-sm">
-                    <div class="space-y-1"><p class="text-white font-bold">Step 1. 選取規格</p><p class="text-slate-400">設定定尺長度（如 6M 或 12M）。</p></div>
-                    <div class="space-y-1"><p class="text-white font-bold">Step 2. 輸入清單</p><p class="text-slate-400">填入切斷長度，相同尺寸自動分色。</p></div>
-                    <div class="space-y-1"><p class="text-white font-bold">Step 3. 精確損耗</p><p class="text-slate-400">已自動扣除 <span class="text-blue-400 font-bold">15mm 鋸床損耗</span>。</p></div>
-                </div>
-            </div>
-        </div>
-
         <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200">
-            <h1 class="text-3xl font-black text-slate-900 mb-6">型鋼智慧配料</h1>
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8 text-center">
-                <div class="bg-indigo-600 p-5 rounded-3xl text-white"><p class="text-[10px] font-black uppercase mb-1">型鋼總重量</p><p class="text-3xl font-black"><span id="s-total-weight">0.00</span> kg</p></div>
-                <div class="bg-white p-5 rounded-3xl border border-slate-200"><p class="text-[10px] font-black uppercase mb-1">消耗支數</p><p id="s-total-bars" class="text-3xl font-black text-slate-900">0</p></div>
-                <div class="bg-slate-900 p-5 rounded-3xl text-white"><p class="text-[10px] font-black uppercase mb-1">鋸縫損耗</p><p class="text-xl font-black text-emerald-400">15.0 mm</p></div>
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-6 mb-8">
+                <div>
+                    <h1 class="text-3xl font-black text-slate-900 tracking-tight">型鋼智慧配料</h1>
+                    <p class="text-slate-500 mt-1 font-medium italic text-sm">視覺優化：按長度區分顏色，文字大號顯示</p>
+                </div>
+                <div class="flex flex-wrap items-center gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-200 shadow-inner">
+                    <div>
+    <label class="block text-[10px] font-black text-slate-400 uppercase mb-1">原料支長度</label>
+    <select id="s-stock-len" class="bg-transparent font-bold text-blue-600 outline-none" onchange="calculateSteel()">
+        <option value="6000" selected>6000mm (6m)</option> <option value="9000">9000mm (9m)</option>
+        <option value="10000">10000mm (10m)</option>
+        <option value="12000">12000mm (12m)</option>
+    </select>
+</div>
+                </div>
             </div>
+
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8 text-center">
+                <div class="bg-indigo-600 p-5 rounded-3xl text-white shadow-lg shadow-indigo-100">
+                    <p class="text-indigo-100 text-[10px] font-black uppercase tracking-widest mb-1">型鋼總重量</p>
+                    <p class="text-3xl font-black"><span id="s-total-weight">0.00</span> <small class="text-sm">kg</small></p>
+                </div>
+                <div class="bg-white p-5 rounded-3xl border border-slate-200">
+                    <p class="text-slate-400 text-[10px] font-black uppercase tracking-widest mb-1">消耗支數</p>
+                    <p id="s-total-bars" class="text-3xl font-black text-slate-900">0</p>
+                </div>
+                <div class="bg-slate-900 p-5 rounded-3xl text-white">
+                    <p class="text-slate-400 text-[10px] font-black uppercase mb-1">分色邏輯</p>
+                    <p class="text-xl font-black text-emerald-400 tracking-tighter italic">按切斷長度</p>
+                </div>
+            </div>
+
             <div id="s-input-rows" class="space-y-3"></div>
-            <button onclick="addRowSteel()" class="mt-4 text-indigo-600 font-black text-sm bg-indigo-50 px-6 py-3 rounded-2xl border border-indigo-100">+ 新增型鋼清單</button>
+            <button onclick="addRowSteel()" class="mt-4 text-indigo-600 font-black text-sm bg-indigo-50 px-6 py-3 rounded-2xl border border-indigo-100 hover:bg-indigo-100 transition-all">+ 新增型鋼清單</button>
         </div>
         <div id="s-output" class="space-y-12 text-center"></div>
     </div>
 </div>
 
 <script>
-    // --- 完整型鋼資料庫恢復 ---
-const STEEL_DB = {
-    "H型鋼 / I型鋼": [
-        { n: "H100x50x5x7", w: 9.3 }, { n: "H150x75x5x7", w: 14.0 }, { n: "H200x100x5.5x8", w: 21.3 },
-        { n: "H250x125x6x9", w: 29.6 }, { n: "H300x150x6.5x9", w: 36.7 }, { n: "H200x200x8x12", w: 49.9 },
-        { n: "H250x250x9x14", w: 72.4 }, { n: "H300x300x10x15", w: 94.0 }, { n: "H350x350x12x19", w: 137 },
-        { n: "H400x200x8x13", w: 66.0 }, { n: "I100x75x5x8", w: 12.9 }, { n: "I150x75x5.5x9.5", w: 17.1 },
-        { n: "I250x125x7.5x12.5", w: 38.3 }, { n: "I300x150x8x13", w: 48.3 }, { n: "I600x190x13x25", w: 133 }
-    ],
-    "槽鐵 (Channel)": [
-        { n: "75x40x5x7", w: 6.92 }, { n: "100x50x5x7.5", w: 9.36 }, { n: "125x65x6x8", w: 13.4 },
-        { n: "150x75x6.5x10", w: 18.6 }, { n: "180x75x7x10.5", w: 20.9 }, { n: "200x80x7.5x11", w: 24.6 },
-        { n: "250x90x9x13", w: 34.6 }, { n: "300x90x9x13", w: 38.1 }, { n: "380x100x10.5x16", w: 54.5 }
-    ],
-    "鐵管 / A配管": [
-        { n: "1/2\" (21.7x2.8)", w: 1.31 }, { n: "3/4\" (27.2x2.8)", w: 1.68 }, { n: "1\" (34.0x3.2)", w: 2.43 },
-        { n: "1-1/4\" (42.7x3.5)", w: 3.38 }, { n: "1-1/2\" (48.6x3.5)", w: 3.89 }, { n: "2\" (60.5x3.8)", w: 5.31 },
-        { n: "2-1/2\" (76.3x5.2)", w: 9.12 }, { n: "3\" (89.1x5.5)", w: 11.3 }, { n: "4\" (114.3x6.0)", w: 16.0 },
-        { n: "6\" (165.2x7.1)", w: 27.7 }, { n: "8\" (216.3x8.2)", w: 42.1 }, { n: "12\" (318.5x9.0)", w: 68.7 }
-    ],
-    "角鐵 (等邊/不等邊)": [
-        { n: "L25x25x3", w: 1.12 }, { n: "L30x30x3", w: 1.36 }, { n: "L40x40x5", w: 2.97 },
-        { n: "L50x50x6", w: 4.43 }, { n: "L65x65x6", w: 5.91 }, { n: "L75x75x9", w: 9.96 },
-        { n: "L100x100x10", w: 14.9 }, { n: "L150x150x12", w: 27.3 }, { n: "L150x90x9 (不等邊)", w: 16.4 },
-        { n: "L200x200x20", w: 59.7 }
-    ],
-    "扁鐵 (Flat Bar)": [
-        { n: "FB25x3", w: 0.59 }, { n: "FB25x6", w: 1.18 }, { n: "FB38x6", w: 1.79 }, { n: "FB38x9", w: 2.68 },
-        { n: "FB50x6", w: 2.36 }, { n: "FB50x9", w: 3.53 }, { n: "FB50x12", w: 4.71 }, { n: "FB75x9", w: 5.30 },
-        { n: "FB100x9", w: 7.06 }, { n: "FB100x12", w: 9.42 }, { n: "FB150x12", w: 14.1 }, { n: "FB200x19", w: 29.8 }
-    ],
-    "不鏽鋼專區": [
-        { n: "SS-L40x40x3", w: 1.83 }, { n: "SS-L50x50x5", w: 3.77 }, { n: "SS-Round 10mm", w: 0.617 },
-        { n: "SS-Round 25mm", w: 3.85 }, { n: "SS-Pipe 1\" (34x3.4)", w: 2.61 }, { n: "SS-Pipe 2\" (60.5x3.9)", w: 5.54 }
-    ],
-    "圓鐵 / 實心條": [
-        { n: "1/4\" (6.35mm)", w: 0.25 }, { n: "1/2\" (12.7mm)", w: 0.99 }, { n: "3/4\" (19.05mm)", w: 2.24 },
-        { n: "1\" (25.4mm)", w: 3.98 }, { n: "1-1/4\" (31.75mm)", w: 6.23 }
-    ],
-    "輕型鋼 (C型鋼)": [
-        { n: "60x30x10x2.3", w: 2.25 }, { n: "75x45x15x2.3", w: 3.15 }, { n: "100x50x20x2.3", w: 3.96 },
-        { n: "125x50x20x3.2", w: 6.00 }, { n: "150x65x20x3.2", w: 7.37 }, { n: "200x75x20x3.2", w: 9.27 }
-    ]
-};
+    // --- 型鋼資料庫 ---
+    const STEEL_DB = {
+        "H型鋼": [
+            { n: "H350x350", w: 137 }, { n: "H300x300", w: 94.0 }, { n: "H250x250", w: 72.4 },
+            { n: "H200x200", w: 49.9 }, { n: "H150x150", w: 31.5 }, { n: "H125x125", w: 23.8 },
+            { n: "H100x100", w: 17.2 }, { n: "H300x150", w: 36.7 }, { n: "H250x125", w: 29.6 },
+            { n: "H200x100", w: 21.3 }
+        ],
+        "槽鐵": [
+            { n: "75x40x5x7", w: 6.92 }, { n: "100x50x5x7.5", w: 9.36 }, { n: "125x65x6x8", w: 13.4 },
+            { n: "150x75x6.5x10", w: 18.6 }, { n: "200x80x7.5x11", w: 24.6 }, { n: "200x90x8x13.5", w: 30.3 },
+            { n: "250x90x9x13", w: 34.6 }, { n: "300x90x9x13", w: 38.1 }
+        ],
+        "鐵管": [
+            { n: "3/4\"(27.2)x2.3", w: 1.41 }, { n: "1\"(34)x2.6", w: 2.01 }, { n: "1-1/4\"(42.9)x2.6", w: 2.58 },
+            { n: "1-1/4\"(42.9)x3.6", w: 3.49 }, { n: "1-1/2\"(48.8)x2.6", w: 2.96 }, { n: "1-1/2\"(48.8)x4.1", w: 4.52 },
+            { n: "2\"(60.8)x4.1", w: 5.73 }, { n: "4\"(115)x4.5", w: 12.3 }, { n: "5\"(140.8)x4.5", w: 15.1 },
+            { n: "6\"(166.5)x4.5", w: 18.0 }, { n: "7\"(190.7)x6", w: 27.3 }, { n: "8\"(218.5)x6", w: 31.4 },
+            { n: "10\"(270)x6", w: 39.1 }, { n: "12\"(318.5)x6", w: 46.2 }, { n: "12\"(318.5)x9", w: 68.7 },
+            { n: "14\"(355.6)x6", w: 51.7 }, { n: "14\"(355.6)x9", w: 76.9 }, { n: "16\"(406.4)x9", w: 88.2 },
+            { n: "20\"(508)x9", w: 111 }, { n: "24\"(609.6)x9", w: 133 }
+        ],
+        "角鐵 (黑鐵/不鏽鋼)": [
+            { n: "L25x25x3", w: 1.12 }, { n: "L30x30x3", w: 1.36 }, { n: "L40x40x5", w: 2.97 },
+            { n: "L50x50x4", w: 3.06 }, { n: "L50x50x6", w: 4.43 }, { n: "L65x65x6", w: 5.91 },
+            { n: "L75x75x6", w: 6.85 }, { n: "L90x90x7", w: 9.59 }, { n: "L100x100x7", w: 10.7 },
+            { n: "L150x150x12", w: 27.3 }, { n: "不等邊 L150x90x9", w: 16.4 },
+            { n: "SS-L40x40x3", w: 1.83 }, { n: "SS-L50x50x3", w: 2.33 }
+        ],
+        "扁鐵 (FB)": [
+            { n: "FB25x3", w: 0.59 }, { n: "FB25x6", w: 1.18 }, { n: "FB38x6", w: 1.79 }, { n: "FB38x9", w: 2.68 },
+            { n: "FB50x6", w: 2.36 }, { n: "FB50x9", w: 3.53 }, { n: "FB50x12", w: 4.71 }, { n: "FB50x16", w: 6.28 },
+            { n: "FB65x6", w: 3.06 }, { n: "FB65x9", w: 4.59 }, { n: "FB75x9", w: 5.30 }, { n: "FB75x12", w: 7.06 },
+            { n: "FB90x9", w: 6.36 }, { n: "FB90x12", w: 8.48 }, { n: "FB100x9", w: 7.06 }, { n: "FB100x12", w: 9.42 },
+            { n: "FB125x12", w: 11.8 }, { n: "FB150x12", w: 14.1 }, { n: "FB200x16", w: 25.1 }, { n: "FB200x19", w: 29.8 }
+        ],
+        "圓鐵": [
+            { n: "1/8\"", w: 0.06 }, { n: "1/4\"", w: 0.25 }, { n: "1/2\"", w: 0.99 }, { n: "3/4\"", w: 2.24 }, { n: "1\"", w: 3.98 }
+        ],
+        "輕型鋼 (C)": [
+            { n: "100x50x20x2.3", w: 4.06 }, { n: "125x50x20x2.3", w: 4.51 }, { n: "125x50x20x3.2", w: 6.13 }, { n: "150x65x20x3.2", w: 7.51 }
+        ]
+    };
 
-const CONFIG_P = { GAP: 15.0, MARGIN: 15.0 };
+    const CONFIG_P = { GAP: 15.0, MARGIN: 15.0 };
 
-window.onload = () => { addRowPlate(3); addRowSteel(); };
+    window.onload = () => {
+        addRowPlate(3);
+        addRowSteel();
+    };
 
-function switchTab(t) {
-    document.getElementById('section-plate').classList.toggle('hidden', t !== 'plate');
-    document.getElementById('section-steel').classList.toggle('hidden', t !== 'steel');
-    document.getElementById('tab-plate').className = t === 'plate' ? 'px-8 py-3 rounded-xl transition-all tab-active' : 'px-8 py-3 rounded-xl transition-all text-slate-500 font-bold';
-    document.getElementById('tab-steel').className = t === 'steel' ? 'px-8 py-3 rounded-xl transition-all tab-active' : 'px-8 py-3 rounded-xl transition-all text-slate-500 font-bold';
-}
-
-// --- 鐵板排料邏輯：復原規格選單功能 ---
-function addRowPlate(lastT = 3) {
-    const container = document.getElementById('p-input-rows');
-    const row = document.createElement('div');
-    row.className = "grid grid-cols-12 gap-3 items-end p-5 bg-slate-50 rounded-2xl border border-slate-200 input-group transition-all";
-    
-    // 定義常用鐵板規格
-    const plateSpecs = [
-        { n: "請選擇規格", v: "manual" },
-        { n: "4尺 x 8尺", v: "2438,1219" },
-        { n: "5尺 x 10尺", v: "3048,1524" },
-        { n: "4尺 x 20尺", v: "6096,1219" },
-        { n: "5尺 x 20尺", v: "6096,1524" }
-    ];
-    const specOptions = plateSpecs.map(s => `<option value="${s.v}">${s.n}</option>`).join('');
-
-    row.innerHTML = `
-        <div class="col-span-1 text-center font-black text-blue-500 p-row-no italic">#</div>
-        
-        <div class="col-span-2">
-            <label class="text-[10px] font-black text-slate-400 block mb-1">板厚</label>
-            <select class="w-full bg-white border p-3 rounded-xl font-bold p-part-t">
-                ${Array.from({length:50},(_,i)=>`<option value="${i+1}" ${i+1==lastT?'selected':''}>${i+1}t</option>`).join('')}
-            </select>
-        </div>
-
-        <div class="col-span-3">
-            <label class="text-[10px] font-black text-slate-400 block mb-1">常用規格</label>
-            <select class="w-full bg-white border p-3 rounded-xl font-bold p-part-spec" onchange="handlePlateSpecChange(this)">
-                ${specOptions}
-            </select>
-        </div>
-
-        <div class="col-span-2">
-            <label class="text-[10px] font-black text-slate-400 block mb-1">長度 (mm)</label>
-            <input type="number" placeholder="長度" class="w-full bg-white border p-3 rounded-xl font-bold p-part-l">
-        </div>
-        <div class="col-span-2">
-            <label class="text-[10px] font-black text-slate-400 block mb-1">寬度 (mm)</label>
-            <input type="number" placeholder="寬度" class="w-full bg-white border p-3 rounded-xl font-bold p-part-w">
-        </div>
-
-        <div class="col-span-1">
-            <label class="text-[10px] font-black text-slate-400 block mb-1">數量</label>
-            <input type="number" placeholder="數量" value="1" class="w-full bg-white border p-3 rounded-xl font-bold p-part-q">
-        </div>
-
-        <div class="col-span-1 flex justify-end">
-            <button onclick="this.parentElement.parentElement.remove(); calculatePlate();" class="text-slate-300 hover:text-red-500 text-2xl transition-colors">×</button>
-        </div>`;
-
-    container.appendChild(row);
-    row.querySelectorAll('input, select').forEach(el => el.addEventListener('input', calculatePlate));
-}
-
-// 🚀 新增輔助函式：處理規格選單切換
-function handlePlateSpecChange(selectEl) {
-    const row = selectEl.closest('.input-group');
-    const val = selectEl.value;
-    if (val !== "manual") {
-        const [l, w] = val.split(',');
-        row.querySelector('.p-part-l').value = l;
-        row.querySelector('.p-part-w').value = w;
+    function switchTab(t) {
+        document.getElementById('section-plate').classList.toggle('hidden', t !== 'plate');
+        document.getElementById('section-steel').classList.toggle('hidden', t !== 'steel');
+        document.getElementById('tab-plate').className = t === 'plate' ? 'px-8 py-3 rounded-xl transition-all tab-active' : 'px-8 py-3 rounded-xl transition-all text-slate-500 font-bold';
+        document.getElementById('tab-steel').className = t === 'steel' ? 'px-8 py-3 rounded-xl transition-all tab-active' : 'px-8 py-3 rounded-xl transition-all text-slate-500 font-bold';
     }
-    calculatePlate();
-}
 
-function calculatePlate() {
-    const d = parseFloat(document.getElementById('p-material').value);
-    let grouped = {}, totalW = 0;
-    document.querySelectorAll('#p-input-rows .input-group').forEach((row, idx) => {
-        const T = parseFloat(row.querySelector('.p-part-t').value);
-        const L = parseFloat(row.querySelector('.p-part-l').value) || 0;
-        const W = parseFloat(row.querySelector('.p-part-w').value) || 0;
-        const Q = parseInt(row.querySelector('.p-part-q').value) || 0;
-        if(L > 0 && W > 0 && Q > 0) {
-            // 鐵板重量公式：長(m) * 寬(m) * 厚(mm) * 密度
-            totalW += (L * W * T * d) / 1000000 * Q;
-            if(!grouped[T]) grouped[T] = [];
-            for(let i = 0; i < Q; i++) grouped[T].push({id: idx + 1, w: L, h: W});
-        }
-    });
-    document.getElementById('p-total-weight').textContent = totalW.toFixed(2);
-    renderPlate(grouped);
-}
-
+    // --- 鐵板邏輯 ---
+    function addRowPlate(lastT = 3) {
+        const container = document.getElementById('p-input-rows');
+        const rowId = Date.now();
+        const row = document.createElement('div');
+        row.className = "grid grid-cols-12 gap-3 items-end p-5 bg-slate-50 rounded-2xl border border-slate-200 input-group transition-all";
+        row.id = `p-row-${rowId}`;
+        let tOpts = ""; for(let i=1;i<=50;i++) tOpts += `<option value="${i}" ${i==lastT?'selected':''}>${i}t</option>`;
+        row.innerHTML = `
+            <div class="col-span-1 text-center pb-2 font-black text-blue-500 p-row-no italic">...</div>
+            <div class="col-span-2"><label class="text-[10px] font-black text-slate-400 block mb-1 uppercase tracking-wider">板厚</label>
+                <select class="w-full bg-white border border-slate-200 p-3 rounded-xl font-bold p-part-t">${tOpts}</select></div>
+            <div class="col-span-3"><label class="text-[10px] font-black text-slate-400 block mb-1 uppercase tracking-wider">長度 (mm)</label><input type="number" class="w-full bg-white border border-slate-200 p-3 rounded-xl font-bold p-part-l"></div>
+            <div class="col-span-3"><label class="text-[10px] font-black text-slate-400 block mb-1 uppercase tracking-wider">寬度 (mm)</label><input type="number" class="w-full bg-white border border-slate-200 p-3 rounded-xl font-bold p-part-w"></div>
+            <div class="col-span-2"><label class="text-[10px] font-black text-slate-400 block mb-1 uppercase tracking-wider">數量</label><input type="number" class="w-full bg-white border border-slate-200 p-3 rounded-xl font-bold p-part-q"></div>
+            <div class="col-span-1 flex justify-end pb-1"><button onclick="this.parentElement.parentElement.remove(); calculatePlate();" class="text-slate-300 hover:text-red-500 text-2xl transition-colors">×</button></div>`;
+        container.appendChild(row);
+        renumberPlate();
+        row.querySelectorAll('input, select').forEach(el => el.addEventListener('input', () => {
+            const all = container.querySelectorAll('.input-group');
+            const last = all[all.length-1];
+            if(Array.from(last.querySelectorAll('input')).some(i=>i.value!=="") && !last.dataset.spawned){
+                last.dataset.spawned = "true";
+                addRowPlate(row.querySelector('.p-part-t').value);
+            }
+            calculatePlate();
+        }));
+    }
+    function renumberPlate() { document.querySelectorAll('.p-row-no').forEach((el,i)=>el.textContent=`${i+1}號`); }
+    function calculatePlate() {
+        const d = parseFloat(document.getElementById('p-material').value);
+        let grouped = {}, totalW = 0;
+        document.querySelectorAll('#p-input-rows .input-group').forEach((row, idx) => {
+            const T = parseFloat(row.querySelector('.p-part-t').value);
+            const L = parseFloat(row.querySelector('.p-part-l').value) || 0;
+            const W = parseFloat(row.querySelector('.p-part-w').value) || 0;
+            const Q = parseInt(row.querySelector('.p-part-q').value) || 0;
+            if(L>0 && W>0 && Q>0) {
+                totalW += (L*W*T*d)/1000000 * Q;
+                if(!grouped[T]) grouped[T] = [];
+                for(let i=0;i<Q;i++) grouped[T].push({id: idx+1, w:L, h:W});
+            }
+        });
+        document.getElementById('p-total-weight').textContent = totalW.toFixed(2);
+        renderPlate(grouped);
+    }
 function renderPlate(grouped) {
     const out = document.getElementById('p-output'); out.innerHTML = "";
     const [bh, bw] = document.getElementById('p-board-spec').value.split(',').map(Number);
@@ -256,19 +248,41 @@ function renderPlate(grouped) {
         out.appendChild(sec);
         res.forEach((sheet, si) => {
             const wrap = document.createElement('div');
-            wrap.className = "bg-white p-10 border-2 border-slate-300 mb-8 inline-block min-w-full shadow-md";
-            wrap.innerHTML = `<div class="mb-6"><span class="text-slate-400 font-black text-xl italic">圖紙 NO. ${si+1}</span></div>`;
+            // ✅ 優化：移除 rounded-3xl，改為完全直角，並加強外框
+            wrap.className = "bg-white p-10 border-2 border-slate-300 overflow-x-auto text-left mb-8 inline-block min-w-full shadow-md";
+            wrap.innerHTML = `<div class="flex justify-between items-center mb-6 px-2"><span class="text-slate-400 font-black text-xl italic tracking-tight">圖紙 NO. ${si+1}</span><span class="px-4 py-1.5 bg-blue-50 text-blue-600 rounded-full text-xs font-black uppercase tracking-widest">${t}t x ${bh}x${bw}</span></div>`;
+            
             const cv = document.createElement('canvas');
             const sc = Math.min(0.3, 1100/bw); cv.width = bw * sc; cv.height = bh * sc;
+            // ✅ 優化：移除畫布容器的圓角 (rounded-3xl)
+            cv.className = "bg-white border border-slate-400 canvas-container";
             const ctx = cv.getContext('2d');
-            ctx.strokeStyle = "#475569"; ctx.lineWidth = 4; ctx.strokeRect(0, 0, bw * sc, bh * sc);
+
+            // 🌟 1. 強化：畫出底部「原料鐵板」的直角輪廓線
+            ctx.strokeStyle = "#475569"; // 使用較深的 slate-600
+            ctx.lineWidth = 4;           // 加粗邊框，強調母板邊界
+            ctx.lineJoin = "miter";      // 確保角落是尖銳的直角
+            ctx.strokeRect(0, 0, bw * sc, bh * sc);
+
             sheet.forEach(p => {
                 totalA += p.w*p.h;
+                
+                // 2. 填滿零件顏色
                 ctx.fillStyle = `hsl(218, 85%, ${Math.max(30, 60 - (p.id%12)*3)}%)`;
                 ctx.fillRect(p.x*sc, p.y*sc, p.w*sc, p.h*sc);
-                ctx.strokeStyle = "#1e293b"; ctx.lineWidth = 1.5; ctx.strokeRect(p.x*sc, p.y*sc, p.w*sc, p.h*sc);
-                ctx.fillStyle = "white"; ctx.font = "bold 14px Inter"; ctx.textAlign = "center";
+                
+                // 3. 零件本身的深色輪廓線
+                ctx.strokeStyle = "#1e293b"; 
+                ctx.lineWidth = 1.5; 
+                ctx.strokeRect(p.x*sc, p.y*sc, p.w*sc, p.h*sc);
+                
+                // 4. 零件編號文字
+                ctx.fillStyle = "white"; 
+                ctx.font = "black 20px Inter"; 
+                ctx.textAlign = "center"; ctx.textBaseline="middle";
+                ctx.shadowColor = "rgba(0,0,0,0.5)"; ctx.shadowBlur = 6;
                 ctx.fillText(p.id, (p.x+p.w/2)*sc, (p.y+p.h/2)*sc);
+                ctx.shadowBlur = 0; 
             });
             wrap.appendChild(cv); document.getElementById(`p-t-${t}`).appendChild(wrap);
         });
@@ -277,172 +291,178 @@ function renderPlate(grouped) {
     const bA = totalS * bw * bh; document.getElementById('p-avg-util').textContent = bA>0 ? (totalA/bA*100).toFixed(1)+"%" : "0%";
 }
 
-function nest2D(parts, bw, bh) {
-    let sorted = [...parts].sort((a,b)=>b.w*b.h - a.w*a.h);
-    let sheets = [];
-    while(sorted.length > 0){
-        let pl = [], sky = new Array(Math.ceil(bw)).fill(CONFIG_P.MARGIN);
-        for(let i=0; i<sorted.length; i++){
-            let p = sorted[i];
-            let res = findPos(p.w, p.h, sky, bw, bh);
-            if(res){
-                pl.push({...p, x:res.x, y:res.y});
-                for(let x=Math.floor(res.x); x<Math.min(bw, Math.ceil(res.x+p.w)); x++) sky[x]=res.y+p.h+CONFIG_P.GAP;
-                sorted.splice(i,1); i--;
+    function nest2D(parts, bw, bh) {
+        let sorted = [...parts].sort((a,b)=>b.w*b.h - a.w*a.h);
+        let sheets = [];
+        while(sorted.length > 0){
+            let pl = [], sky = new Array(Math.ceil(bw)).fill(CONFIG_P.MARGIN);
+            for(let i=0; i<sorted.length; i++){
+                let p = sorted[i];
+                let res0 = findPos(p.w, p.h, sky, bw, bh);
+                let res90 = findPos(p.h, p.w, sky, bw, bh);
+                let best = null, rot = false;
+                if(res0 && res90) { if(res90.y < res0.y) { best = res90; rot = true; } else best = res0; }
+                else if(res0) best = res0; else if(res90) { best = res90; rot = true; }
+                if(best){
+                    const aw = rot?p.h:p.w, ah = rot?p.w:p.h;
+                    pl.push({...p, x:best.x, y:best.y, w:aw, h:ah});
+                    for(let x=Math.floor(best.x);x<Math.min(bw, Math.ceil(best.x+aw));x++) sky[x]=best.y+ah+CONFIG_P.GAP;
+                    sorted.splice(i,1); i--;
+                }
             }
+            sheets.push(pl);
         }
-        sheets.push(pl);
+        return sheets;
     }
-    return sheets;
-}
-
-function findPos(pw, ph, sky, bw, bh){
-    let by = Infinity, bx = -1;
-    for(let x=CONFIG_P.MARGIN; x+pw+CONFIG_P.MARGIN <= bw; x+=10){
-        let cy = CONFIG_P.MARGIN;
-        for(let sx=Math.floor(x); sx<x+pw; sx++) cy = Math.max(cy, sky[sx]);
-        if(cy+ph+CONFIG_P.MARGIN <= bh && cy < by){ by = cy; bx = x; }
-    }
-    return bx !== -1 ? {x:bx, y:by} : null;
-}
-
-// --- 型鋼配料：預設 6M 與常用長度選單 ---
-function addRowSteel(lastKgM = "") {
-    const container = document.getElementById('s-input-rows');
-    const row = document.createElement('div');
-    row.className = "grid grid-cols-12 gap-3 items-end p-5 bg-slate-50 rounded-2xl border border-slate-200 input-group transition-all";
-    
-    // 1. 生成型鋼規格選單
-    let specOpts = "";
-    Object.keys(STEEL_DB).forEach(cat => {
-        specOpts += `<optgroup label="${cat}">${STEEL_DB[cat].map(s=>`<option value="${s.w}" data-name="${s.n}" ${s.w == lastKgM ? 'selected' : ''}>${s.n}</option>`).join('')}</optgroup>`;
-    });
-
-    // 2. 定義型鋼常用長度：預設 6M，並加入 9M, 10M, 12M
-    const commonLens = [
-        { n: "6M (6000mm)", v: "6000" },
-        { n: "9M (9000mm)", v: "9000" },
-        { n: "10M (10000mm)", v: "10000" },
-        { n: "12M (12000mm)", v: "12000" },
-        { n: "手動輸入", v: "manual" }
-    ];
-    let lenOptions = commonLens.map(l => `<option value="${l.v}">${l.n}</option>`).join('');
-
-    row.innerHTML = `
-        <div class="col-span-1 text-center font-black text-indigo-500 italic">#</div>
-        
-        <div class="col-span-3">
-            <label class="text-[10px] font-black text-slate-400 block mb-1 uppercase">型鋼規格</label>
-            <select class="w-full bg-white border p-3 rounded-xl font-bold s-part-spec">${specOpts}</select>
-        </div>
-
-        <div class="col-span-3">
-            <label class="text-[10px] font-black text-slate-400 block mb-1 uppercase">常用長度</label>
-            <select class="w-full bg-white border p-3 rounded-xl font-bold" onchange="handleSteelLenChange(this)">
-                ${lenOptions}
-            </select>
-        </div>
-
-        <div class="col-span-2">
-            <label class="text-[10px] font-black text-slate-400 block mb-1 uppercase">切斷長度(mm)</label>
-            <input type="number" placeholder="長度" value="6000" class="w-full bg-white border p-3 rounded-xl font-bold s-part-l">
-        </div>
-
-        <div class="col-span-2">
-            <label class="text-[10px] font-black text-slate-400 block mb-1 uppercase">需求數量</label>
-            <input type="number" placeholder="數量" value="1" class="w-full bg-white border p-3 rounded-xl font-bold s-part-q">
-        </div>
-
-        <div class="col-span-1 flex justify-end">
-            <button onclick="this.parentElement.parentElement.remove(); calculateSteel();" class="text-slate-300 hover:text-red-500 text-2xl">×</button>
-        </div>`;
-
-    container.appendChild(row);
-    
-    // 初始化監聽
-    row.querySelectorAll('input, select').forEach(el => el.addEventListener('input', calculateSteel));
-    
-    // 剛新增列時自動計算一次
-    calculateSteel();
-}
-
-// 🚀 處理型鋼長度切換輔助函式
-function handleSteelLenChange(selectEl) {
-    const row = selectEl.closest('.input-group');
-    const val = selectEl.value;
-    if (val !== "manual") {
-        row.querySelector('.s-part-l').value = val;
-    }
-    calculateSteel();
-}
-
-function calculateSteel() {
-    const stockLen = parseFloat(document.getElementById('s-stock-len').value);
-    let grouped = {}, totalW = 0;
-    document.querySelectorAll('#s-input-rows .input-group').forEach((row, idx) => {
-        const sel = row.querySelector('.s-part-spec');
-        const kgm = parseFloat(sel.value);
-        const name = sel.options[sel.selectedIndex].getAttribute('data-name');
-        const L = parseFloat(row.querySelector('.s-part-l').value) || 0;
-        const Q = parseInt(row.querySelector('.s-part-q').value) || 0;
-        if(L > 0 && Q > 0) {
-            totalW += (L/1000) * kgm * Q;
-            if(!grouped[name]) grouped[name] = [];
-            for(let i=0; i<Q; i++) grouped[name].push({ id: idx+1, len: L });
+    function findPos(pw, ph, sky, bw, bh){
+        let by = Infinity, bx = -1;
+        for(let x=CONFIG_P.MARGIN; x+pw+CONFIG_P.MARGIN <= bw; x+=15){
+            let cy = CONFIG_P.MARGIN;
+            for(let sx=Math.floor(x); sx<x+pw; sx++) cy = Math.max(cy, sky[sx]);
+            if(cy+ph+CONFIG_P.MARGIN <= bh && cy < by){ by = cy; bx = x; }
         }
-    });
-    document.getElementById('s-total-weight').textContent = totalW.toFixed(2);
-    renderSteel(grouped, stockLen);
-}
+        return bx !== -1 ? {x:bx, y:by} : null;
+    }
 
-function renderSteel(grouped, stockLen) {
-    const out = document.getElementById('s-output'); out.innerHTML = "";
-    let totalBars = 0;
-    Object.keys(grouped).forEach(spec => {
-        const res = nest1D(grouped[spec], stockLen);
-        totalBars += res.length;
-        const sec = document.createElement('div');
-        sec.innerHTML = `<h2 class="text-3xl font-black mb-6 border-l-8 border-indigo-600 pl-6 text-slate-800">${spec} 配料方案</h2>`;
-        res.forEach((bar, bi) => {
-            const used = bar.reduce((a,c)=>a+c.len, 0);
-            const wrap = document.createElement('div');
-            wrap.className = "bg-white p-8 rounded-[2rem] border mb-6 shadow-sm";
-            wrap.innerHTML = `<p class="mb-3 font-bold text-slate-500">原料支 #${bi+1} (已用: ${used}mm / 剩餘: ${stockLen-used}mm)</p><div class="stock-bar"></div>`;
-            const vis = wrap.querySelector('.stock-bar');
-            bar.forEach(c => {
-                const seg = document.createElement('div');
-                seg.className = "cut-segment";
-                seg.style.width = `${(c.len/stockLen)*100}%`;
-                seg.style.backgroundColor = `hsl(${(c.len*123)%360}, 65%, 45%)`;
-                seg.innerHTML = `<span style="font-size:12px">#${c.id}</span>`;
-                vis.appendChild(seg);
+    // --- 型鋼邏輯 ---
+    function addRowSteel(lastKgM = "") {
+        const container = document.getElementById('s-input-rows');
+        const rowId = Date.now();
+        const row = document.createElement('div');
+        row.className = "grid grid-cols-12 gap-3 items-end p-5 bg-slate-50 rounded-2xl border border-slate-200 input-group transition-all";
+        row.id = `s-row-${rowId}`;
+        let specOpts = "";
+        Object.keys(STEEL_DB).forEach(cat => {
+            specOpts += `<optgroup label="${cat}">`;
+            STEEL_DB[cat].forEach(s => {
+                specOpts += `<option value="${s.w}" data-name="${s.n}" ${s.w == lastKgM ? 'selected' : ''}>${s.n}</option>`;
             });
-            sec.appendChild(wrap);
+            specOpts += `</optgroup>`;
         });
-        out.appendChild(sec);
-    });
-    document.getElementById('s-total-bars').textContent = totalBars;
-}
-
-function nest1D(cuts, stockLen) {
-    const KERF = 15; // 統一設定 15mm 鋸縫
-    let sorted = [...cuts].sort((a,b)=>b.len - a.len);
-    let bars = [];
-    while(sorted.length > 0){
-        let cur = [], rem = stockLen;
-        for(let i=0; i<sorted.length; i++){
-            if(sorted[i].len + KERF <= rem || (sorted[i].len <= rem && cur.length === 0)){
-                cur.push(sorted[i]);
-                rem -= (sorted[i].len + KERF);
-                sorted.splice(i,1); i--;
+        row.innerHTML = `
+            <div class="col-span-1 text-center pb-2 font-black text-indigo-500 s-row-no italic">...</div>
+            <div class="col-span-4"><label class="text-[10px] font-black text-slate-400 block mb-1 uppercase tracking-wider">規格</label>
+                <select class="w-full bg-white border border-slate-200 p-3 rounded-xl font-bold s-part-spec">${specOpts}</select></div>
+            <div class="col-span-3"><label class="text-[10px] font-black text-slate-400 block mb-1 uppercase tracking-wider">切斷長度 (mm)</label>
+                <input type="number" class="w-full bg-white border border-slate-200 p-3 rounded-xl font-bold s-part-l"></div>
+            <div class="col-span-3"><label class="text-[10px] font-black text-slate-400 block mb-1 uppercase tracking-wider">需求數量</label>
+                <input type="number" class="w-full bg-white border border-slate-200 p-3 rounded-xl font-bold s-part-q"></div>
+            <div class="col-span-1 flex justify-end pb-1"><button onclick="this.parentElement.parentElement.remove(); calculateSteel();" class="text-slate-300 hover:text-red-500 text-2xl Transition-colors">×</button></div>`;
+        container.appendChild(row);
+        renumberSteel();
+        row.querySelectorAll('input, select').forEach(el => el.addEventListener('input', () => {
+            const all = container.querySelectorAll('.input-group');
+            const last = all[all.length-1];
+            if(Array.from(last.querySelectorAll('input')).some(i=>i.value!=="") && !last.dataset.spawned){
+                last.dataset.spawned = "true";
+                addRowSteel(row.querySelector('.s-part-spec').value);
             }
-        }
-        bars.push(cur);
+            calculateSteel();
+        }));
     }
-    return bars;
-}
+    function renumberSteel() { document.querySelectorAll('.s-row-no').forEach((el,i)=>el.textContent=`${i+1}號`); }
 
-function toggleFormulaModal() { document.getElementById('formulaModal').classList.toggle('hidden'); }
+    function calculateSteel() {
+        const stockLen = parseFloat(document.getElementById('s-stock-len').value);
+        let grouped = {}, totalW = 0;
+        document.querySelectorAll('#s-input-rows .input-group').forEach((row, idx) => {
+            const sel = row.querySelector('.s-part-spec');
+            const kgm = parseFloat(sel.value);
+            const specName = sel.options[sel.selectedIndex].getAttribute('data-name');
+            const L = parseFloat(row.querySelector('.s-part-l').value) || 0;
+            const Q = parseInt(row.querySelector('.s-part-q').value) || 0;
+            if(L > 0 && Q > 0) {
+                totalW += (L/1000) * kgm * Q;
+                if(!grouped[specName]) grouped[specName] = [];
+                for(let i=0; i<Q; i++) grouped[specName].push({ id: idx+1, len: L });
+            }
+        });
+        document.getElementById('s-total-weight').textContent = totalW.toFixed(2);
+        renderSteel(grouped, stockLen);
+    }
+
+    /**
+     * ✅ 強化版型鋼渲染：按長度配色，字體加大
+     */
+    function renderSteel(grouped, stockLen) {
+        const out = document.getElementById('s-output'); out.innerHTML = "";
+        let totalBars = 0;
+        
+        Object.keys(grouped).forEach(spec => {
+            const res = nest1D(grouped[spec], stockLen);
+            totalBars += res.length;
+            const sec = document.createElement('div');
+            sec.innerHTML = `<h2 class="text-3xl font-black mb-6 border-l-8 border-indigo-600 pl-6 text-slate-800">${spec}</h2><div class="space-y-6" id="s-cont-${spec.replace(/[^a-zA-Z0-9]/g,'')}"></div>`;
+            out.appendChild(sec);
+            
+            res.forEach((bar, bi) => {
+                const used = bar.reduce((a,c)=>a+c.len,0);
+                const wrap = document.createElement('div');
+                wrap.className = "bg-white p-10 rounded-[3rem] border border-slate-200 shadow-sm mb-6 inline-block min-w-full text-left";
+                wrap.innerHTML = `<div class="flex justify-between items-baseline mb-4 px-2">
+                    <span class="text-slate-400 font-black text-xl italic tracking-tight uppercase">原料支 #${bi+1}</span>
+                    <span class="text-sm font-bold text-slate-500">已用 ${used}mm / 餘料 <span class="text-red-500 font-black">${stockLen-used}mm</span></span>
+                </div>`;
+                
+                const barVis = document.createElement('div'); 
+                barVis.className = "stock-bar";
+                
+                bar.forEach(c => {
+                    const seg = document.createElement('div'); 
+                    seg.className = "cut-segment";
+                    seg.style.width = `${(c.len/stockLen)*100}%`; 
+                    
+                    // ✅ 核心優化：顏色按「長度」生成雜湊值，確保相同長度零件顏色一致
+                    const hue = (c.len * 123.45) % 360;
+                    seg.style.backgroundColor = `hsl(${hue}, 65%, 45%)`;
+                    
+                    // 如果長度足夠才顯示文字，否則太擁擠
+                    if ((c.len / stockLen) > 0.02) {
+                        seg.innerHTML = `<span>#${c.id}</span>`;
+                    }
+                    seg.title = `編號:#${c.id} | 長度:${c.len}mm`;
+                    barVis.appendChild(seg);
+                });
+                
+                wrap.appendChild(barVis);
+                
+                // 下方詳細清單也分色標註
+                const sum = bar.reduce((acc,curr)=>{acc[curr.len]=(acc[curr.len]||0)+1; return acc;},{});
+                const list = document.createElement('div'); 
+                list.className = "mt-6 flex flex-wrap gap-3";
+                Object.keys(sum).forEach(l => {
+                    const hue = (Number(l) * 123.45) % 360;
+                    list.innerHTML += `<div class="flex items-center gap-2 bg-slate-50 border border-slate-100 pr-3 rounded-xl overflow-hidden shadow-sm">
+                        <div class="w-2 h-full py-4" style="background: hsl(${hue}, 65%, 45%)"></div>
+                        <span class="text-slate-700 font-black text-sm italic">切 ${l}mm <span class="text-indigo-600 font-black not-italic">× ${sum[l]}支</span></span>
+                    </div>`;
+                });
+                
+                wrap.appendChild(list);
+                document.getElementById(`s-cont-${spec.replace(/[^a-zA-Z0-9]/g,'')}`).appendChild(wrap);
+            });
+        });
+        document.getElementById('s-total-bars').textContent = totalBars;
+    }
+
+    function nest1D(cuts, stockLen) {
+        let sorted = [...cuts].sort((a,b)=>b.len - a.len);
+        let bars = [];
+        while(sorted.length > 0){
+            let cur = [], rem = stockLen;
+            for(let i=0; i<sorted.length; i++){
+                if(sorted[i].len <= rem){
+                    cur.push(sorted[i]); rem -= sorted[i].len;
+                    sorted.splice(i,1); i--;
+                }
+            }
+            // 排序當前支，讓相同長度的在一起 (方便取料)
+            cur.sort((a,b)=>a.len - b.len);
+            bars.push(cur);
+        }
+        return bars;
+    }
 </script>
+
 </body>
-</html>
+</html>  
