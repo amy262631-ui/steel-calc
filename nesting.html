@@ -158,20 +158,71 @@ function switchTab(t) {
     document.getElementById('tab-steel').className = t === 'steel' ? 'px-8 py-3 rounded-xl transition-all tab-active' : 'px-8 py-3 rounded-xl transition-all text-slate-500 font-bold';
 }
 
-// --- 鐵板排料邏輯 ---
+// --- 鐵板排料邏輯：復原規格選單功能 ---
 function addRowPlate(lastT = 3) {
     const container = document.getElementById('p-input-rows');
     const row = document.createElement('div');
     row.className = "grid grid-cols-12 gap-3 items-end p-5 bg-slate-50 rounded-2xl border border-slate-200 input-group transition-all";
+    
+    // 定義常用鐵板規格
+    const plateSpecs = [
+        { n: "請選擇規格", v: "manual" },
+        { n: "4尺 x 8尺", v: "2438,1219" },
+        { n: "5尺 x 10尺", v: "3048,1524" },
+        { n: "4尺 x 20尺", v: "6096,1219" },
+        { n: "5尺 x 20尺", v: "6096,1524" }
+    ];
+    const specOptions = plateSpecs.map(s => `<option value="${s.v}">${s.n}</option>`).join('');
+
     row.innerHTML = `
         <div class="col-span-1 text-center font-black text-blue-500 p-row-no italic">#</div>
-        <div class="col-span-2"><select class="w-full bg-white border p-3 rounded-xl font-bold p-part-t">${Array.from({length:50},(_,i)=>`<option value="${i+1}" ${i+1==lastT?'selected':''}>${i+1}t</option>`).join('')}</select></div>
-        <div class="col-span-3"><input type="number" placeholder="長度(mm)" class="w-full bg-white border p-3 rounded-xl font-bold p-part-l"></div>
-        <div class="col-span-3"><input type="number" placeholder="寬度(mm)" class="w-full bg-white border p-3 rounded-xl font-bold p-part-w"></div>
-        <div class="col-span-2"><input type="number" placeholder="數量" class="w-full bg-white border p-3 rounded-xl font-bold p-part-q"></div>
-        <div class="col-span-1 flex justify-end"><button onclick="this.parentElement.parentElement.remove(); calculatePlate();" class="text-slate-300 hover:text-red-500 text-2xl">×</button></div>`;
+        
+        <div class="col-span-2">
+            <label class="text-[10px] font-black text-slate-400 block mb-1">板厚</label>
+            <select class="w-full bg-white border p-3 rounded-xl font-bold p-part-t">
+                ${Array.from({length:50},(_,i)=>`<option value="${i+1}" ${i+1==lastT?'selected':''}>${i+1}t</option>`).join('')}
+            </select>
+        </div>
+
+        <div class="col-span-3">
+            <label class="text-[10px] font-black text-slate-400 block mb-1">常用規格</label>
+            <select class="w-full bg-white border p-3 rounded-xl font-bold p-part-spec" onchange="handlePlateSpecChange(this)">
+                ${specOptions}
+            </select>
+        </div>
+
+        <div class="col-span-2">
+            <label class="text-[10px] font-black text-slate-400 block mb-1">長度 (mm)</label>
+            <input type="number" placeholder="長度" class="w-full bg-white border p-3 rounded-xl font-bold p-part-l">
+        </div>
+        <div class="col-span-2">
+            <label class="text-[10px] font-black text-slate-400 block mb-1">寬度 (mm)</label>
+            <input type="number" placeholder="寬度" class="w-full bg-white border p-3 rounded-xl font-bold p-part-w">
+        </div>
+
+        <div class="col-span-1">
+            <label class="text-[10px] font-black text-slate-400 block mb-1">數量</label>
+            <input type="number" placeholder="數量" value="1" class="w-full bg-white border p-3 rounded-xl font-bold p-part-q">
+        </div>
+
+        <div class="col-span-1 flex justify-end">
+            <button onclick="this.parentElement.parentElement.remove(); calculatePlate();" class="text-slate-300 hover:text-red-500 text-2xl transition-colors">×</button>
+        </div>`;
+
     container.appendChild(row);
     row.querySelectorAll('input, select').forEach(el => el.addEventListener('input', calculatePlate));
+}
+
+// 🚀 新增輔助函式：處理規格選單切換
+function handlePlateSpecChange(selectEl) {
+    const row = selectEl.closest('.input-group');
+    const val = selectEl.value;
+    if (val !== "manual") {
+        const [l, w] = val.split(',');
+        row.querySelector('.p-part-l').value = l;
+        row.querySelector('.p-part-w').value = w;
+    }
+    calculatePlate();
 }
 
 function calculatePlate() {
@@ -182,10 +233,11 @@ function calculatePlate() {
         const L = parseFloat(row.querySelector('.p-part-l').value) || 0;
         const W = parseFloat(row.querySelector('.p-part-w').value) || 0;
         const Q = parseInt(row.querySelector('.p-part-q').value) || 0;
-        if(L>0 && W>0 && Q>0) {
-            totalW += (L*W*T*d)/1000000 * Q;
+        if(L > 0 && W > 0 && Q > 0) {
+            // 鐵板重量公式：長(m) * 寬(m) * 厚(mm) * 密度
+            totalW += (L * W * T * d) / 1000000 * Q;
             if(!grouped[T]) grouped[T] = [];
-            for(let i=0;i<Q;i++) grouped[T].push({id: idx+1, w:L, h:W});
+            for(let i = 0; i < Q; i++) grouped[T].push({id: idx + 1, w: L, h: W});
         }
     });
     document.getElementById('p-total-weight').textContent = totalW.toFixed(2);
@@ -254,23 +306,74 @@ function findPos(pw, ph, sky, bw, bh){
     return bx !== -1 ? {x:bx, y:by} : null;
 }
 
-// --- 型鋼配料邏輯 (含 15mm 鋸縫) ---
-function addRowSteel() {
+// --- 型鋼配料：預設 6M 與常用長度選單 ---
+function addRowSteel(lastKgM = "") {
     const container = document.getElementById('s-input-rows');
     const row = document.createElement('div');
-    row.className = "grid grid-cols-12 gap-3 items-end p-5 bg-slate-50 rounded-2xl border input-group transition-all";
+    row.className = "grid grid-cols-12 gap-3 items-end p-5 bg-slate-50 rounded-2xl border border-slate-200 input-group transition-all";
+    
+    // 1. 生成型鋼規格選單
     let specOpts = "";
     Object.keys(STEEL_DB).forEach(cat => {
-        specOpts += `<optgroup label="${cat}">${STEEL_DB[cat].map(s=>`<option value="${s.w}" data-name="${s.n}">${s.n}</option>`).join('')}</optgroup>`;
+        specOpts += `<optgroup label="${cat}">${STEEL_DB[cat].map(s=>`<option value="${s.w}" data-name="${s.n}" ${s.w == lastKgM ? 'selected' : ''}>${s.n}</option>`).join('')}</optgroup>`;
     });
+
+    // 2. 定義型鋼常用長度：預設 6M，並加入 9M, 10M, 12M
+    const commonLens = [
+        { n: "6M (6000mm)", v: "6000" },
+        { n: "9M (9000mm)", v: "9000" },
+        { n: "10M (10000mm)", v: "10000" },
+        { n: "12M (12000mm)", v: "12000" },
+        { n: "手動輸入", v: "manual" }
+    ];
+    let lenOptions = commonLens.map(l => `<option value="${l.v}">${l.n}</option>`).join('');
+
     row.innerHTML = `
         <div class="col-span-1 text-center font-black text-indigo-500 italic">#</div>
-        <div class="col-span-4"><select class="w-full bg-white border p-3 rounded-xl font-bold s-part-spec">${specOpts}</select></div>
-        <div class="col-span-3"><input type="number" placeholder="切斷長度" class="w-full bg-white border p-3 rounded-xl font-bold s-part-l"></div>
-        <div class="col-span-3"><input type="number" placeholder="數量" class="w-full bg-white border p-3 rounded-xl font-bold s-part-q"></div>
-        <div class="col-span-1 flex justify-end"><button onclick="this.parentElement.parentElement.remove(); calculateSteel();" class="text-slate-300 hover:text-red-500 text-2xl">×</button></div>`;
+        
+        <div class="col-span-3">
+            <label class="text-[10px] font-black text-slate-400 block mb-1 uppercase">型鋼規格</label>
+            <select class="w-full bg-white border p-3 rounded-xl font-bold s-part-spec">${specOpts}</select>
+        </div>
+
+        <div class="col-span-3">
+            <label class="text-[10px] font-black text-slate-400 block mb-1 uppercase">常用長度</label>
+            <select class="w-full bg-white border p-3 rounded-xl font-bold" onchange="handleSteelLenChange(this)">
+                ${lenOptions}
+            </select>
+        </div>
+
+        <div class="col-span-2">
+            <label class="text-[10px] font-black text-slate-400 block mb-1 uppercase">切斷長度(mm)</label>
+            <input type="number" placeholder="長度" value="6000" class="w-full bg-white border p-3 rounded-xl font-bold s-part-l">
+        </div>
+
+        <div class="col-span-2">
+            <label class="text-[10px] font-black text-slate-400 block mb-1 uppercase">需求數量</label>
+            <input type="number" placeholder="數量" value="1" class="w-full bg-white border p-3 rounded-xl font-bold s-part-q">
+        </div>
+
+        <div class="col-span-1 flex justify-end">
+            <button onclick="this.parentElement.parentElement.remove(); calculateSteel();" class="text-slate-300 hover:text-red-500 text-2xl">×</button>
+        </div>`;
+
     container.appendChild(row);
+    
+    // 初始化監聽
     row.querySelectorAll('input, select').forEach(el => el.addEventListener('input', calculateSteel));
+    
+    // 剛新增列時自動計算一次
+    calculateSteel();
+}
+
+// 🚀 處理型鋼長度切換輔助函式
+function handleSteelLenChange(selectEl) {
+    const row = selectEl.closest('.input-group');
+    const val = selectEl.value;
+    if (val !== "manual") {
+        row.querySelector('.s-part-l').value = val;
+    }
+    calculateSteel();
 }
 
 function calculateSteel() {
