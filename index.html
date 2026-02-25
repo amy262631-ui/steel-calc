@@ -7,8 +7,7 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     
     <title>鐵材重量計算機 | 鋼鐵手冊與線上試算工具</title>
-    <meta name="description" content="全台最專業鋼鐵重量試算工具，涵蓋 H 型鋼、黑鐵板、不鏽鋼、角鐵、管材等 CNS 標準規格。內建損耗率與單價報價功能，工地採購詢價首選。">
-    <meta name="keywords" content="鋼鐵重量計算, H型鋼重量, 不鏽鋼重量表, 鋼板試算, 工程估價工具, 鐵材規格">
+<meta name="description" content="全台最專業鋼鐵重量計算工具與規格指南。提供 H 型鋼、不鏽鋼、角鐵、鋼板等 CNS 理論重量試算，並收錄詳細鋼材密度表與工程損耗率設定建議，是工程師與採購人員的數位鋼鐵手冊。">    <meta name="keywords" content="鋼鐵重量計算, H型鋼重量, 不鏽鋼重量表, 鋼板試算, 工程估價工具, 鐵材規格">
 
     <meta property="og:title" content="鋼鐵重量計算機 | 專業工程規格試算">
     <meta property="og:description" content="一鍵計算各式鋼材重量與造價，工地現場與採購必備。">
@@ -269,8 +268,58 @@
         </div>
     </div>
 </article>
+
+<section class="max-w-6xl mx-auto mt-12 bg-white rounded-[2.5rem] p-10 border border-slate-100 shadow-sm">
+    <h2 class="text-2xl font-black text-slate-800 mb-6">鋼鐵材料重量計算專業指南與採購須知</h2>
+    <div class="prose prose-slate max-w-none text-slate-600 leading-relaxed space-y-4">
+        <p>
+            在現代建築工程與精密機械製造中，<b>鋼鐵重量試算</b>不僅是採購估價的核心，更是確保結構安全的基礎。
+            本工具嚴格遵循 <b>CNS 中華民國國家標準</b> 規格，整合了 H 型鋼、角鐵、鋼板、圓管等多樣化鐵材的理論重量公式，
+            旨在為現場工務與採購人員提供最精準的數位化手冊。
+        </p>
+        
+        <h3 class="text-xl font-bold text-slate-800 pt-4">為什麼黑鐵與不鏽鋼的重量計算有所不同？</h3>
+        <p>
+            核心關鍵在於「材質密度」。一般<b>碳鋼（黑鐵）</b>的理論密度為 <b>7.85 g/cm³</b>，而工程中常用的 <b>304 或 316 不鏽鋼</b> 密度則約為 <b>7.93 g/cm³</b>。
+            這 1% 的微小密度差異，在大宗鋼材交易中會導致顯著的噸數誤差，進而影響數萬元的成本報價。
+        </p>
+
+        <h3 class="text-xl font-bold text-slate-800 pt-4">工程估價必備：損耗率的科學設定</h3>
+        <p>
+            鋼鐵採購時必須考慮裁切縫（Kerf）與餘料。根據台灣工程實務建議：
+        </p>
+        <ul class="list-disc pl-6 space-y-2">
+            <li><b>矩形鋼板：</b> 建議設定 3-5% 的損耗空間。</li>
+            <li><b>H 型鋼與型鋼：</b> 受限於 6 米或 12 米的定尺限制，裁切損耗通常建議設定在 5-10% 以確保備料充足。</li>
+        </ul>
+
+        <div class="bg-slate-50 p-6 rounded-2xl mt-6 border border-slate-200">
+            <h4 class="font-bold text-slate-800 mb-3">專業計算公式參考：</h4>
+            <ul class="grid md:grid-cols-2 gap-4 text-sm font-mono text-slate-600">
+                <li>● H型鋼：[ t1×B×2 + t2×(H-2×t1) ] × 0.00785</li>
+                <li>● 圓管：(外徑 - 厚度) × 厚度 × 0.02466</li>
+                <li>● 角鐵：[邊長+(邊長-厚度)] × 厚度 × 0.00785</li>
+                <li>● 鋼板：厚度(mm) × 寬度(m) × 長度(m) × 密度</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="max-w-6xl mx-auto mt-8 grid md:grid-cols-2 gap-6 mb-12">
+    <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+        <h4 class="font-bold text-slate-800 text-lg mb-2">Q：本工具計算的重量可以直接交易嗎？</h4>
+        <p class="text-slate-500 text-sm leading-relaxed">A：本計算機提供的是「理論重量」。由於鋼鐵出廠時存在厚度公差，大宗採購仍應以地磅實秤數據為準。</p>
+    </div>
+    <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+        <h4 class="font-bold text-slate-800 text-lg mb-2">Q：如何換算不鏽鋼與黑鐵的價差？</h4>
+        <p class="text-slate-500 text-sm leading-relaxed">A：不鏽鋼除密度較大外，單價通常比碳鋼高。建議先試算出兩者的總重量差異，再帶入當日單價進行總價對比。</p>
+    </div>
+</section>
+
             </div>
-        </div> </div> </main>
+        </div> 
+    </div> 
+</main>
 
     <footer class="bg-white border-t border-slate-200 pt-12 pb-8">
         <div class="max-w-6xl mx-auto px-4 text-slate-600 text-sm">
