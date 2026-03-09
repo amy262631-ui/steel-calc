@@ -7,6 +7,21 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     
     <title>鐵材重量計算機 | 鋼鐵手冊與線上試算工具</title>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "鐵材重量計算機",
+  "operatingSystem": "Web",
+  "applicationCategory": "UtilitiesApplication",
+  "description": "專業鋼鐵重量計算工具，符合 CNS 標準，提供 H 型鋼、鋼板、不鏽鋼等規格試算。",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "TWD"
+  }
+}
+</script>
 <meta name="description" content="全台最專業鋼鐵重量計算工具與規格指南。提供 H 型鋼、不鏽鋼、角鐵、鋼板等 CNS 理論重量試算，並收錄詳細鋼材密度表與工程損耗率設定建議，是工程師與採購人員的數位鋼鐵手冊。">    <meta name="keywords" content="鋼鐵重量計算, H型鋼重量, 不鏽鋼重量表, 鋼板試算, 工程估價工具, 鐵材規格">
 
     <meta property="og:title" content="鋼鐵重量計算機 | 專業工程規格試算">
@@ -219,7 +234,16 @@
         <div class="h-10 w-2 bg-blue-600 rounded-full"></div>
         <h3 class="text-3xl font-black text-slate-800">鋼鐵重量計算實務與公式指南</h3>
     </div>
-    
+
+    <section class="mb-12 p-8 bg-blue-50 rounded-3xl border-l-8 border-blue-600">
+    <h4 class="text-2xl font-black text-slate-800 mb-4">為什麼精準的重量試算對工程估價至關重要？</h4>
+    <p class="text-slate-600 leading-relaxed mb-4">
+        在鋼鐵買賣中，「理論重量」與「實際重量」往往存在微小差異。根據 <b>CNS 標準</b>，鋼材允許一定的厚度公差（通常在 +/- 10% 以內）。若僅憑經驗估算，在高達數十噸的工程採購中，僅 1% 的誤差就可能產生數萬元的價差。
+    </p>
+    <p class="text-slate-600 leading-relaxed">
+        本工具不僅提供<b>黑鐵（碳鋼）</b>的 7.85 密度計算，更針對 <b>304/316 不鏽鋼</b> 預設了 7.93 的精準係數，確保採購人員在面對不同材質時，能獲得最貼近真實地磅數據的預估值。這對於編列預算、安排運送車輛吊桿噸位，皆具有關鍵參考價值。
+    </p>
+</section>
     <div class="grid md:grid-cols-2 gap-16 mb-12">
         <section>
             <h4 class="text-xl font-bold text-blue-600 mb-4 flex items-center gap-2">● 鋼材密度與材質差異</h4>
@@ -265,6 +289,25 @@
                     本工具參考 CNS 標準規格，但鋼材出廠可能會有 +/- 10% 的厚度公差，大宗採購仍應以地磅實秤為準。
                 </p>
             </details>
+            <details class="group cursor-pointer border-t border-slate-100 pt-6">
+    <summary class="font-bold text-slate-700 text-lg flex justify-between items-center group-open:text-blue-600 transition-colors">
+        Q：如何利用計算結果來核對廠商報價？
+        <span class="transition-transform group-open:rotate-180">▼</span>
+    </summary>
+    <p class="mt-4 text-slate-500 leading-relaxed pl-4 border-l-2 border-slate-200">
+        您可以將廠商提供的「總噸數」與本工具產生的「理論總重」進行對比。若價差超過 5%，建議核對鋼材的實測厚度。利用本站提供的<b>單價試算功能</b>，您可以快速換算出每公斤單價是否符合目前市場行情。
+    </p>
+</details>
+
+<details class="group cursor-pointer border-t border-slate-100 pt-6">
+    <summary class="font-bold text-slate-700 text-lg flex justify-between items-center group-open:text-blue-600 transition-colors">
+        Q：H 型鋼的理論重量是如何定義的？
+        <span class="transition-transform group-open:rotate-180">▼</span>
+    </summary>
+    <p class="mt-4 text-slate-500 leading-relaxed pl-4 border-l-2 border-slate-200">
+        H 型鋼重量由腹板（Web）與兩片翼板（Flange）的體積累積而成。本站資料庫收錄了包含 100x50 到 900x300 的完整規格，數據均對齊 CNS 標準手冊，減少人工查表產生的人為錯誤。
+    </p>
+</details>
         </div>
     </div>
 </article>
