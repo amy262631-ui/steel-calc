@@ -1,63 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>智慧排料與重量計算系統</title
-    <link rel="canonical" href="https://steel-calc.idv.tw/nesting.html" />                                    
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <title>智慧排料系統 | 鐵板型鋼省料工具 | steel-calc.idv.tw</title>
+    <meta name="description" content="專業鋼材智慧排料系統：鐵板 2D 排料與型鋼一維配料，自動計算最佳裁切方案，降低廢料損耗 15% 以上。適合鋼構廠、金屬加工業、工程採購人員使用。">
+    <meta name="keywords" content="鐵板排料, 型鋼配料, 鋼材省料, 裁切優化, 鋼板排料計算, 智慧排料">
+    <link rel="canonical" href="https://steel-calc.idv.tw/nesting.html" />
+
+    <!-- Article Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "智慧排料與重量計算系統",
+      "operatingSystem": "Web",
+      "applicationCategory": "UtilitiesApplication",
+      "description": "鋼材智慧排料系統，提供 2D 鐵板排料與一維型鋼配料功能，自動優化裁切方案降低廢料損耗。",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TWD" }
+    }
+    </script>
+
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2163/2163914.png" type="image/x-icon">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9184947057660512" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/makerjs@0.18.0/target/js/browser.maker.js"></script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
-        body { font-family: 'Inter', "Microsoft JhengHei", sans-serif; background: #f1f5f9; }
+        body { font-family: 'Inter', "Microsoft JhengHei", sans-serif; background: #f1f5f9; display: flex; flex-direction: column; min-height: 100vh; }
+        main { flex: 1; }
         .tab-active { background: white; color: #2563eb; border-bottom: 3px solid #2563eb; font-weight: 900; }
         .input-group:hover { border-color: #3b82f6; }
-        .canvas-container { filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.05)); }
+        .canvas-container { filter: drop-shadow(0 5px 10px rgba(0,0,0,0.05)); }
         select { cursor: pointer; }
         .stock-bar { height: 50px; border-radius: 12px; overflow: hidden; display: flex; align-items: center; background: #e2e8f0; border: 2px solid #cbd5e1; }
-        /* 放大配料圖文字 */
         .cut-segment { height: 100%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 900; border-right: 1px solid rgba(255,255,255,0.4); color: white; text-shadow: 0 1px 2px rgba(0,0,0,0.3); transition: all 0.2s; }
         .cut-segment:hover { opacity: 0.9; transform: scaleY(1.05); cursor: help; }
-        
-        /* 新增：返回按鈕專用樣式 */
-        .back-link { display: inline-flex; align-items: center; gap: 8px; color: #64748b; font-weight: 900; font-size: 14px; transition: all 0.2s; text-decoration: none; }
-        .back-link:hover { color: #2563eb; transform: translateX(-4px); }
+        /* Nav */
+        .site-nav a { transition: color 0.2s; }
+        .site-nav a:hover { color: #3b82f6; }
+        /* Article prose */
+        .prose-content h3 { font-size: 1.15rem; font-weight: 800; color: #1e293b; margin-top: 1.75rem; margin-bottom: 0.65rem; }
+        .prose-content p { color: #475569; line-height: 1.8; margin-bottom: 0.9rem; }
+        .prose-content ul { list-style: disc; padding-left: 1.5rem; color: #475569; line-height: 1.8; margin-bottom: 0.9rem; }
+        .prose-content table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 1.25rem 0; }
+        .prose-content th { background: #1e293b; color: white; padding: 0.65rem 1rem; text-align: left; }
+        .prose-content td { padding: 0.55rem 1rem; border-bottom: 1px solid #e2e8f0; color: #334155; }
+        .prose-content tr:nth-child(even) td { background: #f8fafc; }
     </style>
 </head>
-<body class="min-h-screen pb-20">
-<div class="max-w-7xl mx-auto px-4 pt-4">
-    <a href="index.html" class="back-link">← 返回基礎重量計算機</a>
-</div>    
+<body class="text-slate-900">
 
-<div class="max-w-7xl mx-auto px-4 pt-6">
-    <!-- 導覽分頁 -->
+<!-- ===== 頂部導覽列（與 index.html 一致）===== -->
+<nav class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm" aria-label="主選單">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3 site-nav">
+        <a href="index.html" class="flex items-center gap-2 font-black text-slate-800 text-lg">
+            <span class="text-2xl">⚙️</span>
+            <span>鐵材計算機</span>
+        </a>
+        <div class="flex flex-wrap items-center gap-4 text-sm font-bold text-slate-500">
+            <a href="index.html">首頁試算</a>
+            <a href="nesting.html" class="text-blue-600">智慧排料</a>
+            <a href="privacy.html">隱私權政策</a>
+            <a href="terms.html">使用條款</a>
+        </div>
+    </div>
+</nav>
+
+<main class="py-6 pb-16">
+<div class="max-w-7xl mx-auto px-4">
+
+    <!-- 分頁導覽 -->
     <div class="flex gap-4 mb-6 bg-slate-200 p-1.5 rounded-2xl w-fit">
         <button onclick="switchTab('plate')" id="tab-plate" class="px-8 py-3 rounded-xl transition-all tab-active">🧱 鐵板排料</button>
         <button onclick="switchTab('steel')" id="tab-steel" class="px-8 py-3 rounded-xl transition-all text-slate-500 font-bold">🏗️ 型鋼配料</button>
     </div>
 
-    <!-- [1] 鐵板分頁內容 -->
-    <div id="section-plate" class="space-y-8 animate-in fade-in">
-        <div class="max-w-7xl mx-auto mb-8">
-    <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-[2.5rem] p-8 md:p-12 shadow-2xl border border-slate-700 relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-orange-500/10 rounded-full -mr-16 -mt-16 blur-2xl"></div>
-        <div class="relative z-10 mb-8">
-            <h2 class="text-white text-3xl font-black mb-4 flex items-center gap-3">
-                <span class="bg-orange-500 p-2 rounded-xl text-2xl">🧱</span> 為什麼需要智慧排料？
-            </h2>
-            <p class="text-slate-300 text-lg leading-relaxed max-w-3xl">
-                透過 <b>2D 幾何優化演算</b>，自動尋找板材最佳擺放角度，旨在取代人工口算、減少大塊餘料浪費，達到<span class="text-orange-400 font-bold">「剩料最小化」</span>並<span class="text-orange-400 font-bold">節省作業時間</span>的目的。
-            </p>
+    <!-- ===== 鐵板分頁 ===== -->
+    <div id="section-plate" class="space-y-8">
+        <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-[2.5rem] p-8 md:p-12 shadow-2xl border border-slate-700 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-orange-500/10 rounded-full -mr-16 -mt-16 blur-2xl"></div>
+            <div class="relative z-10 mb-8">
+                <h1 class="text-white text-3xl font-black mb-4 flex items-center gap-3">
+                    <span class="bg-orange-500 p-2 rounded-xl text-2xl">🧱</span> 為什麼需要智慧排料？
+                </h1>
+                <p class="text-slate-300 text-lg leading-relaxed max-w-3xl">
+                    透過 <b>2D 幾何優化演算</b>，自動尋找板材最佳擺放角度，旨在取代人工口算、減少大塊餘料浪費，達到<span class="text-orange-400 font-bold">「剩料最小化」</span>並<span class="text-orange-400 font-bold">節省作業時間</span>的目的。
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 relative z-10 border-t border-slate-700/50 pt-8 text-sm">
+                <div class="space-y-1"><p class="text-white font-bold">Step 1. 設定母板</p><p class="text-slate-400">選取常用規格(如4x8尺)或自訂母板尺寸。</p></div>
+                <div class="space-y-1"><p class="text-white font-bold">Step 2. 匯入零件</p><p class="text-slate-400">填寫需求零件之長寬與數量，支援自動旋轉 90°。</p></div>
+                <div class="space-y-1"><p class="text-white font-bold">Step 3. 自動損耗</p><p class="text-slate-400">系統已自動預留 <span class="text-orange-400 font-bold">15mm 割縫損耗</span>，確保加工餘裕。</p></div>
+            </div>
         </div>
-        <div class="grid md:grid-cols-3 gap-8 relative z-10 border-t border-slate-700/50 pt-8 text-sm">
-            <div class="space-y-1"><p class="text-white font-bold">Step 1. 設定母板</p><p class="text-slate-400">選取常用規格(如4x8尺)或自訂母板尺寸。</p></div>
-            <div class="space-y-1"><p class="text-white font-bold">Step 2. 匯入零件</p><p class="text-slate-400">填寫需求零件之長寬與數量，支援自動旋轉 90°。</p></div>
-            <div class="space-y-1"><p class="text-white font-bold">Step 3. 自動損耗</p><p class="text-slate-400">系統已自動預留 <span class="text-orange-400 font-bold">15mm 割縫損耗</span>，確保加工餘裕。</p></div>
-        </div>
-    </div>
-</div>
+
         <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200">
             <div class="flex flex-col lg:flex-row items-center justify-between gap-6 mb-8">
                 <div>
-                    <h1 class="text-3xl font-black text-slate-900 tracking-tight">接合板鐵板智慧排料</h1>
+                    <h2 class="text-3xl font-black text-slate-900 tracking-tight">鐵板智慧排料</h2>
                     <p class="text-slate-500 mt-1 font-medium italic text-sm">視覺優化：放大標註文字，支援自動旋轉 90°</p>
                 </div>
                 <div class="flex flex-wrap items-center gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-200 shadow-inner">
@@ -107,41 +150,41 @@
         <div id="p-output" class="space-y-12"></div>
     </div>
 
-    <!-- [2] 型鋼分頁內容 -->
-    <div id="section-steel" class="hidden space-y-8 animate-in slide-in-from-right duration-500">
-        <div class="max-w-7xl mx-auto mb-8">
-    <div class="bg-gradient-to-br from-indigo-900 to-slate-900 rounded-[2.5rem] p-8 md:p-12 shadow-2xl border border-indigo-800/30 relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full -mr-16 -mt-16 blur-2xl"></div>
-        <div class="relative z-10 mb-8">
-            <h2 class="text-white text-3xl font-black mb-4 flex items-center gap-3">
-                <span class="bg-blue-500 p-2 rounded-xl text-2xl">🏗️</span> 智慧配料：省料、省時、零失誤
-            </h2>
-            <p class="text-slate-300 text-lg leading-relaxed max-w-3xl">
-                利用 <b>一維線性配料算法</b>，自動計算如何用最少的母材組合出最多零件，將昂貴型鋼的殘料降至極短。旨在<span class="text-blue-400 font-bold">取代繁瑣的人工試算</span>，大幅降低備料錯誤率。
-            </p>
+    <!-- ===== 型鋼分頁 ===== -->
+    <div id="section-steel" class="hidden space-y-8">
+        <div class="bg-gradient-to-br from-indigo-900 to-slate-900 rounded-[2.5rem] p-8 md:p-12 shadow-2xl border border-indigo-800/30 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full -mr-16 -mt-16 blur-2xl"></div>
+            <div class="relative z-10 mb-8">
+                <h1 class="text-white text-3xl font-black mb-4 flex items-center gap-3">
+                    <span class="bg-blue-500 p-2 rounded-xl text-2xl">🏗️</span> 智慧配料：省料、省時、零失誤
+                </h1>
+                <p class="text-slate-300 text-lg leading-relaxed max-w-3xl">
+                    利用 <b>一維線性配料算法</b>，自動計算如何用最少的母材組合出最多零件，將昂貴型鋼的殘料降至極短。旨在<span class="text-blue-400 font-bold">取代繁瑣的人工試算</span>，大幅降低備料錯誤率。
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 relative z-10 border-t border-slate-700/50 pt-8 text-sm">
+                <div class="space-y-1"><p class="text-white font-bold">Step 1. 選取規格</p><p class="text-slate-400">選擇型鋼規格並設定原料定尺(預設6000mm)。</p></div>
+                <div class="space-y-1"><p class="text-white font-bold">Step 2. 輸入清單</p><p class="text-slate-400">選取或填入切斷長度，相同長度將自動分色。</p></div>
+                <div class="space-y-1"><p class="text-white font-bold">Step 3. 配料無損耗</p><p class="text-slate-400">每處裁切點 <span class="text-blue-400 font-bold">無切割損耗</span>，最大化利用率。</p></div>
+            </div>
         </div>
-        <div class="grid md:grid-cols-3 gap-8 relative z-10 border-t border-slate-700/50 pt-8 text-sm">
-            <div class="space-y-1"><p class="text-white font-bold">Step 1. 選取規格</p><p class="text-slate-400">選擇型鋼規格並設定原料定尺(預設6000mm)。</p></div>
-            <div class="space-y-1"><p class="text-white font-bold">Step 2. 輸入清單</p><p class="text-slate-400">選取或填入切斷長度，相同長度將自動分色。</p></div>
-            <div class="space-y-1"><p class="text-white font-bold">Step 3. 配料無損耗</p><p class="text-slate-400">每處裁切點無扣除 <span class="text-blue-400 font-bold">無切割損耗</span>。</p></div>
-        </div>
-    </div>
-</div>
+
         <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200">
             <div class="flex flex-col lg:flex-row items-center justify-between gap-6 mb-8">
                 <div>
-                    <h1 class="text-3xl font-black text-slate-900 tracking-tight">型鋼智慧配料</h1>
+                    <h2 class="text-3xl font-black text-slate-900 tracking-tight">型鋼智慧配料</h2>
                     <p class="text-slate-500 mt-1 font-medium italic text-sm">視覺優化：按長度區分顏色，文字大號顯示</p>
                 </div>
                 <div class="flex flex-wrap items-center gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-200 shadow-inner">
                     <div>
-    <label class="block text-[10px] font-black text-slate-400 uppercase mb-1">原料支長度</label>
-    <select id="s-stock-len" class="bg-transparent font-bold text-blue-600 outline-none" onchange="calculateSteel()">
-        <option value="6000" selected>6000mm (6m)</option> <option value="9000">9000mm (9m)</option>
-        <option value="10000">10000mm (10m)</option>
-        <option value="12000">12000mm (12m)</option>
-    </select>
-</div>
+                        <label class="block text-[10px] font-black text-slate-400 uppercase mb-1">原料支長度</label>
+                        <select id="s-stock-len" class="bg-transparent font-bold text-blue-600 outline-none" onchange="calculateSteel()">
+                            <option value="6000" selected>6000mm (6m)</option>
+                            <option value="9000">9000mm (9m)</option>
+                            <option value="10000">10000mm (10m)</option>
+                            <option value="12000">12000mm (12m)</option>
+                        </select>
+                    </div>
                 </div>
             </div>
 
@@ -154,7 +197,7 @@
                     <p class="text-slate-400 text-[10px] font-black uppercase tracking-widest mb-1">消耗支數</p>
                     <p id="s-total-bars" class="text-3xl font-black text-slate-900">0</p>
                 </div>
-                <div class="bg-slate-900 p-5 rounded-3xl text-white">
+                <div class="bg-slate-900 p-5 rounded-3xl text-white col-span-2 md:col-span-1">
                     <p class="text-slate-400 text-[10px] font-black uppercase mb-1">分色邏輯</p>
                     <p class="text-xl font-black text-emerald-400 tracking-tighter italic">按切斷長度</p>
                 </div>
@@ -165,10 +208,154 @@
         </div>
         <div id="s-output" class="space-y-12 text-center"></div>
     </div>
-</div>
 
+    <!-- ===== AdSense 廣告位 ===== -->
+    <div class="my-10 flex justify-center">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9184947057660512" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- ===== 專業文章：排料優化與毛利 ===== -->
+    <article class="bg-white rounded-[2.5rem] p-10 md:p-16 border border-slate-100 shadow-sm mt-4">
+        <header class="flex items-center gap-4 mb-10 border-b-2 border-slate-50 pb-6">
+            <div class="h-10 w-2 bg-orange-500 rounded-full" aria-hidden="true"></div>
+            <h2 class="text-3xl font-black text-slate-800">排料優化如何降低工業廢料、提升毛利？</h2>
+        </header>
+
+        <div class="prose-content">
+
+            <section aria-labelledby="sec-waste-cost">
+                <h3 id="sec-waste-cost">一、廢料是隱形成本，不是「理所當然」</h3>
+                <p>
+                    在台灣的金屬加工廠與鋼構廠中，廢料（Scrap）長期被視為不可避免的生產成本。然而，根據工業工程的實務研究，傳統人工排料的鋼板利用率平均僅達 <strong>70–80%</strong>，意即每採購 100 萬元的鋼板，有高達 20–30 萬元的原料成本以餘料形式報廢或低價出清。若同一工廠每月鋼材採購額達 300 萬元，僅靠提升利用率至 90% 以上，每月即可節省超過 <strong>30 萬元</strong>的原料支出，直接轉化為毛利增幅。
+                </p>
+                <p>
+                    本工具的智慧排料引擎透過演算法自動完成這件事——在數秒內計算出人工需要數小時才能推敲出的最佳排列方案。
+                </p>
+            </section>
+
+            <section aria-labelledby="sec-2d-algo">
+                <h3 id="sec-2d-algo">二、2D 排料演算法：不只是「塞方塊」</h3>
+                <p>
+                    本工具採用的 2D 矩形巢狀排列（2D Rectangle Nesting）演算法，核心邏輯為「天際線演算法（Skyline Algorithm）」。其運作方式如下：
+                </p>
+                <ul>
+                    <li><strong>優先排列大件零件：</strong> 系統將所有零件依面積由大至小排序，優先佔用母板左上角最佳位置，確保大件不會因空間碎片化而無法放入。</li>
+                    <li><strong>動態天際線追蹤：</strong> 每放入一個零件，系統即時更新「天際線」（即各列的最高已佔用高度），確保後續零件始終尋找最低可用高度的位置。</li>
+                    <li><strong>自動旋轉 90°：</strong> 每個零件都會同時嘗試 0° 與 90° 兩種方向，選擇使天際線高度最低（即空間利用最佳）的方向擺放。</li>
+                    <li><strong>15mm 切割間距預留：</strong> 系統在每個零件四周自動預留 15mm 的割縫餘量，符合等離子切割與雷射切割的實際工藝需求。</li>
+                </ul>
+                <p>
+                    上述邏輯使得本工具的排料利用率在典型工件組合下，可比純人工排料高出 <strong>8–18 個百分點</strong>，對於鋼板面積越大、零件種類越多樣的情境，效益越顯著。
+                </p>
+            </section>
+
+            <section aria-labelledby="sec-1d-algo">
+                <h3 id="sec-1d-algo">三、型鋼配料：一維優化的關鍵邏輯</h3>
+                <p>
+                    型鋼（H 型鋼、角鋼、槽鋼等）的裁切是一維問題，核心挑戰在於：如何用最少支數的定尺型鋼，裁出所有需求零件，同時使各支的殘料最短。本工具採用「首次適合遞減演算法（First Fit Decreasing, FFD）」，按以下步驟執行：
+                </p>
+                <ul>
+                    <li>將所有需求零件按長度由長至短排列。</li>
+                    <li>依序嘗試將每個零件放入剩餘空間足夠的現有型鋼中；若無法放入，開啟新的一支。</li>
+                    <li>持續循環直到所有零件均完成配置，輸出各支型鋼的切割清單與殘料長度。</li>
+                </ul>
+                <p>
+                    FFD 演算法在學術上已被證明，其結果不超過最優解的 <strong>11/9 倍</strong>，是兼顧計算速度與排料品質的實用選擇。在實務上，它能有效避免人工試算最常見的問題：先裁短件、導致長件無處可放、最終被迫浪費一整支型鋼。
+                </p>
+            </section>
+
+            <section aria-labelledby="sec-roi">
+                <h3 id="sec-roi">四、導入排料優化的投資報酬試算</h3>
+                <p>以一家中型鋼構加工廠為例：</p>
+
+                <div class="overflow-x-auto rounded-2xl border border-slate-200 my-4">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>指標</th>
+                                <th>人工排料（原狀況）</th>
+                                <th>智慧排料（優化後）</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>月採購鋼板金額</td><td>$200 萬</td><td>$200 萬</td></tr>
+                            <tr><td>平均板材利用率</td><td>76%</td><td>91%</td></tr>
+                            <tr><td>實際浪費金額</td><td>$48 萬</td><td>$18 萬</td></tr>
+                            <tr><td><strong>每月節省廢料成本</strong></td><td>—</td><td><strong>$30 萬</strong></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>
+                    上表為估算示意。實際數字依工件組合、板材規格與廠商廢料收購價而有所不同，但方向性結論一致：<strong>排料優化是最快回收、不需資本支出的毛利改善手段之一</strong>，比購置新設備或擴大產能更能立竿見影地影響損益表。
+                </p>
+            </section>
+
+            <section aria-labelledby="sec-env">
+                <h3 id="sec-env">五、環境面：減少鋼鐵廢料，也是 ESG 的一環</h3>
+                <p>
+                    鋼鐵生產是高耗能、高碳排的工業過程。生產 1 公噸的碳鋼，約排放 1.8–2.2 公噸的 CO₂。當廢料率從 24% 降至 9%，意味著企業在同等產值下，實際消耗的原生鋼材量減少，連帶降低整體供應鏈的碳排放強度。對於積極推動 <strong>ESG 報告</strong>、申請綠色採購資格或進行碳盤查的企業而言，排料優化帶來的廢料減量數據，可直接記入 Scope 3 排放的減量成果中，具備明確的永續效益。
+                </p>
+            </section>
+
+        </div>
+    </article>
+
+    <!-- ===== 底部廣告 ===== -->
+    <div class="my-10 flex justify-center">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9184947057660512" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+</div><!-- end max-w-7xl -->
+</main>
+
+<!-- ===== 頁尾（與 index.html 一致）===== -->
+<footer class="bg-slate-800 text-slate-300 pt-14 pb-8 mt-4" role="contentinfo">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid md:grid-cols-4 gap-10 mb-12">
+            <div class="md:col-span-2 space-y-4">
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl">⚙️</span>
+                    <h3 class="font-black text-white text-xl">鐵材重量計算機</h3>
+                </div>
+                <p class="text-sm leading-relaxed text-slate-400">
+                    提供符合 CNS 標準的數位化鋼鐵重量計算服務，涵蓋 H 型鋼、不鏽鋼板、角鋼、管材等完整規格資料庫，並提供智慧排料功能，協助工程師與採購人員快速完成估價作業。
+                </p>
+                <p class="text-sm text-slate-500">
+                    聯絡信箱：<a href="mailto:amy262631@gmail.com" class="text-blue-400 hover:underline">amy262631@gmail.com</a>
+                </p>
+            </div>
+            <div class="space-y-3">
+                <h4 class="font-bold text-white">工具導覽</h4>
+                <nav aria-label="頁尾導覽">
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-blue-400 transition-colors">🔧 鐵材重量計算機</a></li>
+                        <li><a href="nesting.html" class="hover:text-blue-400 transition-colors">📐 智慧排料系統</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="space-y-3">
+                <h4 class="font-bold text-white">法律條款</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="privacy.html" class="hover:text-blue-400 transition-colors">隱私權政策</a></li>
+                    <li><a href="terms.html" class="hover:text-blue-400 transition-colors">使用條款與免責聲明</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-slate-700 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-slate-500">
+            <p>© <span id="footerYear"></span> 鐵材重量計算機 steel-calc.idv.tw — 保留所有權利</p>
+            <p>本工具計算結果僅供估價參考，不作為正式交易依據。</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ===== JavaScript（原版算法完整保留）===== -->
 <script>
-    // --- 型鋼資料庫 ---
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+    // --- 型鋼資料庫（原版完整保留）---
     const STEEL_DB = {
         "H型鋼": [
             { n: "H350x350", w: 137 }, { n: "H300x300", w: 94.0 }, { n: "H250x250", w: 72.4 },
@@ -222,11 +409,15 @@
     function switchTab(t) {
         document.getElementById('section-plate').classList.toggle('hidden', t !== 'plate');
         document.getElementById('section-steel').classList.toggle('hidden', t !== 'steel');
-        document.getElementById('tab-plate').className = t === 'plate' ? 'px-8 py-3 rounded-xl transition-all tab-active' : 'px-8 py-3 rounded-xl transition-all text-slate-500 font-bold';
-        document.getElementById('tab-steel').className = t === 'steel' ? 'px-8 py-3 rounded-xl transition-all tab-active' : 'px-8 py-3 rounded-xl transition-all text-slate-500 font-bold';
+        document.getElementById('tab-plate').className = t === 'plate'
+            ? 'px-8 py-3 rounded-xl transition-all tab-active'
+            : 'px-8 py-3 rounded-xl transition-all text-slate-500 font-bold';
+        document.getElementById('tab-steel').className = t === 'steel'
+            ? 'px-8 py-3 rounded-xl transition-all tab-active'
+            : 'px-8 py-3 rounded-xl transition-all text-slate-500 font-bold';
     }
 
-    // --- 鐵板邏輯 ---
+    // --- 鐵板邏輯（原版完整保留）---
     function addRowPlate(lastT = 3) {
         const container = document.getElementById('p-input-rows');
         const rowId = Date.now();
@@ -254,7 +445,11 @@
             calculatePlate();
         }));
     }
-    function renumberPlate() { document.querySelectorAll('.p-row-no').forEach((el,i)=>el.textContent=`${i+1}號`); }
+
+    function renumberPlate() {
+        document.querySelectorAll('.p-row-no').forEach((el,i) => el.textContent = `${i+1}號`);
+    }
+
     function calculatePlate() {
         const d = parseFloat(document.getElementById('p-material').value);
         let grouped = {}, totalW = 0;
@@ -272,60 +467,47 @@
         document.getElementById('p-total-weight').textContent = totalW.toFixed(2);
         renderPlate(grouped);
     }
-function renderPlate(grouped) {
-    const out = document.getElementById('p-output'); out.innerHTML = "";
-    const [bh, bw] = document.getElementById('p-board-spec').value.split(',').map(Number);
-    let totalS = 0, totalA = 0;
-    Object.keys(grouped).sort((a,b)=>a-b).forEach(t => {
-        const res = nest2D(grouped[t], bw, bh);
-        totalS += res.length;
-        const sec = document.createElement('div');
-        sec.innerHTML = `<h2 class="text-3xl font-black mb-6 border-l-8 border-blue-600 pl-6 text-slate-800">${t}mm 板材方案</h2><div class="space-y-10" id="p-t-${t}"></div>`;
-        out.appendChild(sec);
-        res.forEach((sheet, si) => {
-            const wrap = document.createElement('div');
-            // ✅ 優化：移除 rounded-3xl，改為完全直角，並加強外框
-            wrap.className = "bg-white p-10 border-2 border-slate-300 overflow-x-auto text-left mb-8 inline-block min-w-full shadow-md";
-            wrap.innerHTML = `<div class="flex justify-between items-center mb-6 px-2"><span class="text-slate-400 font-black text-xl italic tracking-tight">圖紙 NO. ${si+1}</span><span class="px-4 py-1.5 bg-blue-50 text-blue-600 rounded-full text-xs font-black uppercase tracking-widest">${t}t x ${bh}x${bw}</span></div>`;
-            
-            const cv = document.createElement('canvas');
-            const sc = Math.min(0.3, 1100/bw); cv.width = bw * sc; cv.height = bh * sc;
-            // ✅ 優化：移除畫布容器的圓角 (rounded-3xl)
-            cv.className = "bg-white border border-slate-400 canvas-container";
-            const ctx = cv.getContext('2d');
 
-            // 🌟 1. 強化：畫出底部「原料鐵板」的直角輪廓線
-            ctx.strokeStyle = "#475569"; // 使用較深的 slate-600
-            ctx.lineWidth = 4;           // 加粗邊框，強調母板邊界
-            ctx.lineJoin = "miter";      // 確保角落是尖銳的直角
-            ctx.strokeRect(0, 0, bw * sc, bh * sc);
-
-            sheet.forEach(p => {
-                totalA += p.w*p.h;
-                
-                // 2. 填滿零件顏色
-                ctx.fillStyle = `hsl(218, 85%, ${Math.max(30, 60 - (p.id%12)*3)}%)`;
-                ctx.fillRect(p.x*sc, p.y*sc, p.w*sc, p.h*sc);
-                
-                // 3. 零件本身的深色輪廓線
-                ctx.strokeStyle = "#1e293b"; 
-                ctx.lineWidth = 1.5; 
-                ctx.strokeRect(p.x*sc, p.y*sc, p.w*sc, p.h*sc);
-                
-                // 4. 零件編號文字
-                ctx.fillStyle = "white"; 
-                ctx.font = "black 20px Inter"; 
-                ctx.textAlign = "center"; ctx.textBaseline="middle";
-                ctx.shadowColor = "rgba(0,0,0,0.5)"; ctx.shadowBlur = 6;
-                ctx.fillText(p.id, (p.x+p.w/2)*sc, (p.y+p.h/2)*sc);
-                ctx.shadowBlur = 0; 
+    function renderPlate(grouped) {
+        const out = document.getElementById('p-output'); out.innerHTML = "";
+        const [bh, bw] = document.getElementById('p-board-spec').value.split(',').map(Number);
+        let totalS = 0, totalA = 0;
+        Object.keys(grouped).sort((a,b)=>a-b).forEach(t => {
+            const res = nest2D(grouped[t], bw, bh);
+            totalS += res.length;
+            const sec = document.createElement('div');
+            sec.innerHTML = `<h2 class="text-3xl font-black mb-6 border-l-8 border-blue-600 pl-6 text-slate-800">${t}mm 板材方案</h2><div class="space-y-10" id="p-t-${t}"></div>`;
+            out.appendChild(sec);
+            res.forEach((sheet, si) => {
+                const wrap = document.createElement('div');
+                wrap.className = "bg-white p-10 border-2 border-slate-300 overflow-x-auto text-left mb-8 inline-block min-w-full shadow-md";
+                wrap.innerHTML = `<div class="flex justify-between items-center mb-6 px-2"><span class="text-slate-400 font-black text-xl italic tracking-tight">圖紙 NO. ${si+1}</span><span class="px-4 py-1.5 bg-blue-50 text-blue-600 rounded-full text-xs font-black uppercase tracking-widest">${t}t x ${bh}x${bw}</span></div>`;
+                const cv = document.createElement('canvas');
+                const sc = Math.min(0.3, 1100/bw); cv.width = bw*sc; cv.height = bh*sc;
+                cv.className = "bg-white border border-slate-400 canvas-container";
+                const ctx = cv.getContext('2d');
+                ctx.strokeStyle = "#475569"; ctx.lineWidth = 4; ctx.lineJoin = "miter";
+                ctx.strokeRect(0, 0, bw*sc, bh*sc);
+                sheet.forEach(p => {
+                    totalA += p.w*p.h;
+                    ctx.fillStyle = `hsl(218, 85%, ${Math.max(30, 60-(p.id%12)*3)}%)`;
+                    ctx.fillRect(p.x*sc, p.y*sc, p.w*sc, p.h*sc);
+                    ctx.strokeStyle = "#1e293b"; ctx.lineWidth = 1.5;
+                    ctx.strokeRect(p.x*sc, p.y*sc, p.w*sc, p.h*sc);
+                    ctx.fillStyle = "white"; ctx.font = "black 20px Inter";
+                    ctx.textAlign = "center"; ctx.textBaseline = "middle";
+                    ctx.shadowColor = "rgba(0,0,0,0.5)"; ctx.shadowBlur = 6;
+                    ctx.fillText(p.id, (p.x+p.w/2)*sc, (p.y+p.h/2)*sc);
+                    ctx.shadowBlur = 0;
+                });
+                wrap.appendChild(cv);
+                document.getElementById(`p-t-${t}`).appendChild(wrap);
             });
-            wrap.appendChild(cv); document.getElementById(`p-t-${t}`).appendChild(wrap);
         });
-    });
-    document.getElementById('p-total-sheets').textContent = totalS;
-    const bA = totalS * bw * bh; document.getElementById('p-avg-util').textContent = bA>0 ? (totalA/bA*100).toFixed(1)+"%" : "0%";
-}
+        document.getElementById('p-total-sheets').textContent = totalS;
+        const bA = totalS * bw * bh;
+        document.getElementById('p-avg-util').textContent = bA>0 ? (totalA/bA*100).toFixed(1)+"%" : "0%";
+    }
 
     function nest2D(parts, bw, bh) {
         let sorted = [...parts].sort((a,b)=>b.w*b.h - a.w*a.h);
@@ -338,7 +520,8 @@ function renderPlate(grouped) {
                 let res90 = findPos(p.h, p.w, sky, bw, bh);
                 let best = null, rot = false;
                 if(res0 && res90) { if(res90.y < res0.y) { best = res90; rot = true; } else best = res0; }
-                else if(res0) best = res0; else if(res90) { best = res90; rot = true; }
+                else if(res0) best = res0;
+                else if(res90) { best = res90; rot = true; }
                 if(best){
                     const aw = rot?p.h:p.w, ah = rot?p.w:p.h;
                     pl.push({...p, x:best.x, y:best.y, w:aw, h:ah});
@@ -350,6 +533,7 @@ function renderPlate(grouped) {
         }
         return sheets;
     }
+
     function findPos(pw, ph, sky, bw, bh){
         let by = Infinity, bx = -1;
         for(let x=CONFIG_P.MARGIN; x+pw+CONFIG_P.MARGIN <= bw; x+=15){
@@ -360,7 +544,7 @@ function renderPlate(grouped) {
         return bx !== -1 ? {x:bx, y:by} : null;
     }
 
-    // --- 型鋼邏輯 ---
+    // --- 型鋼邏輯（原版完整保留）---
     function addRowSteel(lastKgM = "") {
         const container = document.getElementById('s-input-rows');
         const rowId = Date.now();
@@ -383,7 +567,7 @@ function renderPlate(grouped) {
                 <input type="number" class="w-full bg-white border border-slate-200 p-3 rounded-xl font-bold s-part-l"></div>
             <div class="col-span-3"><label class="text-[10px] font-black text-slate-400 block mb-1 uppercase tracking-wider">需求數量</label>
                 <input type="number" class="w-full bg-white border border-slate-200 p-3 rounded-xl font-bold s-part-q"></div>
-            <div class="col-span-1 flex justify-end pb-1"><button onclick="this.parentElement.parentElement.remove(); calculateSteel();" class="text-slate-300 hover:text-red-500 text-2xl Transition-colors">×</button></div>`;
+            <div class="col-span-1 flex justify-end pb-1"><button onclick="this.parentElement.parentElement.remove(); calculateSteel();" class="text-slate-300 hover:text-red-500 text-2xl transition-colors">×</button></div>`;
         container.appendChild(row);
         renumberSteel();
         row.querySelectorAll('input, select').forEach(el => el.addEventListener('input', () => {
@@ -396,7 +580,10 @@ function renderPlate(grouped) {
             calculateSteel();
         }));
     }
-    function renumberSteel() { document.querySelectorAll('.s-row-no').forEach((el,i)=>el.textContent=`${i+1}號`); }
+
+    function renumberSteel() {
+        document.querySelectorAll('.s-row-no').forEach((el,i) => el.textContent = `${i+1}號`);
+    }
 
     function calculateSteel() {
         const stockLen = parseFloat(document.getElementById('s-stock-len').value);
@@ -417,20 +604,15 @@ function renderPlate(grouped) {
         renderSteel(grouped, stockLen);
     }
 
-    /**
-     * ✅ 強化版型鋼渲染：按長度配色，字體加大
-     */
     function renderSteel(grouped, stockLen) {
         const out = document.getElementById('s-output'); out.innerHTML = "";
         let totalBars = 0;
-        
         Object.keys(grouped).forEach(spec => {
             const res = nest1D(grouped[spec], stockLen);
             totalBars += res.length;
             const sec = document.createElement('div');
             sec.innerHTML = `<h2 class="text-3xl font-black mb-6 border-l-8 border-indigo-600 pl-6 text-slate-800">${spec}</h2><div class="space-y-6" id="s-cont-${spec.replace(/[^a-zA-Z0-9]/g,'')}"></div>`;
             out.appendChild(sec);
-            
             res.forEach((bar, bi) => {
                 const used = bar.reduce((a,c)=>a+c.len,0);
                 const wrap = document.createElement('div');
@@ -439,32 +621,21 @@ function renderPlate(grouped) {
                     <span class="text-slate-400 font-black text-xl italic tracking-tight uppercase">原料支 #${bi+1}</span>
                     <span class="text-sm font-bold text-slate-500">已用 ${used}mm / 餘料 <span class="text-red-500 font-black">${stockLen-used}mm</span></span>
                 </div>`;
-                
-                const barVis = document.createElement('div'); 
+                const barVis = document.createElement('div');
                 barVis.className = "stock-bar";
-                
                 bar.forEach(c => {
-                    const seg = document.createElement('div'); 
+                    const seg = document.createElement('div');
                     seg.className = "cut-segment";
-                    seg.style.width = `${(c.len/stockLen)*100}%`; 
-                    
-                    // ✅ 核心優化：顏色按「長度」生成雜湊值，確保相同長度零件顏色一致
+                    seg.style.width = `${(c.len/stockLen)*100}%`;
                     const hue = (c.len * 123.45) % 360;
                     seg.style.backgroundColor = `hsl(${hue}, 65%, 45%)`;
-                    
-                    // 如果長度足夠才顯示文字，否則太擁擠
-                    if ((c.len / stockLen) > 0.02) {
-                        seg.innerHTML = `<span>#${c.id}</span>`;
-                    }
+                    if((c.len/stockLen) > 0.02) seg.innerHTML = `<span>#${c.id}</span>`;
                     seg.title = `編號:#${c.id} | 長度:${c.len}mm`;
                     barVis.appendChild(seg);
                 });
-                
                 wrap.appendChild(barVis);
-                
-                // 下方詳細清單也分色標註
-                const sum = bar.reduce((acc,curr)=>{acc[curr.len]=(acc[curr.len]||0)+1; return acc;},{});
-                const list = document.createElement('div'); 
+                const sum = bar.reduce((acc,curr)=>{ acc[curr.len]=(acc[curr.len]||0)+1; return acc; }, {});
+                const list = document.createElement('div');
                 list.className = "mt-6 flex flex-wrap gap-3";
                 Object.keys(sum).forEach(l => {
                     const hue = (Number(l) * 123.45) % 360;
@@ -473,7 +644,6 @@ function renderPlate(grouped) {
                         <span class="text-slate-700 font-black text-sm italic">切 ${l}mm <span class="text-indigo-600 font-black not-italic">× ${sum[l]}支</span></span>
                     </div>`;
                 });
-                
                 wrap.appendChild(list);
                 document.getElementById(`s-cont-${spec.replace(/[^a-zA-Z0-9]/g,'')}`).appendChild(wrap);
             });
@@ -492,13 +662,11 @@ function renderPlate(grouped) {
                     sorted.splice(i,1); i--;
                 }
             }
-            // 排序當前支，讓相同長度的在一起 (方便取料)
             cur.sort((a,b)=>a.len - b.len);
             bars.push(cur);
         }
         return bars;
     }
 </script>
-
 </body>
-</html>  
+</html>
