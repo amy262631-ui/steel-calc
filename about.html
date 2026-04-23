@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>關於本站 | 鐵材重量計算機</title>
+    <meta name="description" content="了解鐵材重量計算機的開發初衷、資料來源與使用說明。本工具由工程從業者開發，致力於為台灣工程師與採購人員提供符合 CNS 標準的免費鋼鐵重量試算服務。">
+    <link rel="canonical" href="https://steel-calc.idv.tw/about.html" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9184947057660512" crossorigin="anonymous"></script>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2163/2163914.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { display: flex; flex-direction: column; min-height: 100vh; font-family: sans-serif; }
+        main { flex: 1; }
+        .site-nav a { transition: color 0.2s; }
+        .site-nav a:hover { color: #3b82f6; }
+        .prose p { color: #475569; line-height: 1.8; margin-bottom: 1rem; }
+        .prose ul { list-style: disc; padding-left: 1.5rem; color: #475569; line-height: 1.8; margin-bottom: 1rem; }
+        .prose h3 { font-size: 1.15rem; font-weight: 800; color: #1e293b; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+<nav class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm" aria-label="主選單">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3 site-nav">
+        <a href="index.html" class="flex items-center gap-2 font-black text-slate-800 text-lg">
+            <span class="text-2xl">⚙️</span><span>鐵材計算機</span>
+        </a>
+        <div class="flex flex-wrap items-center gap-4 text-sm font-bold text-slate-500">
+            <a href="index.html">首頁試算</a>
+            <a href="density-table.html">鋼材密度表</a>
+            <a href="cns-standard.html">CNS規範指南</a>
+            <a href="nesting.html">智慧排料</a>
+            <a href="about.html" class="text-blue-600">關於本站</a>
+            <a href="privacy.html">隱私權政策</a>
+            <a href="terms.html">使用條款</a>
+        </div>
+    </div>
+</nav>
+
+<main class="py-10 px-4">
+    <div class="max-w-3xl mx-auto">
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-3">
+                <a href="index.html" class="text-sm text-slate-400 hover:text-blue-600">首頁</a>
+                <span class="text-slate-300">›</span>
+                <span class="text-sm text-slate-600 font-bold">關於本站</span>
+            </div>
+            <h1 class="text-3xl font-black text-slate-800 mb-3">關於鐵材重量計算機</h1>
+        </header>
+
+        <!-- 開發初衷 -->
+        <section class="bg-white rounded-[2rem] p-8 border border-slate-100 shadow-sm mb-6 prose">
+            <div class="flex items-center gap-3 mb-5">
+                <div class="h-7 w-2 bg-blue-600 rounded-full"></div>
+                <h2 class="text-xl font-black text-slate-800 m-0">開發初衷</h2>
+            </div>
+            <p>這個工具的誕生，源自一個非常具體的工地現場痛點。</p>
+            <p>在工程採購與施工估算的日常工作中，工程師和採購人員經常面臨同樣的困境：手邊的鋼鐵規格手冊是厚重的紙本，查找特定規格的理論重量需要翻閱多頁表格，再手動換算長度與數量，過程繁瑣且容易出錯。更麻煩的是，在工地現場或外出詢價時，往往沒有辦公室資源可以使用。</p>
+            <p>我們希望建立一個<strong>完全免費、無需安裝、手機即可使用</strong>的數位化鋼鐵手冊，讓工程師在工地、倉庫、會議室，甚至在廠商電話詢價的當下，就能立即算出理論重量與採購金額。</p>
+            <p>本站的規格資料庫耗費大量時間與精力，逐筆比對 CNS 標準手冊數據，確保每一筆規格的截面尺寸與 kg/m（或 kg/m²）值均與台灣鋼鐵廠商通用的手冊一致。這不是一個用演算法自動產生的資料庫，而是人工核對的結果。</p>
+        </section>
+
+        <!-- 功能特色 -->
+        <section class="bg-white rounded-[2rem] p-8 border border-slate-100 shadow-sm mb-6 prose">
+            <div class="flex items-center gap-3 mb-5">
+                <div class="h-7 w-2 bg-emerald-500 rounded-full"></div>
+                <h2 class="text-xl font-black text-slate-800 m-0">主要功能特色</h2>
+            </div>
+            <ul>
+                <li><strong>超過 500 筆規格資料：</strong>涵蓋黑鐵板、不鏽鋼板、H型鋼、I型鋼、槽鋼、等邊角鋼、不等邊角鋼、扁鐵、C型輕型鋼、矩形管、方管、圓管、不鏽鋼管、擴張網等所有主流鋼材。</li>
+                <li><strong>材質密度自動切換：</strong>碳鋼（7.85 g/cm³）與不鏽鋼（7.93 g/cm³）分開計算，避免混用密度導致誤差。</li>
+                <li><strong>損耗率一鍵帶入：</strong>直接在計算機內輸入損耗率（%），系統自動計算含損耗的備料重量。</li>
+                <li><strong>採購金額即時試算：</strong>輸入廠商報價的元/kg 單價，即時顯示總採購金額，方便多廠商比價。</li>
+                <li><strong>Line 分享功能：</strong>一鍵將計算結果分享到 Line，方便與工班、廠商溝通確認用料。</li>
+                <li><strong>智慧排料系統：</strong>進階功能，可針對鋼板或型鋼進行排料規劃，減少裁切損耗，節省 10–15% 材料成本。</li>
+            </ul>
+        </section>
+
+        <!-- 資料來源 -->
+        <section class="bg-white rounded-[2rem] p-8 border border-slate-100 shadow-sm mb-6 prose">
+            <div class="flex items-center gap-3 mb-5">
+                <div class="h-7 w-2 bg-orange-500 rounded-full"></div>
+                <h2 class="text-xl font-black text-slate-800 m-0">資料來源與準確性聲明</h2>
+            </div>
+            <p>本站所有鋼材規格與理論重量資料，均參照以下標準來源整理：</p>
+            <ul>
+                <li>CNS 中華民國國家標準（BSMI 發布版本）</li>
+                <li>JIS G 3192 熱軋型鋼規格表</li>
+                <li>中鋼（China Steel）官方產品型錄</li>
+                <li>盛餘鋼鐵、東和鋼鐵等台灣主要鋼廠產品規格表</li>
+                <li>國內各大鋼材通路商提供之規格手冊</li>
+            </ul>
+            <p>計算結果為理論重量，可能與實際出貨重量存在 ±3–10% 的公差範圍（依鋼材類別而異）。本工具適用於工程估價、備料規劃與廠商報價核對，<strong>不建議直接作為正式買賣交易的計費依據</strong>，大宗採購仍應以地磅實秤為準。</p>
+        </section>
+
+        <!-- 聯絡 -->
+        <section class="bg-slate-800 rounded-[2rem] p-8 text-white mb-6">
+            <div class="flex items-center gap-3 mb-5">
+                <div class="h-7 w-2 bg-blue-400 rounded-full"></div>
+                <h2 class="text-xl font-black m-0">聯絡我們</h2>
+            </div>
+            <p class="text-slate-300 mb-4">若您發現資料有誤、希望新增規格，或有任何工程技術問題，歡迎來信：</p>
+            <a href="mailto:amy262631@gmail.com" class="inline-block bg-blue-600 text-white font-black px-6 py-3 rounded-2xl hover:bg-blue-700 transition-all">
+                ✉️ amy262631@gmail.com
+            </a>
+            <p class="text-slate-400 text-sm mt-4">我們通常在 2–3 個工作日內回覆。如為規格錯誤回報，請附上規格編號與正確數值來源（如 CNS 標準編號或廠商型錄頁次）。</p>
+        </section>
+
+        <!-- AdSense -->
+        <div class="my-6 flex justify-center">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9184947057660512" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- 導覽 -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+            <a href="index.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all text-center">
+                <div class="text-2xl mb-2">🔧</div>
+                <p class="font-black text-slate-700 text-sm">重量計算機</p>
+                <p class="text-xs text-slate-400 mt-1">立即試算</p>
+            </a>
+            <a href="density-table.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all text-center">
+                <div class="text-2xl mb-2">📊</div>
+                <p class="font-black text-slate-700 text-sm">鋼材密度表</p>
+                <p class="text-xs text-slate-400 mt-1">完整密度參考</p>
+            </a>
+            <a href="cns-standard.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all text-center">
+                <div class="text-2xl mb-2">📋</div>
+                <p class="font-black text-slate-700 text-sm">CNS 規範指南</p>
+                <p class="text-xs text-slate-400 mt-1">公差與標準說明</p>
+            </a>
+        </div>
+
+    </div>
+</main>
+
+<footer class="bg-slate-800 text-slate-300 pt-10 pb-6 mt-10" role="contentinfo">
+    <div class="max-w-5xl mx-auto px-4">
+        <div class="flex flex-wrap justify-between gap-6 mb-8">
+            <div>
+                <a href="index.html" class="flex items-center gap-2 font-black text-white text-lg mb-2">
+                    <span>⚙️</span><span>鐵材重量計算機</span>
+                </a>
+                <p class="text-sm text-slate-400">符合 CNS 標準的專業鋼鐵工程知識門戶</p>
+            </div>
+            <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-400" aria-label="頁尾導覽">
+                <a href="index.html" class="hover:text-blue-400">首頁試算</a>
+                <a href="density-table.html" class="hover:text-blue-400">鋼材密度表</a>
+                <a href="cns-standard.html" class="hover:text-blue-400">CNS規範指南</a>
+                <a href="nesting.html" class="hover:text-blue-400">智慧排料</a>
+                <a href="about.html" class="hover:text-blue-400">關於本站</a>
+                <a href="privacy.html" class="hover:text-blue-400">隱私權政策</a>
+                <a href="terms.html" class="hover:text-blue-400">使用條款</a>
+            </nav>
+        </div>
+        <div class="border-t border-slate-700 pt-5 flex flex-col md:flex-row justify-between gap-2 text-xs text-slate-500">
+            <p>© <span id="footerYear"></span> 鐵材重量計算機 steel-calc.idv.tw</p>
+            <p>本工具計算結果僅供估價參考，不作為正式交易依據。</p>
+        </div>
+    </div>
+</footer>
+<script>document.getElementById('footerYear').textContent = new Date().getFullYear();</script>
+</body>
+</html>

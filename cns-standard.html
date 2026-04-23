@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鋼鐵公差與 CNS 規範指南 | 鐵材重量計算機</title>
+    <meta name="description" content="詳細說明台灣 CNS 鋼鐵標準中的尺寸公差規定，包含鋼板厚度公差、型鋼截面公差、不鏽鋼板公差，以及理論重量與實秤重量的差異來源，協助工程師正確解讀廠商磅單。">
+    <meta name="keywords" content="CNS鋼鐵標準, 鋼板公差, H型鋼公差, 不鏽鋼板公差, 鋼材尺寸公差, 鐵材CNS規範, 廠商磅單核對">
+    <link rel="canonical" href="https://steel-calc.idv.tw/cns-standard.html" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9184947057660512" crossorigin="anonymous"></script>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2163/2163914.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { display: flex; flex-direction: column; min-height: 100vh; font-family: sans-serif; }
+        main { flex: 1; }
+        .site-nav a { transition: color 0.2s; }
+        .site-nav a:hover { color: #3b82f6; }
+        .prose h3 { font-size: 1.15rem; font-weight: 800; color: #1e293b; margin-top: 2rem; margin-bottom: 0.75rem; }
+        .prose p { color: #475569; line-height: 1.8; margin-bottom: 1rem; }
+        .prose ul { list-style: disc; padding-left: 1.5rem; color: #475569; line-height: 1.8; margin-bottom: 1rem; }
+        .tol-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+        .tol-table th { background: #1e293b; color: white; padding: 0.75rem 1rem; text-align: left; }
+        .tol-table td { padding: 0.65rem 1rem; border-bottom: 1px solid #e2e8f0; color: #334155; }
+        .tol-table tr:nth-child(even) td { background: #f8fafc; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+<nav class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm" aria-label="主選單">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3 site-nav">
+        <a href="index.html" class="flex items-center gap-2 font-black text-slate-800 text-lg">
+            <span class="text-2xl">⚙️</span><span>鐵材計算機</span>
+        </a>
+        <div class="flex flex-wrap items-center gap-4 text-sm font-bold text-slate-500">
+            <a href="index.html">首頁試算</a>
+            <a href="density-table.html">鋼材密度表</a>
+            <a href="cns-standard.html" class="text-blue-600">CNS規範指南</a>
+            <a href="nesting.html">智慧排料</a>
+            <a href="about.html">關於本站</a>
+            <a href="privacy.html">隱私權政策</a>
+            <a href="terms.html">使用條款</a>
+        </div>
+    </div>
+</nav>
+
+<main class="py-10 px-4">
+    <div class="max-w-5xl mx-auto">
+
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-3">
+                <a href="index.html" class="text-sm text-slate-400 hover:text-blue-600">首頁</a>
+                <span class="text-slate-300">›</span>
+                <span class="text-sm text-slate-600 font-bold">CNS 規範與公差指南</span>
+            </div>
+            <h1 class="text-3xl font-black text-slate-800 mb-3">鋼鐵公差與 CNS 規範指南</h1>
+            <p class="text-slate-500 leading-relaxed max-w-3xl">
+                理解 CNS 標準中的公差規定，是正確解讀廠商磅單、避免採購糾紛的關鍵。本頁詳細說明台灣常用鋼材的尺寸公差範圍、理論重量與實際重量的差異來源，以及如何在採購合約中明確約定磅單計算方式。
+            </p>
+        </header>
+
+        <!-- AdSense -->
+        <div class="my-6 flex justify-center">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9184947057660512" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Section 1: CNS 說明 -->
+        <section class="bg-white rounded-[2rem] p-8 border border-slate-100 shadow-sm mb-8 prose">
+            <div class="flex items-center gap-3 mb-5">
+                <div class="h-7 w-2 bg-blue-600 rounded-full"></div>
+                <h2 class="text-xl font-black text-slate-800 m-0">一、CNS 標準體系簡介</h2>
+            </div>
+            <p>CNS（Chinese National Standards，中華民國國家標準）由經濟部標準檢驗局（BSMI）負責制定與發布，是台灣境內鋼鐵材料製造、驗收及交易的法規基礎。台灣鋼鐵 CNS 標準在技術內容上高度對齊日本 JIS（Japanese Industrial Standards）規範，尤其是型鋼尺寸表，幾乎與 JIS G 3192 完全一致。</p>
+            <p>以下為工程採購最常涉及的主要 CNS 鋼鐵標準：</p>
+            <div class="overflow-x-auto rounded-xl border border-slate-200">
+                <table class="tol-table">
+                    <thead>
+                        <tr><th>CNS 編號</th><th>名稱</th><th>對應 JIS</th><th>主要內容</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>CNS 2473</strong></td><td>熱軋 H 型鋼</td><td>JIS G 3192</td><td>斷面尺寸、重量、截面特性（I值、S值）</td></tr>
+                        <tr><td><strong>CNS 4437</strong></td><td>熱軋等邊角鋼</td><td>JIS G 3192</td><td>L 型角鋼全系列規格</td></tr>
+                        <tr><td><strong>CNS 4436</strong></td><td>熱軋不等邊角鋼</td><td>JIS G 3192</td><td>不等邊 L 型角鋼規格</td></tr>
+                        <tr><td><strong>CNS 2947</strong></td><td>不鏽鋼板、帶及片</td><td>JIS G 4304/4305</td><td>304、316 等不鏽鋼板之尺寸與公差</td></tr>
+                        <tr><td><strong>CNS 6331</strong></td><td>冷軋鋼板及鋼帶</td><td>JIS G 3141</td><td>薄板（0.4–3.2mm）厚度與寬度公差</td></tr>
+                        <tr><td><strong>CNS 4435</strong></td><td>熱軋鋼板、鋼帶</td><td>JIS G 3193</td><td>中厚板（4.5mm 以上）尺寸公差</td></tr>
+                        <tr><td><strong>CNS 4176</strong></td><td>結構用無縫鋼管</td><td>JIS G 3444</td><td>鋼管外徑與壁厚公差</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 2: 厚度公差 -->
+        <section class="bg-white rounded-[2rem] p-8 border border-slate-100 shadow-sm mb-8 prose">
+            <div class="flex items-center gap-3 mb-5">
+                <div class="h-7 w-2 bg-orange-500 rounded-full"></div>
+                <h2 class="text-xl font-black text-slate-800 m-0">二、鋼板厚度公差（CNS 4435 / CNS 6331）</h2>
+            </div>
+            <p>鋼板的厚度公差是影響「理論重量」與「實際重量」差異最大的因素。依 CNS 規定，鋼板厚度允許一定範圍的正公差（偏厚）或負公差（偏薄），以下為常用厚度的公差參考值：</p>
+            <div class="overflow-x-auto rounded-xl border border-slate-200 mb-4">
+                <table class="tol-table">
+                    <thead>
+                        <tr><th>標稱厚度 (mm)</th><th>公差下限 (mm)</th><th>公差上限 (mm)</th><th>重量偏差估算</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1.0 – 1.6</td><td>-0.10</td><td>+0.20</td><td>約 ±10%</td></tr>
+                        <tr><td>2.0 – 3.2</td><td>-0.15</td><td>+0.25</td><td>約 ±8%</td></tr>
+                        <tr><td>4.5 – 6.0</td><td>-0.20</td><td>+0.50</td><td>約 ±7%</td></tr>
+                        <tr><td>8.0 – 12.0</td><td>-0.25</td><td>+0.70</td><td>約 ±5%</td></tr>
+                        <tr><td>16.0 – 25.0</td><td>-0.30</td><td>+1.00</td><td>約 ±4%</td></tr>
+                        <tr><td>28.0 – 50.0</td><td>-0.40</td><td>+1.20</td><td>約 ±3%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="bg-amber-50 border-l-4 border-amber-400 rounded-xl p-5">
+                <p class="font-bold text-amber-800 m-0 mb-1">⚠️ 採購關鍵提醒</p>
+                <p class="text-amber-700 m-0 text-sm">鋼廠出貨的鋼板通常偏向「正公差」（即偏厚），因此以「實際磅單」計費時，實際重量往往比理論值高出 3–7%。在大宗採購時，建議合約明定採用「理論磅單」計費，或要求廠商附上材質證明書（Mill Certificate）中的實測厚度值。</p>
+            </div>
+        </section>
+
+        <!-- Section 3: 型鋼公差 -->
+        <section class="bg-white rounded-[2rem] p-8 border border-slate-100 shadow-sm mb-8 prose">
+            <div class="flex items-center gap-3 mb-5">
+                <div class="h-7 w-2 bg-emerald-500 rounded-full"></div>
+                <h2 class="text-xl font-black text-slate-800 m-0">三、型鋼尺寸公差（CNS 2473 / H 型鋼）</h2>
+            </div>
+            <p>H 型鋼、I 型鋼、槽鋼等型鋼的截面尺寸公差，依 CNS 2473（對應 JIS G 3192）規定，主要管控的尺寸項目包含：截面高度（H）、翼板寬度（B）、腹板厚度（t₂）、翼板厚度（t₁）及截面重心位置。</p>
+            <div class="overflow-x-auto rounded-xl border border-slate-200 mb-4">
+                <table class="tol-table">
+                    <thead>
+                        <tr><th>尺寸項目</th><th>標稱範圍</th><th>允許公差</th><th>說明</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>截面高度 H</td><td>H ≤ 200mm</td><td>±2.0mm</td><td>對結構計算影響最大</td></tr>
+                        <tr><td>截面高度 H</td><td>H > 200mm</td><td>±3.0mm</td><td>大型 H 型鋼公差略寬</td></tr>
+                        <tr><td>翼板寬度 B</td><td>B ≤ 200mm</td><td>±3.0mm</td><td>影響螺栓孔位準確性</td></tr>
+                        <tr><td>翼板寬度 B</td><td>B > 200mm</td><td>±4.0mm</td><td>大翼板公差放寬</td></tr>
+                        <tr><td>腹板厚度 t₂</td><td>全規格</td><td>±0.5mm</td><td>影響剪力承載</td></tr>
+                        <tr><td>翼板厚度 t₁</td><td>全規格</td><td>+0.7/-0.3mm</td><td>正公差較大</td></tr>
+                        <tr><td>長度（定尺）</td><td>6m / 12m</td><td>+100 / -0mm</td><td>只允許偏長，不允許偏短</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>由於翼板厚度允許正公差（偏厚），型鋼實際重量通常略高於 CNS 理論重量表值，一般偏差在 <strong>2–4%</strong> 之間。本站計算機的 kg/m 值均取自 CNS 理論重量表，屬於理想標準值。</p>
+        </section>
+
+        <!-- Section 4: 理論 vs 實際 -->
+        <section class="bg-white rounded-[2rem] p-8 border border-slate-100 shadow-sm mb-8 prose">
+            <div class="flex items-center gap-3 mb-5">
+                <div class="h-7 w-2 bg-purple-500 rounded-full"></div>
+                <h2 class="text-xl font-black text-slate-800 m-0">四、理論重量 vs. 實際重量：採購磅單解讀</h2>
+            </div>
+            <p>在台灣鋼鐵採購中，計價基礎分為兩種，了解差異有助於議價：</p>
+            <div class="grid md:grid-cols-2 gap-5 my-4">
+                <div class="bg-blue-50 rounded-2xl p-5 border-l-4 border-blue-500">
+                    <p class="font-black text-blue-800 mb-2">📄 理論磅單（Theory Weight）</p>
+                    <ul class="text-sm text-slate-600 m-0 pl-4">
+                        <li>依 CNS 標準規格表的 kg/m 或 kg/m² 值計算</li>
+                        <li>乘以訂購長度（或面積）與數量</li>
+                        <li>結果固定，不受鋼廠公差影響</li>
+                        <li><strong>對採購方有利</strong>，廠商無法藉偏厚獲利</li>
+                    </ul>
+                </div>
+                <div class="bg-orange-50 rounded-2xl p-5 border-l-4 border-orange-500">
+                    <p class="font-black text-orange-800 mb-2">⚖️ 實際磅單（Actual Weight）</p>
+                    <ul class="text-sm text-slate-600 m-0 pl-4">
+                        <li>以廠商地磅或過磅站的實秤重量計費</li>
+                        <li>受公差影響，通常比理論值高 2–7%</li>
+                        <li>需要廠商提供磅單正本佐證</li>
+                        <li><strong>對賣方有利</strong>，正公差可多收費</li>
+                    </ul>
+                </div>
+            </div>
+            <h3>如何在採購合約中保護自身權益？</h3>
+            <ul>
+                <li><strong>明訂計費方式：</strong>合約中清楚載明「以 CNS 理論重量計費」或「以地磅實秤計費，上限不超過理論值之 X%」。</li>
+                <li><strong>要求材質證明書：</strong>Mill Certificate（材質保證書）應載明實測厚度、化學成分及機械性質，可用於驗證是否符合標稱規格。</li>
+                <li><strong>抽驗與複磅：</strong>大宗採購到貨後，建議抽取 5–10% 數量以游標卡尺量測厚度，若實測厚度系統性超出標稱值，應向廠商反映並要求調整單價。</li>
+                <li><strong>使用本站工具核對：</strong>將廠商報出的總噸數與本站計算出的理論總重對比，若差異超過 5%，即應深入核查。</li>
+            </ul>
+        </section>
+
+        <!-- Section 5: 不鏽鋼公差 -->
+        <section class="bg-white rounded-[2rem] p-8 border border-slate-100 shadow-sm mb-8 prose">
+            <div class="flex items-center gap-3 mb-5">
+                <div class="h-7 w-2 bg-slate-500 rounded-full"></div>
+                <h2 class="text-xl font-black text-slate-800 m-0">五、不鏽鋼板公差（CNS 2947 / JIS G 4304）</h2>
+            </div>
+            <p>不鏽鋼板的公差規定與碳鋼板類似，但因不鏽鋼製程特性，薄板（2mm 以下）的公差範圍相對較嚴。以下為熱軋不鏽鋼板（HR）的代表性公差範圍：</p>
+            <div class="overflow-x-auto rounded-xl border border-slate-200">
+                <table class="tol-table">
+                    <thead>
+                        <tr><th>標稱厚度 (mm)</th><th>厚度正公差 (mm)</th><th>厚度負公差 (mm)</th><th>備註</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>0.3 – 0.5</td><td>+0.07</td><td>-0.05</td><td>冷軋不鏽鋼薄板</td></tr>
+                        <tr><td>0.6 – 1.0</td><td>+0.10</td><td>-0.08</td><td>冷軋不鏽鋼薄板</td></tr>
+                        <tr><td>1.0 – 2.0</td><td>+0.15</td><td>-0.10</td><td>冷軋薄板，精密度較高</td></tr>
+                        <tr><td>2.0 – 4.0</td><td>+0.25</td><td>-0.20</td><td>熱軋不鏽鋼板</td></tr>
+                        <tr><td>4.0 – 8.0</td><td>+0.40</td><td>-0.30</td><td>熱軋中板</td></tr>
+                        <tr><td>8.0 – 16.0</td><td>+0.60</td><td>-0.40</td><td>熱軋厚板</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mt-4">由於不鏽鋼單價遠高於碳鋼（通常為碳鋼的 3–5 倍），相同百分比的公差偏差在金額上影響更為顯著。建議不鏽鋼採購合約一律採用理論磅單計費，並要求附上 Mill Certificate 佐證。</p>
+        </section>
+
+        <!-- AdSense 底部 -->
+        <div class="my-8 flex justify-center">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9184947057660512" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- CTA -->
+        <div class="bg-slate-800 rounded-[2rem] p-8 text-white text-center">
+            <h2 class="text-2xl font-black mb-2">立即計算理論重量</h2>
+            <p class="text-slate-300 mb-5">搭配本頁公差知識，精準核對廠商磅單</p>
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href="index.html" class="inline-block bg-blue-600 text-white font-black px-6 py-3 rounded-2xl hover:bg-blue-700 transition-all">🔧 前往計算機</a>
+                <a href="density-table.html" class="inline-block bg-slate-600 text-white font-black px-6 py-3 rounded-2xl hover:bg-slate-700 transition-all">📊 查看密度表</a>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<footer class="bg-slate-800 text-slate-300 pt-10 pb-6 mt-10" role="contentinfo">
+    <div class="max-w-5xl mx-auto px-4">
+        <div class="flex flex-wrap justify-between gap-6 mb-8">
+            <div>
+                <a href="index.html" class="flex items-center gap-2 font-black text-white text-lg mb-2">
+                    <span>⚙️</span><span>鐵材重量計算機</span>
+                </a>
+                <p class="text-sm text-slate-400">符合 CNS 標準的專業鋼鐵工程知識門戶</p>
+            </div>
+            <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-400" aria-label="頁尾導覽">
+                <a href="index.html" class="hover:text-blue-400">首頁試算</a>
+                <a href="density-table.html" class="hover:text-blue-400">鋼材密度表</a>
+                <a href="cns-standard.html" class="hover:text-blue-400">CNS規範指南</a>
+                <a href="nesting.html" class="hover:text-blue-400">智慧排料</a>
+                <a href="about.html" class="hover:text-blue-400">關於本站</a>
+                <a href="privacy.html" class="hover:text-blue-400">隱私權政策</a>
+                <a href="terms.html" class="hover:text-blue-400">使用條款</a>
+            </nav>
+        </div>
+        <div class="border-t border-slate-700 pt-5 flex flex-col md:flex-row justify-between gap-2 text-xs text-slate-500">
+            <p>© <span id="footerYear"></span> 鐵材重量計算機 steel-calc.idv.tw</p>
+            <p>本頁公差資料僅供工程估算參考，實際規格以採購合約與廠商出具之材質證明書為準。</p>
+        </div>
+    </div>
+</footer>
+<script>document.getElementById('footerYear').textContent = new Date().getFullYear();</script>
+</body>
+</html>

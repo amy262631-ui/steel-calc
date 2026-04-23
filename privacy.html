@@ -2,20 +2,124 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <title>隱私權政策 - 鋼鐵重量計算器</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隱私權政策 | 鐵材重量計算機</title>
+    <meta name="description" content="鐵材重量計算機（steel-calc.idv.tw）之隱私權政策，說明本站蒐集資料之範圍、Cookie 使用方式及 Google AdSense 相關規定。">
+    <link rel="canonical" href="https://steel-calc.idv.tw/privacy.html" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9184947057660512" crossorigin="anonymous"></script>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2163/2163914.png" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { display: flex; flex-direction: column; min-height: 100vh; font-family: sans-serif; }
+        main { flex: 1; }
+        .site-nav a { transition: color 0.2s; }
+        .site-nav a:hover { color: #3b82f6; }
+        .prose p { color: #475569; line-height: 1.8; margin-bottom: 1rem; }
+        .prose ul { list-style: disc; padding-left: 1.5rem; color: #475569; line-height: 1.8; margin-bottom: 1rem; }
+        .prose h3 { font-size: 1.1rem; font-weight: 800; color: #1e293b; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    </style>
 </head>
-<body class="bg-slate-50 p-10 line-relaxed">
-    <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-sm">
-        <h1 class="text-2xl font-bold mb-6">隱私權政策</h1>
-        <p class="mb-4">本站（鋼鐵重量計算器）非常重視您的隱私。本站為工具性質網站，說明如下：</p>
-        <ul class="list-disc ml-6 space-y-2">
-            <li><strong>資料收集：</strong>我們不會要求您輸入個人姓名、電話或地址。</li>
-            <li><strong>Cookies：</strong>本站可能使用 Google Analytics 等第三方分析工具來瞭解流量情況。</li>
-            <li><strong>外部連結：</strong>本站包含指向其他網站的連結，我們不對其隱私政策負責。</li>
-        </ul>
-        <div class="mt-8 text-sm text-slate-400">最後更新日期：2026年2月10日</div>
-        <a href="/" class="mt-6 inline-block text-blue-600">← 返回首頁</a>
+<body class="bg-slate-50 text-slate-900">
+
+<nav class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm" aria-label="主選單">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3 site-nav">
+        <a href="index.html" class="flex items-center gap-2 font-black text-slate-800 text-lg">
+            <span class="text-2xl">⚙️</span><span>鐵材計算機</span>
+        </a>
+        <div class="flex flex-wrap items-center gap-4 text-sm font-bold text-slate-500">
+            <a href="index.html">首頁試算</a>
+            <a href="density-table.html">鋼材密度表</a>
+            <a href="cns-standard.html">CNS規範指南</a>
+            <a href="nesting.html">智慧排料</a>
+            <a href="about.html">關於本站</a>
+            <a href="privacy.html" class="text-blue-600">隱私權政策</a>
+            <a href="terms.html">使用條款</a>
+        </div>
     </div>
+</nav>
+
+<main class="py-10 px-4">
+    <div class="max-w-3xl mx-auto">
+        <header class="mb-8">
+            <div class="flex items-center gap-3 mb-3">
+                <a href="index.html" class="text-sm text-slate-400 hover:text-blue-600">首頁</a>
+                <span class="text-slate-300">›</span>
+                <span class="text-sm text-slate-600 font-bold">隱私權政策</span>
+            </div>
+            <h1 class="text-3xl font-black text-slate-800">隱私權政策</h1>
+            <p class="text-slate-400 text-sm mt-2">最後更新日期：2025 年 1 月</p>
+        </header>
+
+        <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-slate-100 shadow-sm prose">
+            <p>歡迎使用鐵材重量計算機（以下簡稱「本站」，網址：https://steel-calc.idv.tw）。本站重視您的隱私權，以下說明本站的隱私權政策，請您詳閱。</p>
+
+            <h3>一、資料蒐集範圍</h3>
+            <p>本站為純前端工具，<strong>不會主動蒐集、儲存或傳輸您的個人識別資訊</strong>（如姓名、電子郵件、電話號碼等）。您在計算機中輸入的數值（如尺寸、數量、單價）僅在您的瀏覽器本機處理，不會傳送至任何伺服器。</p>
+            <p>本站可能透過以下方式被動蒐集非個人識別資訊：</p>
+            <ul>
+                <li>瀏覽器類型與版本</li>
+                <li>作業系統資訊</li>
+                <li>造訪頁面與停留時間（透過 Google Analytics）</li>
+                <li>來源頁面（Referrer URL）</li>
+                <li>IP 位址之地理區域（國家/縣市層級）</li>
+            </ul>
+
+            <h3>二、Google AdSense 與廣告 Cookie</h3>
+            <p>本站使用 Google AdSense 服務刊登廣告。Google 可能使用 Cookie 和網路信標技術，根據您過去造訪本站或其他網站的紀錄，向您投放個人化廣告。</p>
+            <p>Google 對廣告資料的使用受 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Google 隱私權政策</a> 規範。您可透過 <a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Google 廣告設定頁面</a> 停用個人化廣告。</p>
+
+            <h3>三、Google Analytics</h3>
+            <p>本站使用 Google Analytics 分析服務，以了解網站流量與使用者行為。Google Analytics 使用 Cookie 蒐集匿名化的流量資訊，相關資料由 Google LLC 處理，適用 Google 隱私權政策。您可安裝 <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Google Analytics 瀏覽器外掛程式</a> 以選擇退出追蹤。</p>
+
+            <h3>四、Cookie 使用說明</h3>
+            <p>Cookie 是儲存在您瀏覽器中的小型文字檔案。本站使用的 Cookie 分為以下類別：</p>
+            <ul>
+                <li><strong>功能性 Cookie：</strong>用於記錄您的偏好設定（如語言、計算紀錄），提升使用體驗。</li>
+                <li><strong>分析性 Cookie：</strong>由 Google Analytics 設置，用於統計網站流量。</li>
+                <li><strong>廣告 Cookie：</strong>由 Google AdSense 設置，用於投放相關廣告。</li>
+            </ul>
+            <p>您可透過瀏覽器設定關閉或刪除 Cookie，但這可能影響本站部分功能的正常運作。</p>
+
+            <h3>五、第三方連結</h3>
+            <p>本站頁面可能包含連結至其他第三方網站（如 CNS 標準資料庫、鋼廠網站）。本站不負責第三方網站的隱私保護政策及內容，建議您在連結至其他網站時，詳閱該網站的隱私權說明。</p>
+
+            <h3>六、兒童隱私</h3>
+            <p>本站為專業工程工具，主要對象為成年工程師與採購人員。本站不故意蒐集 13 歲以下兒童的個人資訊。若您認為我們無意間蒐集了此類資訊，請透過以下聯絡方式告知，本站將立即處理。</p>
+
+            <h3>七、隱私權政策之修訂</h3>
+            <p>本站保留隨時修訂本隱私權政策的權利。政策變更時，將更新本頁的「最後更新日期」。建議您定期查閱本頁以了解最新規定。繼續使用本站即表示您接受修訂後的隱私權政策。</p>
+
+            <h3>八、聯絡方式</h3>
+            <p>如您對本隱私權政策有任何疑問，請透過電子郵件與我們聯繫：</p>
+            <p><a href="mailto:amy262631@gmail.com" class="text-blue-600 hover:underline font-bold">amy262631@gmail.com</a></p>
+        </div>
+    </div>
+</main>
+
+<footer class="bg-slate-800 text-slate-300 pt-10 pb-6 mt-10" role="contentinfo">
+    <div class="max-w-5xl mx-auto px-4">
+        <div class="flex flex-wrap justify-between gap-6 mb-8">
+            <div>
+                <a href="index.html" class="flex items-center gap-2 font-black text-white text-lg mb-2">
+                    <span>⚙️</span><span>鐵材重量計算機</span>
+                </a>
+                <p class="text-sm text-slate-400">符合 CNS 標準的專業鋼鐵工程知識門戶</p>
+            </div>
+            <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-400" aria-label="頁尾導覽">
+                <a href="index.html" class="hover:text-blue-400">首頁試算</a>
+                <a href="density-table.html" class="hover:text-blue-400">鋼材密度表</a>
+                <a href="cns-standard.html" class="hover:text-blue-400">CNS規範指南</a>
+                <a href="nesting.html" class="hover:text-blue-400">智慧排料</a>
+                <a href="about.html" class="hover:text-blue-400">關於本站</a>
+                <a href="privacy.html" class="hover:text-blue-400">隱私權政策</a>
+                <a href="terms.html" class="hover:text-blue-400">使用條款</a>
+            </nav>
+        </div>
+        <div class="border-t border-slate-700 pt-5 flex flex-col md:flex-row justify-between gap-2 text-xs text-slate-500">
+            <p>© <span id="footerYear"></span> 鐵材重量計算機 steel-calc.idv.tw</p>
+        </div>
+    </div>
+</footer>
+<script>document.getElementById('footerYear').textContent = new Date().getFullYear();</script>
 </body>
 </html>
