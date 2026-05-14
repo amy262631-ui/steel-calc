@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鋼材損耗率怎麼抓？五種鋼材的台灣工程實務建議 | 鐵材重量計算機</title>
+    <meta name="description" content="深入解析鋼板、H型鋼、C型鋼、管材等五種常見鋼材的損耗率設定建議，說明裁切損耗的來源與計算方式，協助工程採購人員正確備料、避免超支或停工待料。">
+    <meta name="keywords" content="鋼材損耗率, 鋼板損耗, H型鋼損耗, 備料計算, 工程估價, 裁切損耗, 廢料率">
+    <link rel="canonical" href="https://steel-calc.idv.tw/guide-waste-rate.html" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "鋼材損耗率怎麼抓？五種鋼材的台灣工程實務建議",
+      "description": "深入解析鋼板、H型鋼、C型鋼等五種常見鋼材的損耗率設定建議，協助工程採購人員正確備料。",
+      "author": { "@type": "Organization", "name": "鐵材重量計算機", "url": "https://steel-calc.idv.tw" },
+      "publisher": { "@type": "Organization", "name": "鐵材重量計算機", "url": "https://steel-calc.idv.tw" },
+      "datePublished": "2026-05-01",
+      "dateModified": "2026-05-01"
+    }
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9184947057660512" crossorigin="anonymous"></script>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2163/2163914.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { display: flex; flex-direction: column; min-height: 100vh; font-family: sans-serif; }
+        main { flex: 1; }
+        .site-nav a { transition: color 0.2s; }
+        .site-nav a:hover { color: #3b82f6; }
+        .prose h2 { font-size: 1.5rem; font-weight: 900; color: #1e293b; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #f1f5f9; }
+        .prose h3 { font-size: 1.15rem; font-weight: 800; color: #1e293b; margin-top: 1.75rem; margin-bottom: 0.75rem; }
+        .prose p { color: #475569; line-height: 1.9; margin-bottom: 1.1rem; }
+        .prose ul, .prose ol { padding-left: 1.5rem; color: #475569; line-height: 1.9; margin-bottom: 1.1rem; }
+        .prose ul { list-style: disc; }
+        .prose ol { list-style: decimal; }
+        .prose li { margin-bottom: 0.4rem; }
+        .prose strong { color: #1e293b; }
+        .spec-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+        .spec-table th { background: #1e293b; color: white; padding: 0.75rem 1rem; text-align: left; }
+        .spec-table td { padding: 0.65rem 1rem; border-bottom: 1px solid #e2e8f0; color: #334155; }
+        .spec-table tr:nth-child(even) td { background: #f8fafc; }
+        .toc a { color: #3b82f6; text-decoration: none; font-size: 0.875rem; }
+        .toc a:hover { text-decoration: underline; }
+        .toc li { margin-bottom: 0.4rem; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+<nav class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm" aria-label="主選單">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3 site-nav">
+        <a href="index.html" class="flex items-center gap-2 font-black text-slate-800 text-lg"><span class="text-2xl">⚙️</span><span>鐵材計算機</span></a>
+        <div class="flex flex-wrap items-center gap-4 text-sm font-bold text-slate-500">
+            <a href="index.html">首頁試算</a><a href="density-table.html">鋼材密度表</a><a href="cns-standard.html">CNS規範指南</a><a href="nesting.html">智慧排料</a><a href="about.html">關於本站</a><a href="privacy.html">隱私權政策</a><a href="terms.html">使用條款</a>
+        </div>
+    </div>
+</nav>
+<main class="py-10 px-4">
+<div class="max-w-3xl mx-auto">
+    <div class="flex items-center gap-3 mb-6 text-sm">
+        <a href="index.html" class="text-slate-400 hover:text-blue-600">首頁</a><span class="text-slate-300">›</span>
+        <span class="text-slate-600 font-bold">工程知識專欄</span><span class="text-slate-300">›</span>
+        <span class="text-slate-600">鋼材損耗率怎麼抓</span>
+    </div>
+    <header class="mb-8">
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-orange-100 text-orange-700 text-xs font-black px-3 py-1 rounded-full">採購實務</span>
+            <span class="bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1 rounded-full">備料計算</span>
+            <span class="bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1 rounded-full">損耗管理</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl font-black text-slate-900 leading-tight mb-4">
+            鋼材損耗率怎麼抓？<br><span class="text-orange-500">五種鋼材的台灣工程實務建議</span>
+        </h1>
+        <p class="text-slate-500 leading-relaxed text-lg">損耗率設定過低，備料不足導致停工；設定過高，多餘廢料壓縮利潤。本文從台灣工程現場實務出發，逐一解析五種主要鋼材的損耗來源與合理設定範圍，讓你報價時心裡有數。</p>
+        <div class="flex items-center gap-4 mt-5 pt-5 border-t border-slate-100 text-sm text-slate-400">
+            <span>✍️ 鐵材重量計算機編輯部</span><span>·</span><span>📅 2026 年 5 月</span><span>·</span><span>⏱️ 閱讀約 7 分鐘</span>
+        </div>
+    </header>
+
+    <nav class="bg-orange-50 rounded-2xl p-6 mb-8 border border-orange-100" aria-label="文章目錄">
+        <p class="font-black text-slate-700 mb-3 text-sm uppercase tracking-wider">📋 本文目錄</p>
+        <ol class="toc list-decimal list-inside space-y-1">
+            <li><a href="#sec-what">什麼是損耗率？為什麼不能忽略？</a></li>
+            <li><a href="#sec-plate">鋼板類（黑鐵板、不鏽鋼板）</a></li>
+            <li><a href="#sec-hbeam">H 型鋼、I 型鋼、槽鋼</a></li>
+            <li><a href="#sec-csteel">C 型輕型鋼（屋架、牆架系統）</a></li>
+            <li><a href="#sec-tube">管材（圓管、方管、矩形管）</a></li>
+            <li><a href="#sec-angle">角鋼與扁鐵</a></li>
+            <li><a href="#sec-summary">快速對照表與計算範例</a></li>
+        </ol>
+    </nav>
+
+    <div class="my-6 flex justify-center">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9184947057660512" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <article class="bg-white rounded-[2rem] p-8 md:p-12 border border-slate-100 shadow-sm prose">
+
+        <section id="sec-what">
+            <h2>一、什麼是損耗率？為什麼不能忽略？</h2>
+            <p>損耗率（Waste Rate 或 Scrap Rate）是指在實際施工裁切後，無法使用的廢料重量佔採購總重量的百分比。舉例來說，若損耗率設為 8%，代表每採購 100 kg 鋼材，實際工程中只有 92 kg 會被用上，其餘 8 kg 以切割端料、短節廢料等形式報廢。</p>
+            <p>損耗率影響的不只是原料成本，還包含：</p>
+            <ul>
+                <li><strong>工期風險：</strong>低估損耗率 → 備料不足 → 臨時追單 → 等待交期 → 延誤工程。</li>
+                <li><strong>報價精準度：</strong>損耗率每差 5%，在百萬元等級的鋼材採購中，就是數萬元的成本誤差。</li>
+                <li><strong>廢料處理成本：</strong>廢鐵雖可回收，但搬運、分類、稱重需要人力，也是隱性成本。</li>
+            </ul>
+            <p>在台灣工程實務中，各類鋼材的損耗率因裁切方式、工件形狀複雜度、定尺限制等因素而差異懸殊。以下逐類說明。</p>
+        </section>
+
+        <section id="sec-plate">
+            <h2>二、鋼板類（黑鐵板、不鏽鋼板）：建議 3–8%</h2>
+            <p>鋼板的損耗主要來自兩個來源：<strong>切割縫（Kerf Loss）</strong>與<strong>排料餘料（Remnant）</strong>。</p>
+            <h3>切割縫損耗</h3>
+            <p>不同切割方式的縫寬差異顯著，直接影響材料損耗量：</p>
+            <div class="not-prose overflow-x-auto rounded-xl border border-slate-200 my-4">
+                <table class="spec-table">
+                    <thead><tr><th>切割方式</th><th>縫寬（約）</th><th>適用板厚</th><th>對損耗率影響</th></tr></thead>
+                    <tbody>
+                        <tr><td>雷射切割</td><td>0.5–1.5mm</td><td>0.5–25mm</td><td>最小，可忽略</td></tr>
+                        <tr><td>水刀切割</td><td>1–2mm</td><td>各種厚度</td><td>極小</td></tr>
+                        <tr><td>等離子切割（CNC）</td><td>2–4mm</td><td>3–50mm</td><td>中等</td></tr>
+                        <tr><td>火焰切割（人工）</td><td>3–6mm</td><td>6mm 以上</td><td>中至高</td></tr>
+                        <tr><td>剪板機剪切</td><td>0mm（無縫）</td><td>0.4–12mm</td><td>無縫損，但有餘邊</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <h3>排料餘料損耗</h3>
+            <p>採購的鋼板規格（通常為 4×8 尺、5×10 尺等標準板）未必與工件尺寸完美對齊，排料後四周的不可用邊料才是損耗的大宗。工件種類越多、形狀越不規則，餘料比例越高。</p>
+            <h3>損耗率建議值</h3>
+            <ul>
+                <li><strong>零件尺寸接近母板、排列規則：</strong>設定 3–4%</li>
+                <li><strong>零件尺寸中等、排列一般：</strong>設定 5–6%</li>
+                <li><strong>零件形狀複雜、多孔、異型：</strong>設定 7–10%</li>
+                <li><strong>不鏽鋼板（單價高，建議保守）：</strong>上述基礎再加 1–2%</li>
+            </ul>
+            <div class="not-prose bg-blue-50 border-l-4 border-blue-500 rounded-xl p-5 my-4">
+                <p class="font-bold text-blue-800 mb-1">💡 專業建議</p>
+                <p class="text-blue-700 text-sm">使用本站的<a href="nesting.html" class="underline font-bold">智慧排料系統</a>，可在報價前先模擬最佳排列，得到比口頭估算更準確的實際利用率，再反推合理的損耗率。</p>
+            </div>
+        </section>
+
+        <section id="sec-hbeam">
+            <h2>三、H 型鋼、I 型鋼、槽鋼：建議 5–10%</h2>
+            <p>型鋼的損耗幾乎全來自<strong>定尺限制</strong>。台灣市場的型鋼定尺以 6 公尺為主，部分規格有 12 公尺。工程中所需的各構件長度幾乎不可能剛好是 6 的整數倍，裁切後的殘料通常在 0.2–1.5 公尺之間，且往往太短、無法再用於其他構件，只能以廢鐵出清。</p>
+            <h3>損耗率影響因素</h3>
+            <ul>
+                <li><strong>跨距設計：</strong>若建築跨距為 7.2 公尺，每支型鋼裁兩段後恰好用完（6×2=12），殘料極少；但若跨距為 7.5 公尺，每支 12 公尺型鋼只能裁出一段，剩餘 4.5 公尺待用，若無其他構件可利用，損耗率瞬間攀升。</li>
+                <li><strong>構件種類多樣性：</strong>構件長度種類越多，各種殘料互相搭配利用的機率越高，整體損耗率越低。反之，若所有構件都是固定同一長度，殘料完全無法搭配，損耗率偏高。</li>
+                <li><strong>工地現場裁切 vs 工廠預切：</strong>工廠精密電鋸預切比工地人工切割廢料少，規劃充裕的情況下損耗率可控制在 5% 左右。</li>
+            </ul>
+            <h3>損耗率建議值</h3>
+            <ul>
+                <li><strong>構件尺寸單純、跨距整齊：</strong>5–6%</li>
+                <li><strong>一般鋼骨建築（跨距不整齊）：</strong>7–8%</li>
+                <li><strong>複雜鋼骨結構（多種構件尺寸）：</strong>8–10%</li>
+            </ul>
+            <div class="not-prose bg-amber-50 border-l-4 border-amber-400 rounded-xl p-5 my-4">
+                <p class="font-bold text-amber-800 mb-1">⚠️ 採購提醒</p>
+                <p class="text-amber-700 text-sm">H 型鋼單價高、體積大，若採購過多，倉儲成本與搬運成本都不低。建議在確認構件清單後，利用本站<a href="nesting.html" class="underline font-bold">型鋼配料系統</a>計算最佳用料支數，比口頭估算更精確。</p>
+            </div>
+        </section>
+
+        <section id="sec-csteel">
+            <h2>四、C 型輕型鋼（屋架、牆架系統）：建議 8–12%</h2>
+            <p>C 型輕型鋼（Cold Formed Steel, CFS）是所有常見鋼材中損耗率最高的一類，原因在於：</p>
+            <ul>
+                <li><strong>屋架跨距幾乎從不是整數：</strong>台灣透天厝與輕型廠房的進深多為 5.5m、6.3m、7.2m 等非整數，每支 6 公尺的 C 型鋼幾乎都有明顯殘料。</li>
+                <li><strong>端部需切斜角：</strong>屋架的斜撐需要切成特定角度才能接合，切斜端的廢料無法再利用。</li>
+                <li><strong>開孔補強：</strong>門窗洞口、管路穿越孔的補強件通常是短小異型件，裁切損耗高。</li>
+                <li><strong>彎折廢料：</strong>C 型鋼彎折時端部需要夾具空間，加工廢料不可避免。</li>
+            </ul>
+            <h3>損耗率建議值</h3>
+            <ul>
+                <li><strong>標準化屋架（跨距整齊、構件重複性高）：</strong>8–9%</li>
+                <li><strong>一般輕鋼構建築：</strong>10%（安全估算值）</li>
+                <li><strong>複雜造型屋架或多角度接合：</strong>10–12%</li>
+            </ul>
+            <p>建議以 <strong>10% 為預設值</strong>報價，若施工完成後有餘料，下一個工程可優先消化庫存，降低整體採購成本。</p>
+        </section>
+
+        <section id="sec-tube">
+            <h2>五、管材（圓管、方管、矩形管）：建議 3–6%</h2>
+            <p>管材的損耗相對規律，主要來自端頭廢料與接合處的切角。</p>
+            <ul>
+                <li><strong>端頭廢料：</strong>每支 6 公尺管材的切割起點（頭）與終點（尾）各有約 50–100mm 的不規則端，鋸切時需切除確保端面平整，這是固定的每支損耗。</li>
+                <li><strong>接合切角：</strong>管架、欄杆、桁架等需要管材端部切 45° 或任意角度接合，切角廢料的長度視角度與管徑而定，通常為管徑的 0.5–1.5 倍。</li>
+                <li><strong>補焊開孔：</strong>分叉接合（T 接、Y 接）需要在管壁上切出弧形對口（魚嘴切口），廢料較多。</li>
+            </ul>
+            <h3>損耗率建議值</h3>
+            <ul>
+                <li><strong>直管、無角度接合（如圍籬、欄杆直管）：</strong>3–4%</li>
+                <li><strong>一般管架、設備支架：</strong>4–5%</li>
+                <li><strong>複雜桁架、多角度管架：</strong>5–6%</li>
+                <li><strong>CNC 管材切割（端頭精準）：</strong>可降至 2–3%</li>
+            </ul>
+        </section>
+
+        <section id="sec-angle">
+            <h2>六、角鋼與扁鐵：建議 4–8%</h2>
+            <p>角鋼（等邊、不等邊）與扁鐵的損耗介於鋼板與型鋼之間。定尺（6 公尺）的限制與型鋼相同，但因單位長度成本較低，工地現場偶有將剩料「硬擠」進其他小構件的情形，實際損耗率往往低於預估。</p>
+            <h3>損耗率建議值</h3>
+            <ul>
+                <li><strong>輕型連接件、托架（構件短小且多樣）：</strong>4–5%</li>
+                <li><strong>一般角鋼框架、固定支架：</strong>5–6%</li>
+                <li><strong>複雜角鋼連接（多角度、多種尺寸）：</strong>6–8%</li>
+            </ul>
+        </section>
+
+        <section id="sec-summary">
+            <h2>七、快速對照表與計算範例</h2>
+            <div class="not-prose overflow-x-auto rounded-xl border border-slate-200 mb-6">
+                <table class="spec-table">
+                    <thead><tr><th>鋼材類別</th><th>損耗率下限</th><th>損耗率上限</th><th>建議預設值</th><th>主要損耗來源</th></tr></thead>
+                    <tbody>
+                        <tr><td>鋼板（形狀規則）</td><td>3%</td><td>5%</td><td>4%</td><td>切割縫 + 邊料</td></tr>
+                        <tr><td>鋼板（複雜異型）</td><td>6%</td><td>10%</td><td>8%</td><td>排料餘料為主</td></tr>
+                        <tr><td>不鏽鋼板</td><td>4%</td><td>8%</td><td>6%</td><td>同上，保守估算</td></tr>
+                        <tr><td>H 型鋼 / I 型鋼 / 槽鋼</td><td>5%</td><td>10%</td><td>7%</td><td>定尺殘料</td></tr>
+                        <tr><td>C 型輕型鋼</td><td>8%</td><td>12%</td><td>10%</td><td>斜切 + 殘料</td></tr>
+                        <tr><td>圓管 / 方管 / 矩形管</td><td>3%</td><td>6%</td><td>4%</td><td>端頭 + 切角</td></tr>
+                        <tr><td>角鋼 / 扁鐵</td><td>4%</td><td>8%</td><td>5%</td><td>定尺殘料</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>計算範例</h3>
+            <p>假設一個輕型廠房工程，H300×150 型鋼理論用量為 8,500 kg，設定損耗率 7%：</p>
+            <div class="not-prose bg-slate-800 text-white rounded-2xl p-6 my-4">
+                <p class="text-slate-400 text-xs font-black uppercase mb-3">計算過程</p>
+                <p class="font-mono text-sm leading-relaxed">
+                    理論用量：8,500 kg<br>
+                    損耗率：7%<br>
+                    含損耗備料量 = 8,500 ÷ (1 - 0.07) = <span class="text-emerald-400 font-black">9,140 kg</span><br>
+                    <span class="text-slate-400 text-xs">（或簡化：8,500 × 1.07 ≈ 9,095 kg）</span><br><br>
+                    若市場行情每 kg 為 22 元：<br>
+                    採購預算 = 9,140 × 22 = <span class="text-blue-400 font-black">201,080 元</span>
+                </p>
+            </div>
+            <p>本站<a href="index.html" class="text-blue-600 hover:underline font-bold">重量計算機</a>的「損耗率 (%)」欄位可直接帶入上述數值，系統自動計算含損耗的備料重量與採購金額，無需手動換算。</p>
+        </section>
+
+    </article>
+
+    <div class="my-8 flex justify-center">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9184947057660512" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <section class="mt-8">
+        <h2 class="text-xl font-black text-slate-800 mb-4">延伸閱讀</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a href="guide-h-beam-vs-i-beam.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">🏗️</span>
+                <div><p class="font-black text-slate-700">H 型鋼 vs I 型鋼選材指南</p><p class="text-xs text-slate-400 mt-1">截面差異、CNS 規格、工程選用建議</p></div>
+            </a>
+            <a href="nesting.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">📐</span>
+                <div><p class="font-black text-slate-700">智慧排料系統</p><p class="text-xs text-slate-400 mt-1">自動計算最佳裁切方案、降低廢料損耗</p></div>
+            </a>
+            <a href="cns-standard.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">📋</span>
+                <div><p class="font-black text-slate-700">CNS 鋼鐵公差規範</p><p class="text-xs text-slate-400 mt-1">理論磅單 vs 實際磅單完整解說</p></div>
+            </a>
+            <a href="index.html" class="bg-orange-500 rounded-2xl p-5 text-white hover:bg-orange-600 transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">🔧</span>
+                <div><p class="font-black">含損耗率重量計算機</p><p class="text-orange-100 text-xs mt-1">輸入損耗率，自動帶出備料重量與採購金額</p></div>
+            </a>
+        </div>
+    </section>
+</div>
+</main>
+<footer class="bg-slate-800 text-slate-300 pt-10 pb-6 mt-10" role="contentinfo">
+    <div class="max-w-5xl mx-auto px-4">
+        <div class="flex flex-wrap justify-between gap-6 mb-8">
+            <div>
+                <a href="index.html" class="flex items-center gap-2 font-black text-white text-lg mb-2"><span>⚙️</span><span>鐵材重量計算機</span></a>
+                <p class="text-sm text-slate-400">符合 CNS 標準的專業鋼鐵工程知識門戶</p>
+            </div>
+            <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-400">
+                <a href="index.html" class="hover:text-blue-400">首頁試算</a><a href="density-table.html" class="hover:text-blue-400">鋼材密度表</a><a href="cns-standard.html" class="hover:text-blue-400">CNS規範指南</a><a href="nesting.html" class="hover:text-blue-400">智慧排料</a><a href="about.html" class="hover:text-blue-400">關於本站</a>
+            </nav>
+        </div>
+        <div class="border-t border-slate-700 pt-5 flex flex-col md:flex-row justify-between gap-2 text-xs text-slate-500">
+            <p>© <span id="footerYear"></span> 鐵材重量計算機 steel-calc.idv.tw</p>
+            <p>本文內容僅供參考，實際損耗率請依工程條件調整。</p>
+        </div>
+    </div>
+</footer>
+<script>document.getElementById('footerYear').textContent = new Date().getFullYear();</script>
+</body>
+</html>
