@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H 型鋼 vs I 型鋼：差異比較與選材完整指南 | 鐵材重量計算機</title>
+    <meta name="description" content="深入比較 H 型鋼與 I 型鋼的截面差異、CNS 規格標準、承載特性與工程選用建議。工程師採購前必讀，搭配免費線上重量試算工具。">
+    <meta name="keywords" content="H型鋼, I型鋼, H型鋼差異, H型鋼選材, CNS 2473, 鋼構選材, 型鋼比較">
+    <link rel="canonical" href="https://steel-calc.idv.tw/guide-h-beam-vs-i-beam.html" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "H 型鋼 vs I 型鋼：差異比較與選材完整指南",
+      "description": "深入比較 H 型鋼與 I 型鋼的截面差異、CNS 規格標準、承載特性與工程選用建議。",
+      "author": { "@type": "Organization", "name": "鐵材重量計算機", "url": "https://steel-calc.idv.tw" },
+      "publisher": { "@type": "Organization", "name": "鐵材重量計算機", "url": "https://steel-calc.idv.tw" },
+      "datePublished": "2026-05-01",
+      "dateModified": "2026-05-01",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://steel-calc.idv.tw/guide-h-beam-vs-i-beam.html" }
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9184947057660512" crossorigin="anonymous"></script>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2163/2163914.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { display: flex; flex-direction: column; min-height: 100vh; font-family: sans-serif; }
+        main { flex: 1; }
+        .site-nav a { transition: color 0.2s; }
+        .site-nav a:hover { color: #3b82f6; }
+        .prose h2 { font-size: 1.5rem; font-weight: 900; color: #1e293b; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #f1f5f9; }
+        .prose h3 { font-size: 1.15rem; font-weight: 800; color: #1e293b; margin-top: 1.75rem; margin-bottom: 0.75rem; }
+        .prose p { color: #475569; line-height: 1.9; margin-bottom: 1.1rem; }
+        .prose ul { list-style: disc; padding-left: 1.5rem; color: #475569; line-height: 1.9; margin-bottom: 1.1rem; }
+        .prose li { margin-bottom: 0.4rem; }
+        .prose strong { color: #1e293b; }
+        .spec-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+        .spec-table th { background: #1e293b; color: white; padding: 0.75rem 1rem; text-align: left; }
+        .spec-table td { padding: 0.65rem 1rem; border-bottom: 1px solid #e2e8f0; color: #334155; }
+        .spec-table tr:nth-child(even) td { background: #f8fafc; }
+        .toc a { color: #3b82f6; text-decoration: none; font-size: 0.875rem; }
+        .toc a:hover { text-decoration: underline; }
+        .toc li { margin-bottom: 0.4rem; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+<nav class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm" aria-label="主選單">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3 site-nav">
+        <a href="index.html" class="flex items-center gap-2 font-black text-slate-800 text-lg">
+            <span class="text-2xl">⚙️</span><span>鐵材計算機</span>
+        </a>
+        <div class="flex flex-wrap items-center gap-4 text-sm font-bold text-slate-500">
+            <a href="index.html">首頁試算</a>
+            <a href="density-table.html">鋼材密度表</a>
+            <a href="cns-standard.html">CNS規範指南</a>
+            <a href="nesting.html">智慧排料</a>
+            <a href="about.html">關於本站</a>
+            <a href="privacy.html">隱私權政策</a>
+            <a href="terms.html">使用條款</a>
+        </div>
+    </div>
+</nav>
+
+<main class="py-10 px-4">
+<div class="max-w-3xl mx-auto">
+
+    <!-- 麵包屑 -->
+    <div class="flex items-center gap-3 mb-6 text-sm">
+        <a href="index.html" class="text-slate-400 hover:text-blue-600">首頁</a>
+        <span class="text-slate-300">›</span>
+        <span class="text-slate-600 font-bold">工程知識專欄</span>
+        <span class="text-slate-300">›</span>
+        <span class="text-slate-600">H 型鋼 vs I 型鋼</span>
+    </div>
+
+    <!-- 文章標頭 -->
+    <header class="mb-8">
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-blue-100 text-blue-700 text-xs font-black px-3 py-1 rounded-full">選材指南</span>
+            <span class="bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1 rounded-full">CNS 規範</span>
+            <span class="bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1 rounded-full">型鋼</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl font-black text-slate-900 leading-tight mb-4">
+            H 型鋼 vs I 型鋼<br><span class="text-blue-600">差異比較與選材完整指南</span>
+        </h1>
+        <p class="text-slate-500 leading-relaxed text-lg">
+            H 型鋼與 I 型鋼外觀相似，卻在截面形狀、承載效率與適用場合上有本質差異。本文從 CNS 規格標準出發，詳細說明兩者的差異，協助工程師與採購人員做出正確的選材決策。
+        </p>
+        <div class="flex items-center gap-4 mt-5 pt-5 border-t border-slate-100 text-sm text-slate-400">
+            <span>✍️ 鐵材重量計算機編輯部</span>
+            <span>·</span>
+            <span>📅 2026 年 5 月</span>
+            <span>·</span>
+            <span>⏱️ 閱讀約 6 分鐘</span>
+        </div>
+    </header>
+
+    <!-- 目錄 -->
+    <nav class="bg-blue-50 rounded-2xl p-6 mb-8 border border-blue-100" aria-label="文章目錄">
+        <p class="font-black text-slate-700 mb-3 text-sm uppercase tracking-wider">📋 本文目錄</p>
+        <ol class="toc list-decimal list-inside space-y-1">
+            <li><a href="#section-overview">截面形狀：根本差異在哪裡？</a></li>
+            <li><a href="#section-cns">CNS 規格標準對照</a></li>
+            <li><a href="#section-structural">結構力學特性比較</a></li>
+            <li><a href="#section-weight">單位重量與成本差異</a></li>
+            <li><a href="#section-application">台灣工程實務應用場景</a></li>
+            <li><a href="#section-selection">選材決策流程圖</a></li>
+            <li><a href="#section-faq">常見問題 FAQ</a></li>
+        </ol>
+    </nav>
+
+    <!-- AdSense -->
+    <div class="my-6 flex justify-center">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9184947057660512" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- 文章正文 -->
+    <article class="bg-white rounded-[2rem] p-8 md:p-12 border border-slate-100 shadow-sm prose">
+
+        <section id="section-overview">
+            <h2>一、截面形狀：根本差異在哪裡？</h2>
+            <p>
+                乍看之下，H 型鋼（Wide Flange Beam）與 I 型鋼（Standard Beam，或稱 I-Beam）都是中間一片腹板（Web）加上上下兩片翼板（Flange）的「工」字截面。但兩者最關鍵的差異在於<strong>翼板的幾何形狀</strong>：
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-5 my-6 not-prose">
+                <div class="bg-blue-50 rounded-2xl p-6 border-l-4 border-blue-500">
+                    <p class="font-black text-blue-700 text-lg mb-3">🏗️ H 型鋼</p>
+                    <ul class="text-sm text-slate-600 space-y-2 list-disc pl-4">
+                        <li><strong>翼板兩側平行</strong>（內外面平行），無斜度</li>
+                        <li>翼板較寬，截面較扁而寬</li>
+                        <li>H 型（截面高度）≈ B 型（翼板寬度），近似正方形</li>
+                        <li>腹板與翼板連接處為直角</li>
+                        <li>螺栓孔位精準，適合連接件對齊</li>
+                    </ul>
+                </div>
+                <div class="bg-orange-50 rounded-2xl p-6 border-l-4 border-orange-500">
+                    <p class="font-black text-orange-700 text-lg mb-3">📐 I 型鋼</p>
+                    <ul class="text-sm text-slate-600 space-y-2 list-disc pl-4">
+                        <li><strong>翼板具有斜度</strong>（內面有約 5–14% 的傾斜）</li>
+                        <li>翼板較窄，截面較高而窄</li>
+                        <li>截面高度（H）明顯大於翼板寬度（B）</li>
+                        <li>腹板與翼板連接處有圓弧過渡</li>
+                        <li>螺栓連接需配合斜面墊圈</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p>
+                這個看似細微的差異，在結構工程中產生顯著影響。H 型鋼的平行翼板提供了更大的有效斷面模數（Section Modulus），在相同重量下能承受更大的彎矩，是現代鋼構建築最主流的選擇。
+            </p>
+        </section>
+
+        <section id="section-cns">
+            <h2>二、CNS 規格標準對照</h2>
+            <p>
+                在台灣，H 型鋼依 <strong>CNS 2473</strong>（對應日本 JIS G 3192）規範，I 型鋼則無獨立的 CNS 標準，多沿用日本 JIS 或美國 AISC 規格進行標示。以下為兩種型鋼的規格對照：
+            </p>
+
+            <div class="overflow-x-auto rounded-xl border border-slate-200 my-4 not-prose">
+                <table class="spec-table">
+                    <thead>
+                        <tr>
+                            <th>項目</th>
+                            <th>H 型鋼</th>
+                            <th>I 型鋼</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>CNS 標準</strong></td><td>CNS 2473</td><td>無獨立 CNS，參照 JIS</td></tr>
+                        <tr><td><strong>日本標準</strong></td><td>JIS G 3192 H 型</td><td>JIS G 3192 I 型</td></tr>
+                        <tr><td><strong>翼板形狀</strong></td><td>平行（無斜度）</td><td>有斜度（5–14%）</td></tr>
+                        <tr><td><strong>常見高度範圍</strong></td><td>100mm – 900mm</td><td>100mm – 600mm</td></tr>
+                        <tr><td><strong>常見翼板寬度</strong></td><td>50mm – 400mm</td><td>75mm – 190mm</td></tr>
+                        <tr><td><strong>H/B 比例</strong></td><td>約 1:1 至 3:1</td><td>約 2:1 至 5:1</td></tr>
+                        <tr><td><strong>台灣通用材質</strong></td><td>SS400 (JIS), SM490</td><td>SS400 (JIS)</td></tr>
+                        <tr><td><strong>定尺長度</strong></td><td>6m / 12m</td><td>6m / 12m</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>
+                值得注意的是，台灣市場上的 I 型鋼規格表示方式往往混用高度（mm）標示，例如「200 I 型鋼」代表截面高度 200mm 的 I 型鋼；而 H 型鋼則以「高×寬×腹板厚×翼板厚」四個數字標示，例如「H300×150×6.5×9」。採購時務必確認標示方式，避免混淆。
+            </p>
+        </section>
+
+        <section id="section-structural">
+            <h2>三、結構力學特性比較</h2>
+            <p>
+                從結構工程角度，兩者的核心差異在於截面慣性矩（Moment of Inertia，I 值）和斷面模數（Section Modulus，S 值）的分佈效率：
+            </p>
+
+            <h3>抗彎效率（Bending Efficiency）</h3>
+            <p>
+                H 型鋼的翼板面積集中在遠離中性軸的位置，且翼板寬度大，因此在相同截面積（相同重量）下，H 型鋼的 I 值與 S 值明顯優於 I 型鋼。換言之，<strong>相同重量的 H 型鋼，能承受更大的彎曲荷載</strong>——這也是現代建築鋼構幾乎全面採用 H 型鋼的根本原因。
+            </p>
+
+            <h3>抗扭性能（Torsional Resistance）</h3>
+            <p>
+                由於 H 型鋼翼板較寬且兩側對稱，其抗扭截面模數（J 值）也優於相近高度的 I 型鋼。在承受偏心荷載或需要防止側向扭轉屈曲（Lateral Torsional Buckling）的場合，H 型鋼表現更佳。
+            </p>
+
+            <h3>腹板剪切（Shear in Web）</h3>
+            <p>
+                兩者的腹板均承擔主要的剪力，設計邏輯相同。I 型鋼由於截面相對較高而窄，腹板的剪切應力分佈較 H 型鋼更集中，在高剪力需求的短跨距應用中需特別計算。
+            </p>
+        </section>
+
+        <section id="section-weight">
+            <h2>四、單位重量與成本差異</h2>
+            <p>
+                以下列舉台灣市場常見尺寸的 H 型鋼與 I 型鋼，進行重量與典型市場參考成本比較（市場價格隨鋼材行情浮動，以下僅為結構性參考）：
+            </p>
+
+            <div class="overflow-x-auto rounded-xl border border-slate-200 my-4 not-prose">
+                <table class="spec-table">
+                    <thead>
+                        <tr>
+                            <th>規格</th>
+                            <th>類型</th>
+                            <th>kg/m</th>
+                            <th>6m 單支重量</th>
+                            <th>結構用途</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>H200×100×5.5×8</td><td>H 型鋼</td><td>21.3</td><td>127.8 kg</td><td>次結構樑、輕鋼構</td></tr>
+                        <tr><td>200×100×7×10（I 型）</td><td>I 型鋼</td><td>26.0</td><td>156.0 kg</td><td>次結構樑</td></tr>
+                        <tr><td>H300×150×6.5×9</td><td>H 型鋼</td><td>36.7</td><td>220.2 kg</td><td>主結構樑、樓板樑</td></tr>
+                        <tr><td>300×150×8×13（I 型）</td><td>I 型鋼</td><td>48.3</td><td>289.8 kg</td><td>主結構樑</td></tr>
+                        <tr><td>H400×200×8×13</td><td>H 型鋼</td><td>66.0</td><td>396.0 kg</td><td>大跨距主樑</td></tr>
+                        <tr><td>400×150×10×18（I 型）</td><td>I 型鋼</td><td>72.0</td><td>432.0 kg</td><td>大跨距主樑</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>
+                從上表可見，同等高度下，<strong>I 型鋼的 kg/m 通常高於 H 型鋼</strong>——但兩者截面特性不同，不能直接以重量判斷哪個「更好」。正確比較方式應以「單位結構效益的成本」（即每元能提供多少 S 值）來衡量，在此標準下 H 型鋼通常占優。
+            </p>
+            <p>
+                想即時計算各規格的重量與採購金額，可直接使用本站的 <a href="index.html" class="text-blue-600 hover:underline font-bold">鐵材重量計算機</a>，涵蓋完整的 H 型鋼與 I 型鋼規格資料庫。
+            </p>
+        </section>
+
+        <section id="section-application">
+            <h2>五、台灣工程實務應用場景</h2>
+
+            <h3>H 型鋼的典型應用</h3>
+            <ul>
+                <li><strong>鋼骨建築主結構：</strong>住宅、廠房、辦公大樓的樑柱系統，幾乎全面採用 H 型鋼。</li>
+                <li><strong>工業廠房：</strong>大跨距廠房的主樑與屋架，常用 H300–H500 系列。</li>
+                <li><strong>鋼構橋樑：</strong>人行橋、輕型車橋的主樑，H400–H900 系列。</li>
+                <li><strong>地下工程：</strong>臨時擋土支撐（H-Pile），採用 H200×200 至 H300×300 系列打入地下。</li>
+                <li><strong>機械設備基座：</strong>重型機具底座、軌道基礎樑。</li>
+            </ul>
+
+            <h3>I 型鋼的典型應用</h3>
+            <ul>
+                <li><strong>次結構輔助支撐：</strong>設備平台、次樑、走道骨架，荷載需求中等的場合。</li>
+                <li><strong>老舊建築修繕補強：</strong>既有建築中已採用 I 型鋼的部位，維修替換時沿用相同規格。</li>
+                <li><strong>小型鋼構工程：</strong>彩鋼屋頂支撐、圍籬柱等對截面效率要求較低的應用。</li>
+                <li><strong>機械製造：</strong>起重機軌道、輸送帶支架等設備骨架。</li>
+            </ul>
+
+            <div class="bg-amber-50 border-l-4 border-amber-400 rounded-xl p-5 my-4 not-prose">
+                <p class="font-bold text-amber-800 mb-1">⚠️ 採購實務提醒</p>
+                <p class="text-amber-700 text-sm">台灣鋼材市場中，H 型鋼現貨備料遠比 I 型鋼充足；I 型鋼部分規格可能需要客製訂製，交期較長。在工程時程緊迫的情況下，若設計允許，改用 H 型鋼可大幅縮短備料時間。</p>
+            </div>
+        </section>
+
+        <section id="section-selection">
+            <h2>六、選材決策：三個關鍵問題</h2>
+            <p>在決定採用 H 型鋼或 I 型鋼前，建議依序回答以下三個問題：</p>
+
+            <div class="space-y-4 my-4 not-prose">
+                <div class="bg-white rounded-2xl p-5 border-2 border-blue-200 shadow-sm">
+                    <p class="font-black text-blue-700 mb-2">❶ 是否有結構技師簽認的設計圖？</p>
+                    <p class="text-slate-600 text-sm">若有，以設計圖指定規格為準，不自行替換材料。若工程師指定 H 型鋼，切勿用 I 型鋼替代（即使尺寸相似），因為截面特性不同，可能影響結構安全。</p>
+                </div>
+                <div class="bg-white rounded-2xl p-5 border-2 border-slate-200 shadow-sm">
+                    <p class="font-black text-slate-700 mb-2">❷ 主要荷載方向為何？</p>
+                    <p class="text-slate-600 text-sm">若以垂直荷載（彎曲）為主 → 優先選 H 型鋼，效率更高。若需雙向承載或抗扭 → H 型鋼的寬翼板更有優勢。若僅需輔助支撐、荷載輕 → I 型鋼在成本上可能有優勢。</p>
+                </div>
+                <div class="bg-white rounded-2xl p-5 border-2 border-slate-200 shadow-sm">
+                    <p class="font-black text-slate-700 mb-2">❸ 工期與備料時間是否充裕？</p>
+                    <p class="text-slate-600 text-sm">H 型鋼在台灣現貨充足，大多數規格可即時出貨。I 型鋼若為非主流規格，建議預留 1–2 週訂製時間，或提前與廠商確認庫存。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="section-faq">
+            <h2>七、常見問題 FAQ</h2>
+
+            <h3>Q1：H 型鋼和 H 鋼是同一種東西嗎？</h3>
+            <p>是的。台灣工程業界有時簡稱「H 鋼」、「工字鋼（H型）」或「廣翼型鋼」，指的都是 CNS 2473 規範的熱軋 H 型鋼（Wide Flange Beam），翼板兩側平行、無斜度。</p>
+
+            <h3>Q2：H 型鋼一定比 I 型鋼好嗎？</h3>
+            <p>在結構效率上，H 型鋼通常優於相近重量的 I 型鋼。但「最好」應依工程需求而定：若舊有建築已採用 I 型鋼系統，補強時沿用原規格往往更合理；某些輕型設備平台，I 型鋼的成本可能更具競爭力。最終選材應以結構技師的計算為依據。</p>
+
+            <h3>Q3：同樣標示「200mm」的 H 型鋼和 I 型鋼，重量一樣嗎？</h3>
+            <p>不一樣。H200×100 的 kg/m 約為 21.3 kg/m，而 I 型鋼 200×100 約為 26.0 kg/m（見本文表格）。截面形狀不同，相同標稱高度下重量差異可達 10–25%，採購時務必以完整規格（H×B×tw×tf）查詢正確重量。</p>
+
+            <h3>Q4：如何快速計算 H 型鋼的採購重量？</h3>
+            <p>可直接使用本站的 <a href="index.html" class="text-blue-600 hover:underline font-bold">鐵材重量計算機</a>，選擇「熱軋H型鋼（全規格）」，涵蓋 H100×50 至 H900×300 共 35 種規格，輸入長度與數量即可即時計算重量與採購金額。</p>
+        </section>
+
+    </article>
+
+    <!-- AdSense 底部 -->
+    <div class="my-8 flex justify-center">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9184947057660512" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- 延伸閱讀 -->
+    <section class="mt-8">
+        <h2 class="text-xl font-black text-slate-800 mb-4">延伸閱讀</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a href="cns-standard.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">📋</span>
+                <div>
+                    <p class="font-black text-slate-700">鋼鐵公差與 CNS 規範指南</p>
+                    <p class="text-xs text-slate-400 mt-1">了解理論磅單與實際磅單的差異，保護採購權益</p>
+                </div>
+            </a>
+            <a href="density-table.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">📊</span>
+                <div>
+                    <p class="font-black text-slate-700">全系列鋼材密度參考表</p>
+                    <p class="text-xs text-slate-400 mt-1">碳鋼、不鏽鋼 304/316、鋁合金密度完整對照</p>
+                </div>
+            </a>
+            <a href="nesting.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">📐</span>
+                <div>
+                    <p class="font-black text-slate-700">型鋼智慧配料系統</p>
+                    <p class="text-xs text-slate-400 mt-1">自動計算最佳裁切方案，降低型鋼損耗</p>
+                </div>
+            </a>
+            <a href="index.html" class="bg-blue-600 rounded-2xl p-5 text-white hover:bg-blue-700 transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">🔧</span>
+                <div>
+                    <p class="font-black">立即試算 H 型鋼重量</p>
+                    <p class="text-blue-200 text-xs mt-1">完整規格資料庫，含損耗率與採購金額試算</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+</div>
+</main>
+
+<footer class="bg-slate-800 text-slate-300 pt-10 pb-6 mt-10" role="contentinfo">
+    <div class="max-w-5xl mx-auto px-4">
+        <div class="flex flex-wrap justify-between gap-6 mb-8">
+            <div>
+                <a href="index.html" class="flex items-center gap-2 font-black text-white text-lg mb-2">
+                    <span>⚙️</span><span>鐵材重量計算機</span>
+                </a>
+                <p class="text-sm text-slate-400">符合 CNS 標準的專業鋼鐵工程知識門戶</p>
+            </div>
+            <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-400" aria-label="頁尾導覽">
+                <a href="index.html" class="hover:text-blue-400">首頁試算</a>
+                <a href="density-table.html" class="hover:text-blue-400">鋼材密度表</a>
+                <a href="cns-standard.html" class="hover:text-blue-400">CNS規範指南</a>
+                <a href="nesting.html" class="hover:text-blue-400">智慧排料</a>
+                <a href="about.html" class="hover:text-blue-400">關於本站</a>
+                <a href="privacy.html" class="hover:text-blue-400">隱私權政策</a>
+                <a href="terms.html" class="hover:text-blue-400">使用條款</a>
+            </nav>
+        </div>
+        <div class="border-t border-slate-700 pt-5 flex flex-col md:flex-row justify-between gap-2 text-xs text-slate-500">
+            <p>© <span id="footerYear"></span> 鐵材重量計算機 steel-calc.idv.tw</p>
+            <p>本文內容僅供參考，重要工程決策請諮詢具資格之結構技師。</p>
+        </div>
+    </div>
+</footer>
+<script>document.getElementById('footerYear').textContent = new Date().getFullYear();</script>
+</body>
+</html>
