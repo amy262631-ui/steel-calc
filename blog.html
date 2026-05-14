@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>工程知識專欄 | 鋼材選材、採購實務、CNS 規範指南 | 鐵材重量計算機</title>
+    <meta name="description" content="鐵材重量計算機知識專欄，收錄台灣鋼材工程採購實務文章，包含 H 型鋼選材、不鏽鋼比較、損耗率設定、磅單保護、議價技巧等主題，由具工程背景的作者撰寫。">
+    <meta name="keywords" content="鋼材知識, 工程採購, H型鋼, 不鏽鋼304 316, 損耗率, 磅單, CNS規範, 鋼材文章">
+    <link rel="canonical" href="https://steel-calc.idv.tw/blog.html" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9184947057660512" crossorigin="anonymous"></script>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2163/2163914.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { display: flex; flex-direction: column; min-height: 100vh; font-family: sans-serif; }
+        main { flex: 1; }
+        .site-nav a { transition: color 0.2s; }
+        .site-nav a:hover { color: #3b82f6; }
+        .article-card:hover .arrow { transform: translateX(4px); }
+        .arrow { transition: transform 0.2s; display: inline-block; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+<nav class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm" aria-label="主選單">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3 site-nav">
+        <a href="index.html" class="flex items-center gap-2 font-black text-slate-800 text-lg">
+            <span class="text-2xl">⚙️</span><span>鐵材計算機</span>
+        </a>
+        <div class="flex flex-wrap items-center gap-4 text-sm font-bold text-slate-500">
+            <a href="index.html">首頁試算</a>
+            <a href="density-table.html">鋼材密度表</a>
+            <a href="cns-standard.html">CNS規範指南</a>
+            <a href="nesting.html">智慧排料</a>
+            <a href="blog.html" class="text-blue-600">知識專欄</a>
+            <a href="about.html">關於本站</a>
+            <a href="privacy.html">隱私權政策</a>
+            <a href="terms.html">使用條款</a>
+        </div>
+    </div>
+</nav>
+
+<main class="py-10 px-4">
+<div class="max-w-4xl mx-auto">
+
+    <!-- 麵包屑 -->
+    <div class="flex items-center gap-3 mb-6 text-sm">
+        <a href="index.html" class="text-slate-400 hover:text-blue-600">首頁</a>
+        <span class="text-slate-300">›</span>
+        <span class="text-slate-600 font-bold">工程知識專欄</span>
+    </div>
+
+    <!-- 標頭 -->
+    <header class="mb-10">
+        <h1 class="text-3xl font-black text-slate-800 mb-3">工程知識專欄</h1>
+        <p class="text-slate-500 leading-relaxed max-w-2xl">
+            由具有工程採購實務背景的作者撰寫，涵蓋鋼材選材、CNS 規範解讀、採購保護與議價技巧等主題。每篇文章均以台灣工程現場的實際情境為基礎，提供可直接應用的知識。
+        </p>
+    </header>
+
+    <!-- AdSense -->
+    <div class="my-6 flex justify-center">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9184947057660512" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- 分類標籤 -->
+    <div class="flex flex-wrap gap-2 mb-8">
+        <span class="bg-blue-100 text-blue-700 text-xs font-black px-3 py-1.5 rounded-full">選材指南</span>
+        <span class="bg-orange-100 text-orange-700 text-xs font-black px-3 py-1.5 rounded-full">採購實務</span>
+        <span class="bg-red-100 text-red-700 text-xs font-black px-3 py-1.5 rounded-full">採購保護</span>
+        <span class="bg-slate-200 text-slate-700 text-xs font-black px-3 py-1.5 rounded-full">CNS 規範</span>
+        <span class="bg-emerald-100 text-emerald-700 text-xs font-black px-3 py-1.5 rounded-full">市場行情</span>
+    </div>
+
+    <!-- 文章列表 -->
+    <div class="space-y-5">
+
+        <!-- 文章 1 -->
+        <a href="guide-h-beam-vs-i-beam.html" class="article-card block bg-white rounded-[2rem] p-7 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all">
+            <div class="flex flex-col md:flex-row gap-5 items-start">
+                <div class="flex-shrink-0 bg-blue-50 rounded-2xl p-4 text-4xl w-16 h-16 flex items-center justify-center">🏗️</div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex flex-wrap gap-2 mb-2">
+                        <span class="bg-blue-100 text-blue-700 text-xs font-black px-2.5 py-1 rounded-full">選材指南</span>
+                        <span class="bg-slate-100 text-slate-600 text-xs font-bold px-2.5 py-1 rounded-full">CNS 規範</span>
+                    </div>
+                    <h2 class="text-xl font-black text-slate-800 mb-2 leading-snug">H 型鋼 vs I 型鋼：差異比較與選材完整指南</h2>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-3">從截面形狀、CNS 規格標準、承載特性到工程選用建議，完整解析兩種型鋼的本質差異，協助工程師做出正確的選材決策。</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs text-slate-400">⏱️ 閱讀約 6 分鐘 · 2026 年 5 月</span>
+                        <span class="text-blue-600 font-black text-sm">閱讀全文 <span class="arrow">→</span></span>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <!-- 文章 2 -->
+        <a href="guide-waste-rate.html" class="article-card block bg-white rounded-[2rem] p-7 border border-slate-100 shadow-sm hover:border-orange-200 hover:shadow-md transition-all">
+            <div class="flex flex-col md:flex-row gap-5 items-start">
+                <div class="flex-shrink-0 bg-orange-50 rounded-2xl p-4 text-4xl w-16 h-16 flex items-center justify-center">📐</div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex flex-wrap gap-2 mb-2">
+                        <span class="bg-orange-100 text-orange-700 text-xs font-black px-2.5 py-1 rounded-full">採購實務</span>
+                        <span class="bg-slate-100 text-slate-600 text-xs font-bold px-2.5 py-1 rounded-full">備料計算</span>
+                    </div>
+                    <h2 class="text-xl font-black text-slate-800 mb-2 leading-snug">鋼材損耗率怎麼抓？五種鋼材的台灣工程實務建議</h2>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-3">鋼板、H 型鋼、C 型鋼、管材、角鋼的損耗率建議值，說明裁切損耗的來源與計算方式，附快速對照表與範例。</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs text-slate-400">⏱️ 閱讀約 7 分鐘 · 2026 年 5 月</span>
+                        <span class="text-orange-600 font-black text-sm">閱讀全文 <span class="arrow">→</span></span>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <!-- 文章 3 -->
+        <a href="guide-304-vs-316.html" class="article-card block bg-white rounded-[2rem] p-7 border border-slate-100 shadow-sm hover:border-slate-300 hover:shadow-md transition-all">
+            <div class="flex flex-col md:flex-row gap-5 items-start">
+                <div class="flex-shrink-0 bg-slate-100 rounded-2xl p-4 text-4xl w-16 h-16 flex items-center justify-center">🔬</div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex flex-wrap gap-2 mb-2">
+                        <span class="bg-slate-200 text-slate-700 text-xs font-black px-2.5 py-1 rounded-full">不鏽鋼</span>
+                        <span class="bg-blue-100 text-blue-700 text-xs font-black px-2.5 py-1 rounded-full">選材指南</span>
+                    </div>
+                    <h2 class="text-xl font-black text-slate-800 mb-2 leading-snug">不鏽鋼 304 vs 316：何時需要升級材質？完整比較指南</h2>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-3">從鉬元素的作用、PREN 耐蝕指標、密度差異到 35–45% 的價差，說明何種環境下 304 已足夠、何種場合必須升級 316。</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs text-slate-400">⏱️ 閱讀約 6 分鐘 · 2026 年 5 月</span>
+                        <span class="text-slate-700 font-black text-sm">閱讀全文 <span class="arrow">→</span></span>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <!-- 文章 4 -->
+        <a href="guide-theory-vs-actual-weight.html" class="article-card block bg-white rounded-[2rem] p-7 border border-slate-100 shadow-sm hover:border-red-200 hover:shadow-md transition-all">
+            <div class="flex flex-col md:flex-row gap-5 items-start">
+                <div class="flex-shrink-0 bg-red-50 rounded-2xl p-4 text-4xl w-16 h-16 flex items-center justify-center">⚖️</div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex flex-wrap gap-2 mb-2">
+                        <span class="bg-red-100 text-red-700 text-xs font-black px-2.5 py-1 rounded-full">採購保護</span>
+                        <span class="bg-slate-100 text-slate-600 text-xs font-bold px-2.5 py-1 rounded-full">合約實務</span>
+                    </div>
+                    <h2 class="text-xl font-black text-slate-800 mb-2 leading-snug">理論磅單 vs 實際磅單：鋼材採購保護完整指南</h2>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-3">解析 CNS 公差如何讓實際重量比理論值多出 2–8%，以及採購合約的四個保護條款、材質證明書閱讀方式與到貨抽驗流程。</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs text-slate-400">⏱️ 閱讀約 8 分鐘 · 2026 年 5 月</span>
+                        <span class="text-red-600 font-black text-sm">閱讀全文 <span class="arrow">→</span></span>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <!-- 文章 5 -->
+        <a href="guide-steel-price-tip.html" class="article-card block bg-white rounded-[2rem] p-7 border border-slate-100 shadow-sm hover:border-emerald-200 hover:shadow-md transition-all">
+            <div class="flex flex-col md:flex-row gap-5 items-start">
+                <div class="flex-shrink-0 bg-emerald-50 rounded-2xl p-4 text-4xl w-16 h-16 flex items-center justify-center">💹</div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex flex-wrap gap-2 mb-2">
+                        <span class="bg-emerald-100 text-emerald-700 text-xs font-black px-2.5 py-1 rounded-full">市場行情</span>
+                        <span class="bg-orange-100 text-orange-700 text-xs font-black px-2.5 py-1 rounded-full">採購實務</span>
+                    </div>
+                    <h2 class="text-xl font-black text-slate-800 mb-2 leading-snug">台灣鋼材採購議價技巧與市場行情解讀</h2>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-3">中鋼盤價機制、影響行情的五大因素、詢價比價議價各階段技巧，以及採購時機判斷，附採購前完整檢查清單。</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs text-slate-400">⏱️ 閱讀約 7 分鐘 · 2026 年 5 月</span>
+                        <span class="text-emerald-600 font-black text-sm">閱讀全文 <span class="arrow">→</span></span>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+    </div>
+
+    <!-- AdSense 底部 -->
+    <div class="my-10 flex justify-center">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9184947057660512" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- 工具 CTA -->
+    <div class="bg-slate-800 rounded-[2rem] p-8 text-white text-center mt-4">
+        <h2 class="text-2xl font-black mb-2">看完文章，立即實際試算</h2>
+        <p class="text-slate-300 mb-5">本站工具已整合所有文章提到的規格資料庫、密度係數與損耗率計算</p>
+        <div class="flex flex-wrap justify-center gap-3">
+            <a href="index.html" class="inline-block bg-blue-600 text-white font-black px-6 py-3 rounded-2xl hover:bg-blue-700 transition-all">🔧 重量計算機</a>
+            <a href="nesting.html" class="inline-block bg-slate-600 text-white font-black px-6 py-3 rounded-2xl hover:bg-slate-700 transition-all">📐 智慧排料</a>
+            <a href="density-table.html" class="inline-block bg-slate-600 text-white font-black px-6 py-3 rounded-2xl hover:bg-slate-700 transition-all">📊 密度表</a>
+        </div>
+    </div>
+
+</div>
+</main>
+
+<footer class="bg-slate-800 text-slate-300 pt-10 pb-6 mt-10" role="contentinfo">
+    <div class="max-w-5xl mx-auto px-4">
+        <div class="flex flex-wrap justify-between gap-6 mb-8">
+            <div>
+                <a href="index.html" class="flex items-center gap-2 font-black text-white text-lg mb-2">
+                    <span>⚙️</span><span>鐵材重量計算機</span>
+                </a>
+                <p class="text-sm text-slate-400">符合 CNS 標準的專業鋼鐵工程知識門戶</p>
+            </div>
+            <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-400" aria-label="頁尾導覽">
+                <a href="index.html" class="hover:text-blue-400">首頁試算</a>
+                <a href="density-table.html" class="hover:text-blue-400">鋼材密度表</a>
+                <a href="cns-standard.html" class="hover:text-blue-400">CNS規範指南</a>
+                <a href="nesting.html" class="hover:text-blue-400">智慧排料</a>
+                <a href="blog.html" class="hover:text-blue-400">知識專欄</a>
+                <a href="about.html" class="hover:text-blue-400">關於本站</a>
+                <a href="privacy.html" class="hover:text-blue-400">隱私權政策</a>
+                <a href="terms.html" class="hover:text-blue-400">使用條款</a>
+            </nav>
+        </div>
+        <div class="border-t border-slate-700 pt-5 flex flex-col md:flex-row justify-between gap-2 text-xs text-slate-500">
+            <p>© <span id="footerYear"></span> 鐵材重量計算機 steel-calc.idv.tw</p>
+            <p>本站文章內容僅供工程估算參考，不作為正式交易或設計依據。</p>
+        </div>
+    </div>
+</footer>
+<script>document.getElementById('footerYear').textContent = new Date().getFullYear();</script>
+</body>
+</html>
