@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>關於本站 | 鐵材重量計算機</title>
-    <meta name="description" content="了解鐵材重量計算機的開發初衷、資料來源與使用說明。本工具由工程從業者開發，致力於為台灣工程師與採購人員提供符合 CNS 標準的免費鋼鐵重量試算服務。">
+    <meta name="description" content="了解鐵材重量計算機的開發初衷、作者背景、資料來源與使用說明。本工具由具有工程採購實務背景的開發者建立，致力於為台灣工程師與採購人員提供符合 CNS 標準的免費鋼鐵重量試算服務。">
     <link rel="canonical" href="https://steel-calc.idv.tw/about.html" />
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9184947057660512" crossorigin="anonymous"></script>
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2163/2163914.png" type="image/x-icon">
@@ -17,6 +17,16 @@
         .prose p { color: #475569; line-height: 1.8; margin-bottom: 1rem; }
         .prose ul { list-style: disc; padding-left: 1.5rem; color: #475569; line-height: 1.8; margin-bottom: 1rem; }
         .prose h3 { font-size: 1.15rem; font-weight: 800; color: #1e293b; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.25rem;
+            top: 0.4rem;
+            width: 0.6rem;
+            height: 0.6rem;
+            border-radius: 50%;
+            background: #3b82f6;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900">
@@ -49,6 +59,50 @@
             </div>
             <h1 class="text-3xl font-black text-slate-800 mb-3">關於鐵材重量計算機</h1>
         </header>
+
+        <!-- ===== 作者介紹（新增區塊）===== -->
+        <section class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-[2rem] p-8 border border-slate-700 shadow-sm mb-6 text-white">
+            <div class="flex items-center gap-3 mb-5">
+                <div class="h-7 w-2 bg-blue-400 rounded-full"></div>
+                <h2 class="text-xl font-black m-0">關於作者</h2>
+            </div>
+            <div class="flex flex-col md:flex-row gap-6 items-start">
+                <div class="flex-shrink-0 bg-slate-700 rounded-2xl p-5 text-center w-full md:w-40">
+                    <div class="text-5xl mb-2">👷</div>
+                    <p class="text-blue-300 font-black text-sm">工程 × 開發</p>
+                </div>
+                <div class="prose">
+                    <p class="text-slate-300 leading-relaxed">
+                        本站由一位長期深耕台灣工程採購領域的從業者建立。在鋼構與金屬加工產業工作多年後，深刻體會到工地現場缺乏快速、可靠的數位計算工具——尤其是在詢價與報價的關鍵時刻。
+                    </p>
+                    <p class="text-slate-300 leading-relaxed">
+                        帶著對鋼材規格的第一手認識，以及自學的網頁開發能力，將多年累積的 CNS 查表經驗數位化，打造出這個完全免費、無需帳號的線上工具。所有規格資料均來自實際工作中對照 CNS 手冊、廠商型錄的逐筆核對，不是演算法自動生成的數字。
+                    </p>
+                </div>
+            </div>
+            <!-- 里程碑時間軸 -->
+            <div class="mt-8 pt-6 border-t border-slate-700">
+                <p class="text-slate-400 text-xs font-black uppercase tracking-widest mb-4">本站里程碑</p>
+                <div class="relative pl-5 space-y-4 border-l border-slate-600">
+                    <div class="relative timeline-item">
+                        <p class="text-white font-bold text-sm">工具雛型誕生</p>
+                        <p class="text-slate-400 text-xs">起初只是一個幫自己查 H 型鋼重量的私人試算表，後來整理成可分享的網頁工具。</p>
+                    </div>
+                    <div class="relative timeline-item">
+                        <p class="text-white font-bold text-sm">CNS 規格資料庫完成</p>
+                        <p class="text-slate-400 text-xs">耗時數個月，逐筆比對 CNS 標準手冊，完成超過 500 筆規格的核對與建檔。</p>
+                    </div>
+                    <div class="relative timeline-item">
+                        <p class="text-white font-bold text-sm">智慧排料系統上線</p>
+                        <p class="text-slate-400 text-xs">加入 2D 鐵板排料與一維型鋼配料功能，協助降低工程裁切損耗。</p>
+                    </div>
+                    <div class="relative timeline-item">
+                        <p class="text-white font-bold text-sm">持續維護中</p>
+                        <p class="text-slate-400 text-xs">根據使用者回饋與 CNS 標準更新，定期修訂規格資料庫與功能。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- 開發初衷 -->
         <section class="bg-white rounded-[2rem] p-8 border border-slate-100 shadow-sm mb-6 prose">
@@ -95,6 +149,47 @@
             <p>計算結果為理論重量，可能與實際出貨重量存在 ±3–10% 的公差範圍（依鋼材類別而異）。本工具適用於工程估價、備料規劃與廠商報價核對，<strong>不建議直接作為正式買賣交易的計費依據</strong>，大宗採購仍應以地磅實秤為準。</p>
         </section>
 
+        <!-- 工程知識專欄導覽（新增）-->
+        <section class="bg-blue-50 rounded-[2rem] p-8 border border-blue-100 shadow-sm mb-6">
+            <div class="flex items-center gap-3 mb-5">
+                <div class="h-7 w-2 bg-blue-600 rounded-full"></div>
+                <h2 class="text-xl font-black text-slate-800 m-0">工程知識專欄</h2>
+            </div>
+            <p class="text-slate-500 mb-5 text-sm leading-relaxed">
+                除了計算工具，本站也持續累積台灣工程採購實務的知識文章，涵蓋鋼材選材、CNS 規範解讀、採購談判技巧等主題，歡迎工程師與採購人員參考閱讀。
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <a href="guide-h-beam-vs-i-beam.html" class="bg-white rounded-2xl p-4 border border-blue-100 hover:border-blue-300 hover:shadow-md transition-all flex gap-3 items-start">
+                    <span class="text-2xl flex-shrink-0">🏗️</span>
+                    <div>
+                        <p class="font-black text-slate-700 text-sm">H 型鋼 vs I 型鋼：選材完整指南</p>
+                        <p class="text-xs text-slate-400 mt-1">差異比較、CNS 規格、工程選用建議</p>
+                    </div>
+                </a>
+                <a href="cns-standard.html" class="bg-white rounded-2xl p-4 border border-blue-100 hover:border-blue-300 hover:shadow-md transition-all flex gap-3 items-start">
+                    <span class="text-2xl flex-shrink-0">📋</span>
+                    <div>
+                        <p class="font-black text-slate-700 text-sm">CNS 鋼鐵公差規範完整解說</p>
+                        <p class="text-xs text-slate-400 mt-1">理論磅單 vs 實際磅單、採購保護建議</p>
+                    </div>
+                </a>
+                <a href="density-table.html" class="bg-white rounded-2xl p-4 border border-blue-100 hover:border-blue-300 hover:shadow-md transition-all flex gap-3 items-start">
+                    <span class="text-2xl flex-shrink-0">📊</span>
+                    <div>
+                        <p class="font-black text-slate-700 text-sm">全系列鋼材密度參考表</p>
+                        <p class="text-xs text-slate-400 mt-1">碳鋼、304/316 不鏽鋼、鋁合金密度對照</p>
+                    </div>
+                </a>
+                <a href="nesting.html" class="bg-white rounded-2xl p-4 border border-blue-100 hover:border-blue-300 hover:shadow-md transition-all flex gap-3 items-start">
+                    <span class="text-2xl flex-shrink-0">📐</span>
+                    <div>
+                        <p class="font-black text-slate-700 text-sm">智慧排料：降低廢料損耗 15%</p>
+                        <p class="text-xs text-slate-400 mt-1">2D 板材排料 + 型鋼一維配料系統</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
         <!-- 聯絡 -->
         <section class="bg-slate-800 rounded-[2rem] p-8 text-white mb-6">
             <div class="flex items-center gap-3 mb-5">
@@ -107,12 +202,6 @@
             </a>
             <p class="text-slate-400 text-sm mt-4">我們通常在 2–3 個工作日內回覆。如為規格錯誤回報，請附上規格編號與正確數值來源（如 CNS 標準編號或廠商型錄頁次）。</p>
         </section>
-
-        <!-- AdSense -->
-        <div class="my-6 flex justify-center">
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9184947057660512" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
 
         <!-- 導覽 -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
