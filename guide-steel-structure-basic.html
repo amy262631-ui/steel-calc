@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鋼構建築基礎知識：從估價到施工的完整流程指南 | 鐵材重量計算機</title>
+    <meta name="description" content="完整介紹台灣鋼構建築的構件組成、估價流程、常見規格選用與施工注意事項，適合初次接觸鋼構工程的工程師、採購人員與業主閱讀。">
+    <meta name="keywords" content="鋼構建築, 鋼骨結構, 鋼構估價, H型鋼, 鋼構施工, 輕型鋼構, 鋼骨工程, 台灣鋼構">
+    <link rel="canonical" href="https://steel-calc.idv.tw/guide-steel-structure-basic.html" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "鋼構建築基礎知識：從估價到施工的完整流程指南",
+      "description": "台灣鋼構建築的構件組成、估價流程、常見規格選用與施工注意事項。",
+      "author": { "@type": "Organization", "name": "鐵材重量計算機", "url": "https://steel-calc.idv.tw" },
+      "publisher": { "@type": "Organization", "name": "鐵材重量計算機", "url": "https://steel-calc.idv.tw" },
+      "datePublished": "2026-05-28",
+      "dateModified": "2026-05-28",
+      "image": "https://cdn-icons-png.flaticon.com/512/2163/2163914.png"
+    }
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9184947057660512" crossorigin="anonymous"></script>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2163/2163914.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { display: flex; flex-direction: column; min-height: 100vh; font-family: sans-serif; }
+        main { flex: 1; }
+        .site-nav a { transition: color 0.2s; }
+        .site-nav a:hover { color: #3b82f6; }
+        .prose h2 { font-size: 1.5rem; font-weight: 900; color: #1e293b; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #f1f5f9; }
+        .prose h3 { font-size: 1.15rem; font-weight: 800; color: #1e293b; margin-top: 1.75rem; margin-bottom: 0.75rem; }
+        .prose p { color: #475569; line-height: 1.9; margin-bottom: 1.1rem; }
+        .prose ul { list-style: disc; padding-left: 1.5rem; color: #475569; line-height: 1.9; margin-bottom: 1.1rem; }
+        .prose ol { list-style: decimal; padding-left: 1.5rem; color: #475569; line-height: 1.9; margin-bottom: 1.1rem; }
+        .prose li { margin-bottom: 0.4rem; }
+        .prose strong { color: #1e293b; }
+        .spec-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+        .spec-table th { background: #1e293b; color: white; padding: 0.75rem 1rem; text-align: left; }
+        .spec-table td { padding: 0.65rem 1rem; border-bottom: 1px solid #e2e8f0; color: #334155; }
+        .spec-table tr:nth-child(even) td { background: #f8fafc; }
+        .toc a { color: #3b82f6; text-decoration: none; font-size: 0.875rem; }
+        .toc a:hover { text-decoration: underline; }
+        .toc li { margin-bottom: 0.4rem; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+<nav class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3 site-nav">
+        <a href="index.html" class="flex items-center gap-2 font-black text-slate-800 text-lg"><span class="text-2xl">⚙️</span><span>鐵材計算機</span></a>
+        <div class="flex flex-wrap items-center gap-4 text-sm font-bold text-slate-500">
+            <a href="index.html">首頁試算</a><a href="density-table.html">鋼材密度表</a><a href="cns-standard.html">CNS規範指南</a><a href="nesting.html">智慧排料</a><a href="blog.html">知識專欄</a><a href="about.html">關於本站</a><a href="privacy.html">隱私權政策</a><a href="terms.html">使用條款</a>
+        </div>
+    </div>
+</nav>
+<main class="py-10 px-4">
+<div class="max-w-3xl mx-auto">
+    <div class="flex items-center gap-3 mb-6 text-sm">
+        <a href="index.html" class="text-slate-400 hover:text-blue-600">首頁</a><span class="text-slate-300">›</span>
+        <a href="blog.html" class="text-slate-400 hover:text-blue-600">知識專欄</a><span class="text-slate-300">›</span>
+        <span class="text-slate-600">鋼構建築基礎知識</span>
+    </div>
+    <header class="mb-8">
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-blue-100 text-blue-700 text-xs font-black px-3 py-1 rounded-full">工程知識</span>
+            <span class="bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1 rounded-full">鋼構建築</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl font-black text-slate-900 leading-tight mb-4">
+            鋼構建築基礎知識<br><span class="text-blue-600">從估價到施工的完整流程指南</span>
+        </h1>
+        <p class="text-slate-500 leading-relaxed text-lg">台灣廠房、倉庫、透天厝大量採用鋼構工法，但許多業主和初入行的採購人員對鋼構的構件組成和估價邏輯仍感陌生。本文從零開始說明鋼構建築的基礎知識。</p>
+        <div class="flex items-center gap-4 mt-5 pt-5 border-t border-slate-100 text-sm text-slate-400">
+            <span>✍️ 鐵材重量計算機編輯部</span><span>·</span><span>📅 2026 年 5 月</span><span>·</span><span>⏱️ 閱讀約 8 分鐘</span>
+        </div>
+    </header>
+
+    <nav class="bg-blue-50 rounded-2xl p-6 mb-8 border border-blue-100">
+        <p class="font-black text-slate-700 mb-3 text-sm uppercase tracking-wider">📋 本文目錄</p>
+        <ol class="toc list-decimal list-inside space-y-1">
+            <li><a href="#sec-types">台灣常見的三種鋼構系統</a></li>
+            <li><a href="#sec-components">鋼構建築的主要構件</a></li>
+            <li><a href="#sec-materials">各構件的常用鋼材規格</a></li>
+            <li><a href="#sec-estimate">估價流程：從圖說到報價單</a></li>
+            <li><a href="#sec-waste">損耗率與備料計算</a></li>
+            <li><a href="#sec-process">施工流程與注意事項</a></li>
+            <li><a href="#sec-cost">鋼構 vs RC：成本與工期比較</a></li>
+        </ol>
+    </nav>
+
+    <div class="my-6 flex justify-center">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9184947057660512" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <article class="bg-white rounded-[2rem] p-8 md:p-12 border border-slate-100 shadow-sm prose">
+
+        <section id="sec-types">
+            <h2>一、台灣常見的三種鋼構系統</h2>
+            <div class="not-prose grid md:grid-cols-3 gap-4 my-4">
+                <div class="bg-blue-50 rounded-2xl p-5 border-l-4 border-blue-500">
+                    <p class="font-black text-blue-800 mb-2">🏭 重型鋼構</p>
+                    <p class="text-slate-600 text-sm">使用大型 H 型鋼（H400 以上）作為主結構，適合大跨距工業廠房、倉儲物流中心。</p>
+                </div>
+                <div class="bg-emerald-50 rounded-2xl p-5 border-l-4 border-emerald-500">
+                    <p class="font-black text-emerald-800 mb-2">🏠 輕型鋼構</p>
+                    <p class="text-slate-600 text-sm">以 C 型輕型鋼為主要構件，適合透天厝、農業設施、小型商業建築，施工快速。</p>
+                </div>
+                <div class="bg-orange-50 rounded-2xl p-5 border-l-4 border-orange-500">
+                    <p class="font-black text-orange-800 mb-2">🏗️ 鋼骨 RC</p>
+                    <p class="text-slate-600 text-sm">鋼骨柱樑外包混凝土，兼具鋼構速度與 RC 防火優勢，常用於高層建築。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="sec-components">
+            <h2>二、鋼構建築的主要構件</h2>
+            <p>一棟典型的輕型鋼構廠房，從基礎到屋頂，主要構件依序為：</p>
+            <div class="not-prose overflow-x-auto rounded-xl border border-slate-200 my-4">
+                <table class="spec-table">
+                    <thead><tr><th>構件名稱</th><th>位置</th><th>主要功能</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>基礎錨定板</strong></td><td>柱底與混凝土基礎接合</td><td>傳遞柱腳載重至基礎</td></tr>
+                        <tr><td><strong>柱（Column）</strong></td><td>垂直主構件</td><td>承受垂直與水平載重</td></tr>
+                        <tr><td><strong>主樑（Girder）</strong></td><td>水平主結構</td><td>連接柱頂，承受屋架載重</td></tr>
+                        <tr><td><strong>次樑（Beam）</strong></td><td>主樑之間</td><td>支撐樓板或屋面板</td></tr>
+                        <tr><td><strong>斜撐（Brace）</strong></td><td>牆面或屋架內</td><td>抵抗側向風力與地震力</td></tr>
+                        <tr><td><strong>屋架（Roof Truss）</strong></td><td>屋頂結構</td><td>支撐屋面，形成坡度</td></tr>
+                        <tr><td><strong>簷檁（Purlin）</strong></td><td>屋架上方</td><td>固定屋面板，C 型鋼常用</td></tr>
+                        <tr><td><strong>牆架（Girt）</strong></td><td>柱間水平</td><td>固定外牆板，C 型鋼常用</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="sec-materials">
+            <h2>三、各構件的常用鋼材規格</h2>
+            <div class="not-prose overflow-x-auto rounded-xl border border-slate-200 my-4">
+                <table class="spec-table">
+                    <thead><tr><th>構件</th><th>常用鋼材</th><th>典型規格範例</th></tr></thead>
+                    <tbody>
+                        <tr><td>柱、主樑</td><td>H 型鋼</td><td>H300×150 至 H500×200</td></tr>
+                        <tr><td>次樑</td><td>H 型鋼 / I 型鋼</td><td>H200×100 至 H300×150</td></tr>
+                        <tr><td>斜撐</td><td>角鋼 / 圓管</td><td>L75×75×6 / Ø60.5×3.2</td></tr>
+                        <tr><td>簷檁、牆架</td><td>C 型輕型鋼</td><td>C150×65×20×2.3</td></tr>
+                        <tr><td>法蘭板、連接板</td><td>鋼板</td><td>PL-16mm、PL-25mm</td></tr>
+                        <tr><td>底板（Base Plate）</td><td>鋼板</td><td>PL-25mm 至 PL-40mm</td></tr>
+                        <tr><td>欄杆、扶手</td><td>方管 / 圓管</td><td>□50×50×2.3 / Ø38.1×1.6</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="sec-estimate">
+            <h2>四、估價流程：從圖說到報價單</h2>
+            <p>鋼構工程的估價流程通常分為以下步驟：</p>
+            <div class="not-prose space-y-3 my-4">
+                <div class="flex gap-4 items-start bg-slate-50 rounded-2xl p-4 border border-slate-200">
+                    <div class="bg-blue-600 text-white font-black rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 text-sm">1</div>
+                    <div>
+                        <p class="font-black text-slate-700">讀取設計圖說</p>
+                        <p class="text-slate-500 text-sm">從結構平面圖、立面圖、構件表取得每個構件的規格（型號 × 長度）與數量。</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 items-start bg-slate-50 rounded-2xl p-4 border border-slate-200">
+                    <div class="bg-blue-600 text-white font-black rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 text-sm">2</div>
+                    <div>
+                        <p class="font-black text-slate-700">計算理論重量</p>
+                        <p class="text-slate-500 text-sm">依各構件規格查 CNS 理論重量表，乘以長度與數量，加總得出各類鋼材的總噸數。本站<a href="index.html" class="text-blue-600 underline">計算機</a>可快速完成此步驟。</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 items-start bg-slate-50 rounded-2xl p-4 border border-slate-200">
+                    <div class="bg-blue-600 text-white font-black rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 text-sm">3</div>
+                    <div>
+                        <p class="font-black text-slate-700">加入損耗率</p>
+                        <p class="text-slate-500 text-sm">H 型鋼建議加 7–10%、C 型鋼加 10%、鋼板加 4–6%，計算含損耗的備料重量。</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 items-start bg-slate-50 rounded-2xl p-4 border border-slate-200">
+                    <div class="bg-blue-600 text-white font-black rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 text-sm">4</div>
+                    <div>
+                        <p class="font-black text-slate-700">詢價比較</p>
+                        <p class="text-slate-500 text-sm">向 3 家以上廠商詢價，以含稅每公斤單價為比較基準，確認計費方式（理論 or 實際磅單）。</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 items-start bg-slate-50 rounded-2xl p-4 border border-slate-200">
+                    <div class="bg-blue-600 text-white font-black rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 text-sm">5</div>
+                    <div>
+                        <p class="font-black text-slate-700">加入加工費與其他成本</p>
+                        <p class="text-slate-500 text-sm">材料費外，還需加計：切割加工費、防鏽漆（底漆 + 面漆）、螺栓與連接件、吊裝機具費、焊接工資等。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sec-waste">
+            <h2>五、損耗率與備料計算</h2>
+            <p>鋼構工程的損耗來源比一般採購複雜，主要包含：</p>
+            <ul>
+                <li><strong>定尺裁切殘料：</strong>6m 或 12m 定尺無法剛好對應設計尺寸，端料報廢</li>
+                <li><strong>加工廢料：</strong>鑽孔、開槽、切斜角產生的廢料</li>
+                <li><strong>現場裁切餘量：</strong>安裝時調整尺寸的臨時裁切</li>
+                <li><strong>不良品報廢：</strong>焊接失敗或尺寸偏差的構件</li>
+            </ul>
+            <p>綜合建議損耗率：H 型鋼柱樑 <strong>7–10%</strong>、C 型鋼屋架牆架 <strong>10–12%</strong>、連接板鋼板 <strong>8–12%</strong>（因異型件多）。</p>
+        </section>
+
+        <section id="sec-process">
+            <h2>六、施工流程與注意事項</h2>
+            <ol>
+                <li><strong>放樣定位：</strong>依圖說在基礎上標記柱位中心線，誤差需控制在 ±3mm 以內。</li>
+                <li><strong>錨定螺栓安裝：</strong>柱腳錨定螺栓需在混凝土澆置前精確定位，此步驟誤差難以事後修正。</li>
+                <li><strong>柱組立：</strong>吊裝主柱，以臨時斜撐固定垂直度，用水平儀確認。</li>
+                <li><strong>主樑安裝：</strong>由低向高逐層安裝，每節點焊接或螺栓鎖固後再拆臨時支撐。</li>
+                <li><strong>次樑與斜撐：</strong>完成主結構後安裝，確保整體側向穩定性。</li>
+                <li><strong>C 型鋼屋架與牆架：</strong>依序安裝簷檁與牆架，間距依設計圖說。</li>
+                <li><strong>防鏽塗裝：</strong>鋼構安裝完成後，補塗破損的底漆，再施作面漆，戶外環境建議用防鏽底漆 + 調合漆兩道。</li>
+            </ol>
+            <div class="not-prose bg-amber-50 border-l-4 border-amber-400 rounded-xl p-5 my-4">
+                <p class="font-bold text-amber-800 mb-1">⚠️ 常見錯誤</p>
+                <p class="text-amber-700 text-sm">許多工地在鋼構安裝完成後才發現構件尺寸或螺栓孔位偏差，導致需要現場電焊修改或重新加工，大幅增加成本與工期。建議在廠內加工完成後，關鍵構件（柱腳板、連接板）應進行預組裝確認，再運送至工地。</p>
+            </div>
+        </section>
+
+        <section id="sec-cost">
+            <h2>七、鋼構 vs RC：成本與工期比較</h2>
+            <div class="not-prose overflow-x-auto rounded-xl border border-slate-200 my-4">
+                <table class="spec-table">
+                    <thead><tr><th>比較項目</th><th>鋼構（輕型）</th><th>RC 混凝土</th></tr></thead>
+                    <tbody>
+                        <tr><td>每坪造價（約）</td><td>8–15 萬元</td><td>10–18 萬元</td></tr>
+                        <tr><td>工期（200坪廠房）</td><td>2–3 個月</td><td>4–6 個月</td></tr>
+                        <tr><td>大跨距能力</td><td>優（可達 30m+）</td><td>受限（通常 ≤ 12m）</td></tr>
+                        <tr><td>耐火性</td><td>需防火塗裝或披覆</td><td>天然耐火</td></tr>
+                        <tr><td>日後擴建</td><td>容易</td><td>困難</td></tr>
+                        <tr><td>拆除回收</td><td>鋼材可回收</td><td>廢棄物多</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>整體而言，鋼構在<strong>工期短、大跨距、未來擴建彈性</strong>方面具有明顯優勢，是台灣工業廠房的主流選擇。RC 則在<strong>耐火性與長期維護成本</strong>上較有優勢，適合辦公室、住宅等有嚴格防火要求的建築。</p>
+        </section>
+
+    </article>
+
+    <div class="my-8 flex justify-center">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9184947057660512" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <section class="mt-8">
+        <h2 class="text-xl font-black text-slate-800 mb-4">延伸閱讀</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a href="guide-h-beam-vs-i-beam.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">🏗️</span>
+                <div><p class="font-black text-slate-700">H 型鋼 vs I 型鋼選材指南</p><p class="text-xs text-slate-400 mt-1">截面差異、CNS 規格與選用建議</p></div>
+            </a>
+            <a href="guide-waste-rate.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">📐</span>
+                <div><p class="font-black text-slate-700">鋼材損耗率怎麼抓？</p><p class="text-xs text-slate-400 mt-1">五種鋼材的台灣工程實務建議</p></div>
+            </a>
+            <a href="guide-steel-price-tip.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">💹</span>
+                <div><p class="font-black text-slate-700">台灣鋼材採購議價技巧</p><p class="text-xs text-slate-400 mt-1">市場行情解讀與議價策略</p></div>
+            </a>
+            <a href="index.html" class="bg-blue-600 rounded-2xl p-5 text-white hover:bg-blue-700 transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">🔧</span>
+                <div><p class="font-black">鋼構估價重量計算機</p><p class="text-blue-200 text-xs mt-1">H型鋼、C型鋼、鋼板一次試算</p></div>
+            </a>
+        </div>
+    </section>
+</div>
+</main>
+<footer class="bg-slate-800 text-slate-300 pt-10 pb-6 mt-10" role="contentinfo">
+    <div class="max-w-5xl mx-auto px-4">
+        <div class="flex flex-wrap justify-between gap-6 mb-8">
+            <div>
+                <a href="index.html" class="flex items-center gap-2 font-black text-white text-lg mb-2"><span>⚙️</span><span>鐵材重量計算機</span></a>
+                <p class="text-sm text-slate-400">符合 CNS 標準的專業鋼鐵工程知識門戶</p>
+            </div>
+            <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-400">
+                <a href="index.html" class="hover:text-blue-400">首頁試算</a><a href="density-table.html" class="hover:text-blue-400">鋼材密度表</a><a href="cns-standard.html" class="hover:text-blue-400">CNS規範指南</a><a href="nesting.html" class="hover:text-blue-400">智慧排料</a><a href="blog.html" class="hover:text-blue-400">知識專欄</a><a href="about.html" class="hover:text-blue-400">關於本站</a>
+            </nav>
+        </div>
+        <div class="border-t border-slate-700 pt-5 flex flex-col md:flex-row justify-between gap-2 text-xs text-slate-500">
+            <p>© <span id="footerYear"></span> 鐵材重量計算機 steel-calc.idv.tw</p>
+            <p>本文內容僅供參考，正式工程設計請由結構技師負責。</p>
+        </div>
+    </div>
+</footer>
+<script>document.getElementById('footerYear').textContent = new Date().getFullYear();</script>
+</body>
+</html>
