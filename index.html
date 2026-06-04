@@ -5,58 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>鐵材重量計算機 | 鋼鐵手冊與線上試算工具</title>
-
-    <!-- FAQ Schema.org JSON-LD -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "鋼鐵重量計算結果是否包含 CNS 標準公差？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "本工具依據 CNS 標準規格建立規格資料庫，計算結果為理論重量。由於鋼材出廠可能存在 ±10% 的厚度公差，大宗採購仍應以地磅實秤為準，本工具適合用於工程估價與備料規劃。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "碳鋼（黑鐵）與不鏽鋼的密度為何不同？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "碳鋼（黑鐵）的理論密度為 7.85 g/cm³，而工程常用的 304 或 316 不鏽鋼密度約為 7.93 g/cm³，差異約 1%。在大宗鋼材交易中，此密度差異會導致顯著噸數誤差，本工具已針對不同材質預設正確密度係數。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "工程採購時損耗率應設定多少？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "依台灣工程實務建議：矩形鋼板建議設定 3–5% 損耗；H 型鋼、C 型鋼等型鋼因受定尺（6 米或 12 米）限制，裁切損耗通常建議設定 5–10%，以確保備料充足、避免工期延誤。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "如何利用計算結果核對廠商報價？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "您可將廠商提供的總噸數與本工具產生的理論總重進行對比。若差異超過 5%，建議核對鋼材的實測厚度。結合本站單價試算功能，可快速換算每公斤單價是否符合當前市場行情。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "H 型鋼的理論重量是如何計算的？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "H 型鋼重量由腹板（Web）與兩片翼板（Flange）的體積累積而成，公式為：[ t1×B×2 + t2×(H-2×t1) ] × 0.00785，其中 t1 為翼板厚、B 為翼板寬、t2 為腹板厚、H 為型鋼高度。本站資料庫收錄 100×50 至 900×300 的完整規格，均對齊 CNS 標準手冊。"
-          }
-        }
+        {"@type":"Question","name":"鋼鐵重量計算結果是否包含 CNS 標準公差？","acceptedAnswer":{"@type":"Answer","text":"本工具依據 CNS 標準規格建立規格資料庫，計算結果為理論重量。由於鋼材出廠可能存在 ±10% 的厚度公差，大宗採購仍應以地磅實秤為準，本工具適合用於工程估價與備料規劃。"}},
+        {"@type":"Question","name":"碳鋼（黑鐵）與不鏽鋼的密度為何不同？","acceptedAnswer":{"@type":"Answer","text":"碳鋼（黑鐵）的理論密度為 7.85 g/cm³，而工程常用的 304 或 316 不鏽鋼密度約為 7.93 g/cm³，差異約 1%。在大宗鋼材交易中，此密度差異會導致顯著噸數誤差，本工具已針對不同材質預設正確密度係數。"}},
+        {"@type":"Question","name":"工程採購時損耗率應設定多少？","acceptedAnswer":{"@type":"Answer","text":"依台灣工程實務建議：矩形鋼板建議設定 3–5% 損耗；H 型鋼、C 型鋼等型鋼因受定尺（6 米或 12 米）限制，裁切損耗通常建議設定 5–10%，以確保備料充足、避免工期延誤。"}},
+        {"@type":"Question","name":"如何利用計算結果核對廠商報價？","acceptedAnswer":{"@type":"Answer","text":"您可將廠商提供的總噸數與本工具產生的理論總重進行對比。若差異超過 5%，建議核對鋼材的實測厚度。結合本站單價試算功能，可快速換算每公斤單價是否符合當前市場行情。"}},
+        {"@type":"Question","name":"H 型鋼的理論重量是如何計算的？","acceptedAnswer":{"@type":"Answer","text":"H 型鋼重量由腹板（Web）與兩片翼板（Flange）的體積累積而成，公式為：[ t1×B×2 + t2×(H-2×t1) ] × 0.00785，其中 t1 為翼板厚、B 為翼板寬、t2 為腹板厚、H 為型鋼高度。本站資料庫收錄 100×50 至 900×300 的完整規格，均對齊 CNS 標準手冊。"}}
       ]
     }
     </script>
-
-    <!-- SoftwareApplication Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -68,7 +29,6 @@
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TWD" }
     }
     </script>
-
     <meta name="description" content="全台最專業鋼鐵重量計算工具與規格指南。提供 H 型鋼、不鏽鋼、角鐵、鋼板等 CNS 理論重量試算，並收錄詳細鋼材密度表與工程損耗率設定建議，是工程師與採購人員的數位鋼鐵手冊。">
     <meta name="keywords" content="鋼鐵重量計算, H型鋼重量, 不鏽鋼重量表, 鋼板試算, 工程估價工具, 鐵材規格, CNS鋼鐵標準">
     <meta property="og:title" content="鋼鐵重量計算機 | 專業工程規格試算">
@@ -76,11 +36,9 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://steel-calc.idv.tw">
     <link rel="canonical" href="https://steel-calc.idv.tw/" />
-
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9184947057660512" crossorigin="anonymous"></script>
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2163/2163914.png" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
-
     <style>
         input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
         .data-card { background: white; border-radius: 1.5rem; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); }
@@ -99,6 +57,43 @@
         .prose-content th { background: #1e293b; color: white; padding: 0.75rem 1rem; text-align: left; }
         .prose-content td { padding: 0.65rem 1rem; border-bottom: 1px solid #e2e8f0; color: #334155; }
         .prose-content tr:nth-child(even) td { background: #f8fafc; }
+        /* 浮動引導條 */
+        #tool-hint {
+            position: fixed; bottom: 1.2rem; left: 50%; transform: translateX(-50%);
+            background: #1e293b; color: white;
+            padding: 0.65rem 1.4rem; border-radius: 999px;
+            font-size: 0.85rem; font-weight: 700;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+            display: flex; align-items: center; gap: 0.5rem;
+            cursor: pointer; z-index: 40;
+            transition: opacity 0.4s, transform 0.4s;
+            white-space: nowrap;
+        }
+        #tool-hint:hover { background: #3b82f6; }
+        /* 回頂部按鈕 */
+        #back-to-top {
+            position: fixed;
+            bottom: 1.2rem;
+            right: 1.5rem;
+            background: #1e293b;
+            color: white;
+            width: 2.8rem;
+            height: 2.8rem;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 40;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+            border: none;
+            transition: background 0.2s;
+        }
+        #back-to-top:hover { background: #3b82f6; }
+        /* 文章卡片 hover */
+        .article-card-home { transition: border-color 0.2s, box-shadow 0.2s; }
+        .article-card-home:hover { border-color: #bfdbfe; box-shadow: 0 4px 20px rgba(59,130,246,0.1); }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900">
@@ -107,8 +102,7 @@
 <nav class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm" aria-label="主選單">
     <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3 site-nav">
         <a href="index.html" class="flex items-center gap-2 font-black text-slate-800 text-lg">
-            <span class="text-2xl">⚙️</span>
-            <span>鐵材計算機</span>
+            <span class="text-2xl">⚙️</span><span>鐵材計算機</span>
         </a>
         <div class="flex flex-wrap items-center gap-4 text-sm font-bold text-slate-500">
             <a href="index.html" class="text-blue-600">首頁試算</a>
@@ -126,7 +120,56 @@
 <main class="py-10 px-4">
     <div class="max-w-6xl mx-auto">
 
-        <!-- ===== 主標題 + 引言 ===== -->
+        <!-- ===== 知識專欄精選（AdSense 審查用內容區）===== -->
+        <section class="mb-12" aria-labelledby="knowledge-heading">
+            <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center gap-3">
+                    <div class="h-8 w-2 bg-blue-600 rounded-full"></div>
+                    <h2 id="knowledge-heading" class="text-2xl font-black text-slate-800">工程知識專欄</h2>
+                </div>
+                <a href="blog.html" class="text-sm font-bold text-blue-600 hover:underline">查看全部文章 →</a>
+            </div>
+            <p class="text-slate-500 mb-6 leading-relaxed max-w-3xl">
+                由具工程採購實務背景的作者撰寫，涵蓋鋼材選材、CNS 規範解讀、採購保護與議價技巧，每篇均以台灣工程現場的實際情境為基礎，提供可直接應用的專業知識。
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                <a href="guide-h-beam-vs-i-beam.html" class="article-card-home bg-white rounded-2xl p-6 border border-slate-100 shadow-sm flex flex-col gap-3">
+                    <div class="flex items-center gap-2">
+                        <span class="text-2xl">🏗️</span>
+                        <span class="bg-blue-100 text-blue-700 text-xs font-black px-2.5 py-1 rounded-full">選材指南</span>
+                    </div>
+                    <h3 class="font-black text-slate-800 leading-snug">H 型鋼 vs I 型鋼：差異比較與選材完整指南</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed flex-1">從截面形狀、CNS 規格、承載特性到工程選用建議，完整解析兩種型鋼的本質差異。</p>
+                    <span class="text-blue-600 font-bold text-sm">閱讀全文 →</span>
+                </a>
+                <a href="guide-waste-rate.html" class="article-card-home bg-white rounded-2xl p-6 border border-slate-100 shadow-sm flex flex-col gap-3">
+                    <div class="flex items-center gap-2">
+                        <span class="text-2xl">📐</span>
+                        <span class="bg-orange-100 text-orange-700 text-xs font-black px-2.5 py-1 rounded-full">採購實務</span>
+                    </div>
+                    <h3 class="font-black text-slate-800 leading-snug">鋼材損耗率怎麼抓？五種鋼材的台灣工程實務建議</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed flex-1">鋼板、H 型鋼、C 型鋼、管材的損耗來源與合理設定範圍，附快速對照表。</p>
+                    <span class="text-orange-600 font-bold text-sm">閱讀全文 →</span>
+                </a>
+                <a href="guide-theory-vs-actual-weight.html" class="article-card-home bg-white rounded-2xl p-6 border border-slate-100 shadow-sm flex flex-col gap-3">
+                    <div class="flex items-center gap-2">
+                        <span class="text-2xl">⚖️</span>
+                        <span class="bg-red-100 text-red-700 text-xs font-black px-2.5 py-1 rounded-full">採購保護</span>
+                    </div>
+                    <h3 class="font-black text-slate-800 leading-snug">理論磅單 vs 實際磅單：採購保護完整指南</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed flex-1">CNS 公差如何讓實際重量多出 2–8%，以及合約保護條款與到貨驗收步驟。</p>
+                    <span class="text-red-600 font-bold text-sm">閱讀全文 →</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- ===== 計算工具區標題 ===== -->
+        <div class="flex items-center gap-3 mb-6" id="calc-section">
+            <div class="h-8 w-2 bg-slate-700 rounded-full"></div>
+            <h2 class="text-2xl font-black text-slate-800">⚙️ 鋼材重量計算工具</h2>
+            <span class="text-xs font-bold text-slate-400 bg-slate-100 px-3 py-1 rounded-full">免費 · 無需登入 · 符合 CNS 標準</span>
+        </div>
+
         <header class="text-center mb-10">
             <h1 class="text-3xl font-black text-slate-800 tracking-tight">鐵材重量與採購成本計算機</h1>
             <p class="text-slate-500 mt-3 max-w-2xl mx-auto text-base leading-relaxed">
@@ -138,9 +181,7 @@
             <p class="text-slate-400 mt-2 text-sm">符合 CNS 標準之工程實務數據 ｜ 免費使用 ｜ 無需登入</p>
         </header>
 
-        <!-- ===== 計算機主體 ===== -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-
             <div class="lg:col-span-2 space-y-6">
                 <div class="data-card p-8 border border-slate-100">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -183,9 +224,7 @@
                             <select id="specSelect" class="input-field" onchange="calculate()"></select>
                         </div>
                     </div>
-
                     <div id="dynamicInputs" class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-8 pt-8 border-t border-slate-50"></div>
-
                     <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-6">
                         <div class="input-group">
                             <label>損耗率 (%)</label>
@@ -196,16 +235,11 @@
                             <input type="number" id="valPrice" placeholder="輸入單價" class="input-field" oninput="calculate()">
                         </div>
                         <div class="flex flex-col gap-2">
-                            <button onclick="toggleFormulaModal()" class="w-full bg-blue-50 text-blue-600 font-bold py-2 rounded-xl hover:bg-blue-100 transition-all border border-blue-100 text-xs">
-                                📖 計算公式說明
-                            </button>
-                            <button onclick="resetForm()" class="w-full bg-slate-100 text-slate-500 font-bold py-2 rounded-xl hover:bg-slate-200 transition-all text-xs">
-                                重置清空
-                            </button>
+                            <button onclick="toggleFormulaModal()" class="w-full bg-blue-50 text-blue-600 font-bold py-2 rounded-xl hover:bg-blue-100 transition-all border border-blue-100 text-xs">📖 計算公式說明</button>
+                            <button onclick="resetForm()" class="w-full bg-slate-100 text-slate-500 font-bold py-2 rounded-xl hover:bg-slate-200 transition-all text-xs">重置清空</button>
                         </div>
                     </div>
                 </div>
-
                 <div class="bg-slate-800 rounded-2xl p-6 text-white flex justify-around items-center">
                     <div class="text-center">
                         <p class="text-slate-400 text-[10px] font-bold uppercase mb-1 tracking-widest">單位質量</p>
@@ -217,7 +251,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="space-y-6">
                 <div class="bg-blue-600 rounded-[2.5rem] p-10 text-white shadow-xl flex flex-col items-center justify-center text-center">
                     <p class="text-blue-100 font-bold uppercase tracking-widest text-sm mb-4">Total Weight / COST</p>
@@ -229,26 +262,22 @@
                     </div>
                 </div>
                 <div class="space-y-3">
-                    <button onclick="copyResult()" class="w-full bg-white border border-slate-200 text-slate-700 font-bold py-4 rounded-2xl shadow-sm hover:bg-slate-50 transition-all flex items-center justify-center gap-2">
-                        📋 複製詳細計算結果
-                    </button>
-                    <button onclick="shareToLine()" class="w-full bg-[#06C755] text-white font-bold py-4 rounded-2xl shadow-sm hover:opacity-90 transition-all flex items-center justify-center gap-2">
-                        分享結果到 Line
-                    </button>
+                    <button onclick="copyResult()" class="w-full bg-white border border-slate-200 text-slate-700 font-bold py-4 rounded-2xl shadow-sm hover:bg-slate-50 transition-all flex items-center justify-center gap-2">📋 複製詳細計算結果</button>
+                    <button onclick="shareToLine()" class="w-full bg-[#06C755] text-white font-bold py-4 rounded-2xl shadow-sm hover:opacity-90 transition-all flex items-center justify-center gap-2">分享結果到 Line</button>
                 </div>
-                <!-- 快速導覽 -->
                 <div class="bg-slate-50 rounded-2xl p-5 border border-slate-100">
                     <p class="text-xs font-black text-slate-400 uppercase tracking-widest mb-3">延伸閱讀</p>
                     <ul class="space-y-2 text-sm">
                         <li><a href="density-table.html" class="text-blue-600 hover:underline font-bold">📊 全系列鋼材密度參考表</a></li>
                         <li><a href="cns-standard.html" class="text-blue-600 hover:underline font-bold">📋 CNS 規範與公差指南</a></li>
                         <li><a href="nesting.html" class="text-blue-600 hover:underline font-bold">📐 智慧排料系統</a></li>
+                        <li><a href="blog.html" class="text-blue-600 hover:underline font-bold">📝 工程知識專欄</a></li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <!-- ===== 公式說明彈窗 ===== -->
+        <!-- 公式說明彈窗 -->
         <div id="formulaModal" class="hidden fixed inset-0 bg-slate-900/80 backdrop-blur-md z-[100] flex items-center justify-center p-4">
             <div class="bg-white rounded-[2.5rem] p-8 md:p-12 max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative">
                 <button onclick="toggleFormulaModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-600 text-2xl">✕</button>
@@ -257,65 +286,34 @@
                     <h3 class="text-2xl font-black text-slate-800">鋼鐵重量理論計算公式</h3>
                 </div>
                 <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-slate-50 p-6 rounded-2xl">
-                        <h4 class="font-bold text-blue-600 mb-3 text-lg">● 鋼板 / 扁鐵</h4>
-                        <p class="text-sm text-slate-600 leading-relaxed">
-                            公式：厚度(mm) × 寬度(m) × 長度(m) × 密度<br>
-                            <span class="text-xs text-slate-400">※ 碳鋼密度 7.85 / 不鏽鋼 7.93</span>
-                        </p>
-                    </div>
-                    <div class="bg-slate-50 p-6 rounded-2xl text-slate-600">
-                        <h4 class="font-bold text-emerald-600 mb-3 text-lg">● 圓管與方管</h4>
-                        <p class="text-sm">圓管：(外徑 - 厚度) × 厚度 × 0.02466 × 長度(m)</p>
-                        <p class="text-sm mt-2">方管：(邊長×4 ÷ 3.14 - 厚度) × 厚度 × 0.02466 × 長度(m)</p>
-                    </div>
-                    <div class="bg-slate-50 p-6 rounded-2xl">
-                        <h4 class="font-bold text-orange-600 mb-3 text-lg">● 等邊角鐵</h4>
-                        <p class="text-sm text-slate-600">公式：[ 邊長 + (邊長 - 厚度) ] × 厚度 × 0.00785 × 長度(m)</p>
-                    </div>
-                    <div class="bg-slate-800 p-6 rounded-2xl text-white">
-                        <h4 class="font-bold text-blue-300 mb-3 text-lg">● H型鋼 / I型鋼 / 槽鐵</h4>
-                        <p class="text-xs text-blue-100 opacity-80 mb-2">I型鋼理論重量計算邏輯：</p>
-                        <p class="text-sm font-mono">[ t1×B×2 + t2×(H-2×t1) ] × 0.00785</p>
-                        <p class="text-xs text-blue-200 mt-2">※ I型鋼翼板具斜度，實務計算多採用 CNS 理論重量表。</p>
-                    </div>
+                    <div class="bg-slate-50 p-6 rounded-2xl"><h4 class="font-bold text-blue-600 mb-3 text-lg">● 鋼板 / 扁鐵</h4><p class="text-sm text-slate-600 leading-relaxed">公式：厚度(mm) × 寬度(m) × 長度(m) × 密度<br><span class="text-xs text-slate-400">※ 碳鋼密度 7.85 / 不鏽鋼 7.93</span></p></div>
+                    <div class="bg-slate-50 p-6 rounded-2xl text-slate-600"><h4 class="font-bold text-emerald-600 mb-3 text-lg">● 圓管與方管</h4><p class="text-sm">圓管：(外徑 - 厚度) × 厚度 × 0.02466 × 長度(m)</p><p class="text-sm mt-2">方管：(邊長×4 ÷ 3.14 - 厚度) × 厚度 × 0.02466 × 長度(m)</p></div>
+                    <div class="bg-slate-50 p-6 rounded-2xl"><h4 class="font-bold text-orange-600 mb-3 text-lg">● 等邊角鐵</h4><p class="text-sm text-slate-600">公式：[ 邊長 + (邊長 - 厚度) ] × 厚度 × 0.00785 × 長度(m)</p></div>
+                    <div class="bg-slate-800 p-6 rounded-2xl text-white"><h4 class="font-bold text-blue-300 mb-3 text-lg">● H型鋼 / I型鋼 / 槽鐵</h4><p class="text-xs text-blue-100 opacity-80 mb-2">I型鋼理論重量計算邏輯：</p><p class="text-sm font-mono">[ t1×B×2 + t2×(H-2×t1) ] × 0.00785</p><p class="text-xs text-blue-200 mt-2">※ I型鋼翼板具斜度，實務計算多採用 CNS 理論重量表。</p></div>
                 </div>
-                <div class="mt-8 text-xs text-slate-400 italic">
-                    ※ 本站規格均對齊 CNS 標準，計算結果僅供預估採購使用。
-                </div>
+                <div class="mt-8 text-xs text-slate-400 italic">※ 本站規格均對齊 CNS 標準，計算結果僅供預估採購使用。</div>
             </div>
         </div>
 
-        <!-- ===== AdSense 廣告位（計算機下方）===== -->
         <div class="my-10 flex justify-center">
             <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9184947057660512" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
             <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
 
-        <!-- ===== 專業知識文章 ===== -->
         <article class="bg-white rounded-[2.5rem] p-10 md:p-16 border border-slate-100 shadow-sm mt-4">
             <header class="flex items-center gap-4 mb-10 border-b-2 border-slate-50 pb-6">
                 <div class="h-10 w-2 bg-blue-600 rounded-full" aria-hidden="true"></div>
                 <h2 class="text-3xl font-black text-slate-800">鋼鐵材料重量計算：工程師與採購人員完整指南</h2>
             </header>
-
             <div class="prose-content">
-
                 <section aria-labelledby="section-intro">
                     <h3 id="section-intro">一、為什麼精準的重量試算對工程估價至關重要？</h3>
-                    <p>
-                        鋼鐵材料在工業建築、機械製造、橋樑結構與一般土木工程中扮演不可或缺的角色。無論是 H 型鋼骨架、不鏽鋼欄杆，還是鋼板底板，每一項採購決策都牽涉到「理論重量」的精確計算。所謂理論重量，是依據材料的截面尺寸與鋼材密度，透過標準公式推算出每公尺或每平方公尺的質量，再乘以材料數量與長度，最終得出總採購重量。
-                    </p>
-                    <p>
-                        在台灣工程實務中，鋼材通常以「公斤（kg）」或「公噸（MT）」計價。若採購人員僅憑目視或口頭估算，在大宗訂單中，僅僅 1% 的重量誤差，便可能造成每噸數百元、總計數萬至數十萬元的報價偏差。精準的理論重量計算，不僅能用於核對廠商磅單，更是採購談判、工程預算編列，以及物流吊掛承重規劃的重要依據。
-                    </p>
+                    <p>鋼鐵材料在工業建築、機械製造、橋樑結構與一般土木工程中扮演不可或缺的角色。無論是 H 型鋼骨架、不鏽鋼欄杆，還是鋼板底板，每一項採購決策都牽涉到「理論重量」的精確計算。所謂理論重量，是依據材料的截面尺寸與鋼材密度，透過標準公式推算出每公尺或每平方公尺的質量，再乘以材料數量與長度，最終得出總採購重量。</p>
+                    <p>在台灣工程實務中，鋼材通常以「公斤（kg）」或「公噸（MT）」計價。若採購人員僅憑目視或口頭估算，在大宗訂單中，僅僅 1% 的重量誤差，便可能造成每噸數百元、總計數萬至數十萬元的報價偏差。精準的理論重量計算，不僅能用於核對廠商磅單，更是採購談判、工程預算編列，以及物流吊掛承重規劃的重要依據。</p>
                 </section>
-
                 <section aria-labelledby="section-cns">
                     <h3 id="section-cns">二、CNS 中華民國國家標準：鋼鐵規格的依據</h3>
-                    <p>
-                        CNS（Chinese National Standards，中華民國國家標準）是台灣鋼鐵材料規格的核心標準依據，由經濟部標準檢驗局（BSMI）制定與維護。常見的鋼材 CNS 標準包含：
-                    </p>
+                    <p>CNS（Chinese National Standards，中華民國國家標準）是台灣鋼鐵材料規格的核心標準依據，由經濟部標準檢驗局（BSMI）制定與維護。常見的鋼材 CNS 標準包含：</p>
                     <ul>
                         <li><strong>CNS 2473</strong>：熱軋 H 型鋼尺寸、重量及截面特性（對應日本 JIS G 3192）。</li>
                         <li><strong>CNS 4436</strong>：熱軋不等邊角鋼之規格。</li>
@@ -323,237 +321,96 @@
                         <li><strong>CNS 6331</strong>：冷軋鋼板及鋼帶，涵蓋 0.4mm 至 3.2mm 薄板。</li>
                         <li><strong>CNS 2947</strong>：不鏽鋼板、帶及片之規格（304、316 等材質）。</li>
                     </ul>
-                    <p>
-                        本工具的規格資料庫完整對齊上述 CNS 標準，確保每一筆規格的截面尺寸與理論重量，均與台灣鋼鐵廠商通用的手冊數據一致，減少人工查表時可能產生的筆誤與版本差異問題。詳細規範說明可參閱本站的 <a href="cns-standard.html" class="text-blue-600 hover:underline">CNS 規範與公差指南</a>。
-                    </p>
+                    <p>本工具的規格資料庫完整對齊上述 CNS 標準，確保每一筆規格的截面尺寸與理論重量，均與台灣鋼鐵廠商通用的手冊數據一致。詳細規範說明可參閱本站的 <a href="cns-standard.html" class="text-blue-600 hover:underline">CNS 規範與公差指南</a>。</p>
                 </section>
-
                 <section aria-labelledby="section-density">
                     <h3 id="section-density">三、碳鋼與不鏽鋼密度差異：對採購的實際影響</h3>
-                    <p>
-                        鋼材密度是重量計算的核心係數。兩種最常見的工程鋼材，其密度有如下差異：
-                    </p>
-
+                    <p>鋼材密度是重量計算的核心係數。兩種最常見的工程鋼材，其密度有如下差異：</p>
                     <div class="overflow-x-auto rounded-2xl border border-slate-200">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>材質</th>
-                                    <th>常見牌號</th>
-                                    <th>理論密度 (g/cm³)</th>
-                                    <th>典型應用場域</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>碳鋼（黑鐵）</strong></td>
-                                    <td>SS400、A36</td>
-                                    <td><strong>7.85</strong></td>
-                                    <td>結構型鋼、鋼板、管材、一般機械</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>不鏽鋼 304</strong></td>
-                                    <td>SUS304、304L</td>
-                                    <td><strong>7.93</strong></td>
-                                    <td>食品設備、廚具、裝飾欄杆、化工管路</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>不鏽鋼 316</strong></td>
-                                    <td>SUS316、316L</td>
-                                    <td><strong>7.98</strong></td>
-                                    <td>海洋環境、醫療器材、高腐蝕性環境</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <table><thead><tr><th>材質</th><th>常見牌號</th><th>理論密度 (g/cm³)</th><th>典型應用場域</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>碳鋼（黑鐵）</strong></td><td>SS400、A36</td><td><strong>7.85</strong></td><td>結構型鋼、鋼板、管材、一般機械</td></tr>
+                            <tr><td><strong>不鏽鋼 304</strong></td><td>SUS304、304L</td><td><strong>7.93</strong></td><td>食品設備、廚具、裝飾欄杆、化工管路</td></tr>
+                            <tr><td><strong>不鏽鋼 316</strong></td><td>SUS316、316L</td><td><strong>7.98</strong></td><td>海洋環境、醫療器材、高腐蝕性環境</td></tr>
+                        </tbody></table>
                     </div>
-
-                    <p>
-                        以一片 10mm 厚、1219mm × 2438mm 的鋼板為例：若使用碳鋼（7.85），理論重量約為 <strong>233.7 kg</strong>；若改用 304 不鏽鋼（7.93），則為 <strong>235.7 kg</strong>，差距約 2 公斤。對於單片鋼板影響不大，但若採購 100 片，誤差累積即達 200 kg，以每公斤 90 元計算，便是約 <strong>18,000 元的報價差距</strong>。這正是本工具針對不同材質預設不同密度係數的原因所在。完整密度對照資料請見 <a href="density-table.html" class="text-blue-600 hover:underline">全系列鋼材密度參考表</a>。
-                    </p>
+                    <p>以一片 10mm 厚、1219mm × 2438mm 的鋼板為例：若使用碳鋼（7.85），理論重量約為 <strong>233.7 kg</strong>；若改用 304 不鏽鋼（7.93），則為 <strong>235.7 kg</strong>，差距約 2 公斤。對於單片鋼板影響不大，但若採購 100 片，誤差累積即達 200 kg，以每公斤 90 元計算，便是約 <strong>18,000 元的報價差距</strong>。完整密度對照資料請見 <a href="density-table.html" class="text-blue-600 hover:underline">全系列鋼材密度參考表</a>。</p>
                 </section>
-
                 <section aria-labelledby="section-waste">
                     <h3 id="section-waste">四、工程損耗率（Waste Rate）的建議設定與計算實務</h3>
-                    <p>
-                        在實際工程施作中，鋼材並非全數使用，裁切縫（Kerf Loss）、開口補強餘料、切割頭尾料，皆會產生無法使用的廢料。損耗率的設定，即是在理論用料之外，預留一定百分比的備料緩衝，確保施工中不因備料不足而停工待料。
-                    </p>
-                    <p>
-                        依台灣工程界的實務經驗，各類鋼材的損耗率建議如下：
-                    </p>
-
+                    <p>在實際工程施作中，鋼材並非全數使用，裁切縫（Kerf Loss）、開口補強餘料、切割頭尾料，皆會產生無法使用的廢料。損耗率的設定，即是在理論用料之外，預留一定百分比的備料緩衝。</p>
+                    <p>依台灣工程界的實務經驗，各類鋼材的損耗率建議如下：</p>
                     <div class="overflow-x-auto rounded-2xl border border-slate-200">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>鋼材類別</th>
-                                    <th>建議損耗率</th>
-                                    <th>說明</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>矩形鋼板、不鏽鋼板</td>
-                                    <td><strong>3 – 5%</strong></td>
-                                    <td>形狀規則，切割縫隙小，損耗較低</td>
-                                </tr>
-                                <tr>
-                                    <td>花紋止滑板</td>
-                                    <td><strong>5 – 8%</strong></td>
-                                    <td>表面花紋需對齊，拼接損耗略高</td>
-                                </tr>
-                                <tr>
-                                    <td>H 型鋼、I 型鋼</td>
-                                    <td><strong>5 – 10%</strong></td>
-                                    <td>定尺 6m/12m，現場裁切餘料不易再利用</td>
-                                </tr>
-                                <tr>
-                                    <td>C 型輕型鋼</td>
-                                    <td><strong>5 – 10%</strong></td>
-                                    <td>牆架、屋架跨距不整齊，裁切頻繁</td>
-                                </tr>
-                                <tr>
-                                    <td>角鋼、槽鋼</td>
-                                    <td><strong>5 – 8%</strong></td>
-                                    <td>固定長度限制，小件多樣裁切</td>
-                                </tr>
-                                <tr>
-                                    <td>圓管、方管、矩形管</td>
-                                    <td><strong>3 – 6%</strong></td>
-                                    <td>定尺 6m，斷點整齊但端頭損耗固定</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <table><thead><tr><th>鋼材類別</th><th>建議損耗率</th><th>說明</th></tr></thead>
+                        <tbody>
+                            <tr><td>矩形鋼板、不鏽鋼板</td><td><strong>3 – 5%</strong></td><td>形狀規則，切割縫隙小，損耗較低</td></tr>
+                            <tr><td>花紋止滑板</td><td><strong>5 – 8%</strong></td><td>表面花紋需對齊，拼接損耗略高</td></tr>
+                            <tr><td>H 型鋼、I 型鋼</td><td><strong>5 – 10%</strong></td><td>定尺 6m/12m，現場裁切餘料不易再利用</td></tr>
+                            <tr><td>C 型輕型鋼</td><td><strong>5 – 10%</strong></td><td>牆架、屋架跨距不整齊，裁切頻繁</td></tr>
+                            <tr><td>角鋼、槽鋼</td><td><strong>5 – 8%</strong></td><td>固定長度限制，小件多樣裁切</td></tr>
+                            <tr><td>圓管、方管、矩形管</td><td><strong>3 – 6%</strong></td><td>定尺 6m，斷點整齊但端頭損耗固定</td></tr>
+                        </tbody></table>
                     </div>
-
-                    <p>
-                        在本工具中，您可於「損耗率 (%)」欄位直接輸入建議值，系統會自動將損耗比例乘入總重計算，讓您在試算時即可一次得出「含損耗的實際備料重量」，無需另行手算。
-                    </p>
+                    <p>在本工具中，您可於「損耗率 (%)」欄位直接輸入建議值，系統會自動將損耗比例乘入總重計算。更詳細的各類鋼材損耗率解說，請參閱<a href="guide-waste-rate.html" class="text-blue-600 hover:underline">損耗率完整指南</a>。</p>
                 </section>
-
                 <section aria-labelledby="section-formula">
                     <h3 id="section-formula">五、各類鋼材的理論重量計算公式總覽</h3>
-                    <p>
-                        以下整理各型鋼材的通用公式，方便工程師自行驗算或應用於其他規格推算：
-                    </p>
-
+                    <p>以下整理各型鋼材的通用公式，方便工程師自行驗算或應用於其他規格推算：</p>
                     <div class="grid md:grid-cols-2 gap-4 my-6">
-                        <div class="bg-blue-50 rounded-2xl p-5 border-l-4 border-blue-500">
-                            <p class="font-bold text-blue-700 mb-2">鋼板 / 不鏽鋼板</p>
-                            <p class="font-mono text-sm text-slate-700">厚度(mm) × 寬(m) × 長(m) × 密度(kg/m³)</p>
-                            <p class="text-xs text-slate-500 mt-1">碳鋼密度 7850，不鏽鋼 7930</p>
-                        </div>
-                        <div class="bg-emerald-50 rounded-2xl p-5 border-l-4 border-emerald-500">
-                            <p class="font-bold text-emerald-700 mb-2">等邊角鋼 (L-Angle)</p>
-                            <p class="font-mono text-sm text-slate-700">[ A + (A - t) ] × t × 0.00785 × L(m)</p>
-                            <p class="text-xs text-slate-500 mt-1">A=邊長(mm)，t=厚度(mm)</p>
-                        </div>
-                        <div class="bg-orange-50 rounded-2xl p-5 border-l-4 border-orange-500">
-                            <p class="font-bold text-orange-700 mb-2">圓管 (Round Tube)</p>
-                            <p class="font-mono text-sm text-slate-700">(OD - t) × t × 0.02466 × L(m)</p>
-                            <p class="text-xs text-slate-500 mt-1">OD=外徑(mm)，t=壁厚(mm)</p>
-                        </div>
-                        <div class="bg-slate-800 rounded-2xl p-5 border-l-4 border-blue-400">
-                            <p class="font-bold text-blue-300 mb-2">H 型鋼 / I 型鋼</p>
-                            <p class="font-mono text-sm text-slate-300">[ t1×B×2 + t2×(H-2t1) ] × 0.00785 × L(m)</p>
-                            <p class="text-xs text-slate-400 mt-1">t1=翼板厚，t2=腹板厚，B=翼板寬，H=截面高</p>
-                        </div>
-                        <div class="bg-purple-50 rounded-2xl p-5 border-l-4 border-purple-500">
-                            <p class="font-bold text-purple-700 mb-2">方管 (Square Tube)</p>
-                            <p class="font-mono text-sm text-slate-700">(邊長×4/π - t) × t × 0.02466 × L(m)</p>
-                            <p class="text-xs text-slate-500 mt-1">等效圓管換算法</p>
-                        </div>
-                        <div class="bg-pink-50 rounded-2xl p-5 border-l-4 border-pink-500">
-                            <p class="font-bold text-pink-700 mb-2">扁鐵 (Flat Bar)</p>
-                            <p class="font-mono text-sm text-slate-700">厚度(mm) × 寬度(mm) × 0.00785 × L(m)</p>
-                            <p class="text-xs text-slate-500 mt-1">等同矩形截面碳鋼計算</p>
-                        </div>
+                        <div class="bg-blue-50 rounded-2xl p-5 border-l-4 border-blue-500"><p class="font-bold text-blue-700 mb-2">鋼板 / 不鏽鋼板</p><p class="font-mono text-sm text-slate-700">厚度(mm) × 寬(m) × 長(m) × 密度(kg/m³)</p><p class="text-xs text-slate-500 mt-1">碳鋼密度 7850，不鏽鋼 7930</p></div>
+                        <div class="bg-emerald-50 rounded-2xl p-5 border-l-4 border-emerald-500"><p class="font-bold text-emerald-700 mb-2">等邊角鋼 (L-Angle)</p><p class="font-mono text-sm text-slate-700">[ A + (A - t) ] × t × 0.00785 × L(m)</p><p class="text-xs text-slate-500 mt-1">A=邊長(mm)，t=厚度(mm)</p></div>
+                        <div class="bg-orange-50 rounded-2xl p-5 border-l-4 border-orange-500"><p class="font-bold text-orange-700 mb-2">圓管 (Round Tube)</p><p class="font-mono text-sm text-slate-700">(OD - t) × t × 0.02466 × L(m)</p><p class="text-xs text-slate-500 mt-1">OD=外徑(mm)，t=壁厚(mm)</p></div>
+                        <div class="bg-slate-800 rounded-2xl p-5 border-l-4 border-blue-400"><p class="font-bold text-blue-300 mb-2">H 型鋼 / I 型鋼</p><p class="font-mono text-sm text-slate-300">[ t1×B×2 + t2×(H-2t1) ] × 0.00785 × L(m)</p><p class="text-xs text-slate-400 mt-1">t1=翼板厚，t2=腹板厚，B=翼板寬，H=截面高</p></div>
+                        <div class="bg-purple-50 rounded-2xl p-5 border-l-4 border-purple-500"><p class="font-bold text-purple-700 mb-2">方管 (Square Tube)</p><p class="font-mono text-sm text-slate-700">(邊長×4/π - t) × t × 0.02466 × L(m)</p><p class="text-xs text-slate-500 mt-1">等效圓管換算法</p></div>
+                        <div class="bg-pink-50 rounded-2xl p-5 border-l-4 border-pink-500"><p class="font-bold text-pink-700 mb-2">扁鐵 (Flat Bar)</p><p class="font-mono text-sm text-slate-700">厚度(mm) × 寬度(mm) × 0.00785 × L(m)</p><p class="text-xs text-slate-500 mt-1">等同矩形截面碳鋼計算</p></div>
                     </div>
                 </section>
-
                 <section aria-labelledby="section-tips">
                     <h3 id="section-tips">六、採購實務建議：如何用理論重量核對廠商報價</h3>
-                    <p>
-                        在台灣鋼鐵市場中，廠商通常提供「理論磅單」（依規格重量表計算）或「實際磅單」（以地磅過磅結果計算）兩種報價基礎。理解兩者差異，有助於您在議價時掌握主動：
-                    </p>
+                    <p>在台灣鋼鐵市場中，廠商通常提供「理論磅單」或「實際磅單」兩種報價基礎。理解兩者差異，有助於您在議價時掌握主動：</p>
                     <ul>
                         <li><strong>理論磅單：</strong> 以本工具計算的理論重量為基準，乘以每公斤單價。對採購方較有利，因廠商無法藉公差超重索費。</li>
                         <li><strong>實際磅單：</strong> 以廠房磅秤計量。若鋼材厚度公差偏正（即偏厚），實際重量可能超出理論值達 5–10%，採購總額相對較高。</li>
                         <li><strong>核對方式：</strong> 將廠商提供的總噸數與本工具的理論計算結果對比。若差異超過 5%，建議要求廠商出示材質證明書（Mill Certificate）並核對實測厚度。</li>
                     </ul>
-                    <p>
-                        本工具的「單價 (元/kg)」欄位可讓您直接輸入廠商報價，系統即時換算出總採購金額，方便您在詢價當下快速進行多廠商比較，無需另開試算表。更多公差規範說明，請參閱本站 <a href="cns-standard.html" class="text-blue-600 hover:underline">CNS 鋼鐵公差指南</a>。
-                    </p>
+                    <p>更完整的磅單保護說明，請參閱<a href="guide-theory-vs-actual-weight.html" class="text-blue-600 hover:underline">理論磅單 vs 實際磅單完整指南</a>。更多公差規範說明，請參閱本站 <a href="cns-standard.html" class="text-blue-600 hover:underline">CNS 鋼鐵公差指南</a>。</p>
                 </section>
-
             </div>
         </article>
 
-        <!-- ===== FAQ 區塊 ===== -->
         <section class="bg-white rounded-[2.5rem] p-10 md:p-16 border border-slate-100 shadow-sm mt-8" aria-labelledby="faq-heading">
             <header class="flex items-center gap-4 mb-10 border-b-2 border-slate-50 pb-6">
                 <div class="h-10 w-2 bg-emerald-500 rounded-full" aria-hidden="true"></div>
                 <h2 id="faq-heading" class="text-3xl font-black text-slate-800">常見問答 FAQ</h2>
             </header>
-
             <div class="space-y-4">
                 <details class="group bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
-                    <summary class="flex justify-between items-center cursor-pointer p-6 font-bold text-slate-700 text-lg group-open:text-blue-600 transition-colors list-none">
-                        <span>Q1：本工具計算的重量可以直接用於買賣交易嗎？</span>
-                        <span class="transition-transform duration-300 group-open:rotate-180 text-slate-400 shrink-0 ml-4">▼</span>
-                    </summary>
-                    <div class="px-6 pb-6 text-slate-500 leading-relaxed border-t border-slate-100 pt-4">
-                        本計算機提供的是「理論重量」，依據 CNS 標準截面尺寸與材料密度推算。由於鋼鐵出廠允許 ±10% 的厚度公差，實際重量可能略高或略低於計算值。大宗採購合約仍應以地磅實秤數據作為最終依據；本工具適合用於詢價估算、備料規劃與廠商報價核對。
-                    </div>
+                    <summary class="flex justify-between items-center cursor-pointer p-6 font-bold text-slate-700 text-lg group-open:text-blue-600 transition-colors list-none"><span>Q1：本工具計算的重量可以直接用於買賣交易嗎？</span><span class="transition-transform duration-300 group-open:rotate-180 text-slate-400 shrink-0 ml-4">▼</span></summary>
+                    <div class="px-6 pb-6 text-slate-500 leading-relaxed border-t border-slate-100 pt-4">本計算機提供的是「理論重量」，依據 CNS 標準截面尺寸與材料密度推算。由於鋼鐵出廠允許 ±10% 的厚度公差，實際重量可能略高或略低於計算值。大宗採購合約仍應以地磅實秤數據作為最終依據；本工具適合用於詢價估算、備料規劃與廠商報價核對。</div>
                 </details>
-
                 <details class="group bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
-                    <summary class="flex justify-between items-center cursor-pointer p-6 font-bold text-slate-700 text-lg group-open:text-blue-600 transition-colors list-none">
-                        <span>Q2：碳鋼（黑鐵）與不鏽鋼的密度不同，採購時有何影響？</span>
-                        <span class="transition-transform duration-300 group-open:rotate-180 text-slate-400 shrink-0 ml-4">▼</span>
-                    </summary>
-                    <div class="px-6 pb-6 text-slate-500 leading-relaxed border-t border-slate-100 pt-4">
-                        碳鋼密度為 7.85 g/cm³，不鏽鋼 304 為 7.93 g/cm³，差距約 1%。在小批量採購時影響有限，但對於大宗訂單（如 10 噸以上），此密度差異可能導致數百公斤的噸數偏差，進而影響總採購金額。本工具已針對不同材質類別預設正確密度係數，確保計算精準。
-                    </div>
+                    <summary class="flex justify-between items-center cursor-pointer p-6 font-bold text-slate-700 text-lg group-open:text-blue-600 transition-colors list-none"><span>Q2：碳鋼（黑鐵）與不鏽鋼的密度不同，採購時有何影響？</span><span class="transition-transform duration-300 group-open:rotate-180 text-slate-400 shrink-0 ml-4">▼</span></summary>
+                    <div class="px-6 pb-6 text-slate-500 leading-relaxed border-t border-slate-100 pt-4">碳鋼密度為 7.85 g/cm³，不鏽鋼 304 為 7.93 g/cm³，差距約 1%。在小批量採購時影響有限，但對於大宗訂單（如 10 噸以上），此密度差異可能導致數百公斤的噸數偏差，進而影響總採購金額。本工具已針對不同材質類別預設正確密度係數，確保計算精準。</div>
                 </details>
-
                 <details class="group bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
-                    <summary class="flex justify-between items-center cursor-pointer p-6 font-bold text-slate-700 text-lg group-open:text-blue-600 transition-colors list-none">
-                        <span>Q3：損耗率應如何決定？是否有台灣工程的建議標準？</span>
-                        <span class="transition-transform duration-300 group-open:rotate-180 text-slate-400 shrink-0 ml-4">▼</span>
-                    </summary>
-                    <div class="px-6 pb-6 text-slate-500 leading-relaxed border-t border-slate-100 pt-4">
-                        依台灣建築工程實務，一般鋼板建議設定 3–5% 損耗；H 型鋼、C 型鋼等型材因受限於 6 米或 12 米定尺，裁切餘料難以再利用，建議設定 5–10%。若有異型件或大量切割孔洞（如法蘭板），損耗率可適度提高至 10–15%。建議在本工具「損耗率」欄位輸入適當數值，系統會自動計算含損耗的備料重量。
-                    </div>
+                    <summary class="flex justify-between items-center cursor-pointer p-6 font-bold text-slate-700 text-lg group-open:text-blue-600 transition-colors list-none"><span>Q3：損耗率應如何決定？是否有台灣工程的建議標準？</span><span class="transition-transform duration-300 group-open:rotate-180 text-slate-400 shrink-0 ml-4">▼</span></summary>
+                    <div class="px-6 pb-6 text-slate-500 leading-relaxed border-t border-slate-100 pt-4">依台灣建築工程實務，一般鋼板建議設定 3–5% 損耗；H 型鋼、C 型鋼等型材因受限於 6 米或 12 米定尺，裁切餘料難以再利用，建議設定 5–10%。若有異型件或大量切割孔洞（如法蘭板），損耗率可適度提高至 10–15%。</div>
                 </details>
-
                 <details class="group bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
-                    <summary class="flex justify-between items-center cursor-pointer p-6 font-bold text-slate-700 text-lg group-open:text-blue-600 transition-colors list-none">
-                        <span>Q4：如何用本工具核對廠商的報價是否合理？</span>
-                        <span class="transition-transform duration-300 group-open:rotate-180 text-slate-400 shrink-0 ml-4">▼</span>
-                    </summary>
-                    <div class="px-6 pb-6 text-slate-500 leading-relaxed border-t border-slate-100 pt-4">
-                        您可將廠商提供的總噸數與本工具產生的理論總重進行對比。若差異超過 5%，建議請廠商提供材質證明書（Mill Certificate）並核對實測厚度。利用「單價 (元/kg)」欄位，輸入廠商報價，即可換算出總金額是否符合市場行情，方便您在詢價階段快速進行多家比較。
-                    </div>
+                    <summary class="flex justify-between items-center cursor-pointer p-6 font-bold text-slate-700 text-lg group-open:text-blue-600 transition-colors list-none"><span>Q4：如何用本工具核對廠商的報價是否合理？</span><span class="transition-transform duration-300 group-open:rotate-180 text-slate-400 shrink-0 ml-4">▼</span></summary>
+                    <div class="px-6 pb-6 text-slate-500 leading-relaxed border-t border-slate-100 pt-4">您可將廠商提供的總噸數與本工具產生的理論總重進行對比。若差異超過 5%，建議請廠商提供材質證明書（Mill Certificate）並核對實測厚度。利用「單價 (元/kg)」欄位，輸入廠商報價，即可換算出總金額是否符合市場行情。</div>
                 </details>
-
                 <details class="group bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
-                    <summary class="flex justify-between items-center cursor-pointer p-6 font-bold text-slate-700 text-lg group-open:text-blue-600 transition-colors list-none">
-                        <span>Q5：H 型鋼與 I 型鋼有何差異？選用時應如何判斷？</span>
-                        <span class="transition-transform duration-300 group-open:rotate-180 text-slate-400 shrink-0 ml-4">▼</span>
-                    </summary>
-                    <div class="px-6 pb-6 text-slate-500 leading-relaxed border-t border-slate-100 pt-4">
-                        H 型鋼（Wide Flange Beam）翼板較寬且兩側平行，適合用於主結構樑柱，抗彎效率高。I 型鋼（Standard Beam）翼板較窄且具斜度，截面積相對較小，常用於次結構或輔助支撐。工程選用時，應依據結構計算需求、跨距與荷重選擇適當規格，建議參閱 CNS 2473 規格表，並由結構技師確認。本工具收錄了 100×50 至 900×300 的完整 H 型鋼規格，以及多款 I 型鋼規格，均附有理論重量供估價參考。
-                    </div>
+                    <summary class="flex justify-between items-center cursor-pointer p-6 font-bold text-slate-700 text-lg group-open:text-blue-600 transition-colors list-none"><span>Q5：H 型鋼與 I 型鋼有何差異？選用時應如何判斷？</span><span class="transition-transform duration-300 group-open:rotate-180 text-slate-400 shrink-0 ml-4">▼</span></summary>
+                    <div class="px-6 pb-6 text-slate-500 leading-relaxed border-t border-slate-100 pt-4">H 型鋼（Wide Flange Beam）翼板較寬且兩側平行，適合用於主結構樑柱，抗彎效率高。I 型鋼（Standard Beam）翼板較窄且具斜度，截面積相對較小，常用於次結構或輔助支撐。詳細比較請參閱<a href="guide-h-beam-vs-i-beam.html" class="text-blue-600 hover:underline">H 型鋼 vs I 型鋼完整指南</a>。</div>
                 </details>
             </div>
         </section>
 
-        <!-- ===== 廣告位（底部）===== -->
         <div class="my-10 flex justify-center">
             <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9184947057660512" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
             <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
-
     </div>
 </main>
 
@@ -566,12 +423,8 @@
                     <span class="text-2xl">⚙️</span>
                     <h3 class="font-black text-white text-xl">鐵材重量計算機</h3>
                 </div>
-                <p class="text-sm leading-relaxed text-slate-400">
-                    提供符合 CNS 標準的數位化鋼鐵重量計算服務，涵蓋 H 型鋼、不鏽鋼板、角鋼、管材等完整規格資料庫，協助工程師與採購人員快速完成估價作業。
-                </p>
-                <p class="text-sm text-slate-500">
-                    聯絡信箱：<a href="mailto:amy262631@gmail.com" class="text-blue-400 hover:underline">amy262631@gmail.com</a>
-                </p>
+                <p class="text-sm leading-relaxed text-slate-400">提供符合 CNS 標準的數位化鋼鐵重量計算服務，涵蓋 H 型鋼、不鏽鋼板、角鋼、管材等完整規格資料庫，協助工程師與採購人員快速完成估價作業。</p>
+                <p class="text-sm text-slate-500">聯絡信箱：<a href="mailto:amy262631@gmail.com" class="text-blue-400 hover:underline">amy262631@gmail.com</a></p>
             </div>
             <div class="space-y-3">
                 <h4 class="font-bold text-white">工具導覽</h4>
@@ -594,7 +447,6 @@
                 </ul>
             </div>
         </div>
-
         <div class="border-t border-slate-700 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-slate-500">
             <p>© <span id="footerYear"></span> 鐵材重量計算機 steel-calc.idv.tw — 保留所有權利</p>
             <p>本工具計算結果僅供估價參考，不作為正式交易依據。</p>
@@ -602,13 +454,20 @@
     </div>
 </footer>
 
-<!-- ===== 聯絡彈窗 ===== -->
+<!-- ===== 底部浮動引導條 ===== -->
+<div id="tool-hint" onclick="scrollToCalc()" role="button" aria-label="前往計算工具">
+    🔧 計算工具在下方 &nbsp;↓&nbsp; 點我直達
+    <button onclick="event.stopPropagation(); dismissHint()" style="margin-left:0.5rem; opacity:0.6; font-size:1rem; background:none; border:none; color:white; cursor:pointer;" aria-label="關閉提示">✕</button>
+</div>
+
+<!-- ===== 回頂部按鈕 ===== -->
+<button id="back-to-top" onclick="scrollToTop()" aria-label="回到頂部">↑</button>
+
+<!-- 聯絡彈窗 -->
 <div id="contactModal" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl p-8 max-w-sm w-full shadow-2xl">
         <h3 class="text-xl font-black text-slate-800 mb-4 text-center">聯繫資訊</h3>
-        <div class="bg-slate-50 border-2 border-dashed border-slate-200 p-4 rounded-2xl mb-6 text-center font-mono text-blue-600 font-bold text-lg">
-            amy262631@gmail.com
-        </div>
+        <div class="bg-slate-50 border-2 border-dashed border-slate-200 p-4 rounded-2xl mb-6 text-center font-mono text-blue-600 font-bold text-lg">amy262631@gmail.com</div>
         <button onclick="toggleContactModal()" class="w-full bg-slate-800 text-white font-bold py-3 rounded-xl hover:bg-slate-700 transition-all">關閉視窗</button>
     </div>
 </div>
@@ -617,234 +476,88 @@
 <script>
     document.getElementById('footerYear').textContent = new Date().getFullYear();
 
+    // ===== 浮動引導條邏輯 =====
+    const hint = document.getElementById('tool-hint');
+    let userDismissed = false;
+    let calcTop = 0;
+
+    function getCalcTop() {
+        const el = document.getElementById('calc-section');
+        if (!el) return 0;
+        return el.getBoundingClientRect().top + window.scrollY;
+    }
+    window.addEventListener('load', function() {
+        calcTop = getCalcTop();
+        updateHint();
+    });
+    function scrollToCalc() {
+        document.getElementById('calc-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    function dismissHint() {
+        userDismissed = true;
+        hint.style.display = 'none';
+    }
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    function updateHint() {
+        if (userDismissed) return;
+        const threshold = calcTop - window.innerHeight * 0.2;
+        if (window.scrollY >= threshold) {
+            hint.style.display = 'none';
+        } else {
+            hint.style.display = 'flex';
+        }
+    }
+    function updateBackToTop() {
+        const btn = document.getElementById('back-to-top');
+        if (!btn) return;
+        if (window.scrollY > 300) {
+            btn.style.display = 'flex';
+        } else {
+            btn.style.display = 'none';
+        }
+    }
+    window.addEventListener('scroll', function() {
+        updateHint();
+        updateBackToTop();
+    }, { passive: true });
     function toggleContactModal() { document.getElementById('contactModal').classList.toggle('hidden'); }
     function toggleFormulaModal() { document.getElementById('formulaModal').classList.toggle('hidden'); }
-
     const DB = {
-        "IRON_PLATE": [
-            {s:"0.4mm", w:3.14}, {s:"0.5mm", w:3.93}, {s:"0.6mm", w:4.71}, {s:"0.8mm", w:6.28},
-            {s:"1.0mm", w:7.85}, {s:"1.2mm", w:9.42}, {s:"1.6mm", w:12.56}, {s:"2.0mm", w:15.70},
-            {s:"2.3mm", w:18.06}, {s:"3.0mm", w:23.55},
-            {s:"4.5mm", w:35.33}, {s:"6.0mm", w:47.10}, {s:"8.0mm", w:62.80}, {s:"9.0mm", w:70.65},
-            {s:"10mm", w:78.50}, {s:"12mm", w:94.20}, {s:"16mm", w:125.6}, {s:"19mm", w:149.2},
-            {s:"22mm", w:172.7}, {s:"25mm", w:196.3},
-            {s:"28mm", w:219.8}, {s:"32mm", w:251.2}, {s:"36mm", w:282.6}, {s:"40mm", w:314.0},
-            {s:"45mm", w:353.3}, {s:"50mm", w:392.5}
-        ],
-        "SS_PLATE": [
-            {s:"0.3mm", w:2.38}, {s:"0.4mm", w:3.17}, {s:"0.5mm", w:3.97}, {s:"0.8mm", w:6.34},
-            {s:"1.0mm", w:7.93}, {s:"1.2mm", w:9.52}, {s:"1.5mm", w:11.90}, {s:"2.0mm", w:15.86},
-            {s:"3.0mm", w:23.79}, {s:"4.0mm", w:31.72}, {s:"6.0mm", w:47.58}, {s:"10mm", w:79.30},
-            {s:"12mm", w:95.16}, {s:"25mm", w:198.25}, {s:"50mm", w:396.50}
-        ],
-        "SS_CHANNEL": [{s:"50x25x5.0", w:3.66}, {s:"75x40x5.0", w:6.92}, {s:"100x50x5.0", w:9.36}, {s:"125x65x6.0", w:13.40}, {s:"150x75x6.5", w:18.60}, {s:"200x80x7.5", w:24.60}, {s:"300x90x9.0", w:38.10}],
-        "CHECKERED_PLATE": [
-            {s:"2.5mm", w:22.0}, {s:"3.0mm", w:25.9}, {s:"3.2mm", w:27.5}, {s:"4.5mm", w:37.7},
-            {s:"6.0mm", w:49.5}, {s:"9.0mm", w:73.1}, {s:"12mm", w:96.6}
-        ],
-        "EXPANDED_XG": [
-            {s:"XG11 (厚4.5/送7.0mm)", w:14.5}, {s:"XG12 (厚6.0/送7.0mm)", w:19.4},
-            {s:"XG13 (厚6.0/送9.0mm)", w:24.9}, {s:"XG14 (厚8.0/送9.0mm)", w:33.2},
-            {s:"XG21 (厚4.5/送7.0mm)", w:13.7}, {s:"XG22 (厚6.0/送7.0mm)", w:19.3},
-            {s:"XG23 (厚6.0/送9.0mm)", w:23.6}, {s:"XG24 (厚8.0/送9.0mm)", w:31.4}
-        ],
-        "RH": [
-            {s:"100x50x5x7", w:9.30}, {s:"125x60x6x8", w:13.2}, {s:"148x100x6x9", w:21.1},
-            {s:"150x75x5x7", w:14.0}, {s:"175x90x5x8", w:18.1}, {s:"194x150x6x9", w:30.6},
-            {s:"198x99x4.5x7", w:18.2}, {s:"200x100x5.5x8", w:21.3}, {s:"200x200x8x12", w:49.9},
-            {s:"244x175x7x11", w:44.1}, {s:"248x124x5x8", w:25.7}, {s:"250x125x6x9", w:29.6},
-            {s:"250x250x9x14", w:72.4}, {s:"294x200x8x12", w:56.8}, {s:"298x149x5.5x8", w:32.0},
-            {s:"300x150x6.5x9", w:36.7}, {s:"300x300x10x15", w:94.0}, {s:"340x250x9x14", w:79.7},
-            {s:"346x174x6x9", w:41.4}, {s:"350x175x7x11", w:49.6}, {s:"390x300x10x16", w:107.0},
-            {s:"396x199x7x11", w:56.6}, {s:"400x200x8x13", w:66.0}, {s:"400x400x13x21", w:172.0},
-            {s:"446x199x8x12", w:66.2}, {s:"450x200x9x14", w:76.0}, {s:"496x199x9x14", w:79.5},
-            {s:"500x200x10x16", w:89.6}, {s:"582x300x12x17", w:137.0}, {s:"588x300x12x20", w:151.0},
-            {s:"596x199x10x15", w:94.6}, {s:"600x200x11x17", w:106.0}, {s:"700x300x13x24", w:185.0},
-            {s:"800x300x14x26", w:210.0}, {s:"900x300x16x28", w:243.0}
-        ],
-        "I_BEAM": [
-            {s:"100 x 75 x 5.0 x 8.0", w:12.9}, {s:"125 x 75 x 5.5 x 9.5", w:16.1},
-            {s:"150 x 75 x 5.5 x 9.5", w:17.1}, {s:"150 x 125 x 8.5 x 14.0", w:31.5},
-            {s:"180 x 100 x 6.0 x 10.0", w:23.6}, {s:"200 x 100 x 7.0 x 10.0", w:26.0},
-            {s:"200 x 150 x 9.0 x 16.0", w:50.4}, {s:"250 x 125 x 7.5 x 12.5", w:38.3},
-            {s:"250 x 125 x 10.0 x 19.0", w:55.5}, {s:"300 x 150 x 8.0 x 13.0", w:48.3},
-            {s:"300 x 150 x 10.0 x 18.5", w:65.5}, {s:"350 x 150 x 9.0 x 15.0", w:58.5},
-            {s:"400 x 150 x 10.0 x 18.0", w:72.0}, {s:"450 x 175 x 11.0 x 20.0", w:91.7},
-            {s:"600 x 190 x 13.0 x 25.0", w:133.0}
-        ],
-        "CHANNEL": [
-            {s:"75x40x5x7", w:6.92}, {s:"100x50x5x7.5", w:9.36}, {s:"125x65x6x8", w:13.4},
-            {s:"150x75x6.5x10", w:18.6}, {s:"150x75x9x12.5", w:24.0}, {s:"180x75x7x10.5", w:20.9},
-            {s:"200x80x7.5x11", w:24.6}, {s:"200x90x8x13.5", w:30.3},
-            {s:"250x90x9x13", w:34.6}, {s:"250x90x11x14.5", w:40.2},
-            {s:"300x90x9x13", w:38.1}, {s:"300x90x10x15.5", w:43.8},
-            {s:"380x100x10.5x16", w:54.5}, {s:"380x100x13x20", w:67.3}
-        ],
-        "ANGLE_E": [
-            {s:"25x25x3", w:1.12}, {s:"30x30x3", w:1.36}, {s:"40x40x3", w:1.83}, {s:"40x40x5", w:2.97},
-            {s:"50x50x4", w:3.06}, {s:"50x50x5", w:3.77}, {s:"50x50x6", w:4.43},
-            {s:"65x65x5", w:4.97}, {s:"65x65x6", w:5.91}, {s:"65x65x8", w:7.66},
-            {s:"75x75x6", w:6.85}, {s:"75x75x9", w:9.96}, {s:"75x75x12", w:13.0},
-            {s:"90x90x7", w:9.59}, {s:"90x90x10", w:13.3}, {s:"90x90x13", w:17.0},
-            {s:"100x100x7", w:10.7}, {s:"100x100x10", w:14.9}, {s:"100x100x13", w:19.1},
-            {s:"125x125x9", w:17.4}, {s:"125x125x12", w:22.7}, {s:"125x125x15", w:27.9},
-            {s:"150x150x12", w:27.3}, {s:"150x150x15", w:33.8}, {s:"150x150x19", w:41.9},
-            {s:"175x175x12", w:31.8}, {s:"175x175x15", w:39.4}, {s:"200x200x15", w:45.3},
-            {s:"200x200x20", w:59.7}, {s:"200x200x25", w:73.6}
-        ],
-        "ANGLE_U": [
-            {s:"75x50x6", w:5.65}, {s:"90x75x6", w:7.54}, {s:"90x75x9", w:11.0},
-            {s:"100x75x7", w:9.32}, {s:"100x75x10", w:13.0},
-            {s:"125x75x7", w:10.7}, {s:"125x75x10", w:14.9},
-            {s:"150x90x9", w:16.4}, {s:"150x90x12", w:21.5},
-            {s:"150x100x10", w:19.1}, {s:"150x100x12", w:22.7}
-        ],
-        "SS_ANGLE_E": [
-            {s:"20x20x3", w:0.87}, {s:"25x25x3", w:1.12}, {s:"25x25x4", w:1.45}, {s:"25x25x5", w:1.77},
-            {s:"30x30x3", w:1.36}, {s:"30x30x4", w:1.77}, {s:"30x30x5", w:2.16},
-            {s:"40x40x3", w:1.83}, {s:"40x40x4", w:2.42}, {s:"40x40x5", w:2.97}, {s:"40x40x6", w:3.51},
-            {s:"50x50x3", w:2.33}, {s:"50x50x4", w:3.06}, {s:"50x50x5", w:3.77}, {s:"50x50x6", w:4.43},
-            {s:"60x60x5", w:4.57}, {s:"60x60x6", w:5.42},
-            {s:"65x65x5", w:4.97}, {s:"65x65x6", w:5.91}, {s:"65x65x8", w:7.66}, {s:"65x65x9", w:8.51},
-            {s:"70x70x6", w:6.38}, {s:"75x75x6", w:6.85}, {s:"75x75x9", w:9.96}, {s:"75x75x10", w:11.0},
-            {s:"80x80x6", w:7.34}, {s:"80x80x8", w:9.61}, {s:"80x80x10", w:11.8},
-            {s:"90x90x6", w:8.30}, {s:"90x90x9", w:12.2}, {s:"90x90x10", w:13.3},
-            {s:"100x100x6", w:9.26}, {s:"100x100x8", w:12.2}, {s:"100x100x10", w:14.9}, {s:"100x100x12", w:17.7}
-        ],
-        "ROUND_BAR": [
-    {s:"6mm", w:0.222}, {s:"8mm", w:0.395}, {s:"9mm", w:0.499},
-    {s:"10mm", w:0.617}, {s:"12mm", w:0.888}, {s:"13mm (1/2\")", w:1.04},
-    {s:"16mm (5/8\")", w:1.58}, {s:"19mm (3/4\")", w:2.23},
-    {s:"22mm (7/8\")", w:2.98}, {s:"25mm (1\")", w:3.85},
-    {s:"28mm", w:4.83}, {s:"32mm (1-1/4\")", w:6.31},
-    {s:"35mm", w:7.55}, {s:"38mm (1-1/2\")", w:8.90},
-    {s:"42mm", w:10.9}, {s:"45mm (1-3/4\")", w:12.5},
-    {s:"50mm (2\")", w:15.4}, {s:"55mm", w:18.7},
-    {s:"60mm", w:22.2}, {s:"65mm (2-1/2\")", w:26.0},
-    {s:"70mm", w:30.2}, {s:"75mm (3\")", w:34.7},
-    {s:"80mm", w:39.5}, {s:"90mm", w:49.9},
-    {s:"100mm (4\")", w:61.7}
-],
-        "FLAT_BAR": [
-            {s:"3 x 19", w:0.45}, {s:"3 x 25", w:0.59}, {s:"3 x 32", w:0.75}, {s:"3 x 38", w:0.89},
-            {s:"4.5 x 25", w:0.88}, {s:"4.5 x 32", w:1.13}, {s:"4.5 x 38", w:1.34}, {s:"4.5 x 50", w:1.77},
-            {s:"6 x 19", w:0.89}, {s:"6 x 25", w:1.18}, {s:"6 x 32", w:1.51}, {s:"6 x 38", w:1.79},
-            {s:"6 x 50", w:2.36}, {s:"6 x 65", w:3.06}, {s:"6 x 75", w:3.53}, {s:"6 x 100", w:4.71},
-            {s:"9 x 25", w:1.77}, {s:"9 x 32", w:2.26}, {s:"9 x 38", w:2.68}, {s:"9 x 50", w:3.53},
-            {s:"9 x 65", w:4.59}, {s:"9 x 75", w:5.30}, {s:"9 x 100", w:7.07}, {s:"9 x 125", w:8.83},
-            {s:"12 x 25", w:2.36}, {s:"12 x 32", w:3.01}, {s:"12 x 38", w:3.58}, {s:"12 x 50", w:4.71},
-            {s:"12 x 65", w:6.12}, {s:"12 x 75", w:7.07}, {s:"12 x 100", w:9.42}, {s:"12 x 125", w:11.8},
-            {s:"12 x 150", w:14.1},
-            {s:"16 x 38", w:4.77}, {s:"16 x 50", w:6.28}, {s:"16 x 65", w:8.16}, {s:"16 x 75", w:9.42},
-            {s:"16 x 100", w:12.6}, {s:"16 x 125", w:15.7}, {s:"16 x 150", w:18.8},
-            {s:"19 x 50", w:7.46}, {s:"19 x 65", w:9.69}, {s:"19 x 75", w:11.2}, {s:"19 x 100", w:14.9},
-            {s:"19 x 125", w:18.6}, {s:"19 x 150", w:22.4},
-            {s:"25 x 50", w:9.81}, {s:"25 x 65", w:12.8}, {s:"25 x 75", w:14.7}, {s:"25 x 100", w:19.6},
-            {s:"25 x 125", w:24.5}, {s:"25 x 150", w:29.4}
-        ],
-        "SS_ROUND_BAR": [
-            {s:"3mm", w:0.056}, {s:"4mm", w:0.099}, {s:"5mm", w:0.154}, {s:"6mm", w:0.222},
-            {s:"8mm", w:0.395}, {s:"9mm", w:0.499}, {s:"10mm", w:0.617}, {s:"12mm", w:0.888},
-            {s:"13mm (1/2\")", w:1.04}, {s:"16mm (5/8\")", w:1.58}, {s:"19mm (3/4\")", w:2.23},
-            {s:"22mm (7/8\")", w:2.98}, {s:"25mm (1\")", w:3.85}, {s:"28mm", w:4.83},
-            {s:"32mm (1-1/4\")", w:6.31}, {s:"35mm", w:7.55}, {s:"38mm (1-1/2\")", w:8.90},
-            {s:"42mm", w:10.9}, {s:"45mm (1-3/4\")", w:12.5}, {s:"50mm (2\")", w:15.4},
-            {s:"55mm", w:18.7}, {s:"60mm", w:22.2}, {s:"65mm (2-1/2\")", w:26.0},
-            {s:"70mm", w:30.2}, {s:"75mm (3\")", w:34.7}, {s:"80mm", w:39.5},
-            {s:"90mm", w:49.9}, {s:"100mm (4\")", w:61.7}
-        ],
-        "RECT_TUBE": [
-            {s:"30x20x1.6", w:1.14}, {s:"30x20x2.0", w:1.39}, {s:"30x20x2.3", w:1.56},
-            {s:"40x20x1.6", w:1.39}, {s:"40x20x2.0", w:1.70}, {s:"40x20x2.3", w:1.92},
-            {s:"50x25x1.6", w:1.77}, {s:"50x25x2.0", w:2.17}, {s:"50x25x2.3", w:2.47}, {s:"50x25x3.2", w:3.30},
-            {s:"60x30x2.3", w:3.01}, {s:"60x30x3.2", w:4.05},
-            {s:"75x45x2.3", w:4.09}, {s:"75x45x3.2", w:5.56},
-            {s:"100x50x2.3", w:5.17}, {s:"100x50x3.2", w:7.06}, {s:"100x50x4.5", w:9.66}, {s:"100x50x6.0", w:12.5},
-            {s:"125x75x3.2", w:9.58}, {s:"125x75x4.5", w:13.2}, {s:"125x75x6.0", w:17.2},
-            {s:"150x50x3.2", w:9.58}, {s:"150x50x4.5", w:13.2}, {s:"150x50x6.0", w:17.2},
-            {s:"150x100x4.5", w:16.7}, {s:"150x100x6.0", w:21.9}, {s:"150x100x9.0", w:31.5},
-            {s:"200x100x4.5", w:20.3}, {s:"200x100x6.0", w:26.6}, {s:"200x100x9.0", w:38.5},
-            {s:"250x150x6.0", w:36.1}, {s:"250x150x9.0", w:52.7}, {s:"300x200x6.0", w:45.5},
-            {s:"300x200x9.0", w:66.8}, {s:"300x200x12", w:87.1}
-        ],
-        "SQUARE_TUBE": [
-            {s:"12.7x12.7x1.0", w:0.37}, {s:"16x16x1.2", w:0.56}, {s:"19x19x1.2", w:0.67},
-            {s:"25.4x25.4x1.2", w:0.91}, {s:"25.4x25.4x1.6", w:1.20}, {s:"25.4x25.4x2.0", w:1.47},
-            {s:"31.8x31.8x1.6", w:1.52}, {s:"31.8x31.8x2.0", w:1.87}, {s:"31.8x31.8x2.3", w:2.12},
-            {s:"38.1x38.1x1.6", w:1.84}, {s:"38.1x38.1x2.0", w:2.27}, {s:"38.1x38.1x2.3", w:2.58},
-            {s:"50x50x1.6", w:2.45}, {s:"50x50x2.3", w:3.44}, {s:"50x50x3.2", w:4.66},
-            {s:"60x60x2.3", w:4.17}, {s:"60x60x3.2", w:5.66},
-            {s:"75x75x2.3", w:5.25}, {s:"75x75x3.2", w:7.17}, {s:"75x75x4.5", w:9.82},
-            {s:"100x100x2.3", w:7.06}, {s:"100x100x3.2", w:9.68}, {s:"100x100x4.5", w:13.4}, {s:"100x100x6.0", w:17.2},
-            {s:"125x125x3.2", w:12.2}, {s:"125x125x4.5", w:16.9}, {s:"125x125x6.0", w:21.9}, {s:"125x125x9.0", w:31.5},
-            {s:"150x150x4.5", w:20.3}, {s:"150x150x6.0", w:26.6}, {s:"150x150x9.0", w:38.5},
-            {s:"175x175x6.0", w:31.3}, {s:"175x175x9.0", w:45.5},
-            {s:"200x200x6.0", w:36.1}, {s:"200x200x9.0", w:52.7}, {s:"200x200x12", w:68.5},
-            {s:"250x250x6.0", w:45.5}, {s:"250x250x9.0", w:66.8}, {s:"250x250x12", w:87.1},
-            {s:"300x300x9.0", w:80.9}, {s:"300x300x12", w:106.0}
-        ],
-        "ROUND_TUBE_SS": [
-            {s:"9.5 x 1.0mm", w:0.21}, {s:"12.7 x 1.0mm", w:0.29}, {s:"15.9 x 1.0mm", w:0.37},
-            {s:"19.1 x 1.2mm", w:0.54}, {s:"25.4 x 1.2mm", w:0.73}, {s:"31.8 x 1.5mm", w:1.14},
-            {s:"38.1 x 1.5mm", w:1.38}, {s:"50.8 x 2.0mm", w:2.45}, {s:"63.5 x 2.0mm", w:3.09},
-            {s:"76.2 x 2.0mm", w:3.73}, {s:"101.6 x 3.0mm", w:7.43},
-            {s:"1/4\" (13.7x2.2mm)", w:0.64}, {s:"3/8\" (17.1x2.3mm)", w:0.86},
-            {s:"1/2\" (21.3x2.8mm)", w:1.30}, {s:"3/4\" (27.2x2.9mm)", w:1.77},
-            {s:"1\" (34.0x3.4mm)", w:2.61}, {s:"1-1/4\" (42.7x3.6mm)", w:3.53},
-            {s:"1-1/2\" (48.6x3.7mm)", w:4.17}, {s:"2\" (60.5x3.9mm)", w:5.54},
-            {s:"2-1/2\" (76.3x5.2mm)", w:9.27}, {s:"3\" (89.1x5.5mm)", w:11.5},
-            {s:"4\" (114.3x6.0mm)", w:16.3}
-        ],
-        "C_STEEL": [
-            {s:"60x30x10x1.6", w:1.63}, {s:"60x30x10x2.3", w:2.25},
-            {s:"75x45x15x1.6", w:2.25}, {s:"75x45x15x2.3", w:3.15},
-            {s:"100x50x20x1.6", w:2.81}, {s:"100x50x20x2.3", w:3.96}, {s:"100x50x20x3.2", w:5.36},
-            {s:"125x50x20x2.3", w:4.41}, {s:"125x50x20x3.2", w:6.00},
-            {s:"150x50x20x2.3", w:4.86}, {s:"150x50x20x3.2", w:6.62},
-            {s:"150x65x20x2.3", w:5.40}, {s:"150x65x20x3.2", w:7.37},
-            {s:"200x75x20x2.3", w:6.75}, {s:"200x75x20x3.2", w:9.27},
-            {s:"250x75x25x3.2", w:10.8}, {s:"250x75x25x4.5", w:14.9}
-        ],
-        "ROUND_TUBE": [
-            {s:"15.9 x 1.2mm", w:0.43}, {s:"19.1 x 1.2mm", w:0.53}, {s:"19.1 x 1.6mm", w:0.69},
-            {s:"25.4 x 1.2mm", w:0.72}, {s:"25.4 x 1.6mm", w:0.94}, {s:"25.4 x 2.0mm", w:1.15},
-            {s:"31.8 x 1.6mm", w:1.19}, {s:"31.8 x 2.0mm", w:1.47}, {s:"31.8 x 2.3mm", w:1.67},
-            {s:"38.1 x 1.6mm", w:1.44}, {s:"38.1 x 2.0mm", w:1.78}, {s:"38.1 x 2.3mm", w:2.03},
-            {s:"50.8 x 1.6mm", w:1.94}, {s:"50.8 x 2.0mm", w:2.41}, {s:"50.8 x 2.3mm", w:2.75},
-            {s:"63.5 x 2.3mm", w:3.47}, {s:"63.5 x 3.2mm", w:4.76},
-            {s:"76.2 x 2.3mm", w:4.19}, {s:"76.2 x 3.2mm", w:5.76}, {s:"101.6 x 3.2mm", w:7.76},
-            {s:"1/2\" (21.7x2.8mm)", w:1.31}, {s:"3/4\" (27.2x2.8mm)", w:1.68},
-            {s:"1\" (34.0x3.2mm)", w:2.43}, {s:"1-1/4\" (42.7x3.5mm)", w:3.38},
-            {s:"1-1/2\" (48.6x3.5mm)", w:3.89}, {s:"2\" (60.5x3.8mm)", w:5.31},
-            {s:"2-1/2\" (76.3x5.2mm)", w:9.12}, {s:"3\" (89.1x5.5mm)", w:11.3},
-            {s:"4\" (114.3x6.0mm)", w:16.0}, {s:"5\" (139.8x6.6mm)", w:21.7},
-            {s:"6\" (165.2x7.1mm)", w:27.7}, {s:"8\" (216.3x8.2mm)", w:42.1}
-        ]
+        "IRON_PLATE": [{s:"0.4mm",w:3.14},{s:"0.5mm",w:3.93},{s:"0.6mm",w:4.71},{s:"0.8mm",w:6.28},{s:"1.0mm",w:7.85},{s:"1.2mm",w:9.42},{s:"1.6mm",w:12.56},{s:"2.0mm",w:15.70},{s:"2.3mm",w:18.06},{s:"3.0mm",w:23.55},{s:"4.5mm",w:35.33},{s:"6.0mm",w:47.10},{s:"8.0mm",w:62.80},{s:"9.0mm",w:70.65},{s:"10mm",w:78.50},{s:"12mm",w:94.20},{s:"16mm",w:125.6},{s:"19mm",w:149.2},{s:"22mm",w:172.7},{s:"25mm",w:196.3},{s:"28mm",w:219.8},{s:"32mm",w:251.2},{s:"36mm",w:282.6},{s:"40mm",w:314.0},{s:"45mm",w:353.3},{s:"50mm",w:392.5}],
+        "SS_PLATE": [{s:"0.3mm",w:2.38},{s:"0.4mm",w:3.17},{s:"0.5mm",w:3.97},{s:"0.8mm",w:6.34},{s:"1.0mm",w:7.93},{s:"1.2mm",w:9.52},{s:"1.5mm",w:11.90},{s:"2.0mm",w:15.86},{s:"3.0mm",w:23.79},{s:"4.0mm",w:31.72},{s:"6.0mm",w:47.58},{s:"10mm",w:79.30},{s:"12mm",w:95.16},{s:"25mm",w:198.25},{s:"50mm",w:396.50}],
+        "SS_CHANNEL": [{s:"50x25x5.0",w:3.66},{s:"75x40x5.0",w:6.92},{s:"100x50x5.0",w:9.36},{s:"125x65x6.0",w:13.40},{s:"150x75x6.5",w:18.60},{s:"200x80x7.5",w:24.60},{s:"300x90x9.0",w:38.10}],
+        "CHECKERED_PLATE": [{s:"2.5mm",w:22.0},{s:"3.0mm",w:25.9},{s:"3.2mm",w:27.5},{s:"4.5mm",w:37.7},{s:"6.0mm",w:49.5},{s:"9.0mm",w:73.1},{s:"12mm",w:96.6}],
+        "EXPANDED_XG": [{s:"XG11 (厚4.5/送7.0mm)",w:14.5},{s:"XG12 (厚6.0/送7.0mm)",w:19.4},{s:"XG13 (厚6.0/送9.0mm)",w:24.9},{s:"XG14 (厚8.0/送9.0mm)",w:33.2},{s:"XG21 (厚4.5/送7.0mm)",w:13.7},{s:"XG22 (厚6.0/送7.0mm)",w:19.3},{s:"XG23 (厚6.0/送9.0mm)",w:23.6},{s:"XG24 (厚8.0/送9.0mm)",w:31.4}],
+        "RH": [{s:"100x50x5x7",w:9.30},{s:"125x60x6x8",w:13.2},{s:"148x100x6x9",w:21.1},{s:"150x75x5x7",w:14.0},{s:"175x90x5x8",w:18.1},{s:"194x150x6x9",w:30.6},{s:"198x99x4.5x7",w:18.2},{s:"200x100x5.5x8",w:21.3},{s:"200x200x8x12",w:49.9},{s:"244x175x7x11",w:44.1},{s:"248x124x5x8",w:25.7},{s:"250x125x6x9",w:29.6},{s:"250x250x9x14",w:72.4},{s:"294x200x8x12",w:56.8},{s:"298x149x5.5x8",w:32.0},{s:"300x150x6.5x9",w:36.7},{s:"300x300x10x15",w:94.0},{s:"340x250x9x14",w:79.7},{s:"346x174x6x9",w:41.4},{s:"350x175x7x11",w:49.6},{s:"390x300x10x16",w:107.0},{s:"396x199x7x11",w:56.6},{s:"400x200x8x13",w:66.0},{s:"400x400x13x21",w:172.0},{s:"446x199x8x12",w:66.2},{s:"450x200x9x14",w:76.0},{s:"496x199x9x14",w:79.5},{s:"500x200x10x16",w:89.6},{s:"582x300x12x17",w:137.0},{s:"588x300x12x20",w:151.0},{s:"596x199x10x15",w:94.6},{s:"600x200x11x17",w:106.0},{s:"700x300x13x24",w:185.0},{s:"800x300x14x26",w:210.0},{s:"900x300x16x28",w:243.0}],
+        "I_BEAM": [{s:"100 x 75 x 5.0 x 8.0",w:12.9},{s:"125 x 75 x 5.5 x 9.5",w:16.1},{s:"150 x 75 x 5.5 x 9.5",w:17.1},{s:"150 x 125 x 8.5 x 14.0",w:31.5},{s:"180 x 100 x 6.0 x 10.0",w:23.6},{s:"200 x 100 x 7.0 x 10.0",w:26.0},{s:"200 x 150 x 9.0 x 16.0",w:50.4},{s:"250 x 125 x 7.5 x 12.5",w:38.3},{s:"250 x 125 x 10.0 x 19.0",w:55.5},{s:"300 x 150 x 8.0 x 13.0",w:48.3},{s:"300 x 150 x 10.0 x 18.5",w:65.5},{s:"350 x 150 x 9.0 x 15.0",w:58.5},{s:"400 x 150 x 10.0 x 18.0",w:72.0},{s:"450 x 175 x 11.0 x 20.0",w:91.7},{s:"600 x 190 x 13.0 x 25.0",w:133.0}],
+        "CHANNEL": [{s:"75x40x5x7",w:6.92},{s:"100x50x5x7.5",w:9.36},{s:"125x65x6x8",w:13.4},{s:"150x75x6.5x10",w:18.6},{s:"150x75x9x12.5",w:24.0},{s:"180x75x7x10.5",w:20.9},{s:"200x80x7.5x11",w:24.6},{s:"200x90x8x13.5",w:30.3},{s:"250x90x9x13",w:34.6},{s:"250x90x11x14.5",w:40.2},{s:"300x90x9x13",w:38.1},{s:"300x90x10x15.5",w:43.8},{s:"380x100x10.5x16",w:54.5},{s:"380x100x13x20",w:67.3}],
+        "ANGLE_E": [{s:"25x25x3",w:1.12},{s:"30x30x3",w:1.36},{s:"40x40x3",w:1.83},{s:"40x40x5",w:2.97},{s:"50x50x4",w:3.06},{s:"50x50x5",w:3.77},{s:"50x50x6",w:4.43},{s:"65x65x5",w:4.97},{s:"65x65x6",w:5.91},{s:"65x65x8",w:7.66},{s:"75x75x6",w:6.85},{s:"75x75x9",w:9.96},{s:"75x75x12",w:13.0},{s:"90x90x7",w:9.59},{s:"90x90x10",w:13.3},{s:"90x90x13",w:17.0},{s:"100x100x7",w:10.7},{s:"100x100x10",w:14.9},{s:"100x100x13",w:19.1},{s:"125x125x9",w:17.4},{s:"125x125x12",w:22.7},{s:"125x125x15",w:27.9},{s:"150x150x12",w:27.3},{s:"150x150x15",w:33.8},{s:"150x150x19",w:41.9},{s:"175x175x12",w:31.8},{s:"175x175x15",w:39.4},{s:"200x200x15",w:45.3},{s:"200x200x20",w:59.7},{s:"200x200x25",w:73.6}],
+        "ANGLE_U": [{s:"75x50x6",w:5.65},{s:"90x75x6",w:7.54},{s:"90x75x9",w:11.0},{s:"100x75x7",w:9.32},{s:"100x75x10",w:13.0},{s:"125x75x7",w:10.7},{s:"125x75x10",w:14.9},{s:"150x90x9",w:16.4},{s:"150x90x12",w:21.5},{s:"150x100x10",w:19.1},{s:"150x100x12",w:22.7}],
+        "SS_ANGLE_E": [{s:"20x20x3",w:0.87},{s:"25x25x3",w:1.12},{s:"25x25x4",w:1.45},{s:"25x25x5",w:1.77},{s:"30x30x3",w:1.36},{s:"30x30x4",w:1.77},{s:"30x30x5",w:2.16},{s:"40x40x3",w:1.83},{s:"40x40x4",w:2.42},{s:"40x40x5",w:2.97},{s:"40x40x6",w:3.51},{s:"50x50x3",w:2.33},{s:"50x50x4",w:3.06},{s:"50x50x5",w:3.77},{s:"50x50x6",w:4.43},{s:"60x60x5",w:4.57},{s:"60x60x6",w:5.42},{s:"65x65x5",w:4.97},{s:"65x65x6",w:5.91},{s:"65x65x8",w:7.66},{s:"65x65x9",w:8.51},{s:"70x70x6",w:6.38},{s:"75x75x6",w:6.85},{s:"75x75x9",w:9.96},{s:"75x75x10",w:11.0},{s:"80x80x6",w:7.34},{s:"80x80x8",w:9.61},{s:"80x80x10",w:11.8},{s:"90x90x6",w:8.30},{s:"90x90x9",w:12.2},{s:"90x90x10",w:13.3},{s:"100x100x6",w:9.26},{s:"100x100x8",w:12.2},{s:"100x100x10",w:14.9},{s:"100x100x12",w:17.7}],
+        "ROUND_BAR": [{s:"6mm",w:0.222},{s:"8mm",w:0.395},{s:"9mm",w:0.499},{s:"10mm",w:0.617},{s:"12mm",w:0.888},{s:"13mm (1/2\")",w:1.04},{s:"16mm (5/8\")",w:1.58},{s:"19mm (3/4\")",w:2.23},{s:"22mm (7/8\")",w:2.98},{s:"25mm (1\")",w:3.85},{s:"28mm",w:4.83},{s:"32mm (1-1/4\")",w:6.31},{s:"35mm",w:7.55},{s:"38mm (1-1/2\")",w:8.90},{s:"42mm",w:10.9},{s:"45mm (1-3/4\")",w:12.5},{s:"50mm (2\")",w:15.4},{s:"55mm",w:18.7},{s:"60mm",w:22.2},{s:"65mm (2-1/2\")",w:26.0},{s:"70mm",w:30.2},{s:"75mm (3\")",w:34.7},{s:"80mm",w:39.5},{s:"90mm",w:49.9},{s:"100mm (4\")",w:61.7}],
+        "FLAT_BAR": [{s:"3 x 19",w:0.45},{s:"3 x 25",w:0.59},{s:"3 x 32",w:0.75},{s:"3 x 38",w:0.89},{s:"4.5 x 25",w:0.88},{s:"4.5 x 32",w:1.13},{s:"4.5 x 38",w:1.34},{s:"4.5 x 50",w:1.77},{s:"6 x 19",w:0.89},{s:"6 x 25",w:1.18},{s:"6 x 32",w:1.51},{s:"6 x 38",w:1.79},{s:"6 x 50",w:2.36},{s:"6 x 65",w:3.06},{s:"6 x 75",w:3.53},{s:"6 x 100",w:4.71},{s:"9 x 25",w:1.77},{s:"9 x 32",w:2.26},{s:"9 x 38",w:2.68},{s:"9 x 50",w:3.53},{s:"9 x 65",w:4.59},{s:"9 x 75",w:5.30},{s:"9 x 100",w:7.07},{s:"9 x 125",w:8.83},{s:"12 x 25",w:2.36},{s:"12 x 32",w:3.01},{s:"12 x 38",w:3.58},{s:"12 x 50",w:4.71},{s:"12 x 65",w:6.12},{s:"12 x 75",w:7.07},{s:"12 x 100",w:9.42},{s:"12 x 125",w:11.8},{s:"12 x 150",w:14.1},{s:"16 x 38",w:4.77},{s:"16 x 50",w:6.28},{s:"16 x 65",w:8.16},{s:"16 x 75",w:9.42},{s:"16 x 100",w:12.6},{s:"16 x 125",w:15.7},{s:"16 x 150",w:18.8},{s:"19 x 50",w:7.46},{s:"19 x 65",w:9.69},{s:"19 x 75",w:11.2},{s:"19 x 100",w:14.9},{s:"19 x 125",w:18.6},{s:"19 x 150",w:22.4},{s:"25 x 50",w:9.81},{s:"25 x 65",w:12.8},{s:"25 x 75",w:14.7},{s:"25 x 100",w:19.6},{s:"25 x 125",w:24.5},{s:"25 x 150",w:29.4}],
+        "SS_ROUND_BAR": [{s:"3mm",w:0.056},{s:"4mm",w:0.099},{s:"5mm",w:0.154},{s:"6mm",w:0.222},{s:"8mm",w:0.395},{s:"9mm",w:0.499},{s:"10mm",w:0.617},{s:"12mm",w:0.888},{s:"13mm (1/2\")",w:1.04},{s:"16mm (5/8\")",w:1.58},{s:"19mm (3/4\")",w:2.23},{s:"22mm (7/8\")",w:2.98},{s:"25mm (1\")",w:3.85},{s:"28mm",w:4.83},{s:"32mm (1-1/4\")",w:6.31},{s:"35mm",w:7.55},{s:"38mm (1-1/2\")",w:8.90},{s:"42mm",w:10.9},{s:"45mm (1-3/4\")",w:12.5},{s:"50mm (2\")",w:15.4},{s:"55mm",w:18.7},{s:"60mm",w:22.2},{s:"65mm (2-1/2\")",w:26.0},{s:"70mm",w:30.2},{s:"75mm (3\")",w:34.7},{s:"80mm",w:39.5},{s:"90mm",w:49.9},{s:"100mm (4\")",w:61.7}],
+        "RECT_TUBE": [{s:"30x20x1.6",w:1.14},{s:"30x20x2.0",w:1.39},{s:"30x20x2.3",w:1.56},{s:"40x20x1.6",w:1.39},{s:"40x20x2.0",w:1.70},{s:"40x20x2.3",w:1.92},{s:"50x25x1.6",w:1.77},{s:"50x25x2.0",w:2.17},{s:"50x25x2.3",w:2.47},{s:"50x25x3.2",w:3.30},{s:"60x30x2.3",w:3.01},{s:"60x30x3.2",w:4.05},{s:"75x45x2.3",w:4.09},{s:"75x45x3.2",w:5.56},{s:"100x50x2.3",w:5.17},{s:"100x50x3.2",w:7.06},{s:"100x50x4.5",w:9.66},{s:"100x50x6.0",w:12.5},{s:"125x75x3.2",w:9.58},{s:"125x75x4.5",w:13.2},{s:"125x75x6.0",w:17.2},{s:"150x50x3.2",w:9.58},{s:"150x50x4.5",w:13.2},{s:"150x50x6.0",w:17.2},{s:"150x100x4.5",w:16.7},{s:"150x100x6.0",w:21.9},{s:"150x100x9.0",w:31.5},{s:"200x100x4.5",w:20.3},{s:"200x100x6.0",w:26.6},{s:"200x100x9.0",w:38.5},{s:"250x150x6.0",w:36.1},{s:"250x150x9.0",w:52.7},{s:"300x200x6.0",w:45.5},{s:"300x200x9.0",w:66.8},{s:"300x200x12",w:87.1}],
+        "SQUARE_TUBE": [{s:"12.7x12.7x1.0",w:0.37},{s:"16x16x1.2",w:0.56},{s:"19x19x1.2",w:0.67},{s:"25.4x25.4x1.2",w:0.91},{s:"25.4x25.4x1.6",w:1.20},{s:"25.4x25.4x2.0",w:1.47},{s:"31.8x31.8x1.6",w:1.52},{s:"31.8x31.8x2.0",w:1.87},{s:"31.8x31.8x2.3",w:2.12},{s:"38.1x38.1x1.6",w:1.84},{s:"38.1x38.1x2.0",w:2.27},{s:"38.1x38.1x2.3",w:2.58},{s:"50x50x1.6",w:2.45},{s:"50x50x2.3",w:3.44},{s:"50x50x3.2",w:4.66},{s:"60x60x2.3",w:4.17},{s:"60x60x3.2",w:5.66},{s:"75x75x2.3",w:5.25},{s:"75x75x3.2",w:7.17},{s:"75x75x4.5",w:9.82},{s:"100x100x2.3",w:7.06},{s:"100x100x3.2",w:9.68},{s:"100x100x4.5",w:13.4},{s:"100x100x6.0",w:17.2},{s:"125x125x3.2",w:12.2},{s:"125x125x4.5",w:16.9},{s:"125x125x6.0",w:21.9},{s:"125x125x9.0",w:31.5},{s:"150x150x4.5",w:20.3},{s:"150x150x6.0",w:26.6},{s:"150x150x9.0",w:38.5},{s:"175x175x6.0",w:31.3},{s:"175x175x9.0",w:45.5},{s:"200x200x6.0",w:36.1},{s:"200x200x9.0",w:52.7},{s:"200x200x12",w:68.5},{s:"250x250x6.0",w:45.5},{s:"250x250x9.0",w:66.8},{s:"250x250x12",w:87.1},{s:"300x300x9.0",w:80.9},{s:"300x300x12",w:106.0}],
+        "ROUND_TUBE_SS": [{s:"9.5 x 1.0mm",w:0.21},{s:"12.7 x 1.0mm",w:0.29},{s:"15.9 x 1.0mm",w:0.37},{s:"19.1 x 1.2mm",w:0.54},{s:"25.4 x 1.2mm",w:0.73},{s:"31.8 x 1.5mm",w:1.14},{s:"38.1 x 1.5mm",w:1.38},{s:"50.8 x 2.0mm",w:2.45},{s:"63.5 x 2.0mm",w:3.09},{s:"76.2 x 2.0mm",w:3.73},{s:"101.6 x 3.0mm",w:7.43},{s:"1/4\" (13.7x2.2mm)",w:0.64},{s:"3/8\" (17.1x2.3mm)",w:0.86},{s:"1/2\" (21.3x2.8mm)",w:1.30},{s:"3/4\" (27.2x2.9mm)",w:1.77},{s:"1\" (34.0x3.4mm)",w:2.61},{s:"1-1/4\" (42.7x3.6mm)",w:3.53},{s:"1-1/2\" (48.6x3.7mm)",w:4.17},{s:"2\" (60.5x3.9mm)",w:5.54},{s:"2-1/2\" (76.3x5.2mm)",w:9.27},{s:"3\" (89.1x5.5mm)",w:11.5},{s:"4\" (114.3x6.0mm)",w:16.3}],
+        "C_STEEL": [{s:"60x30x10x1.6",w:1.63},{s:"60x30x10x2.3",w:2.25},{s:"75x45x15x1.6",w:2.25},{s:"75x45x15x2.3",w:3.15},{s:"100x50x20x1.6",w:2.81},{s:"100x50x20x2.3",w:3.96},{s:"100x50x20x3.2",w:5.36},{s:"125x50x20x2.3",w:4.41},{s:"125x50x20x3.2",w:6.00},{s:"150x50x20x2.3",w:4.86},{s:"150x50x20x3.2",w:6.62},{s:"150x65x20x2.3",w:5.40},{s:"150x65x20x3.2",w:7.37},{s:"200x75x20x2.3",w:6.75},{s:"200x75x20x3.2",w:9.27},{s:"250x75x25x3.2",w:10.8},{s:"250x75x25x4.5",w:14.9}],
+        "ROUND_TUBE": [{s:"15.9 x 1.2mm",w:0.43},{s:"19.1 x 1.2mm",w:0.53},{s:"19.1 x 1.6mm",w:0.69},{s:"25.4 x 1.2mm",w:0.72},{s:"25.4 x 1.6mm",w:0.94},{s:"25.4 x 2.0mm",w:1.15},{s:"31.8 x 1.6mm",w:1.19},{s:"31.8 x 2.0mm",w:1.47},{s:"31.8 x 2.3mm",w:1.67},{s:"38.1 x 1.6mm",w:1.44},{s:"38.1 x 2.0mm",w:1.78},{s:"38.1 x 2.3mm",w:2.03},{s:"50.8 x 1.6mm",w:1.94},{s:"50.8 x 2.0mm",w:2.41},{s:"50.8 x 2.3mm",w:2.75},{s:"63.5 x 2.3mm",w:3.47},{s:"63.5 x 3.2mm",w:4.76},{s:"76.2 x 2.3mm",w:4.19},{s:"76.2 x 3.2mm",w:5.76},{s:"101.6 x 3.2mm",w:7.76},{s:"1/2\" (21.7x2.8mm)",w:1.31},{s:"3/4\" (27.2x2.8mm)",w:1.68},{s:"1\" (34.0x3.2mm)",w:2.43},{s:"1-1/4\" (42.7x3.5mm)",w:3.38},{s:"1-1/2\" (48.6x3.5mm)",w:3.89},{s:"2\" (60.5x3.8mm)",w:5.31},{s:"2-1/2\" (76.3x5.2mm)",w:9.12},{s:"3\" (89.1x5.5mm)",w:11.3},{s:"4\" (114.3x6.0mm)",w:16.0},{s:"5\" (139.8x6.6mm)",w:21.7},{s:"6\" (165.2x7.1mm)",w:27.7},{s:"8\" (216.3x8.2mm)",w:42.1}]
     };
-
     function initSpec() {
         const cat = document.getElementById('mainCat').value;
         const select = document.getElementById('specSelect');
         const inputs = document.getElementById('dynamicInputs');
         select.innerHTML = "";
-        DB[cat].forEach(item => {
-            let opt = document.createElement('option');
-            opt.value = item.w; opt.text = item.s;
-            select.appendChild(opt);
-        });
+        DB[cat].forEach(item => { let opt = document.createElement('option'); opt.value = item.w; opt.text = item.s; select.appendChild(opt); });
         if (cat.includes("PLATE") || cat === "EXPANDED_XG") {
-            inputs.innerHTML = `
-                <div class="input-group"><label>寬 W (mm)</label><input type="number" id="valW" value="1219" class="input-field" oninput="calculate()"></div>
-                <div class="input-group"><label>長 L (mm)</label><input type="number" id="valL" value="2438" class="input-field" oninput="calculate()"></div>
-                <div class="input-group"><label>數量 (件)</label><input type="number" id="valQty" value="1" class="input-field" oninput="calculate()"></div>`;
+            inputs.innerHTML = `<div class="input-group"><label>寬 W (mm)</label><input type="number" id="valW" value="1219" class="input-field" oninput="calculate()"></div><div class="input-group"><label>長 L (mm)</label><input type="number" id="valL" value="2438" class="input-field" oninput="calculate()"></div><div class="input-group"><label>數量 (件)</label><input type="number" id="valQty" value="1" class="input-field" oninput="calculate()"></div>`;
         } else {
-            inputs.innerHTML = `
-                <div class="col-span-2 input-group"><label>長度 Length (mm)</label><input type="number" id="valL" value="6000" class="input-field" oninput="calculate()"></div>
-                <div class="input-group"><label>數量 (件)</label><input type="number" id="valQty" value="1" class="input-field" oninput="calculate()"></div>`;
+            inputs.innerHTML = `<div class="col-span-2 input-group"><label>長度 Length (mm)</label><input type="number" id="valL" value="6000" class="input-field" oninput="calculate()"></div><div class="input-group"><label>數量 (件)</label><input type="number" id="valQty" value="1" class="input-field" oninput="calculate()"></div>`;
         }
         calculate();
     }
-
     function calculate() {
         const cat = document.getElementById('mainCat').value;
         const unitW = parseFloat(document.getElementById('specSelect').value);
@@ -866,13 +579,7 @@
         document.getElementById('infoSingle').innerText = single.toFixed(2) + " kg";
         document.getElementById('resPrice').innerText = Math.round(total * pricePerKg).toLocaleString();
     }
-
-    function resetForm() {
-        document.getElementById('valWaste').value = 0;
-        document.getElementById('valPrice').value = "";
-        initSpec();
-    }
-
+    function resetForm() { document.getElementById('valWaste').value = 0; document.getElementById('valPrice').value = ""; initSpec(); }
     function copyResult() {
         const spec = document.getElementById('specSelect').selectedOptions[0].text;
         const weight = document.getElementById('resTotal').innerText;
@@ -880,16 +587,13 @@
         const text = `【鋼鐵重量計算結果】\n規格：${spec}\n總重量：${weight} KG\n預估金額：$${price} TWD\n(含損耗計算)`;
         navigator.clipboard.writeText(text).then(() => alert('詳細結果已複製至剪貼簿'));
     }
-
     function shareToLine() {
         const spec = document.getElementById('specSelect').selectedOptions[0].text;
         const weight = document.getElementById('resTotal').innerText;
         const price = document.getElementById('resPrice').innerText;
-        const currentUrl = "https://steel-calc.idv.tw";
-        const text = `【鋼鐵重量計算結果】\n規格：${spec}\n總重量：${weight} KG\n預估金額：$${price} TWD\n\n線上試算工具：\n${currentUrl}`;
+        const text = `【鋼鐵重量計算結果】\n規格：${spec}\n總重量：${weight} KG\n預估金額：$${price} TWD\n\n線上試算工具：\nhttps://steel-calc.idv.tw`;
         window.open(`https://line.me/R/msg/text/?${encodeURIComponent(text)}`, '_blank');
     }
-
     initSpec();
 </script>
 </body>
