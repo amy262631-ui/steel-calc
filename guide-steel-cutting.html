@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鋼材裁切方式完整比較：電漿、雷射、火焰、剪切如何選擇？ | 鐵材重量計算機</title>
+    <meta name="description" content="詳細比較電漿切割、雷射切割、火焰切割與剪板機四種鋼材裁切方式的適用板厚、切割精度、縫寬損耗與成本，協助工程師與採購人員選擇最合適的加工方式。">
+    <meta name="keywords" content="電漿切割, 雷射切割, 火焰切割, 剪板機, 鋼材裁切, 切割方式比較, 鋼板加工, 切割損耗">
+    <link rel="canonical" href="https://steel-calc.idv.tw/guide-steel-cutting.html" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "鋼材裁切方式完整比較：電漿、雷射、火焰、剪切如何選擇？",
+      "description": "比較四種鋼材裁切方式的適用板厚、切割精度、縫寬損耗與成本。",
+      "author": { "@type": "Organization", "name": "鐵材重量計算機", "url": "https://steel-calc.idv.tw" },
+      "publisher": { "@type": "Organization", "name": "鐵材重量計算機", "url": "https://steel-calc.idv.tw" },
+      "datePublished": "2026-05-28",
+      "dateModified": "2026-05-28",
+      "image": "https://cdn-icons-png.flaticon.com/512/2163/2163914.png"
+    }
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9184947057660512" crossorigin="anonymous"></script>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2163/2163914.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { display: flex; flex-direction: column; min-height: 100vh; font-family: sans-serif; }
+        main { flex: 1; }
+        .site-nav a { transition: color 0.2s; }
+        .site-nav a:hover { color: #3b82f6; }
+        .prose h2 { font-size: 1.5rem; font-weight: 900; color: #1e293b; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #f1f5f9; }
+        .prose h3 { font-size: 1.15rem; font-weight: 800; color: #1e293b; margin-top: 1.75rem; margin-bottom: 0.75rem; }
+        .prose p { color: #475569; line-height: 1.9; margin-bottom: 1.1rem; }
+        .prose ul { list-style: disc; padding-left: 1.5rem; color: #475569; line-height: 1.9; margin-bottom: 1.1rem; }
+        .prose li { margin-bottom: 0.4rem; }
+        .prose strong { color: #1e293b; }
+        .spec-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+        .spec-table th { background: #1e293b; color: white; padding: 0.75rem 1rem; text-align: left; }
+        .spec-table td { padding: 0.65rem 1rem; border-bottom: 1px solid #e2e8f0; color: #334155; }
+        .spec-table tr:nth-child(even) td { background: #f8fafc; }
+        .toc a { color: #3b82f6; text-decoration: none; font-size: 0.875rem; }
+        .toc a:hover { text-decoration: underline; }
+        .toc li { margin-bottom: 0.4rem; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+<nav class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3 site-nav">
+        <a href="index.html" class="flex items-center gap-2 font-black text-slate-800 text-lg"><span class="text-2xl">⚙️</span><span>鐵材計算機</span></a>
+        <div class="flex flex-wrap items-center gap-4 text-sm font-bold text-slate-500">
+            <a href="index.html">首頁試算</a><a href="density-table.html">鋼材密度表</a><a href="cns-standard.html">CNS規範指南</a><a href="nesting.html">智慧排料</a><a href="blog.html">知識專欄</a><a href="about.html">關於本站</a><a href="privacy.html">隱私權政策</a><a href="terms.html">使用條款</a>
+        </div>
+    </div>
+</nav>
+<main class="py-10 px-4">
+<div class="max-w-3xl mx-auto">
+    <div class="flex items-center gap-3 mb-6 text-sm">
+        <a href="index.html" class="text-slate-400 hover:text-blue-600">首頁</a><span class="text-slate-300">›</span>
+        <a href="blog.html" class="text-slate-400 hover:text-blue-600">知識專欄</a><span class="text-slate-300">›</span>
+        <span class="text-slate-600">鋼材裁切方式比較</span>
+    </div>
+    <header class="mb-8">
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-orange-100 text-orange-700 text-xs font-black px-3 py-1 rounded-full">加工知識</span>
+            <span class="bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1 rounded-full">裁切方式</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl font-black text-slate-900 leading-tight mb-4">
+            鋼材裁切方式完整比較<br><span class="text-orange-600">電漿、雷射、火焰、剪切如何選擇？</span>
+        </h1>
+        <p class="text-slate-500 leading-relaxed text-lg">裁切方式的選擇直接影響切割精度、材料損耗與加工成本。本文從工程採購的角度，比較四種主流鋼材裁切方式的特性與適用場合，讓你在下訂加工前就能做出正確判斷。</p>
+        <div class="flex items-center gap-4 mt-5 pt-5 border-t border-slate-100 text-sm text-slate-400">
+            <span>✍️ 鐵材重量計算機編輯部</span><span>·</span><span>📅 2026 年 5 月</span><span>·</span><span>⏱️ 閱讀約 6 分鐘</span>
+        </div>
+    </header>
+
+    <nav class="bg-orange-50 rounded-2xl p-6 mb-8 border border-orange-100">
+        <p class="font-black text-slate-700 mb-3 text-sm uppercase tracking-wider">📋 本文目錄</p>
+        <ol class="toc list-decimal list-inside space-y-1">
+            <li><a href="#sec-compare">四種裁切方式快速對照</a></li>
+            <li><a href="#sec-plasma">電漿切割（Plasma Cutting）</a></li>
+            <li><a href="#sec-laser">雷射切割（Laser Cutting）</a></li>
+            <li><a href="#sec-flame">火焰切割（Oxy-fuel Cutting）</a></li>
+            <li><a href="#sec-shear">剪板機剪切（Shearing）</a></li>
+            <li><a href="#sec-kerf">切割縫寬與損耗率的關係</a></li>
+            <li><a href="#sec-select">如何選擇裁切方式？</a></li>
+        </ol>
+    </nav>
+
+    <div class="my-6 flex justify-center">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9184947057660512" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <article class="bg-white rounded-[2rem] p-8 md:p-12 border border-slate-100 shadow-sm prose">
+
+        <section id="sec-compare">
+            <h2>一、四種裁切方式快速對照</h2>
+            <div class="not-prose overflow-x-auto rounded-xl border border-slate-200 my-4">
+                <table class="spec-table">
+                    <thead><tr><th>裁切方式</th><th>適用板厚</th><th>縫寬（約）</th><th>切割精度</th><th>相對成本</th><th>適合形狀</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>雷射切割</strong></td><td>0.5–25mm</td><td>0.5–1.5mm</td><td>⭐⭐⭐⭐⭐</td><td>高</td><td>複雜曲線、精密孔</td></tr>
+                        <tr><td><strong>電漿切割（CNC）</strong></td><td>3–50mm</td><td>2–4mm</td><td>⭐⭐⭐⭐</td><td>中</td><td>直線、圓弧、中等複雜</td></tr>
+                        <tr><td><strong>火焰切割</strong></td><td>6–300mm</td><td>3–6mm</td><td>⭐⭐</td><td>低</td><td>直線、簡單形狀</td></tr>
+                        <tr><td><strong>剪板機</strong></td><td>0.4–12mm</td><td>0mm（無縫）</td><td>⭐⭐⭐</td><td>低</td><td>直線裁切只</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="sec-plasma">
+            <h2>二、電漿切割（Plasma Cutting）</h2>
+            <p>電漿切割利用高溫電漿弧（溫度可達 20,000°C）熔化並吹除金屬，是台灣金屬加工廠最普遍使用的切割方式之一。現代 CNC 電漿切割機搭配自動排料軟體，可大幅提升材料利用率。</p>
+            <h3>優點</h3>
+            <ul>
+                <li>適用板厚範圍廣（3–50mm），中厚板的主力切割方式</li>
+                <li>切割速度快，適合大批量生產</li>
+                <li>可切割碳鋼、不鏽鋼、鋁合金等多種金屬</li>
+                <li>CNC 版可切複雜形狀，精度達 ±0.5–1mm</li>
+            </ul>
+            <h3>缺點</h3>
+            <ul>
+                <li>縫寬約 2–4mm，比雷射切割大，材料損耗較高</li>
+                <li>切割面有熱影響區（HAZ），需要後續研磨處理</li>
+                <li>薄板（＜3mm）切割時易變形</li>
+            </ul>
+            <div class="not-prose bg-blue-50 border-l-4 border-blue-500 rounded-xl p-4 my-4">
+                <p class="text-blue-700 text-sm"><strong>適用場合：</strong>鋼構件裁切、法蘭板、補強板、中厚鋼板零件加工。</p>
+            </div>
+        </section>
+
+        <section id="sec-laser">
+            <h2>三、雷射切割（Laser Cutting）</h2>
+            <p>雷射切割使用高功率雷射束聚焦熔化金屬，是目前精度最高的熱切割方式。隨著光纖雷射技術成熟，切割成本持續下降，在薄板加工中已逐漸取代電漿切割。</p>
+            <h3>優點</h3>
+            <ul>
+                <li>精度極高，可達 ±0.1–0.2mm，適合精密零件</li>
+                <li>縫寬極小（0.5–1.5mm），材料損耗最低</li>
+                <li>切割面光滑，通常不需後處理</li>
+                <li>可切複雜曲線、微小孔洞</li>
+                <li>適合不鏽鋼薄板，切割面氧化層薄</li>
+            </ul>
+            <h3>缺點</h3>
+            <ul>
+                <li>設備成本高，加工費用較電漿貴</li>
+                <li>厚板（＞25mm）切割速度慢，成本效益低</li>
+                <li>對材料表面清潔度要求較高</li>
+            </ul>
+            <div class="not-prose bg-blue-50 border-l-4 border-blue-500 rounded-xl p-4 my-4">
+                <p class="text-blue-700 text-sm"><strong>適用場合：</strong>精密零件、薄板（0.5–16mm）、不鏽鋼裝飾件、需要高尺寸精度的工件。</p>
+            </div>
+        </section>
+
+        <section id="sec-flame">
+            <h2>四、火焰切割（Oxy-fuel Cutting）</h2>
+            <p>火焰切割利用乙炔或丙烷與氧氣燃燒產生的高溫，使鋼材氧化熔斷。這是最古老的熱切割方式，設備成本極低，但精度和速度均不如電漿與雷射。</p>
+            <h3>優點</h3>
+            <ul>
+                <li>設備最便宜，適合工地現場使用</li>
+                <li>可切割極厚板材（可達 300mm 以上）</li>
+                <li>不需電力，適合無電源的施工環境</li>
+            </ul>
+            <h3>缺點</h3>
+            <ul>
+                <li>精度差，切割面不平整，需大量後處理</li>
+                <li>縫寬大（3–6mm），材料損耗最高</li>
+                <li>僅適用於碳鋼，無法切割不鏽鋼與鋁</li>
+                <li>熱影響區大，切割邊緣硬化，焊接前需磨除</li>
+            </ul>
+            <div class="not-prose bg-amber-50 border-l-4 border-amber-400 rounded-xl p-4 my-4">
+                <p class="text-amber-700 text-sm"><strong>適用場合：</strong>工地現場臨時裁切、極厚板（＞50mm）、對精度要求不高的粗切場合。</p>
+            </div>
+        </section>
+
+        <section id="sec-shear">
+            <h2>五、剪板機剪切（Shearing）</h2>
+            <p>剪板機利用上下刀片的剪切力裁斷薄板，是唯一「無縫」的裁切方式——沒有熔化損耗，只有純粹的剪斷。</p>
+            <h3>優點</h3>
+            <ul>
+                <li>無切割縫，材料利用率最高</li>
+                <li>速度快，適合直線大批量裁切</li>
+                <li>切割面無熱影響，不影響材料性質</li>
+                <li>成本低</li>
+            </ul>
+            <h3>缺點</h3>
+            <ul>
+                <li>只能裁切直線，無法做曲線或孔洞</li>
+                <li>適用板厚有限（通常 ≤ 12mm）</li>
+                <li>切割邊緣有輕微毛邊，需去毛刺</li>
+                <li>板材較厚時切割面有輕微斜度</li>
+            </ul>
+            <div class="not-prose bg-blue-50 border-l-4 border-blue-500 rounded-xl p-4 my-4">
+                <p class="text-blue-700 text-sm"><strong>適用場合：</strong>薄板矩形裁切、鋼板下料、不需後處理的直線裁切。</p>
+            </div>
+        </section>
+
+        <section id="sec-kerf">
+            <h2>六、切割縫寬與損耗率的關係</h2>
+            <p>切割縫寬直接影響排料損耗。以一張 1219×2438mm 的鋼板，裁切 10 個 200×200mm 的零件為例：</p>
+            <div class="not-prose overflow-x-auto rounded-xl border border-slate-200 my-4">
+                <table class="spec-table">
+                    <thead><tr><th>裁切方式</th><th>縫寬</th><th>10個零件的縫損面積</th><th>佔母板比例</th></tr></thead>
+                    <tbody>
+                        <tr><td>雷射切割</td><td>1mm</td><td>約 4,000 mm²</td><td>約 0.1%</td></tr>
+                        <tr><td>電漿切割</td><td>3mm</td><td>約 12,000 mm²</td><td>約 0.4%</td></tr>
+                        <tr><td>火焰切割</td><td>5mm</td><td>約 20,000 mm²</td><td>約 0.7%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>縫損只是損耗的一部分，排料餘料才是大宗。但在設計損耗率時，加工方式是重要參考因素。本站<a href="index.html" class="text-blue-600 hover:underline font-bold">重量計算機</a>的損耗率欄位，可輸入依加工方式調整後的數值，得出更精確的備料重量。</p>
+        </section>
+
+        <section id="sec-select">
+            <h2>七、如何選擇裁切方式？</h2>
+            <div class="not-prose space-y-3 my-4">
+                <div class="bg-white rounded-2xl p-5 border-2 border-slate-200">
+                    <p class="font-black text-slate-700 mb-2">板厚 ≤ 3mm（薄板）</p>
+                    <p class="text-slate-600 text-sm">優先選<strong>雷射切割</strong>（精度高、損耗小）或<strong>剪板機</strong>（直線裁切、成本低）。</p>
+                </div>
+                <div class="bg-white rounded-2xl p-5 border-2 border-slate-200">
+                    <p class="font-black text-slate-700 mb-2">板厚 3–25mm（中板）</p>
+                    <p class="text-slate-600 text-sm">形狀複雜 → <strong>雷射或電漿 CNC</strong>；形狀簡單、成本優先 → <strong>電漿切割</strong>。</p>
+                </div>
+                <div class="bg-white rounded-2xl p-5 border-2 border-slate-200">
+                    <p class="font-black text-slate-700 mb-2">板厚 ＞ 25mm（厚板）</p>
+                    <p class="text-slate-600 text-sm">優先選<strong>電漿切割</strong>；若無電漿設備或現場施工 → <strong>火焰切割</strong>。</p>
+                </div>
+                <div class="bg-white rounded-2xl p-5 border-2 border-slate-200">
+                    <p class="font-black text-slate-700 mb-2">不鏽鋼裁切</p>
+                    <p class="text-slate-600 text-sm"><strong>雷射或電漿切割</strong>均可；火焰切割<strong>不適用</strong>於不鏽鋼。</p>
+                </div>
+            </div>
+        </section>
+
+    </article>
+
+    <div class="my-8 flex justify-center">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9184947057660512" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <section class="mt-8">
+        <h2 class="text-xl font-black text-slate-800 mb-4">延伸閱讀</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a href="guide-waste-rate.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">📐</span>
+                <div><p class="font-black text-slate-700">鋼材損耗率怎麼抓？</p><p class="text-xs text-slate-400 mt-1">五種鋼材的台灣工程實務建議</p></div>
+            </a>
+            <a href="nesting.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">🧱</span>
+                <div><p class="font-black text-slate-700">智慧排料系統</p><p class="text-xs text-slate-400 mt-1">自動計算最佳裁切方案，降低廢料</p></div>
+            </a>
+            <a href="guide-theory-vs-actual-weight.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">⚖️</span>
+                <div><p class="font-black text-slate-700">理論磅單 vs 實際磅單</p><p class="text-xs text-slate-400 mt-1">採購保護完整指南</p></div>
+            </a>
+            <a href="index.html" class="bg-orange-500 rounded-2xl p-5 text-white hover:bg-orange-600 transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">🔧</span>
+                <div><p class="font-black">含損耗率重量計算機</p><p class="text-orange-100 text-xs mt-1">依裁切方式設定損耗率，精確備料</p></div>
+            </a>
+        </div>
+    </section>
+</div>
+</main>
+<footer class="bg-slate-800 text-slate-300 pt-10 pb-6 mt-10" role="contentinfo">
+    <div class="max-w-5xl mx-auto px-4">
+        <div class="flex flex-wrap justify-between gap-6 mb-8">
+            <div>
+                <a href="index.html" class="flex items-center gap-2 font-black text-white text-lg mb-2"><span>⚙️</span><span>鐵材重量計算機</span></a>
+                <p class="text-sm text-slate-400">符合 CNS 標準的專業鋼鐵工程知識門戶</p>
+            </div>
+            <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-400">
+                <a href="index.html" class="hover:text-blue-400">首頁試算</a><a href="density-table.html" class="hover:text-blue-400">鋼材密度表</a><a href="cns-standard.html" class="hover:text-blue-400">CNS規範指南</a><a href="nesting.html" class="hover:text-blue-400">智慧排料</a><a href="blog.html" class="hover:text-blue-400">知識專欄</a><a href="about.html" class="hover:text-blue-400">關於本站</a>
+            </nav>
+        </div>
+        <div class="border-t border-slate-700 pt-5 flex flex-col md:flex-row justify-between gap-2 text-xs text-slate-500">
+            <p>© <span id="footerYear"></span> 鐵材重量計算機 steel-calc.idv.tw</p>
+            <p>本文內容僅供參考，加工方式選擇請依實際工程條件評估。</p>
+        </div>
+    </div>
+</footer>
+<script>document.getElementById('footerYear').textContent = new Date().getFullYear();</script>
+</body>
+</html>
