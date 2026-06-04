@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CNS、JIS、ASTM 鋼鐵標準比較：台灣工程師完整指南 | 鐵材重量計算機</title>
+    <meta name="description" content="深入比較台灣 CNS、日本 JIS 與美國 ASTM 三大鋼鐵標準的差異，說明各標準的適用場合、材質對應關係與採購注意事項，協助工程師正確選用規格標準。">
+    <meta name="keywords" content="CNS標準, JIS標準, ASTM標準, 鋼鐵規格, SS400, A36, 鋼材標準比較, CNS vs JIS">
+    <link rel="canonical" href="https://steel-calc.idv.tw/guide-cns-vs-jis.html" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "CNS、JIS、ASTM 鋼鐵標準比較：台灣工程師完整指南",
+      "description": "深入比較台灣 CNS、日本 JIS 與美國 ASTM 三大鋼鐵標準的差異與適用場合。",
+      "author": { "@type": "Organization", "name": "鐵材重量計算機", "url": "https://steel-calc.idv.tw" },
+      "publisher": { "@type": "Organization", "name": "鐵材重量計算機", "url": "https://steel-calc.idv.tw" },
+      "datePublished": "2026-05-28",
+      "dateModified": "2026-05-28",
+      "image": "https://cdn-icons-png.flaticon.com/512/2163/2163914.png"
+    }
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9184947057660512" crossorigin="anonymous"></script>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2163/2163914.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { display: flex; flex-direction: column; min-height: 100vh; font-family: sans-serif; }
+        main { flex: 1; }
+        .site-nav a { transition: color 0.2s; }
+        .site-nav a:hover { color: #3b82f6; }
+        .prose h2 { font-size: 1.5rem; font-weight: 900; color: #1e293b; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #f1f5f9; }
+        .prose h3 { font-size: 1.15rem; font-weight: 800; color: #1e293b; margin-top: 1.75rem; margin-bottom: 0.75rem; }
+        .prose p { color: #475569; line-height: 1.9; margin-bottom: 1.1rem; }
+        .prose ul { list-style: disc; padding-left: 1.5rem; color: #475569; line-height: 1.9; margin-bottom: 1.1rem; }
+        .prose li { margin-bottom: 0.4rem; }
+        .prose strong { color: #1e293b; }
+        .spec-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+        .spec-table th { background: #1e293b; color: white; padding: 0.75rem 1rem; text-align: left; }
+        .spec-table td { padding: 0.65rem 1rem; border-bottom: 1px solid #e2e8f0; color: #334155; }
+        .spec-table tr:nth-child(even) td { background: #f8fafc; }
+        .toc a { color: #3b82f6; text-decoration: none; font-size: 0.875rem; }
+        .toc a:hover { text-decoration: underline; }
+        .toc li { margin-bottom: 0.4rem; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+<nav class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm" aria-label="主選單">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3 site-nav">
+        <a href="index.html" class="flex items-center gap-2 font-black text-slate-800 text-lg"><span class="text-2xl">⚙️</span><span>鐵材計算機</span></a>
+        <div class="flex flex-wrap items-center gap-4 text-sm font-bold text-slate-500">
+            <a href="index.html">首頁試算</a><a href="density-table.html">鋼材密度表</a><a href="cns-standard.html">CNS規範指南</a><a href="nesting.html">智慧排料</a><a href="blog.html">知識專欄</a><a href="about.html">關於本站</a><a href="privacy.html">隱私權政策</a><a href="terms.html">使用條款</a>
+        </div>
+    </div>
+</nav>
+<main class="py-10 px-4">
+<div class="max-w-3xl mx-auto">
+    <div class="flex items-center gap-3 mb-6 text-sm">
+        <a href="index.html" class="text-slate-400 hover:text-blue-600">首頁</a><span class="text-slate-300">›</span>
+        <a href="blog.html" class="text-slate-400 hover:text-blue-600">知識專欄</a><span class="text-slate-300">›</span>
+        <span class="text-slate-600">CNS vs JIS vs ASTM</span>
+    </div>
+    <header class="mb-8">
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-indigo-100 text-indigo-700 text-xs font-black px-3 py-1 rounded-full">規範標準</span>
+            <span class="bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1 rounded-full">CNS / JIS / ASTM</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl font-black text-slate-900 leading-tight mb-4">
+            CNS、JIS、ASTM<br><span class="text-indigo-600">鋼鐵標準比較：台灣工程師完整指南</span>
+        </h1>
+        <p class="text-slate-500 leading-relaxed text-lg">台灣工程現場同時存在三種標準體系，CNS 是本地規範、JIS 是進口料依據、ASTM 則出現在外商或出口工程。本文完整說明三者差異、材質對應關係與採購時的注意事項。</p>
+        <div class="flex items-center gap-4 mt-5 pt-5 border-t border-slate-100 text-sm text-slate-400">
+            <span>✍️ 鐵材重量計算機編輯部</span><span>·</span><span>📅 2026 年 5 月</span><span>·</span><span>⏱️ 閱讀約 7 分鐘</span>
+        </div>
+    </header>
+
+    <nav class="bg-indigo-50 rounded-2xl p-6 mb-8 border border-indigo-100">
+        <p class="font-black text-slate-700 mb-3 text-sm uppercase tracking-wider">📋 本文目錄</p>
+        <ol class="toc list-decimal list-inside space-y-1">
+            <li><a href="#sec-overview">三大標準體系概覽</a></li>
+            <li><a href="#sec-cns">CNS：台灣本地標準</a></li>
+            <li><a href="#sec-jis">JIS：日本標準與台灣的關係</a></li>
+            <li><a href="#sec-astm">ASTM：美國標準的應用場合</a></li>
+            <li><a href="#sec-compare">材質強度對照表</a></li>
+            <li><a href="#sec-practical">採購實務：如何指定標準？</a></li>
+            <li><a href="#sec-faq">常見問題 FAQ</a></li>
+        </ol>
+    </nav>
+
+    <div class="my-6 flex justify-center">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9184947057660512" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <article class="bg-white rounded-[2rem] p-8 md:p-12 border border-slate-100 shadow-sm prose">
+
+        <section id="sec-overview">
+            <h2>一、三大標準體系概覽</h2>
+            <p>台灣工程界使用的鋼材規格標準主要來自三個體系，各有其歷史背景與適用範圍：</p>
+            <div class="not-prose overflow-x-auto rounded-xl border border-slate-200 my-4">
+                <table class="spec-table">
+                    <thead><tr><th>標準</th><th>全名</th><th>主管機構</th><th>台灣使用頻率</th><th>主要應用</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>CNS</strong></td><td>中華民國國家標準</td><td>經濟部標準檢驗局（BSMI）</td><td>⭐⭐⭐⭐⭐</td><td>本地採購、政府工程</td></tr>
+                        <tr><td><strong>JIS</strong></td><td>日本工業標準</td><td>日本產業標準調查會（JISC）</td><td>⭐⭐⭐⭐</td><td>進口日本鋼材、中鋼產品</td></tr>
+                        <tr><td><strong>ASTM</strong></td><td>美國材料與試驗協會標準</td><td>ASTM International</td><td>⭐⭐</td><td>外商工程、出口製品、石化設備</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>三者並非完全獨立，台灣的 CNS 標準在技術內容上高度對齊 JIS，許多 CNS 標準甚至直接翻譯自 JIS，兩者的材質規格幾乎可以互換使用。ASTM 則有自己獨立的體系，與 CNS/JIS 的對應需要查對照表才能確認。</p>
+        </section>
+
+        <section id="sec-cns">
+            <h2>二、CNS：台灣本地標準</h2>
+            <p>CNS（Chinese National Standards）由經濟部標準檢驗局發布，是台灣境內政府工程採購的法定依據。凡是公共工程委員會管轄的標案，設計圖說若標示 CNS 規格，廠商必須提供符合 CNS 的材料，否則無法通過驗收。</p>
+            <h3>CNS 的重要鋼鐵標準</h3>
+            <div class="not-prose overflow-x-auto rounded-xl border border-slate-200 my-4">
+                <table class="spec-table">
+                    <thead><tr><th>CNS 編號</th><th>內容</th><th>對應 JIS</th></tr></thead>
+                    <tbody>
+                        <tr><td>CNS 2473</td><td>熱軋 H 型鋼規格與截面特性</td><td>JIS G 3192</td></tr>
+                        <tr><td>CNS 4437</td><td>熱軋等邊角鋼</td><td>JIS G 3192</td></tr>
+                        <tr><td>CNS 4436</td><td>熱軋不等邊角鋼</td><td>JIS G 3192</td></tr>
+                        <tr><td>CNS 4435</td><td>熱軋鋼板（中厚板）</td><td>JIS G 3193</td></tr>
+                        <tr><td>CNS 6331</td><td>冷軋鋼板及鋼帶</td><td>JIS G 3141</td></tr>
+                        <tr><td>CNS 2947</td><td>不鏽鋼板、帶及片</td><td>JIS G 4304/4305</td></tr>
+                        <tr><td>CNS 4176</td><td>結構用無縫鋼管</td><td>JIS G 3444</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>CNS 標準的主要材質牌號為 <strong>SS400</strong>（一般結構用軋鋼料），降伏強度 ≥ 245 MPa，抗拉強度 400–510 MPa，是台灣最普遍使用的結構鋼材質。</p>
+        </section>
+
+        <section id="sec-jis">
+            <h2>三、JIS：日本標準與台灣的關係</h2>
+            <p>台灣鋼鐵工業的發展深受日本影響，中鋼（China Steel）的設備、技術與產品規格長期對齊 JIS 標準。因此，即使採購的是「台灣本地生產」的鋼材，其規格也幾乎等同於 JIS。</p>
+            <h3>JIS 主要鋼材牌號</h3>
+            <ul>
+                <li><strong>SS400：</strong>一般結構用，等同 CNS 的 SS400，台灣最常見</li>
+                <li><strong>SM400 / SM490：</strong>熔接結構用鋼，焊接性能優於 SS400，適合鋼骨建築</li>
+                <li><strong>SUS304 / SUS316：</strong>不鏽鋼系列，台灣直接沿用 JIS 牌號</li>
+                <li><strong>STKR：</strong>一般結構用方管、矩形管</li>
+                <li><strong>STK：</strong>一般結構用圓管</li>
+            </ul>
+            <div class="not-prose bg-blue-50 border-l-4 border-blue-500 rounded-xl p-5 my-4">
+                <p class="font-bold text-blue-800 mb-1">💡 實務說明</p>
+                <p class="text-blue-700 text-sm">台灣廠商報價單上寫的「SS400」就是 JIS 牌號，CNS 對應的牌號也叫 SS400，兩者規格完全一致。採購時看到 SS400 不需要區分是 CNS 版還是 JIS 版，直接接受即可。</p>
+            </div>
+        </section>
+
+        <section id="sec-astm">
+            <h2>四、ASTM：美國標準的應用場合</h2>
+            <p>ASTM 標準在台灣相對少見，主要出現在以下情境：</p>
+            <ul>
+                <li><strong>外商或跨國工程：</strong>美系顧問公司的設計圖說通常指定 ASTM 規格</li>
+                <li><strong>石化與能源產業：</strong>煉油廠、天然氣設施常採用 ASTM 壓力容器鋼材規格</li>
+                <li><strong>出口製品：</strong>銷往美國或指定 ASTM 的市場的製品需符合 ASTM</li>
+                <li><strong>半導體廠房設備：</strong>部分國際半導體設備規格要求 ASTM 認證材料</li>
+            </ul>
+            <h3>ASTM 常見鋼材牌號</h3>
+            <div class="not-prose overflow-x-auto rounded-xl border border-slate-200 my-4">
+                <table class="spec-table">
+                    <thead><tr><th>ASTM 牌號</th><th>用途</th><th>對應 JIS/CNS</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>A36</strong></td><td>一般結構鋼板、型鋼</td><td>SS400（近似）</td></tr>
+                        <tr><td><strong>A572 Gr.50</strong></td><td>高強度低合金結構鋼</td><td>SM490（近似）</td></tr>
+                        <tr><td><strong>A992</strong></td><td>寬翼緣型鋼（H型鋼）專用</td><td>無直接對應</td></tr>
+                        <tr><td><strong>A304 / A316</strong></td><td>不鏽鋼</td><td>SUS304 / SUS316</td></tr>
+                        <tr><td><strong>A53</strong></td><td>一般用途鋼管</td><td>STK（近似）</td></tr>
+                        <tr><td><strong>A500</strong></td><td>冷成型結構用空心型鋼</td><td>STKR（近似）</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="sec-compare">
+            <h2>五、材質強度對照表</h2>
+            <p>三大標準的強度規格對照，是跨標準換算時最重要的參考依據：</p>
+            <div class="not-prose overflow-x-auto rounded-xl border border-slate-200 my-4">
+                <table class="spec-table">
+                    <thead><tr><th>強度等級</th><th>CNS / JIS</th><th>ASTM</th><th>降伏強度（MPa）</th><th>抗拉強度（MPa）</th></tr></thead>
+                    <tbody>
+                        <tr><td>一般結構</td><td>SS400</td><td>A36</td><td>≥ 245</td><td>400–510</td></tr>
+                        <tr><td>中強度</td><td>SM490 / SS490</td><td>A572 Gr.50</td><td>≥ 325</td><td>490–610</td></tr>
+                        <tr><td>高強度</td><td>SM570</td><td>A572 Gr.65</td><td>≥ 460</td><td>≥ 570</td></tr>
+                        <tr><td>不鏽鋼 304</td><td>SUS304</td><td>304 / S30400</td><td>≥ 205</td><td>≥ 515</td></tr>
+                        <tr><td>不鏽鋼 316</td><td>SUS316</td><td>316 / S31600</td><td>≥ 205</td><td>≥ 515</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="not-prose bg-amber-50 border-l-4 border-amber-400 rounded-xl p-5 my-4">
+                <p class="font-bold text-amber-800 mb-1">⚠️ 重要提醒</p>
+                <p class="text-amber-700 text-sm">「近似對應」不等於「可直接替換」。結構設計如需替換標準，應由結構技師確認強度、焊接性、衝擊韌性等所有性能指標均符合設計要求，不可僅憑降伏強度相近就自行替換。</p>
+            </div>
+        </section>
+
+        <section id="sec-practical">
+            <h2>六、採購實務：如何指定標準？</h2>
+            <p>在採購合約或詢價單中，正確指定標準可以避免廠商以不符規格的材料替代。建議的寫法：</p>
+            <div class="not-prose space-y-3 my-4">
+                <div class="bg-slate-50 rounded-2xl border border-slate-200 p-5">
+                    <p class="text-xs font-black text-slate-400 uppercase mb-2">一般國內採購（最常見）</p>
+                    <p class="text-slate-700 text-sm font-mono">H 型鋼 H300×150×6.5×9，材質 SS400，符合 CNS 2473 / JIS G 3192</p>
+                </div>
+                <div class="bg-slate-50 rounded-2xl border border-slate-200 p-5">
+                    <p class="text-xs font-black text-slate-400 uppercase mb-2">不鏽鋼採購</p>
+                    <p class="text-slate-700 text-sm font-mono">不鏽鋼板 SUS316L，厚度 6mm，符合 CNS 2947 / JIS G 4304，附原廠 Mill Certificate</p>
+                </div>
+                <div class="bg-slate-50 rounded-2xl border border-slate-200 p-5">
+                    <p class="text-xs font-black text-slate-400 uppercase mb-2">外商工程（ASTM 指定）</p>
+                    <p class="text-slate-700 text-sm font-mono">Wide Flange Beam W12×26，ASTM A992，Mill Certificate required</p>
+                </div>
+            </div>
+            <p>同時指定 CNS 和 JIS（如「CNS 2473 / JIS G 3192」）是最保險的寫法，兩者均可接受，不會因為廠商材質證明書上寫的是 JIS 而產生驗收爭議。</p>
+        </section>
+
+        <section id="sec-faq">
+            <h2>七、常見問題 FAQ</h2>
+            <h3>Q1：設計圖寫 JIS，但廠商提供 CNS 材質證明書，可以嗎？</h3>
+            <p>通常可以。CNS 與 JIS 的技術內容幾乎相同，CNS 材質證明書上的規格數值若符合 JIS 要求，應可接受。但最終驗收以合約約定為準，建議事先與業主或監工單位確認。</p>
+            <h3>Q2：A36 和 SS400 真的可以互換嗎？</h3>
+            <p>強度上近似，但不完全等同。A36 的最低降伏強度為 250 MPa，SS400 為 245 MPa，差距很小。然而化學成分要求略有差異，焊接性能也略有不同。在非關鍵結構或經結構技師確認後可以替換，正式工程仍建議取得業主書面同意。</p>
+            <h3>Q3：怎麼知道廠商提供的材料符合哪個標準？</h3>
+            <p>要求廠商提供原廠材質證明書（Mill Certificate），上面會明確標示適用標準（如「JIS G 3192」）及實測化學成分與機械性質。這是確認材料符合標準的唯一可靠方式。</p>
+        </section>
+
+    </article>
+
+    <div class="my-8 flex justify-center">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9184947057660512" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <section class="mt-8">
+        <h2 class="text-xl font-black text-slate-800 mb-4">延伸閱讀</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a href="cns-standard.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">📋</span>
+                <div><p class="font-black text-slate-700">CNS 鋼鐵公差規範指南</p><p class="text-xs text-slate-400 mt-1">鋼板、型鋼公差完整對照表</p></div>
+            </a>
+            <a href="guide-h-beam-vs-i-beam.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">🏗️</span>
+                <div><p class="font-black text-slate-700">H 型鋼 vs I 型鋼選材指南</p><p class="text-xs text-slate-400 mt-1">截面差異、CNS 規格與選用建議</p></div>
+            </a>
+            <a href="guide-theory-vs-actual-weight.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">⚖️</span>
+                <div><p class="font-black text-slate-700">理論磅單 vs 實際磅單</p><p class="text-xs text-slate-400 mt-1">採購保護完整指南</p></div>
+            </a>
+            <a href="index.html" class="bg-indigo-600 rounded-2xl p-5 text-white hover:bg-indigo-700 transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">🔧</span>
+                <div><p class="font-black">鋼材重量計算機</p><p class="text-indigo-200 text-xs mt-1">符合 CNS 標準，500+ 規格即時試算</p></div>
+            </a>
+        </div>
+    </section>
+</div>
+</main>
+<footer class="bg-slate-800 text-slate-300 pt-10 pb-6 mt-10" role="contentinfo">
+    <div class="max-w-5xl mx-auto px-4">
+        <div class="flex flex-wrap justify-between gap-6 mb-8">
+            <div>
+                <a href="index.html" class="flex items-center gap-2 font-black text-white text-lg mb-2"><span>⚙️</span><span>鐵材重量計算機</span></a>
+                <p class="text-sm text-slate-400">符合 CNS 標準的專業鋼鐵工程知識門戶</p>
+            </div>
+            <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-400">
+                <a href="index.html" class="hover:text-blue-400">首頁試算</a><a href="density-table.html" class="hover:text-blue-400">鋼材密度表</a><a href="cns-standard.html" class="hover:text-blue-400">CNS規範指南</a><a href="nesting.html" class="hover:text-blue-400">智慧排料</a><a href="blog.html" class="hover:text-blue-400">知識專欄</a><a href="about.html" class="hover:text-blue-400">關於本站</a>
+            </nav>
+        </div>
+        <div class="border-t border-slate-700 pt-5 flex flex-col md:flex-row justify-between gap-2 text-xs text-slate-500">
+            <p>© <span id="footerYear"></span> 鐵材重量計算機 steel-calc.idv.tw</p>
+            <p>本文內容僅供參考，正式工程請依合約約定標準為準。</p>
+        </div>
+    </div>
+</footer>
+<script>document.getElementById('footerYear').textContent = new Date().getFullYear();</script>
+</body>
+</html>
