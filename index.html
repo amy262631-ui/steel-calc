@@ -481,6 +481,54 @@
 <!-- ===== 回頂部按鈕 ===== -->
 <button id="back-to-top" onclick="scrollToTop()" aria-label="回到頂部">↑</button>
 
+ <!-- Adsterra 左側固定廣告 -->
+<div id="adsterra-left" style="
+    position: fixed;
+    left: calc(50% - 620px);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 160px;
+    z-index: 30;
+">
+    <script>
+      atOptions = {
+        'key' : '741f5d773a78b59d6ee21e2546e9009a',
+        'format' : 'iframe',
+        'height' : 600,
+        'width' : 160,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highperformanceformat.com/741f5d773a78b59d6ee21e2546e9009a/invoke.js"></script>
+</div>
+
+<!-- Adsterra 右側固定廣告 -->
+<div id="adsterra-right" style="
+    position: fixed;
+    right: calc(50% - 620px);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 160px;
+    z-index: 30;
+">
+    <script>
+      atOptions = {
+        'key' : '741f5d773a78b59d6ee21e2546e9009a',
+        'format' : 'iframe',
+        'height' : 600,
+        'width' : 160,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highperformanceformat.com/741f5d773a78b59d6ee21e2546e9009a/invoke.js"></script>
+</div>
+
+<!-- 手機隱藏側邊廣告 -->
+<style>
+@media (max-width: 1400px) {
+    #adsterra-left, #adsterra-right { display: none; }
+}
+</style>   
 <!-- 聯絡彈窗 -->
 <div id="contactModal" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl p-8 max-w-sm w-full shadow-2xl">
