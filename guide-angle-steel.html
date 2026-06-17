@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script data-cfasync="false" src="https://cmp.gatekeeperconsent.com/min.js"></script>
+    <script data-cfasync="false" src="https://the.gatekeeperconsent.com/cmp.min.js"></script>
+    <script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
+    <script>window.ezstandalone = window.ezstandalone || {}; ezstandalone.cmd = ezstandalone.cmd || [];</script>
+    <script src="//ezoicanalytics.com/analytics.js"></script>
+    <title>角鋼完整指南：等邊 vs 不等邊、重量計算、選材與應用 | 鐵材重量計算機</title>
+    <meta name="description" content="完整介紹等邊角鋼與不等邊角鋼的規格差異、重量計算公式、CNS 標準對照，以及工程中常見應用場合與選材建議，附完整 kg/m 規格對照表。">
+    <meta name="keywords" content="角鋼, 等邊角鋼, 不等邊角鋼, 角鋼重量, 角鋼規格, L型鋼, 角鐵重量, CNS角鋼">
+    <link rel="canonical" href="https://steel-calc.idv.tw/guide-angle-steel.html" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "角鋼完整指南：等邊 vs 不等邊、重量計算、選材與應用",
+      "description": "等邊角鋼與不等邊角鋼的規格差異、重量計算公式、CNS 標準與選材建議。",
+      "author": { "@type": "Organization", "name": "鐵材重量計算機", "url": "https://steel-calc.idv.tw" },
+      "publisher": { "@type": "Organization", "name": "鐵材重量計算機", "url": "https://steel-calc.idv.tw" },
+      "datePublished": "2026-06-01",
+      "dateModified": "2026-06-01",
+      "image": "https://cdn-icons-png.flaticon.com/512/2163/2163914.png"
+    }
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9184947057660512" crossorigin="anonymous"></script>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2163/2163914.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { display: flex; flex-direction: column; min-height: 100vh; font-family: sans-serif; }
+        main { flex: 1; }
+        .site-nav a { transition: color 0.2s; }
+        .site-nav a:hover { color: #3b82f6; }
+        .prose h2 { font-size: 1.5rem; font-weight: 900; color: #1e293b; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #f1f5f9; }
+        .prose h3 { font-size: 1.15rem; font-weight: 800; color: #1e293b; margin-top: 1.75rem; margin-bottom: 0.75rem; }
+        .prose p { color: #475569; line-height: 1.9; margin-bottom: 1.1rem; }
+        .prose ul { list-style: disc; padding-left: 1.5rem; color: #475569; line-height: 1.9; margin-bottom: 1.1rem; }
+        .prose li { margin-bottom: 0.4rem; }
+        .prose strong { color: #1e293b; }
+        .spec-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+        .spec-table th { background: #1e293b; color: white; padding: 0.75rem 1rem; text-align: left; }
+        .spec-table td { padding: 0.65rem 1rem; border-bottom: 1px solid #e2e8f0; color: #334155; }
+        .spec-table tr:nth-child(even) td { background: #f8fafc; }
+        .toc a { color: #3b82f6; text-decoration: none; font-size: 0.875rem; }
+        .toc a:hover { text-decoration: underline; }
+        .toc li { margin-bottom: 0.4rem; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+<nav class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3 site-nav">
+        <a href="index.html" class="flex items-center gap-2 font-black text-slate-800 text-lg"><span class="text-2xl">⚙️</span><span>鐵材計算機</span></a>
+        <div class="flex flex-wrap items-center gap-4 text-sm font-bold text-slate-500">
+            <a href="index.html">首頁試算</a><a href="density-table.html">鋼材密度表</a><a href="cns-standard.html">CNS規範指南</a><a href="nesting.html">智慧排料</a><a href="blog.html">知識專欄</a><a href="about.html">關於本站</a><a href="privacy.html">隱私權政策</a><a href="terms.html">使用條款</a>
+        </div>
+    </div>
+</nav>
+<main class="py-10 px-4">
+<div class="max-w-3xl mx-auto">
+    <div class="flex items-center gap-3 mb-6 text-sm">
+        <a href="index.html" class="text-slate-400 hover:text-blue-600">首頁</a><span class="text-slate-300">›</span>
+        <a href="blog.html" class="text-slate-400 hover:text-blue-600">知識專欄</a><span class="text-slate-300">›</span>
+        <span class="text-slate-600">角鋼完整指南</span>
+    </div>
+    <header class="mb-8">
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-emerald-100 text-emerald-700 text-xs font-black px-3 py-1 rounded-full">選材指南</span>
+            <span class="bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1 rounded-full">型鋼規格</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl font-black text-slate-900 leading-tight mb-4">
+            角鋼完整指南<br><span class="text-emerald-600">等邊 vs 不等邊、重量計算、選材與應用</span>
+        </h1>
+        <p class="text-slate-500 leading-relaxed text-lg">角鋼是工程中用途最廣的型鋼之一，從輕型框架、貨架、門窗補強到重型結構連接件，幾乎無處不在。本文完整說明等邊與不等邊角鋼的差異、重量計算方式及常見規格選用邏輯。</p>
+        <div class="flex items-center gap-4 mt-5 pt-5 border-t border-slate-100 text-sm text-slate-400">
+            <span>✍️ 鐵材重量計算機編輯部</span><span>·</span><span>📅 2026 年 6 月</span><span>·</span><span>⏱️ 閱讀約 6 分鐘</span>
+        </div>
+    </header>
+
+    <nav class="bg-emerald-50 rounded-2xl p-6 mb-8 border border-emerald-100">
+        <p class="font-black text-slate-700 mb-3 text-sm uppercase tracking-wider">📋 本文目錄</p>
+        <ol class="toc list-decimal list-inside space-y-1">
+            <li><a href="#sec-diff">等邊 vs 不等邊：差在哪裡？</a></li>
+            <li><a href="#sec-formula">角鋼重量計算公式</a></li>
+            <li><a href="#sec-table">常用等邊角鋼規格 kg/m 表</a></li>
+            <li><a href="#sec-unequal">常用不等邊角鋼規格</a></li>
+            <li><a href="#sec-ss">不鏽鋼角鋼規格</a></li>
+            <li><a href="#sec-use">工程應用場合與選材建議</a></li>
+            <li><a href="#sec-tips">採購實務提醒</a></li>
+        </ol>
+    </nav>
+
+    <div class="my-6 flex justify-center">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9184947057660512" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <article class="bg-white rounded-[2rem] p-8 md:p-12 border border-slate-100 shadow-sm prose">
+
+        <section id="sec-diff">
+            <h2>一、等邊 vs 不等邊：差在哪裡？</h2>
+            <div class="not-prose grid md:grid-cols-2 gap-4 my-4">
+                <div class="bg-emerald-50 rounded-2xl p-5 border-l-4 border-emerald-500">
+                    <p class="font-black text-emerald-800 mb-2">等邊角鋼（Equal Leg Angle）</p>
+                    <ul class="text-sm text-slate-600 list-disc pl-4 space-y-1">
+                        <li>兩邊長度相等，截面為 L 形</li>
+                        <li>標示方式：邊長 × 邊長 × 厚度，如 L50×50×5</li>
+                        <li>台灣標準：CNS 4437（對應 JIS G 3192）</li>
+                        <li>用途廣泛，現貨充足</li>
+                        <li>截面特性對稱，計算簡單</li>
+                    </ul>
+                </div>
+                <div class="bg-blue-50 rounded-2xl p-5 border-l-4 border-blue-500">
+                    <p class="font-black text-blue-800 mb-2">不等邊角鋼（Unequal Leg Angle）</p>
+                    <ul class="text-sm text-slate-600 list-disc pl-4 space-y-1">
+                        <li>兩邊長度不同</li>
+                        <li>標示方式：長邊 × 短邊 × 厚度，如 L150×90×9</li>
+                        <li>台灣標準：CNS 4436（對應 JIS G 3192）</li>
+                        <li>特殊需求才用，現貨較少</li>
+                        <li>可在不對稱方向提供更大抵抗矩</li>
+                    </ul>
+                </div>
+            </div>
+            <p>台灣工程市場中，等邊角鋼（俗稱「等邊角鐵」）的使用量遠高於不等邊角鋼，各大鋼材行均有現貨。不等邊角鋼則通常需要提前訂貨，部分規格需要客製。</p>
+        </section>
+
+        <section id="sec-formula">
+            <h2>二、角鋼重量計算公式</h2>
+            <p>等邊角鋼的截面由兩個矩形組成（扣除重疊角落），計算公式為：</p>
+            <div class="not-prose bg-slate-800 text-white rounded-2xl p-6 my-4">
+                <p class="text-slate-400 text-xs font-black uppercase mb-3">等邊角鋼重量公式</p>
+                <p class="font-mono text-sm leading-relaxed">
+                    W (kg/m) = [ A + (A - t) ] × t × 0.00785<br><br>
+                    <span class="text-slate-400 text-xs">A = 邊長（mm）</span><br>
+                    <span class="text-slate-400 text-xs">t = 厚度（mm）</span><br>
+                    <span class="text-slate-400 text-xs">0.00785 = 碳鋼密度係數</span>
+                </p>
+            </div>
+            <p>計算範例：L75×75×6 角鋼</p>
+            <p>W = [75 + (75-6)] × 6 × 0.00785 = [75 + 69] × 6 × 0.00785 = 144 × 6 × 0.00785 = <strong>6.78 kg/m</strong>（CNS 理論值為 6.85 kg/m，含角落弧度修正）</p>
+            <p>實務計算建議直接使用本站計算機的 CNS 理論重量表，比公式更準確。</p>
+        </section>
+
+        <section id="sec-table">
+            <h2>三、常用等邊角鋼規格 kg/m 表</h2>
+            <div class="not-prose overflow-x-auto rounded-xl border border-slate-200 my-4">
+                <table class="spec-table">
+                    <thead><tr><th>規格（邊長×厚度）</th><th>kg/m</th><th>6m 單支重量</th><th>常見用途</th></tr></thead>
+                    <tbody>
+                        <tr><td>L25×25×3</td><td>1.12</td><td>6.72 kg</td><td>輕型框架、貨架補強</td></tr>
+                        <tr><td>L40×40×3</td><td>1.83</td><td>10.98 kg</td><td>輕型結構、門窗框</td></tr>
+                        <tr><td>L50×50×5</td><td>3.77</td><td>22.62 kg</td><td>一般結構連接、欄杆立柱</td></tr>
+                        <tr><td>L65×65×6</td><td>5.91</td><td>35.46 kg</td><td>中型結構連接件</td></tr>
+                        <tr><td>L75×75×6</td><td>6.85</td><td>41.10 kg</td><td>結構補強、斜撐</td></tr>
+                        <tr><td>L75×75×9</td><td>9.96</td><td>59.76 kg</td><td>重型結構連接</td></tr>
+                        <tr><td>L100×100×10</td><td>14.9</td><td>89.4 kg</td><td>大型結構件</td></tr>
+                        <tr><td>L150×150×12</td><td>27.3</td><td>163.8 kg</td><td>重型鋼構連接板</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="sec-unequal">
+            <h2>四、常用不等邊角鋼規格</h2>
+            <div class="not-prose overflow-x-auto rounded-xl border border-slate-200 my-4">
+                <table class="spec-table">
+                    <thead><tr><th>規格（長邊×短邊×厚度）</th><th>kg/m</th><th>6m 單支重量</th><th>典型用途</th></tr></thead>
+                    <tbody>
+                        <tr><td>L75×50×6</td><td>5.65</td><td>33.9 kg</td><td>不對稱荷載連接件</td></tr>
+                        <tr><td>L100×75×7</td><td>9.32</td><td>55.92 kg</td><td>樑柱連接板</td></tr>
+                        <tr><td>L125×75×7</td><td>10.7</td><td>64.2 kg</td><td>大跨距連接</td></tr>
+                        <tr><td>L150×90×9</td><td>16.4</td><td>98.4 kg</td><td>重型結構連接</td></tr>
+                        <tr><td>L150×100×10</td><td>19.1</td><td>114.6 kg</td><td>鋼構主要連接件</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="sec-ss">
+            <h2>五、不鏽鋼角鋼規格</h2>
+            <p>不鏽鋼角鋼（SUS304）常用於食品廠、化工設備、海岸設施等需要耐腐蝕的場合。密度 7.93 g/cm³，比碳鋼角鋼重約 1%，採購時需使用正確密度計算。</p>
+            <div class="not-prose overflow-x-auto rounded-xl border border-slate-200 my-4">
+                <table class="spec-table">
+                    <thead><tr><th>規格</th><th>kg/m（SUS304）</th><th>與碳鋼同規格比較</th></tr></thead>
+                    <tbody>
+                        <tr><td>L40×40×4</td><td>2.42</td><td>碳鋼 2.42（相近）</td></tr>
+                        <tr><td>L50×50×5</td><td>3.77</td><td>碳鋼 3.77（相近）</td></tr>
+                        <tr><td>L65×65×6</td><td>5.91</td><td>碳鋼 5.91（相近）</td></tr>
+                        <tr><td>L75×75×6</td><td>6.85</td><td>碳鋼 6.85（相近）</td></tr>
+                        <tr><td>L100×100×10</td><td>14.9</td><td>碳鋼 14.9（相近）</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>由於密度差異僅約 1%，同規格的不鏽鋼與碳鋼角鋼重量非常接近。但<strong>不鏽鋼角鋼的單價通常是碳鋼的 3–4 倍</strong>，採購金額差距顯著，務必確認材質再報價。</p>
+        </section>
+
+        <section id="sec-use">
+            <h2>六、工程應用場合與選材建議</h2>
+            <div class="not-prose overflow-x-auto rounded-xl border border-slate-200 my-4">
+                <table class="spec-table">
+                    <thead><tr><th>應用場合</th><th>建議規格</th><th>材質</th></tr></thead>
+                    <tbody>
+                        <tr><td>輕型貨架、展示架</td><td>L30×30×3 至 L40×40×4</td><td>碳鋼</td></tr>
+                        <tr><td>門窗框架補強</td><td>L40×40×3 至 L50×50×5</td><td>碳鋼或不鏽鋼</td></tr>
+                        <tr><td>設備底座固定角</td><td>L50×50×5 至 L75×75×6</td><td>碳鋼</td></tr>
+                        <tr><td>鋼構斜撐</td><td>L65×65×6 至 L100×100×10</td><td>碳鋼</td></tr>
+                        <tr><td>食品廠設備支架</td><td>L40×40×3 至 L65×65×6</td><td>不鏽鋼 304</td></tr>
+                        <tr><td>海岸設施欄杆框架</td><td>L50×50×5 至 L75×75×6</td><td>不鏽鋼 316</td></tr>
+                        <tr><td>重型機具基座</td><td>L100×100×10 以上</td><td>碳鋼</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="sec-tips">
+            <h2>七、採購實務提醒</h2>
+            <ul>
+                <li><strong>確認標示方式：</strong>「L75×75×6」中第一個數字是邊長，第三個是厚度，不要搞混。不等邊角鋼則是長邊×短邊×厚度。</li>
+                <li><strong>損耗率建議 5–8%：</strong>角鋼受定尺（6 公尺）限制，裁切殘料難以再利用，損耗率設定比鋼板略高。</li>
+                <li><strong>不鏽鋼角鋼確認材質：</strong>要求廠商附 Mill Certificate 確認是 SUS304 還是 SUS316，外觀無法分辨。</li>
+                <li><strong>現貨查詢：</strong>L75×75 以下的等邊角鋼多數有現貨；L100×100 以上或不等邊規格建議提前 1–2 週詢問庫存。</li>
+            </ul>
+        </section>
+
+    </article>
+
+    <div class="my-8 flex justify-center">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9184947057660512" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <section class="mt-8">
+        <h2 class="text-xl font-black text-slate-800 mb-4">延伸閱讀</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a href="guide-h-beam-vs-i-beam.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">🏗️</span>
+                <div><p class="font-black text-slate-700">H 型鋼 vs I 型鋼選材指南</p><p class="text-xs text-slate-400 mt-1">截面差異、CNS 規格與選用建議</p></div>
+            </a>
+            <a href="guide-304-vs-316.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">🔬</span>
+                <div><p class="font-black text-slate-700">不鏽鋼 304 vs 316</p><p class="text-xs text-slate-400 mt-1">何時需要升級材質？</p></div>
+            </a>
+            <a href="guide-waste-rate.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">📐</span>
+                <div><p class="font-black text-slate-700">鋼材損耗率怎麼抓？</p><p class="text-xs text-slate-400 mt-1">五種鋼材的台灣工程實務建議</p></div>
+            </a>
+            <a href="index.html" class="bg-emerald-600 rounded-2xl p-5 text-white hover:bg-emerald-700 transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">🔧</span>
+                <div><p class="font-black">角鋼重量計算機</p><p class="text-emerald-100 text-xs mt-1">等邊、不等邊、不鏽鋼角鋼全規格試算</p></div>
+            </a>
+        </div>
+    </section>
+</div>
+</main>
+<footer class="bg-slate-800 text-slate-300 pt-10 pb-6 mt-10" role="contentinfo">
+    <div class="max-w-5xl mx-auto px-4">
+        <div class="flex flex-wrap justify-between gap-6 mb-8">
+            <div>
+                <a href="index.html" class="flex items-center gap-2 font-black text-white text-lg mb-2"><span>⚙️</span><span>鐵材重量計算機</span></a>
+                <p class="text-sm text-slate-400">符合 CNS 標準的專業鋼鐵工程知識門戶</p>
+            </div>
+            <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-400">
+                <a href="index.html" class="hover:text-blue-400">首頁試算</a><a href="density-table.html" class="hover:text-blue-400">鋼材密度表</a><a href="cns-standard.html" class="hover:text-blue-400">CNS規範指南</a><a href="nesting.html" class="hover:text-blue-400">智慧排料</a><a href="blog.html" class="hover:text-blue-400">知識專欄</a><a href="about.html" class="hover:text-blue-400">關於本站</a>
+            </nav>
+        </div>
+        <div class="border-t border-slate-700 pt-5 flex flex-col md:flex-row justify-between gap-2 text-xs text-slate-500">
+            <p>© <span id="footerYear"></span> 鐵材重量計算機 steel-calc.idv.tw</p>
+            <p>本文內容僅供參考，正式工程設計請由結構技師確認。</p>
+        </div>
+    </div>
+</footer>
+<script>document.getElementById('footerYear').textContent = new Date().getFullYear();</script>
+</body>
+</html>

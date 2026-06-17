@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script data-cfasync="false" src="https://cmp.gatekeeperconsent.com/min.js"></script>
+    <script data-cfasync="false" src="https://the.gatekeeperconsent.com/cmp.min.js"></script>
+    <script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
+    <script>window.ezstandalone = window.ezstandalone || {}; ezstandalone.cmd = ezstandalone.cmd || [];</script>
+    <script src="//ezoicanalytics.com/analytics.js"></script>
+    <title>圓管、方管重量計算完整教學：公式、規格與採購實務 | 鐵材重量計算機</title>
+    <meta name="description" content="詳細說明圓管、方管、矩形管的理論重量計算公式，包含碳鋼與不鏽鋼管材的密度差異、定尺規格、損耗率設定，以及如何用計算機快速試算採購金額。">
+    <meta name="keywords" content="圓管重量, 方管重量, 矩形管重量, 管材計算, 鋼管規格, 圓管公式, 方管採購">
+    <link rel="canonical" href="https://steel-calc.idv.tw/guide-pipe-weight.html" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "圓管、方管重量計算完整教學：公式、規格與採購實務",
+      "description": "詳細說明圓管、方管、矩形管的理論重量計算公式與採購實務。",
+      "author": { "@type": "Organization", "name": "鐵材重量計算機", "url": "https://steel-calc.idv.tw" },
+      "publisher": { "@type": "Organization", "name": "鐵材重量計算機", "url": "https://steel-calc.idv.tw" },
+      "datePublished": "2026-06-01",
+      "dateModified": "2026-06-01",
+      "image": "https://cdn-icons-png.flaticon.com/512/2163/2163914.png"
+    }
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9184947057660512" crossorigin="anonymous"></script>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2163/2163914.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { display: flex; flex-direction: column; min-height: 100vh; font-family: sans-serif; }
+        main { flex: 1; }
+        .site-nav a { transition: color 0.2s; }
+        .site-nav a:hover { color: #3b82f6; }
+        .prose h2 { font-size: 1.5rem; font-weight: 900; color: #1e293b; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #f1f5f9; }
+        .prose h3 { font-size: 1.15rem; font-weight: 800; color: #1e293b; margin-top: 1.75rem; margin-bottom: 0.75rem; }
+        .prose p { color: #475569; line-height: 1.9; margin-bottom: 1.1rem; }
+        .prose ul { list-style: disc; padding-left: 1.5rem; color: #475569; line-height: 1.9; margin-bottom: 1.1rem; }
+        .prose li { margin-bottom: 0.4rem; }
+        .prose strong { color: #1e293b; }
+        .spec-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+        .spec-table th { background: #1e293b; color: white; padding: 0.75rem 1rem; text-align: left; }
+        .spec-table td { padding: 0.65rem 1rem; border-bottom: 1px solid #e2e8f0; color: #334155; }
+        .spec-table tr:nth-child(even) td { background: #f8fafc; }
+        .toc a { color: #3b82f6; text-decoration: none; font-size: 0.875rem; }
+        .toc a:hover { text-decoration: underline; }
+        .toc li { margin-bottom: 0.4rem; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+<nav class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3 site-nav">
+        <a href="index.html" class="flex items-center gap-2 font-black text-slate-800 text-lg"><span class="text-2xl">⚙️</span><span>鐵材計算機</span></a>
+        <div class="flex flex-wrap items-center gap-4 text-sm font-bold text-slate-500">
+            <a href="index.html">首頁試算</a><a href="density-table.html">鋼材密度表</a><a href="cns-standard.html">CNS規範指南</a><a href="nesting.html">智慧排料</a><a href="blog.html">知識專欄</a><a href="about.html">關於本站</a><a href="privacy.html">隱私權政策</a><a href="terms.html">使用條款</a>
+        </div>
+    </div>
+</nav>
+<main class="py-10 px-4">
+<div class="max-w-3xl mx-auto">
+    <div class="flex items-center gap-3 mb-6 text-sm">
+        <a href="index.html" class="text-slate-400 hover:text-blue-600">首頁</a><span class="text-slate-300">›</span>
+        <a href="blog.html" class="text-slate-400 hover:text-blue-600">知識專欄</a><span class="text-slate-300">›</span>
+        <span class="text-slate-600">圓管方管重量計算</span>
+    </div>
+    <header class="mb-8">
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-blue-100 text-blue-700 text-xs font-black px-3 py-1 rounded-full">計算教學</span>
+            <span class="bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1 rounded-full">管材規格</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl font-black text-slate-900 leading-tight mb-4">
+            圓管、方管重量計算完整教學<br><span class="text-blue-600">公式、規格與採購實務</span>
+        </h1>
+        <p class="text-slate-500 leading-relaxed text-lg">管材重量計算比鋼板複雜一些，需要同時考慮外徑、壁厚和長度三個變數。本文完整說明圓管、方管、矩形管的計算公式，並整理台灣常見規格的 kg/m 數值，讓你在採購前快速掌握重量與成本。</p>
+        <div class="flex items-center gap-4 mt-5 pt-5 border-t border-slate-100 text-sm text-slate-400">
+            <span>✍️ 鐵材重量計算機編輯部</span><span>·</span><span>📅 2026 年 6 月</span><span>·</span><span>⏱️ 閱讀約 6 分鐘</span>
+        </div>
+    </header>
+
+    <nav class="bg-blue-50 rounded-2xl p-6 mb-8 border border-blue-100">
+        <p class="font-black text-slate-700 mb-3 text-sm uppercase tracking-wider">📋 本文目錄</p>
+        <ol class="toc list-decimal list-inside space-y-1">
+            <li><a href="#sec-formula">圓管重量計算公式</a></li>
+            <li><a href="#sec-square">方管與矩形管計算公式</a></li>
+            <li><a href="#sec-spec">台灣常見管材規格 kg/m 對照</a></li>
+            <li><a href="#sec-density">碳鋼管 vs 不鏽鋼管的密度差異</a></li>
+            <li><a href="#sec-pipe">水管規格（英吋管）與結構管的差異</a></li>
+            <li><a href="#sec-waste">管材損耗率設定建議</a></li>
+            <li><a href="#sec-example">實際採購計算範例</a></li>
+        </ol>
+    </nav>
+
+    <div class="my-6 flex justify-center">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9184947057660512" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <article class="bg-white rounded-[2rem] p-8 md:p-12 border border-slate-100 shadow-sm prose">
+
+        <section id="sec-formula">
+            <h2>一、圓管重量計算公式</h2>
+            <p>圓管（Round Tube）的截面是一個圓環，重量計算需要外徑（OD）和壁厚（t）兩個參數：</p>
+            <div class="not-prose bg-slate-800 text-white rounded-2xl p-6 my-4">
+                <p class="text-slate-400 text-xs font-black uppercase mb-3">圓管重量公式</p>
+                <p class="font-mono text-sm leading-relaxed">
+                    W (kg/m) = (OD - t) × t × 0.02466<br><br>
+                    <span class="text-slate-400 text-xs">OD = 外徑（mm）</span><br>
+                    <span class="text-slate-400 text-xs">t = 壁厚（mm）</span><br>
+                    <span class="text-slate-400 text-xs">0.02466 = π × 密度係數（碳鋼 7.85 g/cm³）</span>
+                </p>
+            </div>
+            <h3>公式推導說明</h3>
+            <p>圓環截面積 = π × (OD/2)² - π × (OD/2-t)² = π × t × (OD-t)</p>
+            <p>將截面積（cm²）× 密度（7.85 g/cm³）÷ 10 = kg/m</p>
+            <p>簡化後得到 (OD-t) × t × 0.02466，這就是業界通用的圓管快速計算公式。</p>
+            <h3>計算範例</h3>
+            <p>外徑 76.2mm、壁厚 3.2mm 的碳鋼圓管：</p>
+            <p>(76.2 - 3.2) × 3.2 × 0.02466 = 73 × 3.2 × 0.02466 = <strong>5.76 kg/m</strong></p>
+            <p>若採購 50 支 6 公尺定尺，理論總重 = 5.76 × 6 × 50 = <strong>1,728 kg</strong></p>
+        </section>
+
+        <section id="sec-square">
+            <h2>二、方管與矩形管計算公式</h2>
+            <p>方管（Square Tube）和矩形管（Rectangular Tube）的計算，業界常用「等效圓管換算法」：</p>
+            <div class="not-prose bg-slate-800 text-white rounded-2xl p-6 my-4">
+                <p class="text-slate-400 text-xs font-black uppercase mb-3">方管重量公式</p>
+                <p class="font-mono text-sm leading-relaxed">
+                    方管：W (kg/m) = (邊長 × 4 ÷ π - t) × t × 0.02466<br><br>
+                    矩形管：W (kg/m) = [(長+寬) × 2 ÷ π - t] × t × 0.02466<br><br>
+                    <span class="text-slate-400 text-xs">π ≈ 3.14159</span>
+                </p>
+            </div>
+            <p>不過實務上，方管和矩形管的 kg/m 值直接查 CNS 規格表或本站計算機更準確，因為冷彎管材的角落弧度會讓實際截面積與理論公式有輕微差異。</p>
+            <div class="not-prose bg-blue-50 border-l-4 border-blue-500 rounded-xl p-5 my-4">
+                <p class="font-bold text-blue-800 mb-1">💡 建議做法</p>
+                <p class="text-blue-700 text-sm">直接使用本站<a href="index.html" class="underline font-bold">計算機</a>選擇對應規格，系統已預載 CNS 理論重量表的精確數值，比手動套公式更準確。</p>
+            </div>
+        </section>
+
+        <section id="sec-spec">
+            <h2>三、台灣常見管材規格 kg/m 對照</h2>
+            <h3>常用碳鋼圓管</h3>
+            <div class="not-prose overflow-x-auto rounded-xl border border-slate-200 my-4">
+                <table class="spec-table">
+                    <thead><tr><th>規格（外徑 × 壁厚）</th><th>kg/m</th><th>6m 單支重量</th><th>典型用途</th></tr></thead>
+                    <tbody>
+                        <tr><td>25.4 × 1.6mm</td><td>0.94</td><td>5.64 kg</td><td>輕型欄杆、家具</td></tr>
+                        <tr><td>38.1 × 1.6mm</td><td>1.44</td><td>8.64 kg</td><td>欄杆扶手</td></tr>
+                        <tr><td>50.8 × 2.0mm</td><td>2.41</td><td>14.46 kg</td><td>中型結構管</td></tr>
+                        <tr><td>76.2 × 3.2mm</td><td>5.76</td><td>34.56 kg</td><td>結構支撐、柱管</td></tr>
+                        <tr><td>101.6 × 3.2mm</td><td>7.76</td><td>46.56 kg</td><td>大型結構管</td></tr>
+                        <tr><td>2"（60.5 × 3.8mm）</td><td>5.31</td><td>31.86 kg</td><td>水管、氣管配管</td></tr>
+                        <tr><td>3"（89.1 × 5.5mm）</td><td>11.3</td><td>67.8 kg</td><td>工業配管</td></tr>
+                        <tr><td>4"（114.3 × 6.0mm）</td><td>16.0</td><td>96.0 kg</td><td>大口徑配管</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <h3>常用碳鋼方管</h3>
+            <div class="not-prose overflow-x-auto rounded-xl border border-slate-200 my-4">
+                <table class="spec-table">
+                    <thead><tr><th>規格（邊長 × 壁厚）</th><th>kg/m</th><th>6m 單支重量</th><th>典型用途</th></tr></thead>
+                    <tbody>
+                        <tr><td>25×25 × 1.6mm</td><td>1.20</td><td>7.20 kg</td><td>輕型框架</td></tr>
+                        <tr><td>50×50 × 2.3mm</td><td>3.44</td><td>20.64 kg</td><td>設備平台、圍籬</td></tr>
+                        <tr><td>75×75 × 3.2mm</td><td>7.17</td><td>43.02 kg</td><td>中型結構框架</td></tr>
+                        <tr><td>100×100 × 4.5mm</td><td>13.4</td><td>80.4 kg</td><td>重型設備底座</td></tr>
+                        <tr><td>150×150 × 6.0mm</td><td>26.6</td><td>159.6 kg</td><td>大型結構柱</td></tr>
+                        <tr><td>200×200 × 9.0mm</td><td>52.7</td><td>316.2 kg</td><td>重型鋼構</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="sec-density">
+            <h2>四、碳鋼管 vs 不鏽鋼管的密度差異</h2>
+            <p>計算不鏽鋼管重量時，密度係數需要調整：</p>
+            <div class="not-prose overflow-x-auto rounded-xl border border-slate-200 my-4">
+                <table class="spec-table">
+                    <thead><tr><th>材質</th><th>密度（g/cm³）</th><th>公式係數</th><th>與碳鋼比較</th></tr></thead>
+                    <tbody>
+                        <tr><td>碳鋼（SS400）</td><td>7.85</td><td>0.02466</td><td>基準</td></tr>
+                        <tr><td>不鏽鋼 304</td><td>7.93</td><td>0.02491</td><td>重約 +1%</td></tr>
+                        <tr><td>不鏽鋼 316</td><td>7.98</td><td>0.02507</td><td>重約 +1.7%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>以 2" 不鏽鋼 304 圓管（60.5 × 3.9mm）為例，碳鋼版約 5.31 kg/m，不鏽鋼 304 版約 <strong>5.54 kg/m</strong>，差距約 4%。大量採購時這個差距會被放大，務必使用正確的密度係數計算。本站計算機已針對不鏽鋼管材預設 7.93 密度，選好規格後直接計算即可。</p>
+        </section>
+
+        <section id="sec-pipe">
+            <h2>五、水管規格（英吋管）與結構管的差異</h2>
+            <p>台灣管材市場存在兩個不同的規格系統，採購時需要特別注意：</p>
+            <div class="not-prose grid md:grid-cols-2 gap-4 my-4">
+                <div class="bg-blue-50 rounded-2xl p-5 border-l-4 border-blue-500">
+                    <p class="font-black text-blue-800 mb-2">配管用管（水管規格）</p>
+                    <ul class="text-sm text-slate-600 list-disc pl-4 space-y-1">
+                        <li>以英吋（"）標示，如 1"、2"、3"</li>
+                        <li>實際外徑與標稱英吋不成比例</li>
+                        <li>壁厚依壓力等級分為 Schedule 10、40、80</li>
+                        <li>適用於流體輸送（水、氣、油）</li>
+                        <li>台灣常見標準：CNS 4176</li>
+                    </ul>
+                </div>
+                <div class="bg-orange-50 rounded-2xl p-5 border-l-4 border-orange-500">
+                    <p class="font-black text-orange-800 mb-2">結構用管（公制規格）</p>
+                    <ul class="text-sm text-slate-600 list-disc pl-4 space-y-1">
+                        <li>以公制 mm 標示，如 Ø50.8 × 2.0mm</li>
+                        <li>外徑與標示一致</li>
+                        <li>壁厚依強度需求選擇</li>
+                        <li>適用於結構支撐、欄杆、框架</li>
+                        <li>台灣常見標準：CNS 4437</li>
+                    </ul>
+                </div>
+            </div>
+            <p>採購時務必確認是「配管用」還是「結構用」，兩者外徑相近但壁厚和材質規格不同，不可混用。向廠商詢價時明確指定 CNS 標準與管材用途，可避免收到錯誤規格。</p>
+        </section>
+
+        <section id="sec-waste">
+            <h2>六、管材損耗率設定建議</h2>
+            <ul>
+                <li><strong>直管無角度接合（欄杆直管、配管直管）：3–4%</strong>：端頭廢料為主，損耗最低。</li>
+                <li><strong>一般管架、設備支架：4–5%</strong>：有部分切角但不複雜。</li>
+                <li><strong>複雜管架、桁架、多角度接合：5–7%</strong>：魚嘴切口、斜切廢料較多。</li>
+                <li><strong>不鏽鋼管（單價高，建議保守）：上述基礎再加 1–2%</strong>。</li>
+            </ul>
+            <p>本站計算機的損耗率欄位直接輸入百分比，系統自動計算含損耗備料重量，不需要另外換算。</p>
+        </section>
+
+        <section id="sec-example">
+            <h2>七、實際採購計算範例</h2>
+            <p>假設需要採購一批工廠走道欄杆的管材，規格如下：</p>
+            <ul>
+                <li>立柱：Ø50.8 × 2.0mm 碳鋼圓管，長度 1,100mm，共 30 支</li>
+                <li>橫管：Ø38.1 × 1.6mm 碳鋼圓管，長度 2,400mm，共 60 支</li>
+                <li>損耗率：5%</li>
+                <li>市場單價：28 元/kg</li>
+            </ul>
+            <div class="not-prose bg-slate-800 text-white rounded-2xl p-6 my-4">
+                <p class="text-slate-400 text-xs font-black uppercase mb-3">計算過程</p>
+                <p class="font-mono text-sm leading-relaxed">
+                    立柱：2.41 kg/m × 1.1m × 30支 = 79.5 kg<br>
+                    橫管：1.44 kg/m × 2.4m × 60支 = 207.4 kg<br>
+                    理論總重：79.5 + 207.4 = 286.9 kg<br>
+                    含損耗（5%）：286.9 × 1.05 = <span class="text-emerald-400 font-black">301.2 kg</span><br>
+                    採購金額：301.2 × 28 = <span class="text-blue-400 font-black">8,434 元</span>
+                </p>
+            </div>
+            <p>以上計算可直接用本站<a href="index.html" class="text-blue-600 hover:underline font-bold">計算機</a>完成，分別輸入兩種規格後加總，輸入損耗率和單價後即可得到含損耗的採購金額。</p>
+        </section>
+
+    </article>
+
+    <div class="my-8 flex justify-center">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9184947057660512" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <section class="mt-8">
+        <h2 class="text-xl font-black text-slate-800 mb-4">延伸閱讀</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a href="density-table.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">📊</span>
+                <div><p class="font-black text-slate-700">全系列鋼材密度參考表</p><p class="text-xs text-slate-400 mt-1">碳鋼、304/316 不鏽鋼密度完整對照</p></div>
+            </a>
+            <a href="guide-waste-rate.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">📐</span>
+                <div><p class="font-black text-slate-700">鋼材損耗率怎麼抓？</p><p class="text-xs text-slate-400 mt-1">五種鋼材的台灣工程實務建議</p></div>
+            </a>
+            <a href="guide-304-vs-316.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">🔬</span>
+                <div><p class="font-black text-slate-700">不鏽鋼 304 vs 316</p><p class="text-xs text-slate-400 mt-1">何時需要升級材質？完整比較</p></div>
+            </a>
+            <a href="index.html" class="bg-blue-600 rounded-2xl p-5 text-white hover:bg-blue-700 transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">🔧</span>
+                <div><p class="font-black">圓管方管重量計算機</p><p class="text-blue-200 text-xs mt-1">輸入規格即得 kg/m 與採購金額</p></div>
+            </a>
+        </div>
+    </section>
+</div>
+</main>
+<footer class="bg-slate-800 text-slate-300 pt-10 pb-6 mt-10" role="contentinfo">
+    <div class="max-w-5xl mx-auto px-4">
+        <div class="flex flex-wrap justify-between gap-6 mb-8">
+            <div>
+                <a href="index.html" class="flex items-center gap-2 font-black text-white text-lg mb-2"><span>⚙️</span><span>鐵材重量計算機</span></a>
+                <p class="text-sm text-slate-400">符合 CNS 標準的專業鋼鐵工程知識門戶</p>
+            </div>
+            <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-400">
+                <a href="index.html" class="hover:text-blue-400">首頁試算</a><a href="density-table.html" class="hover:text-blue-400">鋼材密度表</a><a href="cns-standard.html" class="hover:text-blue-400">CNS規範指南</a><a href="nesting.html" class="hover:text-blue-400">智慧排料</a><a href="blog.html" class="hover:text-blue-400">知識專欄</a><a href="about.html" class="hover:text-blue-400">關於本站</a>
+            </nav>
+        </div>
+        <div class="border-t border-slate-700 pt-5 flex flex-col md:flex-row justify-between gap-2 text-xs text-slate-500">
+            <p>© <span id="footerYear"></span> 鐵材重量計算機 steel-calc.idv.tw</p>
+            <p>本文計算結果僅供估算參考，實際採購以廠商磅單為準。</p>
+        </div>
+    </div>
+</footer>
+<script>document.getElementById('footerYear').textContent = new Date().getFullYear();</script>
+</body>
+</html>
