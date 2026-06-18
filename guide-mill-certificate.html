@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script data-cfasync="false" src="https://cmp.gatekeeperconsent.com/min.js"></script>
+    <script data-cfasync="false" src="https://the.gatekeeperconsent.com/cmp.min.js"></script>
+    <script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
+    <script>window.ezstandalone = window.ezstandalone || {}; ezstandalone.cmd = ezstandalone.cmd || [];</script>
+    <script src="//ezoicanalytics.com/analytics.js"></script>
+    <title>材質證明書（Mill Certificate）完整解說：如何看懂、為什麼重要 | 鐵材重量計算機</title>
+    <meta name="description" content="深入介紹鋼材材質證明書（Mill Certificate / Test Certificate）的格式、關鍵欄位解讀，以及工程採購與驗收時的應用說明。">
+    <link rel="canonical" href="https://steel-calc.idv.tw/guide-mill-certificate.html">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9184947057660512" crossorigin="anonymous"></script>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2163/2163914.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { display: flex; flex-direction: column; min-height: 100vh; font-family: sans-serif; }
+        main { flex: 1; }
+        .site-nav a { transition: color 0.2s; }
+        .site-nav a:hover { color: #3b82f6; }
+        /* prose 文章樣式 — 與原版一致 */
+        .prose h2 { font-size: 1.5rem; font-weight: 900; color: #1e293b; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #f1f5f9; }
+        .prose h3 { font-size: 1.15rem; font-weight: 800; color: #1e293b; margin-top: 1.75rem; margin-bottom: 0.75rem; }
+        .prose p { color: #475569; line-height: 1.9; margin-bottom: 1.1rem; }
+        .prose ul { list-style: disc; padding-left: 1.5rem; color: #475569; line-height: 1.9; margin-bottom: 1.1rem; }
+        .prose ol { list-style: decimal; padding-left: 1.5rem; color: #475569; line-height: 1.9; margin-bottom: 1.1rem; }
+        .prose li { margin-bottom: 0.4rem; }
+        .prose strong { color: #1e293b; }
+        .prose a { color: #2563eb; }
+        .spec-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+        .spec-table th { background: #1e293b; color: white; padding: 0.75rem 1rem; text-align: left; }
+        .spec-table td { padding: 0.65rem 1rem; border-bottom: 1px solid #e2e8f0; color: #334155; }
+        .spec-table tr:nth-child(even) td { background: #f8fafc; }
+        .spec-table tr:hover td { background: #dbeafe; }
+        .spec-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+        .toc a { color: #3b82f6; text-decoration: none; font-size: 0.875rem; }
+        .toc a:hover { text-decoration: underline; }
+        .toc li { margin-bottom: 0.4rem; }
+        .formula-box { background: #1d4ed8; color: #fff; border-radius: 12px; padding: 18px 24px; margin: 20px 0; font-family: 'Courier New', monospace; font-size: 1.02rem; font-weight: 600; line-height: 2; }
+        .formula-box .formula-label { font-size: 0.75rem; font-weight: 400; letter-spacing: 0.08em; opacity: 0.8; text-transform: uppercase; display: block; margin-bottom: 4px; }
+        .table-wrap { overflow-x: auto; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); margin: 20px 0; }
+        .callout { background: #dbeafe; border-left: 4px solid #3b82f6; border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 20px 0; font-size: 0.95rem; color: #1e3a5f; }
+        .callout strong { color: #1d4ed8; }
+        .warning { background: #fef3c7; border-left: 4px solid #f59e0b; border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 20px 0; font-size: 0.95rem; color: #78350f; }
+        .tags { margin: 18px 0; display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag { background: #dbeafe; color: #1d4ed8; font-size: 0.78rem; padding: 3px 12px; border-radius: 20px; font-weight: 700; }
+        #back-to-top { position:fixed; bottom:1.2rem; right:1.5rem; background:#1e293b; color:white; width:2.8rem; height:2.8rem; border-radius:50%; display:none; align-items:center; justify-content:center; cursor:pointer; z-index:40; font-size:1.1rem; box-shadow:0 4px 20px rgba(0,0,0,0.25); border:none; transition:background 0.2s; }
+        #back-to-top:hover { background: #3b82f6; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+<!-- 側邊廣告 -->
+<div id="adsterra-left" style="position:fixed;left:calc(50% - 850px);top:50%;transform:translateY(-50%);width:160px;z-index:30;">
+    <script type="text/javascript">
+atOptions = {
+  'key' : '741f5d773a78b59d6ee21e2546e9009a',
+  'format' : 'iframe',
+  'height' : 600,
+  'width' : 160,
+  'params' : {}
+};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/741f5d773a78b59d6ee21e2546e9009a/invoke.js"></script>
+</div>
+<div id="adsterra-right" style="position:fixed;right:calc(50% - 850px);top:50%;transform:translateY(-50%);width:160px;z-index:30;">
+    <script type="text/javascript">
+atOptions = {
+  'key' : '741f5d773a78b59d6ee21e2546e9009a',
+  'format' : 'iframe',
+  'height' : 600,
+  'width' : 160,
+  'params' : {}
+};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/741f5d773a78b59d6ee21e2546e9009a/invoke.js"></script>
+</div>
+<style>@media(max-width:1400px){#adsterra-left,#adsterra-right{display:none}}</style>
+
+<!-- 頂部導覽列 -->
+<nav class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm" aria-label="主選單">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3 site-nav">
+        <a href="https://steel-calc.idv.tw/" class="flex items-center gap-2 font-black text-slate-800 text-lg">
+            <span class="text-2xl">⚙️</span><span>鐵材計算機</span>
+        </a>
+        <div class="flex flex-wrap items-center gap-4 text-sm font-bold text-slate-500">
+            <a href="https://steel-calc.idv.tw/">首頁試算</a>
+            <a href="https://steel-calc.idv.tw/density-table.html">鋼材密度表</a>
+            <a href="https://steel-calc.idv.tw/cns-standard.html">CNS規範指南</a>
+            <a href="https://steel-calc.idv.tw/nesting.html">智慧排料</a>
+            <a href="https://steel-calc.idv.tw/blog.html">知識專欄</a>
+            <a href="https://steel-calc.idv.tw/about.html">關於本站</a>
+            <a href="https://steel-calc.idv.tw/privacy.html">隱私權政策</a>
+            <a href="https://steel-calc.idv.tw/terms.html">使用條款</a>
+        </div>
+    </div>
+</nav>
+
+<main class="py-10 px-4">
+<div class="max-w-3xl mx-auto">
+
+    <!-- 麵包屑 -->
+    <div class="flex items-center gap-3 mb-6 text-sm">
+        <a href="https://steel-calc.idv.tw/" class="text-slate-400 hover:text-blue-600">首頁</a>
+        <span class="text-slate-300">›</span>
+        <span class="text-slate-600 font-bold">工程知識專欄</span>
+        <span class="text-slate-300">›</span>
+        <span class="text-slate-600">材質證明書（Mill Certificate）完整解說：如何看懂、為什麼重要</span>
+    </div>
+
+    <!-- 文章標頭 -->
+    <header class="mb-8">
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-blue-100 text-blue-700 text-xs font-black px-3 py-1 rounded-full">採購保護</span><span class="bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1 rounded-full">材質證明</span><span class="bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1 rounded-full">工程實務</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl font-black text-slate-900 leading-tight mb-4">材質證明書（Mill Certificate）完整解說：如何看懂、為什麼重要</h1>
+        <p class="text-slate-500 leading-relaxed text-lg">深入介紹鋼材材質證明書（Mill Certificate / Test Certificate）的格式、關鍵欄位解讀，以及工程採購與驗收時的應用說明。</p>
+        <div class="flex items-center gap-4 mt-5 pt-5 border-t border-slate-100 text-sm text-slate-400">
+            <span>✍️ 鐵材重量計算機編輯部</span>
+            <span>·</span>
+            <span>📅 2026 年 6 月</span>
+            <span>·</span>
+            <span>⏱️ 閱讀約 6 分鐘</span>
+        </div>
+    </header>
+
+    <!-- AdSense 頂部 -->
+    <div class="my-6 flex justify-center">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9184947057660512" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- Adsterra Native Banner -->
+    <div class="my-6">
+        <script async="async" data-cfasync="false" src="https://pl29780271.effectivecpmnetwork.com/268b8387a35bef87e80be23fbe88fc96/invoke.js"></script>
+    </div>
+
+    <!-- 文章主體 -->
+    <article class="bg-white rounded-[2rem] p-8 md:p-12 border border-slate-100 shadow-sm prose">
+    <div class="tags"><span class="tag">材質證明書</span><span class="tag">Mill Certificate</span><span class="tag">鋼材驗收</span><span class="tag">化學成份</span><span class="tag">力學性質</span></div>
+    <h2>1. 什麼是材質證明書？</h2>
+    <p>材質證明書（Mill Certificate，又稱Mill Test Report / MTR，中文稱「材質報告書」、「材料試驗證明書」）是鋼鐵廠出具的品質文件，記錄一批（爐次/Lot）鋼材的<strong>化學成份</strong>與<strong>機械（力學）性質</strong>實測數據，由製造廠加蓋公司章及授權人員簽章，作為品質合格的官方佐證。依合約規定，鋼材若無材質書或材質書不符規格，業主有權拒絕驗收。</p>
+    <h2>2. 材質證明書主要欄位</h2>
+    <div class="table-wrap"><table><thead><tr><th>欄位</th><th>說明</th><th>重要程度</th></tr></thead><tbody>
+    <tr><td>廠商名稱</td><td>鋼鐵廠全名及廠址</td><td>★★★</td></tr>
+    <tr><td>爐次號碼 (Heat No.)</td><td>每爐鋼水的唯一識別碼，可追溯生產批次</td><td>★★★★★</td></tr>
+    <tr><td>材質規格 (Grade)</td><td>如SS400、SN400B、A36、304等</td><td>★★★★★</td></tr>
+    <tr><td>產品尺寸</td><td>厚度、寬度、長度或型號</td><td>★★★★</td></tr>
+    <tr><td>化學成份</td><td>C、Si、Mn、P、S、Ni、Cr、Mo等各元素含量(%)</td><td>★★★★★</td></tr>
+    <tr><td>降伏強度 (YS/ReL)</td><td>開始永久變形的應力，MPa</td><td>★★★★★</td></tr>
+    <tr><td>抗拉強度 (TS/Rm)</td><td>最大承受拉力，MPa</td><td>★★★★★</td></tr>
+    <tr><td>延伸率 (El%)</td><td>斷裂時的伸長比率，%</td><td>★★★★</td></tr>
+    <tr><td>衝擊試驗 (Charpy)</td><td>夏比V形缺口衝擊值，J</td><td>★★★（SN材必備）</td></tr>
+    <tr><td>試驗日期 / 簽章</td><td>授權人員簽名及試驗日期</td><td>★★★★</td></tr>
+    </tbody></table></div>
+    <h2>3. 如何驗讀化學成份</h2>
+    <p>以SS400鋼板（CNS 2473）為例：</p>
+    <div class="table-wrap"><table><thead><tr><th>元素</th><th>規範上限 (%)</th><th>材質書實測值範例</th><th>結論</th></tr></thead><tbody>
+    <tr><td>C（碳）</td><td>≤0.23</td><td>0.15</td><td>✅ 合格</td></tr>
+    <tr><td>Si（矽）</td><td>≤0.35</td><td>0.22</td><td>✅ 合格</td></tr>
+    <tr><td>Mn（錳）</td><td>≤1.40</td><td>0.85</td><td>✅ 合格</td></tr>
+    <tr><td>P（磷）</td><td>≤0.035</td><td>0.018</td><td>✅ 合格</td></tr>
+    <tr><td>S（硫）</td><td>≤0.035</td><td>0.012</td><td>✅ 合格</td></tr>
+    </tbody></table></div>
+    <div class="callout"><strong>碳當量（Ceq）：</strong>Ceq是衡量鋼材焊接性的指標，越低越好。SS400的Ceq應≤0.42%，計算式：Ceq = C + Mn/6 + (Cr+Mo+V)/5 + (Ni+Cu)/15。</div>
+    <h2>4. 如何驗讀力學性質</h2>
+    <div class="table-wrap"><table><thead><tr><th>規格</th><th>降伏強度 ReL (MPa)</th><th>抗拉強度 Rm (MPa)</th><th>延伸率 El(%)</th></tr></thead><tbody>
+    <tr><td>SS400</td><td>≥245（t≤16mm）</td><td>400～510</td><td>≥21</td></tr>
+    <tr><td>SN400B</td><td>235～355</td><td>400～510</td><td>≥22（降伏比≤0.80）</td></tr>
+    <tr><td>SS540</td><td>≥390</td><td>≥540</td><td>≥15</td></tr>
+    <tr><td>A36（ASTM）</td><td>≥250</td><td>400～550</td><td>≥20</td></tr>
+    </tbody></table></div>
+    <div class="warning"><strong>SN材特別注意：</strong>建築用SN400B除了抗拉強度外，還要求「降伏比（YS/TS）≤0.80」，確保地震時構件具有充分塑性變形能力，一般SS400不要求此項。</div>
+    <h2>5. 爐次號碼的重要性</h2>
+    <p>爐次號碼是鋼材追溯的核心。每批鋼材出廠時，鋼板上用鋼印或漆字標記爐次，材質書上記錄相同爐次的試驗數據。驗收時應核對：鋼板上的爐次印記 → 材質書上的爐次號碼 → 兩者是否一致。若不一致，應拒絕接收或要求廠商重新開具對應的材質書。</p>
+    <h2>6. 第三方認證</h2>
+    <p>重大工程（橋梁、高樓鋼骨）通常要求：</p>
+    <ul>
+      <li><strong>原廠材質書（Original Mill Certificate）：</strong>非複印件，應有鋼廠原始公章。</li>
+      <li><strong>第三方驗証（TPI）：</strong>由SGS、BV、Intertek等在鋼廠出貨前進行尺寸複驗與取樣複驗。</li>
+      <li><strong>數位驗證：</strong>中鋼、日本大廠提供電子材質書，可透過QR Code驗證真偽。</li>
+    </ul>
+    <div class="callout"><strong>防偽提醒：</strong>台灣市場曾發生仿造材質書案例，重要工程建議指定向一級盤商採購，並要求附上鋼廠官方電子材質書。</div>
+    <h2>7. 材質書保存</h2>
+    <ul>
+      <li>工程完工後材質書應與施工圖說一同存檔，建議保存至少15年。</li>
+      <li>每張材質書應與對應的到料單、使用部位紀錄一起管理。</li>
+      <li>以爐次號碼為索引建立電子檔，方便日後查詢。</li>
+      <li>竣工後業主可能要求提供完整的材質書彙整冊（Material Register）。</li>
+    </ul>
+    </article>
+
+    <!-- AdSense 底部 -->
+    <div class="my-8 flex justify-center">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9184947057660512" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- 延伸閱讀 -->
+    <section class="mt-8">
+        <h2 class="text-xl font-black text-slate-800 mb-4">延伸閱讀</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a href="https://steel-calc.idv.tw/guide-h-beam-vs-i-beam.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">🏗️</span>
+                <div>
+                    <p class="font-black text-slate-700">H型鋼 vs I型鋼完整指南</p>
+                    <p class="text-xs text-slate-400 mt-1">差異比較、選材建議、CNS規格對照</p>
+                </div>
+            </a>
+            <a href="https://steel-calc.idv.tw/cns-standard.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">📋</span>
+                <div>
+                    <p class="font-black text-slate-700">CNS規範與公差指南</p>
+                    <p class="text-xs text-slate-400 mt-1">了解理論磅單與實際磅單的差異</p>
+                </div>
+            </a>
+            <a href="https://steel-calc.idv.tw/guide-waste-rate.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">📐</span>
+                <div>
+                    <p class="font-black text-slate-700">鋼材損耗率怎麼抓？</p>
+                    <p class="text-xs text-slate-400 mt-1">五種鋼材的台灣工程實務建議</p>
+                </div>
+            </a>
+            <a href="https://steel-calc.idv.tw/" class="bg-blue-600 rounded-2xl p-5 text-white hover:bg-blue-700 transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">🔧</span>
+                <div>
+                    <p class="font-black">立即試算鋼材重量</p>
+                    <p class="text-blue-200 text-xs mt-1">完整規格資料庫，含損耗率與採購金額試算</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+</div>
+</main>
+
+<!-- 頁尾 -->
+<footer class="bg-slate-800 text-slate-300 pt-10 pb-6 mt-10" role="contentinfo">
+    <div class="max-w-5xl mx-auto px-4">
+        <div class="flex flex-wrap justify-between gap-6 mb-8">
+            <div>
+                <a href="https://steel-calc.idv.tw/" class="flex items-center gap-2 font-black text-white text-lg mb-2">
+                    <span>⚙️</span><span>鐵材重量計算機</span>
+                </a>
+                <p class="text-sm text-slate-400">符合 CNS 標準的專業鋼鐵工程知識門戶</p>
+            </div>
+            <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-400" aria-label="頁尾導覽">
+                <a href="https://steel-calc.idv.tw/" class="hover:text-blue-400">首頁試算</a>
+                <a href="https://steel-calc.idv.tw/density-table.html" class="hover:text-blue-400">鋼材密度表</a>
+                <a href="https://steel-calc.idv.tw/cns-standard.html" class="hover:text-blue-400">CNS規範指南</a>
+                <a href="https://steel-calc.idv.tw/nesting.html" class="hover:text-blue-400">智慧排料</a>
+                <a href="https://steel-calc.idv.tw/about.html" class="hover:text-blue-400">關於本站</a>
+                <a href="https://steel-calc.idv.tw/privacy.html" class="hover:text-blue-400">隱私權政策</a>
+                <a href="https://steel-calc.idv.tw/terms.html" class="hover:text-blue-400">使用條款</a>
+            </nav>
+        </div>
+        <div class="border-t border-slate-700 pt-5 flex flex-col md:flex-row justify-between gap-2 text-xs text-slate-500">
+            <p>© <span id="footerYear"></span> 鐵材重量計算機 steel-calc.idv.tw</p>
+            <p>本文內容僅供參考，重要工程決策請諮詢具資格之結構技師。</p>
+        </div>
+    </div>
+</footer>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂部">↑</button>
+<script>
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+    window.addEventListener('scroll', function() {
+        var btn = document.getElementById('back-to-top');
+        btn.style.display = window.scrollY > 300 ? 'flex' : 'none';
+    }, {passive:true});
+</script>
+</body>
+</html>

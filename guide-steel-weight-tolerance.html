@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script data-cfasync="false" src="https://cmp.gatekeeperconsent.com/min.js"></script>
+    <script data-cfasync="false" src="https://the.gatekeeperconsent.com/cmp.min.js"></script>
+    <script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
+    <script>window.ezstandalone = window.ezstandalone || {}; ezstandalone.cmd = ezstandalone.cmd || [];</script>
+    <script src="//ezoicanalytics.com/analytics.js"></script>
+    <title>鋼材重量公差完整解說：為何實際重量與理論重量不同？ | 鐵材重量計算機</title>
+    <meta name="description" content="深入說明各類鋼材的重量公差標準（CNS/JIS/ASTM），分析理論重量與實際重量差異的原因，以及工程採購如何因應。">
+    <link rel="canonical" href="https://steel-calc.idv.tw/guide-steel-weight-tolerance.html">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9184947057660512" crossorigin="anonymous"></script>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2163/2163914.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { display: flex; flex-direction: column; min-height: 100vh; font-family: sans-serif; }
+        main { flex: 1; }
+        .site-nav a { transition: color 0.2s; }
+        .site-nav a:hover { color: #3b82f6; }
+        /* prose 文章樣式 — 與原版一致 */
+        .prose h2 { font-size: 1.5rem; font-weight: 900; color: #1e293b; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #f1f5f9; }
+        .prose h3 { font-size: 1.15rem; font-weight: 800; color: #1e293b; margin-top: 1.75rem; margin-bottom: 0.75rem; }
+        .prose p { color: #475569; line-height: 1.9; margin-bottom: 1.1rem; }
+        .prose ul { list-style: disc; padding-left: 1.5rem; color: #475569; line-height: 1.9; margin-bottom: 1.1rem; }
+        .prose ol { list-style: decimal; padding-left: 1.5rem; color: #475569; line-height: 1.9; margin-bottom: 1.1rem; }
+        .prose li { margin-bottom: 0.4rem; }
+        .prose strong { color: #1e293b; }
+        .prose a { color: #2563eb; }
+        .spec-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+        .spec-table th { background: #1e293b; color: white; padding: 0.75rem 1rem; text-align: left; }
+        .spec-table td { padding: 0.65rem 1rem; border-bottom: 1px solid #e2e8f0; color: #334155; }
+        .spec-table tr:nth-child(even) td { background: #f8fafc; }
+        .spec-table tr:hover td { background: #dbeafe; }
+        .spec-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+        .toc a { color: #3b82f6; text-decoration: none; font-size: 0.875rem; }
+        .toc a:hover { text-decoration: underline; }
+        .toc li { margin-bottom: 0.4rem; }
+        .formula-box { background: #1d4ed8; color: #fff; border-radius: 12px; padding: 18px 24px; margin: 20px 0; font-family: 'Courier New', monospace; font-size: 1.02rem; font-weight: 600; line-height: 2; }
+        .formula-box .formula-label { font-size: 0.75rem; font-weight: 400; letter-spacing: 0.08em; opacity: 0.8; text-transform: uppercase; display: block; margin-bottom: 4px; }
+        .table-wrap { overflow-x: auto; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); margin: 20px 0; }
+        .callout { background: #dbeafe; border-left: 4px solid #3b82f6; border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 20px 0; font-size: 0.95rem; color: #1e3a5f; }
+        .callout strong { color: #1d4ed8; }
+        .warning { background: #fef3c7; border-left: 4px solid #f59e0b; border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 20px 0; font-size: 0.95rem; color: #78350f; }
+        .tags { margin: 18px 0; display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag { background: #dbeafe; color: #1d4ed8; font-size: 0.78rem; padding: 3px 12px; border-radius: 20px; font-weight: 700; }
+        #back-to-top { position:fixed; bottom:1.2rem; right:1.5rem; background:#1e293b; color:white; width:2.8rem; height:2.8rem; border-radius:50%; display:none; align-items:center; justify-content:center; cursor:pointer; z-index:40; font-size:1.1rem; box-shadow:0 4px 20px rgba(0,0,0,0.25); border:none; transition:background 0.2s; }
+        #back-to-top:hover { background: #3b82f6; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+<!-- 側邊廣告 -->
+<div id="adsterra-left" style="position:fixed;left:calc(50% - 850px);top:50%;transform:translateY(-50%);width:160px;z-index:30;">
+    <script type="text/javascript">
+atOptions = {
+  'key' : '741f5d773a78b59d6ee21e2546e9009a',
+  'format' : 'iframe',
+  'height' : 600,
+  'width' : 160,
+  'params' : {}
+};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/741f5d773a78b59d6ee21e2546e9009a/invoke.js"></script>
+</div>
+<div id="adsterra-right" style="position:fixed;right:calc(50% - 850px);top:50%;transform:translateY(-50%);width:160px;z-index:30;">
+    <script type="text/javascript">
+atOptions = {
+  'key' : '741f5d773a78b59d6ee21e2546e9009a',
+  'format' : 'iframe',
+  'height' : 600,
+  'width' : 160,
+  'params' : {}
+};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/741f5d773a78b59d6ee21e2546e9009a/invoke.js"></script>
+</div>
+<style>@media(max-width:1400px){#adsterra-left,#adsterra-right{display:none}}</style>
+
+<!-- 頂部導覽列 -->
+<nav class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm" aria-label="主選單">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3 site-nav">
+        <a href="https://steel-calc.idv.tw/" class="flex items-center gap-2 font-black text-slate-800 text-lg">
+            <span class="text-2xl">⚙️</span><span>鐵材計算機</span>
+        </a>
+        <div class="flex flex-wrap items-center gap-4 text-sm font-bold text-slate-500">
+            <a href="https://steel-calc.idv.tw/">首頁試算</a>
+            <a href="https://steel-calc.idv.tw/density-table.html">鋼材密度表</a>
+            <a href="https://steel-calc.idv.tw/cns-standard.html">CNS規範指南</a>
+            <a href="https://steel-calc.idv.tw/nesting.html">智慧排料</a>
+            <a href="https://steel-calc.idv.tw/blog.html">知識專欄</a>
+            <a href="https://steel-calc.idv.tw/about.html">關於本站</a>
+            <a href="https://steel-calc.idv.tw/privacy.html">隱私權政策</a>
+            <a href="https://steel-calc.idv.tw/terms.html">使用條款</a>
+        </div>
+    </div>
+</nav>
+
+<main class="py-10 px-4">
+<div class="max-w-3xl mx-auto">
+
+    <!-- 麵包屑 -->
+    <div class="flex items-center gap-3 mb-6 text-sm">
+        <a href="https://steel-calc.idv.tw/" class="text-slate-400 hover:text-blue-600">首頁</a>
+        <span class="text-slate-300">›</span>
+        <span class="text-slate-600 font-bold">工程知識專欄</span>
+        <span class="text-slate-300">›</span>
+        <span class="text-slate-600">鋼材重量公差完整解說：為何實際重量與理論重量不同？</span>
+    </div>
+
+    <!-- 文章標頭 -->
+    <header class="mb-8">
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-blue-100 text-blue-700 text-xs font-black px-3 py-1 rounded-full">重量公差</span><span class="bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1 rounded-full">採購保護</span><span class="bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1 rounded-full">CNS規範</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl font-black text-slate-900 leading-tight mb-4">鋼材重量公差完整解說：為何實際重量與理論重量不同？</h1>
+        <p class="text-slate-500 leading-relaxed text-lg">深入說明各類鋼材的重量公差標準（CNS/JIS/ASTM），分析理論重量與實際重量差異的原因，以及工程採購如何因應。</p>
+        <div class="flex items-center gap-4 mt-5 pt-5 border-t border-slate-100 text-sm text-slate-400">
+            <span>✍️ 鐵材重量計算機編輯部</span>
+            <span>·</span>
+            <span>📅 2026 年 6 月</span>
+            <span>·</span>
+            <span>⏱️ 閱讀約 6 分鐘</span>
+        </div>
+    </header>
+
+    <!-- AdSense 頂部 -->
+    <div class="my-6 flex justify-center">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9184947057660512" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- Adsterra Native Banner -->
+    <div class="my-6">
+        <script async="async" data-cfasync="false" src="https://pl29780271.effectivecpmnetwork.com/268b8387a35bef87e80be23fbe88fc96/invoke.js"></script>
+    </div>
+
+    <!-- 文章主體 -->
+    <article class="bg-white rounded-[2rem] p-8 md:p-12 border border-slate-100 shadow-sm prose">
+    <div class="tags"><span class="tag">重量公差</span><span class="tag">理論重量</span><span class="tag">CNS標準</span><span class="tag">採購實務</span></div>
+    <h2>1. 理論重量 vs 實際重量</h2>
+    <p>在鋼材採購中，<strong>理論重量（Theoretical Weight）</strong>是依據標稱尺寸與鋼材比重（7.85 t/m³）計算出的重量，用於設計計算與報價依據。<strong>實際重量（Actual Weight）</strong>則是磅秤秤得的真實重量。兩者之間的差異就是「重量公差（Weight Tolerance）」。公差存在的原因包括：製程中尺寸的自然變異（軋輥磨耗、溫度變化）、原料鋼坯密度略有不均、表面氧化皮重量（熱軋材）等。</p>
+    <h2>2. 鋼板厚度公差（CNS 2473）</h2>
+    <div class="table-wrap"><table><thead><tr><th>公稱厚度 (mm)</th><th>寬度≤1500mm 公差(mm)</th><th>寬度&gt;1500mm 公差(mm)</th></tr></thead><tbody>
+    <tr><td>1.6～2.0</td><td>+0.30 / -0.20</td><td>+0.40 / -0.20</td></tr>
+    <tr><td>2.0～2.5</td><td>+0.35 / -0.25</td><td>+0.45 / -0.25</td></tr>
+    <tr><td>2.5～4.0</td><td>+0.40 / -0.30</td><td>+0.50 / -0.30</td></tr>
+    <tr><td>4.0～6.3</td><td>+0.50 / -0.40</td><td>+0.60 / -0.40</td></tr>
+    <tr><td>6.3～10</td><td>+0.70 / -0.50</td><td>+0.80 / -0.50</td></tr>
+    <tr><td>10～16</td><td>+0.90 / -0.70</td><td>+1.00 / -0.70</td></tr>
+    <tr><td>16～25</td><td>+1.10 / -0.90</td><td>+1.20 / -0.90</td></tr>
+    <tr><td>25～40</td><td>+1.30 / -1.00</td><td>+1.50 / -1.00</td></tr>
+    <tr><td>40～63</td><td>+1.80 / -1.40</td><td>+2.00 / -1.40</td></tr>
+    </tbody></table></div>
+    <h2>3. 型鋼重量公差（JIS G 3192）</h2>
+    <div class="table-wrap"><table><thead><tr><th>鋼材種類</th><th>重量公差</th><th>說明</th></tr></thead><tbody>
+    <tr><td>H型鋼</td><td>±3%</td><td>以每支理論重量計</td></tr>
+    <tr><td>I型鋼（工字鋼）</td><td>±3%</td><td>同上</td></tr>
+    <tr><td>槽鋼</td><td>±3%</td><td>同上</td></tr>
+    <tr><td>等邊角鋼</td><td>±4%</td><td>同上</td></tr>
+    <tr><td>圓鋼</td><td>±5%（細徑）/ ±4%（粗徑）</td><td>依直徑分級</td></tr>
+    <tr><td>方鋼</td><td>±4%</td><td>同上</td></tr>
+    <tr><td>扁鋼</td><td>±4%</td><td>同上</td></tr>
+    </tbody></table></div>
+    <h2>4. 鋼管重量公差</h2>
+    <div class="table-wrap"><table><thead><tr><th>外徑範圍 (mm)</th><th>外徑公差</th><th>壁厚公差</th><th>重量公差</th></tr></thead><tbody>
+    <tr><td>≤50</td><td>±0.5mm</td><td>+20% / -12.5%</td><td>±10%</td></tr>
+    <tr><td>50～168.3</td><td>±1%</td><td>+20% / -12.5%</td><td>±10%</td></tr>
+    <tr><td>168.3～406.4</td><td>±1%</td><td>+17.5% / -12.5%</td><td>±10%</td></tr>
+    <tr><td>&gt;406.4</td><td>±0.75%</td><td>+15% / -12.5%</td><td>±10%</td></tr>
+    </tbody></table></div>
+    <h2>5. 公差對採購的影響</h2>
+    <p>以採購100噸H型鋼（H300×150×6.5×9）為例：</p>
+    <div class="formula-box"><span class="formula-label">公差影響計算</span>理論重量：100 噸<br>允許公差：±3%<br>實際可能收到：97 ～ 103 噸<br>最大差異：6 噸（市場行情NT$25,000/噸，差額達NT$150,000）</div>
+    <div class="warning"><strong>採購注意：</strong>合約應明訂以「實際過磅重量」或「理論重量」結算，以及雙方對公差的接受範圍。大型工程建議以到廠磅秤實際重量（附磅單）為請款依據。</div>
+    <h2>6. 長度公差</h2>
+    <div class="table-wrap"><table><thead><tr><th>公稱長度 (m)</th><th>型鋼長度公差 (mm)</th><th>鋼板長度公差 (mm)</th></tr></thead><tbody>
+    <tr><td>≤4</td><td>+50 / 0</td><td>+40 / 0</td></tr>
+    <tr><td>4～8</td><td>+60 / 0</td><td>+50 / 0</td></tr>
+    <tr><td>8～12</td><td>+70 / 0</td><td>+60 / 0</td></tr>
+    <tr><td>12～16</td><td>+80 / 0</td><td>+70 / 0</td></tr>
+    </tbody></table></div>
+    <h2>7. 如何降低公差風險</h2>
+    <ul>
+      <li><strong>要求材質證明書：</strong>確認實際尺寸在規格內。</li>
+      <li><strong>大宗採購使用磅單結算：</strong>每批鋼材進廠時過磅，以實際重量為請款依據。</li>
+      <li><strong>設計預留餘量：</strong>鋼板切割損耗約3～8%，型鋼約2～5%，採購量應加計損耗。</li>
+      <li><strong>抽樣量測：</strong>重要結構用鋼，抽取5～10%進行尺寸複驗。</li>
+    </ul>
+    <div class="callout"><strong>工程師提醒：</strong>設計計算時通常以「公稱尺寸」進行，但驗收時若發現實際厚度低於下公差，應通知廠商補換或進行強度複驗，切勿直接使用不合格材料。</div>
+    </article>
+
+    <!-- AdSense 底部 -->
+    <div class="my-8 flex justify-center">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9184947057660512" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- 延伸閱讀 -->
+    <section class="mt-8">
+        <h2 class="text-xl font-black text-slate-800 mb-4">延伸閱讀</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a href="https://steel-calc.idv.tw/guide-h-beam-vs-i-beam.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">🏗️</span>
+                <div>
+                    <p class="font-black text-slate-700">H型鋼 vs I型鋼完整指南</p>
+                    <p class="text-xs text-slate-400 mt-1">差異比較、選材建議、CNS規格對照</p>
+                </div>
+            </a>
+            <a href="https://steel-calc.idv.tw/cns-standard.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">📋</span>
+                <div>
+                    <p class="font-black text-slate-700">CNS規範與公差指南</p>
+                    <p class="text-xs text-slate-400 mt-1">了解理論磅單與實際磅單的差異</p>
+                </div>
+            </a>
+            <a href="https://steel-calc.idv.tw/guide-waste-rate.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">📐</span>
+                <div>
+                    <p class="font-black text-slate-700">鋼材損耗率怎麼抓？</p>
+                    <p class="text-xs text-slate-400 mt-1">五種鋼材的台灣工程實務建議</p>
+                </div>
+            </a>
+            <a href="https://steel-calc.idv.tw/" class="bg-blue-600 rounded-2xl p-5 text-white hover:bg-blue-700 transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">🔧</span>
+                <div>
+                    <p class="font-black">立即試算鋼材重量</p>
+                    <p class="text-blue-200 text-xs mt-1">完整規格資料庫，含損耗率與採購金額試算</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+</div>
+</main>
+
+<!-- 頁尾 -->
+<footer class="bg-slate-800 text-slate-300 pt-10 pb-6 mt-10" role="contentinfo">
+    <div class="max-w-5xl mx-auto px-4">
+        <div class="flex flex-wrap justify-between gap-6 mb-8">
+            <div>
+                <a href="https://steel-calc.idv.tw/" class="flex items-center gap-2 font-black text-white text-lg mb-2">
+                    <span>⚙️</span><span>鐵材重量計算機</span>
+                </a>
+                <p class="text-sm text-slate-400">符合 CNS 標準的專業鋼鐵工程知識門戶</p>
+            </div>
+            <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-400" aria-label="頁尾導覽">
+                <a href="https://steel-calc.idv.tw/" class="hover:text-blue-400">首頁試算</a>
+                <a href="https://steel-calc.idv.tw/density-table.html" class="hover:text-blue-400">鋼材密度表</a>
+                <a href="https://steel-calc.idv.tw/cns-standard.html" class="hover:text-blue-400">CNS規範指南</a>
+                <a href="https://steel-calc.idv.tw/nesting.html" class="hover:text-blue-400">智慧排料</a>
+                <a href="https://steel-calc.idv.tw/about.html" class="hover:text-blue-400">關於本站</a>
+                <a href="https://steel-calc.idv.tw/privacy.html" class="hover:text-blue-400">隱私權政策</a>
+                <a href="https://steel-calc.idv.tw/terms.html" class="hover:text-blue-400">使用條款</a>
+            </nav>
+        </div>
+        <div class="border-t border-slate-700 pt-5 flex flex-col md:flex-row justify-between gap-2 text-xs text-slate-500">
+            <p>© <span id="footerYear"></span> 鐵材重量計算機 steel-calc.idv.tw</p>
+            <p>本文內容僅供參考，重要工程決策請諮詢具資格之結構技師。</p>
+        </div>
+    </div>
+</footer>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂部">↑</button>
+<script>
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+    window.addEventListener('scroll', function() {
+        var btn = document.getElementById('back-to-top');
+        btn.style.display = window.scrollY > 300 ? 'flex' : 'none';
+    }, {passive:true});
+</script>
+</body>
+</html>

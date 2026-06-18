@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script data-cfasync="false" src="https://cmp.gatekeeperconsent.com/min.js"></script>
+    <script data-cfasync="false" src="https://the.gatekeeperconsent.com/cmp.min.js"></script>
+    <script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
+    <script>window.ezstandalone = window.ezstandalone || {}; ezstandalone.cmd = ezstandalone.cmd || [];</script>
+    <script src="//ezoicanalytics.com/analytics.js"></script>
+    <title>方管規格完整指南：尺寸、重量、壁厚選用全攻略 | 鐵材重量計算機</title>
+    <meta name="description" content="完整的方管（矩形管）規格表，含各常用尺寸的重量計算，以及壁厚選用原則、材質差異與採購實務說明。">
+    <link rel="canonical" href="https://steel-calc.idv.tw/guide-square-tube.html">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9184947057660512" crossorigin="anonymous"></script>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2163/2163914.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { display: flex; flex-direction: column; min-height: 100vh; font-family: sans-serif; }
+        main { flex: 1; }
+        .site-nav a { transition: color 0.2s; }
+        .site-nav a:hover { color: #3b82f6; }
+        /* prose 文章樣式 — 與原版一致 */
+        .prose h2 { font-size: 1.5rem; font-weight: 900; color: #1e293b; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #f1f5f9; }
+        .prose h3 { font-size: 1.15rem; font-weight: 800; color: #1e293b; margin-top: 1.75rem; margin-bottom: 0.75rem; }
+        .prose p { color: #475569; line-height: 1.9; margin-bottom: 1.1rem; }
+        .prose ul { list-style: disc; padding-left: 1.5rem; color: #475569; line-height: 1.9; margin-bottom: 1.1rem; }
+        .prose ol { list-style: decimal; padding-left: 1.5rem; color: #475569; line-height: 1.9; margin-bottom: 1.1rem; }
+        .prose li { margin-bottom: 0.4rem; }
+        .prose strong { color: #1e293b; }
+        .prose a { color: #2563eb; }
+        .spec-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+        .spec-table th { background: #1e293b; color: white; padding: 0.75rem 1rem; text-align: left; }
+        .spec-table td { padding: 0.65rem 1rem; border-bottom: 1px solid #e2e8f0; color: #334155; }
+        .spec-table tr:nth-child(even) td { background: #f8fafc; }
+        .spec-table tr:hover td { background: #dbeafe; }
+        .spec-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+        .toc a { color: #3b82f6; text-decoration: none; font-size: 0.875rem; }
+        .toc a:hover { text-decoration: underline; }
+        .toc li { margin-bottom: 0.4rem; }
+        .formula-box { background: #1d4ed8; color: #fff; border-radius: 12px; padding: 18px 24px; margin: 20px 0; font-family: 'Courier New', monospace; font-size: 1.02rem; font-weight: 600; line-height: 2; }
+        .formula-box .formula-label { font-size: 0.75rem; font-weight: 400; letter-spacing: 0.08em; opacity: 0.8; text-transform: uppercase; display: block; margin-bottom: 4px; }
+        .table-wrap { overflow-x: auto; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); margin: 20px 0; }
+        .callout { background: #dbeafe; border-left: 4px solid #3b82f6; border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 20px 0; font-size: 0.95rem; color: #1e3a5f; }
+        .callout strong { color: #1d4ed8; }
+        .warning { background: #fef3c7; border-left: 4px solid #f59e0b; border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 20px 0; font-size: 0.95rem; color: #78350f; }
+        .tags { margin: 18px 0; display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag { background: #dbeafe; color: #1d4ed8; font-size: 0.78rem; padding: 3px 12px; border-radius: 20px; font-weight: 700; }
+        #back-to-top { position:fixed; bottom:1.2rem; right:1.5rem; background:#1e293b; color:white; width:2.8rem; height:2.8rem; border-radius:50%; display:none; align-items:center; justify-content:center; cursor:pointer; z-index:40; font-size:1.1rem; box-shadow:0 4px 20px rgba(0,0,0,0.25); border:none; transition:background 0.2s; }
+        #back-to-top:hover { background: #3b82f6; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+<!-- 側邊廣告 -->
+<div id="adsterra-left" style="position:fixed;left:calc(50% - 850px);top:50%;transform:translateY(-50%);width:160px;z-index:30;">
+    <script type="text/javascript">
+atOptions = {
+  'key' : '741f5d773a78b59d6ee21e2546e9009a',
+  'format' : 'iframe',
+  'height' : 600,
+  'width' : 160,
+  'params' : {}
+};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/741f5d773a78b59d6ee21e2546e9009a/invoke.js"></script>
+</div>
+<div id="adsterra-right" style="position:fixed;right:calc(50% - 850px);top:50%;transform:translateY(-50%);width:160px;z-index:30;">
+    <script type="text/javascript">
+atOptions = {
+  'key' : '741f5d773a78b59d6ee21e2546e9009a',
+  'format' : 'iframe',
+  'height' : 600,
+  'width' : 160,
+  'params' : {}
+};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/741f5d773a78b59d6ee21e2546e9009a/invoke.js"></script>
+</div>
+<style>@media(max-width:1400px){#adsterra-left,#adsterra-right{display:none}}</style>
+
+<!-- 頂部導覽列 -->
+<nav class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm" aria-label="主選單">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3 site-nav">
+        <a href="https://steel-calc.idv.tw/" class="flex items-center gap-2 font-black text-slate-800 text-lg">
+            <span class="text-2xl">⚙️</span><span>鐵材計算機</span>
+        </a>
+        <div class="flex flex-wrap items-center gap-4 text-sm font-bold text-slate-500">
+            <a href="https://steel-calc.idv.tw/">首頁試算</a>
+            <a href="https://steel-calc.idv.tw/density-table.html">鋼材密度表</a>
+            <a href="https://steel-calc.idv.tw/cns-standard.html">CNS規範指南</a>
+            <a href="https://steel-calc.idv.tw/nesting.html">智慧排料</a>
+            <a href="https://steel-calc.idv.tw/blog.html">知識專欄</a>
+            <a href="https://steel-calc.idv.tw/about.html">關於本站</a>
+            <a href="https://steel-calc.idv.tw/privacy.html">隱私權政策</a>
+            <a href="https://steel-calc.idv.tw/terms.html">使用條款</a>
+        </div>
+    </div>
+</nav>
+
+<main class="py-10 px-4">
+<div class="max-w-3xl mx-auto">
+
+    <!-- 麵包屑 -->
+    <div class="flex items-center gap-3 mb-6 text-sm">
+        <a href="https://steel-calc.idv.tw/" class="text-slate-400 hover:text-blue-600">首頁</a>
+        <span class="text-slate-300">›</span>
+        <span class="text-slate-600 font-bold">工程知識專欄</span>
+        <span class="text-slate-300">›</span>
+        <span class="text-slate-600">方管規格完整指南：尺寸、重量、壁厚選用全攻略</span>
+    </div>
+
+    <!-- 文章標頭 -->
+    <header class="mb-8">
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-blue-100 text-blue-700 text-xs font-black px-3 py-1 rounded-full">方管</span><span class="bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1 rounded-full">選材指南</span><span class="bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1 rounded-full">規格表</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl font-black text-slate-900 leading-tight mb-4">方管規格完整指南：尺寸、重量、壁厚選用全攻略</h1>
+        <p class="text-slate-500 leading-relaxed text-lg">完整的方管（矩形管）規格表，含各常用尺寸的重量計算，以及壁厚選用原則、材質差異與採購實務說明。</p>
+        <div class="flex items-center gap-4 mt-5 pt-5 border-t border-slate-100 text-sm text-slate-400">
+            <span>✍️ 鐵材重量計算機編輯部</span>
+            <span>·</span>
+            <span>📅 2026 年 6 月</span>
+            <span>·</span>
+            <span>⏱️ 閱讀約 5 分鐘</span>
+        </div>
+    </header>
+
+    <!-- AdSense 頂部 -->
+    <div class="my-6 flex justify-center">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9184947057660512" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- Adsterra Native Banner -->
+    <div class="my-6">
+        <script async="async" data-cfasync="false" src="https://pl29780271.effectivecpmnetwork.com/268b8387a35bef87e80be23fbe88fc96/invoke.js"></script>
+    </div>
+
+    <!-- 文章主體 -->
+    <article class="bg-white rounded-[2rem] p-8 md:p-12 border border-slate-100 shadow-sm prose">
+    <div class="tags"><span class="tag">方管</span><span class="tag">矩形管</span><span class="tag">Square Tube</span><span class="tag">規格表</span><span class="tag">重量計算</span></div>
+    <h2>1. 方管概覽</h2>
+    <p>方管（Square Hollow Section, SHS）與矩形管（Rectangular Hollow Section, RHS）均屬閉合斷面管材，相較於開放斷面（如角鋼、C型鋼），閉合斷面的扭轉剛度大幅提高。主要優勢：四面等強、封閉斷面不易積水防腐蝕佳、外觀整潔常用於外露結構。</p>
+    <h2>2. 重量計算公式</h2>
+    <div class="formula-box"><span class="formula-label">方管（SHS）重量 (kg/m)</span>W = 4T(A - T) × 0.00785<br>（A = 邊長 mm，T = 壁厚 mm）<br><br>矩形管（RHS）重量 (kg/m)<br>W = 2(A + B - 2T) × T × 0.00785</div>
+    <h2>3. 方管規格重量表</h2>
+    <div class="table-wrap"><table><thead><tr><th>外徑 A×A (mm)</th><th>壁厚 T (mm)</th><th>單重 (kg/m)</th><th>Ix=Iy (cm⁴)</th></tr></thead><tbody>
+    <tr><td>25×25</td><td>2.3</td><td class="num">1.64</td><td class="num">1.66</td></tr>
+    <tr><td>40×40</td><td>2.3</td><td class="num">2.72</td><td class="num">7.21</td></tr>
+    <tr><td>40×40</td><td>3.2</td><td class="num">3.67</td><td class="num">9.30</td></tr>
+    <tr><td>50×50</td><td>2.3</td><td class="num">3.45</td><td class="num">14.5</td></tr>
+    <tr><td>50×50</td><td>3.2</td><td class="num">4.69</td><td class="num">18.8</td></tr>
+    <tr><td>60×60</td><td>3.2</td><td class="num">5.72</td><td class="num">33.2</td></tr>
+    <tr><td>75×75</td><td>3.2</td><td class="num">7.24</td><td class="num">67.2</td></tr>
+    <tr><td>75×75</td><td>4.5</td><td class="num">9.97</td><td class="num">88.5</td></tr>
+    <tr><td>100×100</td><td>3.2</td><td class="num">9.79</td><td class="num">163</td></tr>
+    <tr><td>100×100</td><td>4.5</td><td class="num">13.55</td><td class="num">218</td></tr>
+    <tr><td>100×100</td><td>6.0</td><td class="num">17.76</td><td class="num">275</td></tr>
+    <tr><td>125×125</td><td>4.5</td><td class="num">17.13</td><td class="num">433</td></tr>
+    <tr><td>150×150</td><td>6.0</td><td class="num">27.05</td><td class="num">897</td></tr>
+    <tr><td>200×200</td><td>6.0</td><td class="num">36.90</td><td class="num">2200</td></tr>
+    <tr><td>200×200</td><td>8.0</td><td class="num">48.57</td><td class="num">2820</td></tr>
+    </tbody></table></div>
+    <h2>4. 矩形管常見規格</h2>
+    <div class="table-wrap"><table><thead><tr><th>外徑 A×B (mm)</th><th>壁厚 T (mm)</th><th>單重 (kg/m)</th><th>Ix (cm⁴)</th><th>Iy (cm⁴)</th></tr></thead><tbody>
+    <tr><td>60×40</td><td>2.3</td><td class="num">3.45</td><td class="num">18.1</td><td class="num">8.65</td></tr>
+    <tr><td>80×40</td><td>3.2</td><td class="num">5.37</td><td class="num">49.1</td><td class="num">15.4</td></tr>
+    <tr><td>100×50</td><td>3.2</td><td class="num">6.73</td><td class="num">103</td><td class="num">29.6</td></tr>
+    <tr><td>100×50</td><td>4.5</td><td class="num">9.29</td><td class="num">138</td><td class="num">38.8</td></tr>
+    <tr><td>120×60</td><td>4.5</td><td class="num">11.40</td><td class="num">238</td><td class="num">67.2</td></tr>
+    <tr><td>150×75</td><td>4.5</td><td class="num">14.37</td><td class="num">582</td><td class="num">157</td></tr>
+    <tr><td>200×100</td><td>6.0</td><td class="num">26.17</td><td class="num">1820</td><td class="num">500</td></tr>
+    </tbody></table></div>
+    <h2>5. 壁厚選用原則</h2>
+    <div class="table-wrap"><table><thead><tr><th>應用場合</th><th>建議壁厚</th><th>說明</th></tr></thead><tbody>
+    <tr><td>裝飾用扶手、圍欄</td><td>2.3 mm</td><td>美觀為主，荷載小</td></tr>
+    <tr><td>一般輕鋼架、貨架</td><td>2.3～3.2 mm</td><td>輕中度荷載</td></tr>
+    <tr><td>設備支撐架</td><td>3.2～4.5 mm</td><td>需承受設備重量</td></tr>
+    <tr><td>廠房輕型柱梁</td><td>4.5～6.0 mm</td><td>結構用途</td></tr>
+    <tr><td>重型機械支架</td><td>6.0 mm以上</td><td>重荷載，需結構計算</td></tr>
+    </tbody></table></div>
+    <div class="callout"><strong>壁厚比例原則：</strong>方管的寬厚比（邊長/壁厚）建議不超過35，否則容易發生局部挫屈。例如100×100mm方管，壁厚不應薄於3.0mm。</div>
+    <h2>6. 計算實例</h2>
+    <p>情境：工廠設備支撐架，使用100×100×4.5mm方管，每支長2m，共需12支。</p>
+    <div class="formula-box"><span class="formula-label">重量計算</span>單重 = 4×4.5×(100-4.5)×0.00785 = 13.55 kg/m<br>每支重量 = 13.55 × 2 = 27.1 kg<br>12支總重 = 27.1 × 12 = 325 kg ≈ 0.33 噸</div>
+    <h2>7. 採購注意</h2>
+    <ul>
+      <li>台灣方管標準材質為SS400（CNS 7141），定尺一般6m。</li>
+      <li>鍍鋅方管多為6m定尺，戶外用途優先選擇鍍鋅。</li>
+      <li>不鏽鋼方管（304/316）可訂製，但交期較長，需提前規劃。</li>
+      <li>薄壁方管（壁厚2.3mm以下）搬運時避免壓疊，以防變形。</li>
+    </ul>
+    </article>
+
+    <!-- AdSense 底部 -->
+    <div class="my-8 flex justify-center">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9184947057660512" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- 延伸閱讀 -->
+    <section class="mt-8">
+        <h2 class="text-xl font-black text-slate-800 mb-4">延伸閱讀</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a href="https://steel-calc.idv.tw/guide-h-beam-vs-i-beam.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">🏗️</span>
+                <div>
+                    <p class="font-black text-slate-700">H型鋼 vs I型鋼完整指南</p>
+                    <p class="text-xs text-slate-400 mt-1">差異比較、選材建議、CNS規格對照</p>
+                </div>
+            </a>
+            <a href="https://steel-calc.idv.tw/cns-standard.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">📋</span>
+                <div>
+                    <p class="font-black text-slate-700">CNS規範與公差指南</p>
+                    <p class="text-xs text-slate-400 mt-1">了解理論磅單與實際磅單的差異</p>
+                </div>
+            </a>
+            <a href="https://steel-calc.idv.tw/guide-waste-rate.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">📐</span>
+                <div>
+                    <p class="font-black text-slate-700">鋼材損耗率怎麼抓？</p>
+                    <p class="text-xs text-slate-400 mt-1">五種鋼材的台灣工程實務建議</p>
+                </div>
+            </a>
+            <a href="https://steel-calc.idv.tw/" class="bg-blue-600 rounded-2xl p-5 text-white hover:bg-blue-700 transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">🔧</span>
+                <div>
+                    <p class="font-black">立即試算鋼材重量</p>
+                    <p class="text-blue-200 text-xs mt-1">完整規格資料庫，含損耗率與採購金額試算</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+</div>
+</main>
+
+<!-- 頁尾 -->
+<footer class="bg-slate-800 text-slate-300 pt-10 pb-6 mt-10" role="contentinfo">
+    <div class="max-w-5xl mx-auto px-4">
+        <div class="flex flex-wrap justify-between gap-6 mb-8">
+            <div>
+                <a href="https://steel-calc.idv.tw/" class="flex items-center gap-2 font-black text-white text-lg mb-2">
+                    <span>⚙️</span><span>鐵材重量計算機</span>
+                </a>
+                <p class="text-sm text-slate-400">符合 CNS 標準的專業鋼鐵工程知識門戶</p>
+            </div>
+            <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-400" aria-label="頁尾導覽">
+                <a href="https://steel-calc.idv.tw/" class="hover:text-blue-400">首頁試算</a>
+                <a href="https://steel-calc.idv.tw/density-table.html" class="hover:text-blue-400">鋼材密度表</a>
+                <a href="https://steel-calc.idv.tw/cns-standard.html" class="hover:text-blue-400">CNS規範指南</a>
+                <a href="https://steel-calc.idv.tw/nesting.html" class="hover:text-blue-400">智慧排料</a>
+                <a href="https://steel-calc.idv.tw/about.html" class="hover:text-blue-400">關於本站</a>
+                <a href="https://steel-calc.idv.tw/privacy.html" class="hover:text-blue-400">隱私權政策</a>
+                <a href="https://steel-calc.idv.tw/terms.html" class="hover:text-blue-400">使用條款</a>
+            </nav>
+        </div>
+        <div class="border-t border-slate-700 pt-5 flex flex-col md:flex-row justify-between gap-2 text-xs text-slate-500">
+            <p>© <span id="footerYear"></span> 鐵材重量計算機 steel-calc.idv.tw</p>
+            <p>本文內容僅供參考，重要工程決策請諮詢具資格之結構技師。</p>
+        </div>
+    </div>
+</footer>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂部">↑</button>
+<script>
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+    window.addEventListener('scroll', function() {
+        var btn = document.getElementById('back-to-top');
+        btn.style.display = window.scrollY > 300 ? 'flex' : 'none';
+    }, {passive:true});
+</script>
+</body>
+</html>

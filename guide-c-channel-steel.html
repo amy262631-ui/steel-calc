@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script data-cfasync="false" src="https://cmp.gatekeeperconsent.com/min.js"></script>
+    <script data-cfasync="false" src="https://the.gatekeeperconsent.com/cmp.min.js"></script>
+    <script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
+    <script>window.ezstandalone = window.ezstandalone || {}; ezstandalone.cmd = ezstandalone.cmd || [];</script>
+    <script src="//ezoicanalytics.com/analytics.js"></script>
+    <title>C型鋼與槽鋼完整指南：規格、用途、選購重點一次搞懂 | 鐵材重量計算機</title>
+    <meta name="description" content="完整介紹C型鋼（輕型槽鋼）與熱軋槽鋼的規格、斷面特性、常見用途及選購注意事項，附詳細規格表與重量計算實例。">
+    <link rel="canonical" href="https://steel-calc.idv.tw/guide-c-channel-steel.html">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9184947057660512" crossorigin="anonymous"></script>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2163/2163914.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { display: flex; flex-direction: column; min-height: 100vh; font-family: sans-serif; }
+        main { flex: 1; }
+        .site-nav a { transition: color 0.2s; }
+        .site-nav a:hover { color: #3b82f6; }
+        /* prose 文章樣式 — 與原版一致 */
+        .prose h2 { font-size: 1.5rem; font-weight: 900; color: #1e293b; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #f1f5f9; }
+        .prose h3 { font-size: 1.15rem; font-weight: 800; color: #1e293b; margin-top: 1.75rem; margin-bottom: 0.75rem; }
+        .prose p { color: #475569; line-height: 1.9; margin-bottom: 1.1rem; }
+        .prose ul { list-style: disc; padding-left: 1.5rem; color: #475569; line-height: 1.9; margin-bottom: 1.1rem; }
+        .prose ol { list-style: decimal; padding-left: 1.5rem; color: #475569; line-height: 1.9; margin-bottom: 1.1rem; }
+        .prose li { margin-bottom: 0.4rem; }
+        .prose strong { color: #1e293b; }
+        .prose a { color: #2563eb; }
+        .spec-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+        .spec-table th { background: #1e293b; color: white; padding: 0.75rem 1rem; text-align: left; }
+        .spec-table td { padding: 0.65rem 1rem; border-bottom: 1px solid #e2e8f0; color: #334155; }
+        .spec-table tr:nth-child(even) td { background: #f8fafc; }
+        .spec-table tr:hover td { background: #dbeafe; }
+        .spec-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+        .toc a { color: #3b82f6; text-decoration: none; font-size: 0.875rem; }
+        .toc a:hover { text-decoration: underline; }
+        .toc li { margin-bottom: 0.4rem; }
+        .formula-box { background: #1d4ed8; color: #fff; border-radius: 12px; padding: 18px 24px; margin: 20px 0; font-family: 'Courier New', monospace; font-size: 1.02rem; font-weight: 600; line-height: 2; }
+        .formula-box .formula-label { font-size: 0.75rem; font-weight: 400; letter-spacing: 0.08em; opacity: 0.8; text-transform: uppercase; display: block; margin-bottom: 4px; }
+        .table-wrap { overflow-x: auto; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); margin: 20px 0; }
+        .callout { background: #dbeafe; border-left: 4px solid #3b82f6; border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 20px 0; font-size: 0.95rem; color: #1e3a5f; }
+        .callout strong { color: #1d4ed8; }
+        .warning { background: #fef3c7; border-left: 4px solid #f59e0b; border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 20px 0; font-size: 0.95rem; color: #78350f; }
+        .tags { margin: 18px 0; display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag { background: #dbeafe; color: #1d4ed8; font-size: 0.78rem; padding: 3px 12px; border-radius: 20px; font-weight: 700; }
+        #back-to-top { position:fixed; bottom:1.2rem; right:1.5rem; background:#1e293b; color:white; width:2.8rem; height:2.8rem; border-radius:50%; display:none; align-items:center; justify-content:center; cursor:pointer; z-index:40; font-size:1.1rem; box-shadow:0 4px 20px rgba(0,0,0,0.25); border:none; transition:background 0.2s; }
+        #back-to-top:hover { background: #3b82f6; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+<!-- 側邊廣告 -->
+<div id="adsterra-left" style="position:fixed;left:calc(50% - 850px);top:50%;transform:translateY(-50%);width:160px;z-index:30;">
+    <script type="text/javascript">
+atOptions = {
+  'key' : '741f5d773a78b59d6ee21e2546e9009a',
+  'format' : 'iframe',
+  'height' : 600,
+  'width' : 160,
+  'params' : {}
+};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/741f5d773a78b59d6ee21e2546e9009a/invoke.js"></script>
+</div>
+<div id="adsterra-right" style="position:fixed;right:calc(50% - 850px);top:50%;transform:translateY(-50%);width:160px;z-index:30;">
+    <script type="text/javascript">
+atOptions = {
+  'key' : '741f5d773a78b59d6ee21e2546e9009a',
+  'format' : 'iframe',
+  'height' : 600,
+  'width' : 160,
+  'params' : {}
+};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/741f5d773a78b59d6ee21e2546e9009a/invoke.js"></script>
+</div>
+<style>@media(max-width:1400px){#adsterra-left,#adsterra-right{display:none}}</style>
+
+<!-- 頂部導覽列 -->
+<nav class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm" aria-label="主選單">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3 site-nav">
+        <a href="https://steel-calc.idv.tw/" class="flex items-center gap-2 font-black text-slate-800 text-lg">
+            <span class="text-2xl">⚙️</span><span>鐵材計算機</span>
+        </a>
+        <div class="flex flex-wrap items-center gap-4 text-sm font-bold text-slate-500">
+            <a href="https://steel-calc.idv.tw/">首頁試算</a>
+            <a href="https://steel-calc.idv.tw/density-table.html">鋼材密度表</a>
+            <a href="https://steel-calc.idv.tw/cns-standard.html">CNS規範指南</a>
+            <a href="https://steel-calc.idv.tw/nesting.html">智慧排料</a>
+            <a href="https://steel-calc.idv.tw/blog.html">知識專欄</a>
+            <a href="https://steel-calc.idv.tw/about.html">關於本站</a>
+            <a href="https://steel-calc.idv.tw/privacy.html">隱私權政策</a>
+            <a href="https://steel-calc.idv.tw/terms.html">使用條款</a>
+        </div>
+    </div>
+</nav>
+
+<main class="py-10 px-4">
+<div class="max-w-3xl mx-auto">
+
+    <!-- 麵包屑 -->
+    <div class="flex items-center gap-3 mb-6 text-sm">
+        <a href="https://steel-calc.idv.tw/" class="text-slate-400 hover:text-blue-600">首頁</a>
+        <span class="text-slate-300">›</span>
+        <span class="text-slate-600 font-bold">工程知識專欄</span>
+        <span class="text-slate-300">›</span>
+        <span class="text-slate-600">C型鋼與槽鋼完整指南：規格、用途、選購重點一次搞懂</span>
+    </div>
+
+    <!-- 文章標頭 -->
+    <header class="mb-8">
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-blue-100 text-blue-700 text-xs font-black px-3 py-1 rounded-full">選材指南</span><span class="bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1 rounded-full">C型鋼</span><span class="bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1 rounded-full">槽鋼</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl font-black text-slate-900 leading-tight mb-4">C型鋼與槽鋼完整指南：規格、用途、選購重點一次搞懂</h1>
+        <p class="text-slate-500 leading-relaxed text-lg">完整介紹C型鋼（輕型槽鋼）與熱軋槽鋼的規格、斷面特性、常見用途及選購注意事項，附詳細規格表與重量計算實例。</p>
+        <div class="flex items-center gap-4 mt-5 pt-5 border-t border-slate-100 text-sm text-slate-400">
+            <span>✍️ 鐵材重量計算機編輯部</span>
+            <span>·</span>
+            <span>📅 2026 年 6 月</span>
+            <span>·</span>
+            <span>⏱️ 閱讀約 6 分鐘</span>
+        </div>
+    </header>
+
+    <!-- AdSense 頂部 -->
+    <div class="my-6 flex justify-center">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9184947057660512" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- Adsterra Native Banner -->
+    <div class="my-6">
+        <script async="async" data-cfasync="false" src="https://pl29780271.effectivecpmnetwork.com/268b8387a35bef87e80be23fbe88fc96/invoke.js"></script>
+    </div>
+
+    <!-- 文章主體 -->
+    <article class="bg-white rounded-[2rem] p-8 md:p-12 border border-slate-100 shadow-sm prose">
+    <div class="tags"><span class="tag">C型鋼</span><span class="tag">槽鋼</span><span class="tag">輕型鋼骨</span><span class="tag">規格表</span><span class="tag">重量計算</span></div>
+    <h2>1. C型鋼是什麼？</h2>
+    <p>C型鋼（C-Channel Steel）因斷面形狀像英文字母「C」而得名，在台灣工程現場俗稱「槽鋼」或「C鐵」。嚴格區分時，C型鋼多指冷軋成形的輕型薄壁構件；熱軋生產、翼緣內側帶有坡度的則稱為「熱軋槽鋼（U型鋼）」，兩者應用場合有所不同。</p>
+    <p>C型鋼廣泛應用於：工廠廠房鋼架、倉庫屋頂桁條（Purlin）、貨架、太陽能板支撐骨架、電纜橋架、農業溫室結構等輕量化場合。相較於H型鋼或I型鋼，C型鋼在單向彎曲的場合下材料效率更高，可有效降低結構自重與成本。</p>
+    <h2>2. C型鋼 vs 熱軋槽鋼差異</h2>
+    <div class="table-wrap"><table><thead><tr><th>項目</th><th>C型鋼（冷軋）</th><th>熱軋槽鋼</th></tr></thead><tbody>
+    <tr><td>製造方式</td><td>冷彎成型</td><td>熱軋輥壓</td></tr>
+    <tr><td>翼緣</td><td>平行（內外側均平行）</td><td>內側有1:10坡度</td></tr>
+    <tr><td>厚度</td><td>通常1.6～6mm</td><td>通常6～16mm</td></tr>
+    <tr><td>重量</td><td>較輕</td><td>較重</td></tr>
+    <tr><td>常見材質</td><td>SS400、鍍鋅</td><td>SS400、A36</td></tr>
+    <tr><td>主要用途</td><td>屋頂桁條、貨架、輕鋼架</td><td>廠房主結構、橋梁、機械底座</td></tr>
+    </tbody></table></div>
+    <h2>3. 台灣常見C型鋼規格表</h2>
+    <p>C型鋼規格以「腹板高度×翼緣寬度×厚度」標示，例如C150×65×3.2代表高150mm、翼緣65mm、厚度3.2mm。</p>
+    <div class="table-wrap"><table><thead><tr><th>規格 H×B×t (mm)</th><th>單重 (kg/m)</th><th>斷面積 (cm²)</th><th>慣性矩 Ix (cm⁴)</th><th>斷面係數 Sx (cm³)</th></tr></thead><tbody>
+    <tr><td>C60×30×2.3</td><td class="num">2.00</td><td class="num">2.55</td><td class="num">15.8</td><td class="num">5.3</td></tr>
+    <tr><td>C80×45×2.3</td><td class="num">2.72</td><td class="num">3.47</td><td class="num">43.6</td><td class="num">10.9</td></tr>
+    <tr><td>C100×50×2.3</td><td class="num">3.26</td><td class="num">4.16</td><td class="num">84.7</td><td class="num">16.9</td></tr>
+    <tr><td>C120×55×2.3</td><td class="num">3.81</td><td class="num">4.86</td><td class="num">148.0</td><td class="num">24.7</td></tr>
+    <tr><td>C150×65×3.2</td><td class="num">6.17</td><td class="num">7.86</td><td class="num">357.0</td><td class="num">47.6</td></tr>
+    <tr><td>C150×65×4.5</td><td class="num">8.44</td><td class="num">10.75</td><td class="num">471.0</td><td class="num">62.8</td></tr>
+    <tr><td>C200×75×3.2</td><td class="num">8.28</td><td class="num">10.55</td><td class="num">838.0</td><td class="num">83.8</td></tr>
+    <tr><td>C200×75×4.5</td><td class="num">11.41</td><td class="num">14.54</td><td class="num">1120.0</td><td class="num">112.0</td></tr>
+    <tr><td>C250×75×4.5</td><td class="num">13.36</td><td class="num">17.02</td><td class="num">2100.0</td><td class="num">168.0</td></tr>
+    <tr><td>C300×90×4.5</td><td class="num">16.85</td><td class="num">21.47</td><td class="num">4050.0</td><td class="num">270.0</td></tr>
+    </tbody></table></div>
+    <div class="callout"><strong>注意：</strong>以上數據為一般市場常見規格，實際採購時請向鋼鐵廠商索取最新規格書，各廠尺寸公差略有差異。</div>
+    <h2>4. C型鋼重量計算公式</h2>
+    <div class="formula-box"><span class="formula-label">C型鋼重量計算</span>單重 (kg/m) = 斷面積 (cm²) × 0.785<br>總重 (kg) = 單重 (kg/m) × 長度 (m)</div>
+    <p><strong>實例：</strong>C150×65×3.2，長度6m，需要20支</p>
+    <ul>
+      <li>斷面積≈7.86 cm²</li>
+      <li>單重 = 7.86 × 0.785 = 6.17 kg/m</li>
+      <li>每支重量 = 6.17 × 6 = 37.0 kg</li>
+      <li>20支總重 = 37.0 × 20 = <strong>740 kg</strong></li>
+    </ul>
+    <h2>5. 熱軋槽鋼（JIS/CNS）規格表</h2>
+    <div class="table-wrap"><table><thead><tr><th>型號</th><th>H (mm)</th><th>B (mm)</th><th>tw (mm)</th><th>tf (mm)</th><th>單重 (kg/m)</th></tr></thead><tbody>
+    <tr><td>75×40</td><td class="num">75</td><td class="num">40</td><td class="num">5.0</td><td class="num">7.0</td><td class="num">5.92</td></tr>
+    <tr><td>100×50</td><td class="num">100</td><td class="num">50</td><td class="num">5.0</td><td class="num">7.5</td><td class="num">8.07</td></tr>
+    <tr><td>125×65</td><td class="num">125</td><td class="num">65</td><td class="num">6.0</td><td class="num">8.0</td><td class="num">11.1</td></tr>
+    <tr><td>150×75</td><td class="num">150</td><td class="num">75</td><td class="num">6.5</td><td class="num">10.0</td><td class="num">15.0</td></tr>
+    <tr><td>180×75</td><td class="num">180</td><td class="num">75</td><td class="num">7.0</td><td class="num">10.5</td><td class="num">18.1</td></tr>
+    <tr><td>200×80</td><td class="num">200</td><td class="num">80</td><td class="num">7.5</td><td class="num">11.0</td><td class="num">21.3</td></tr>
+    <tr><td>250×90</td><td class="num">250</td><td class="num">90</td><td class="num">9.0</td><td class="num">13.0</td><td class="num">30.0</td></tr>
+    </tbody></table></div>
+    <h2>6. C型鋼選用重點</h2>
+    <h3>6.1 依荷載選厚度</h3>
+    <p>屋頂桁條一般桁距3m以內選用C150；桁距超過4m或有重型屋面板時，建議升級至C200以上，並進行撓度驗算（L/200以下）。</p>
+    <h3>6.2 鍍鋅與否</h3>
+    <p>一般室內乾燥環境可選熱浸鍍鋅或烤漆；沿海鹽害區、化工廠等腐蝕環境，建議選用熱浸鍍鋅（鍍鋅量270g/m²以上）或不鏽鋼C型鋼。</p>
+    <h3>6.3 背靠背組合</h3>
+    <p>需要更大剛性時，可將兩支C型鋼背對背組成箱型斷面，有效慣性矩約為單支的4倍（需扣除腹板間隙影響）。</p>
+    <div class="callout"><strong>選購提示：</strong>詢價時請同時確認材質認證（CNS 2473 SS400）、鍍鋅標準（CNS 4960）及每支定長（一般6m或12m），避免規格不符造成工期延誤。</div>
+    <h2>7. 施工注意事項</h2>
+    <ul>
+      <li>C型鋼開口方向應依設計圖施工，桁條開口朝下可增加穩定性。</li>
+      <li>螺栓孔孔徑不得超過螺栓直徑+2mm。</li>
+      <li>焊接時厚度超過10mm建議預熱至75°C以上，防止冷裂。</li>
+      <li>鍍鋅C型鋼焊接後，焊道應補塗冷鍍鋅塗料修補防腐蝕。</li>
+      <li>搬運時避免長時間懸吊造成永久彎曲，建議多點吊掛。</li>
+    </ul>
+    <h2>8. 採購常見問題</h2>
+    <p><strong>Q：C型鋼可以訂做任意長度嗎？</strong><br>A：冷軋C型鋼通常以6m或12m定尺供貨，部分廠商提供定切服務，最小訂量依廠商規定（一般5噸以上）。</p>
+    <p><strong>Q：C型鋼與H型鋼如何選擇？</strong><br>A：C型鋼適合承受單向彎曲（如桁條），H型鋼雙軸對稱，適合承受雙向荷載或作為柱構件。荷載較大時優先考慮H型鋼。</p>
+    </article>
+
+    <!-- AdSense 底部 -->
+    <div class="my-8 flex justify-center">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9184947057660512" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- 延伸閱讀 -->
+    <section class="mt-8">
+        <h2 class="text-xl font-black text-slate-800 mb-4">延伸閱讀</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a href="https://steel-calc.idv.tw/guide-h-beam-vs-i-beam.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">🏗️</span>
+                <div>
+                    <p class="font-black text-slate-700">H型鋼 vs I型鋼完整指南</p>
+                    <p class="text-xs text-slate-400 mt-1">差異比較、選材建議、CNS規格對照</p>
+                </div>
+            </a>
+            <a href="https://steel-calc.idv.tw/cns-standard.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">📋</span>
+                <div>
+                    <p class="font-black text-slate-700">CNS規範與公差指南</p>
+                    <p class="text-xs text-slate-400 mt-1">了解理論磅單與實際磅單的差異</p>
+                </div>
+            </a>
+            <a href="https://steel-calc.idv.tw/guide-waste-rate.html" class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">📐</span>
+                <div>
+                    <p class="font-black text-slate-700">鋼材損耗率怎麼抓？</p>
+                    <p class="text-xs text-slate-400 mt-1">五種鋼材的台灣工程實務建議</p>
+                </div>
+            </a>
+            <a href="https://steel-calc.idv.tw/" class="bg-blue-600 rounded-2xl p-5 text-white hover:bg-blue-700 transition-all flex gap-4 items-start">
+                <span class="text-3xl flex-shrink-0">🔧</span>
+                <div>
+                    <p class="font-black">立即試算鋼材重量</p>
+                    <p class="text-blue-200 text-xs mt-1">完整規格資料庫，含損耗率與採購金額試算</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+</div>
+</main>
+
+<!-- 頁尾 -->
+<footer class="bg-slate-800 text-slate-300 pt-10 pb-6 mt-10" role="contentinfo">
+    <div class="max-w-5xl mx-auto px-4">
+        <div class="flex flex-wrap justify-between gap-6 mb-8">
+            <div>
+                <a href="https://steel-calc.idv.tw/" class="flex items-center gap-2 font-black text-white text-lg mb-2">
+                    <span>⚙️</span><span>鐵材重量計算機</span>
+                </a>
+                <p class="text-sm text-slate-400">符合 CNS 標準的專業鋼鐵工程知識門戶</p>
+            </div>
+            <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-400" aria-label="頁尾導覽">
+                <a href="https://steel-calc.idv.tw/" class="hover:text-blue-400">首頁試算</a>
+                <a href="https://steel-calc.idv.tw/density-table.html" class="hover:text-blue-400">鋼材密度表</a>
+                <a href="https://steel-calc.idv.tw/cns-standard.html" class="hover:text-blue-400">CNS規範指南</a>
+                <a href="https://steel-calc.idv.tw/nesting.html" class="hover:text-blue-400">智慧排料</a>
+                <a href="https://steel-calc.idv.tw/about.html" class="hover:text-blue-400">關於本站</a>
+                <a href="https://steel-calc.idv.tw/privacy.html" class="hover:text-blue-400">隱私權政策</a>
+                <a href="https://steel-calc.idv.tw/terms.html" class="hover:text-blue-400">使用條款</a>
+            </nav>
+        </div>
+        <div class="border-t border-slate-700 pt-5 flex flex-col md:flex-row justify-between gap-2 text-xs text-slate-500">
+            <p>© <span id="footerYear"></span> 鐵材重量計算機 steel-calc.idv.tw</p>
+            <p>本文內容僅供參考，重要工程決策請諮詢具資格之結構技師。</p>
+        </div>
+    </div>
+</footer>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂部">↑</button>
+<script>
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+    window.addEventListener('scroll', function() {
+        var btn = document.getElementById('back-to-top');
+        btn.style.display = window.scrollY > 300 ? 'flex' : 'none';
+    }, {passive:true});
+</script>
+</body>
+</html>
